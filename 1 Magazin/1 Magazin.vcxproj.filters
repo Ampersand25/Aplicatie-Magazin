@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Domain">
+      <UniqueIdentifier>{e0f0b126-1134-4693-823c-e00314c47656}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing">
+      <UniqueIdentifier>{28937aa1-e193-4f60-a6d4-64893c08061c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingApp">
+      <UniqueIdentifier>{f8bff156-f36e-4ff3-9d4f-4f5e965edd27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingDomain">
+      <UniqueIdentifier>{e2178716-76b2-4ad9-8092-7aab0c723cc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Infrastructure">
+      <UniqueIdentifier>{332aea40-dcf8-4b95-a229-f646e37ab846}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Infrastructure\Repository">
+      <UniqueIdentifier>{8e151f85-5679-49e0-908b-d6ace762f4c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Infrastructure\RepoException">
+      <UniqueIdentifier>{49b216f3-9258-4933-afac-824b46b7ed43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Domain\Entities">
+      <UniqueIdentifier>{b7720d23-5c13-497a-a639-2636912a8750}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Domain\EntityException">
+      <UniqueIdentifier>{73040926-9e96-417a-bea8-50e2d06cbacf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Validation">
+      <UniqueIdentifier>{fd081bef-088d-4c7c-b417-50c298ba68af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Validation\EntityValidator">
+      <UniqueIdentifier>{6cc34a24-40fc-4a1b-b814-d9acc98d214d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingValidation">
+      <UniqueIdentifier>{f2b742fd-4be4-4cd6-bcf2-7642b1f1236e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Business">
+      <UniqueIdentifier>{21878acb-83f4-45c7-94c2-86f5c9cac05d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Presentation">
+      <UniqueIdentifier>{05645978-ddf4-4746-b04f-d79264d82ed1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{2501a328-83ff-4b1a-8898-69e8d035da49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingUtils">
+      <UniqueIdentifier>{7c49d53d-c23f-4459-8d5b-6b5c217a707b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingInfrastructure">
+      <UniqueIdentifier>{48c94866-8df2-4b2b-9217-00635b6e6a48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingBusiness">
+      <UniqueIdentifier>{72b02b19-f16a-4fff-8a2c-d395345910c5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ApplicationCoordinator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingApp.cpp">
+      <Filter>Source Files\Testing\TestingApp</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingDomain.cpp">
+      <Filter>Source Files\Testing\TestingDomain</Filter>
+    </ClCompile>
+    <ClCompile Include="Repository.cpp">
+      <Filter>Source Files\Infrastructure\Repository</Filter>
+    </ClCompile>
+    <ClCompile Include="RepoException.cpp">
+      <Filter>Source Files\Infrastructure\RepoException</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductException.cpp">
+      <Filter>Source Files\Domain\EntityException</Filter>
+    </ClCompile>
+    <ClCompile Include="Product.cpp">
+      <Filter>Source Files\Domain\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingRepo.cpp">
+      <Filter>Source Files\Testing\TestingInfrastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductValidator.cpp">
+      <Filter>Source Files\Validation\EntityValidator</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingValidation.cpp">
+      <Filter>Source Files\Testing\TestingValidation</Filter>
+    </ClCompile>
+    <ClCompile Include="Service.cpp">
+      <Filter>Source Files\Business</Filter>
+    </ClCompile>
+    <ClCompile Include="Console.cpp">
+      <Filter>Source Files\Presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingUtils.cpp">
+      <Filter>Source Files\Testing\TestingUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingService.cpp">
+      <Filter>Source Files\Testing\TestingBusiness</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TestingApp.h">
+      <Filter>Source Files\Testing\TestingApp</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingDomain.h">
+      <Filter>Source Files\Testing\TestingDomain</Filter>
+    </ClInclude>
+    <ClInclude Include="Repository.h">
+      <Filter>Source Files\Infrastructure\Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="RepoException.h">
+      <Filter>Source Files\Infrastructure\RepoException</Filter>
+    </ClInclude>
+    <ClInclude Include="ProductException.h">
+      <Filter>Source Files\Domain\EntityException</Filter>
+    </ClInclude>
+    <ClInclude Include="Product.h">
+      <Filter>Source Files\Domain\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingRepo.h">
+      <Filter>Source Files\Testing\TestingInfrastructure</Filter>
+    </ClInclude>
+    <ClInclude Include="ProductValidator.h">
+      <Filter>Source Files\Validation\EntityValidator</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingValidation.h">
+      <Filter>Source Files\Testing\TestingValidation</Filter>
+    </ClInclude>
+    <ClInclude Include="Service.h">
+      <Filter>Source Files\Business</Filter>
+    </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>Source Files\Presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingUtils.h">
+      <Filter>Source Files\Testing\TestingUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingService.h">
+      <Filter>Source Files\Testing\TestingBusiness</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

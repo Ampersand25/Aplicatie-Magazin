@@ -1,0 +1,21 @@
+[2021-03-29 09:14:11] [info] Start Program:
+Path:"C:\\Users\\Admin\\Documents\\VS Projects\\Lab6-7\\1 Magazin\\Debug\\1 Magazin.exe"
+Arguments:
+Working directory: "C:\\Users\\Admin\\Documents\\VS Projects\\Lab6-7\\1 Magazin\\"
+Modules: Selected: C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Debug\1 Magazin.exe Excluded: 
+Sources: Selected: C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin Excluded: Console.cpp 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: binary C:\Users\Admin\AppData\Local\Temp\0hps4lp5.ekj 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+Substitute pdb source paths: 
+
+[2021-03-29 09:14:11] [info] Module: C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Debug\1 Magazin.exe is selected because it matches selected pattern: C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Debug\1 Magazin.exe
+[2021-03-29 09:14:11] [info] ----------------------------------------------------
+[2021-03-29 09:14:11] [info] Coverage binary generated in file: C:\Users\Admin\AppData\Local\Temp\0hps4lp5.ekj
+[2021-03-29 09:14:11] [info] ----------------------------------------------------

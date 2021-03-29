@@ -1,0 +1,17 @@
+﻿  Repository.cpp
+  1 Magazin.vcxproj -> C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Debug\1 Magazin.exe
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Product.h(38): warning C26432: If you define or delete any default operation in the type 'class Product', define or delete them all (c.21).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Service.h(51): warning C26440: Function 'Service::Service' can be declared 'noexcept' (f.6).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Console.h(71): warning C26440: Function 'UI::UI' can be declared 'noexcept' (f.6).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Console.cpp(284): warning C26440: Function 'UI::clearUI' can be declared 'noexcept' (f.6).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Product.cpp(5): warning C26440: Function 'Product::getName' can be declared 'noexcept' (f.6).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Product.cpp(10): warning C26440: Function 'Product::getType' can be declared 'noexcept' (f.6).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Product.cpp(15): warning C26440: Function 'Product::getPrice' can be declared 'noexcept' (f.6).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Product.cpp(20): warning C26440: Function 'Product::getProducer' can be declared 'noexcept' (f.6).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Product.cpp(35): warning C26440: Function 'Product::setPrice' can be declared 'noexcept' (f.6).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Product.cpp(45): warning C26440: Function 'Product::cmpProducts' can be declared 'noexcept' (f.6).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\ProductException.cpp(3): warning C26440: Function 'ProductException::getMessage' can be declared 'noexcept' (f.6).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\ProductException.h(30): warning C26432: If you define or delete any default operation in the type 'class ProductException', define or delete them all (c.21).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\RepoException.cpp(3): warning C26440: Function 'RepoException::getMessage' can be declared 'noexcept' (f.6).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\RepoException.h(30): warning C26432: If you define or delete any default operation in the type 'class RepoException', define or delete them all (c.21).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Repository.cpp(97): warning C26440: Function 'RepoProducts::len' can be declared 'noexcept' (f.6).
