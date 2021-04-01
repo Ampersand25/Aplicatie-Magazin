@@ -13,7 +13,7 @@ private:
 	* Postconditii: invalidName = true , daca obiectul bad_product are atributul name (string) un string vid ("") (atribut invalid)
 	*               invalidName = false, in caz contrar (entitatea bad_product are campul name (nume) valid)
 	*/
-	bool invalidName(const Product& bad_product) const;
+	bool invalidName(const Product& bad_product) const noexcept;
 
 	/*
 	* Functie operand (de tip rezultat) care incearca validarea atributului type (tip) a unui obiect de clasa Product
@@ -23,7 +23,7 @@ private:
 	* Postconditii: invalidType = true , daca obiectul bad_product are atributul type (string) un string vid ("") (atribut invalid)
 	*               invalidType = false, in caz contrar (entitatea bad_product are campul type (tip) valid)
 	*/
-	bool invalidType(const Product& bad_product) const;
+	bool invalidType(const Product& bad_product) const noexcept;
 
 	/*
 	* Functie operand (de tip rezultat) care incearca validarea atributului price (pret) a unui obiect de clasa Product
@@ -33,7 +33,7 @@ private:
 	* Postconditii: invalidPrice = true , daca obiectul bad_product are atributul price (double) o valoare reala negativa sau apropiata de 0 (atribut invalid)
 	*               invalidPrice = false, in caz contrar (entitatea bad_product are campul price (pret) valid)
 	*/
-	bool invalidPrice(const Product& bad_product) const;
+	bool invalidPrice(const Product& bad_product) const noexcept;
 
 	/*
 	* Functie operand (de tip rezultat) care incearca validarea atributului producer (producator) a unui obiect de clasa Product
@@ -43,7 +43,7 @@ private:
 	* Postconditii: invalidProducer = true , daca obiectul bad_product are atributul producer (string) un string vid ("") (atribut invalid)
 	*               invalidProducer = false, in caz contrar (entitatea bad_product are campul producer (producator) valid)
 	*/
-	bool invalidProducer(const Product& bad_product) const;
+	bool invalidProducer(const Product& bad_product) const noexcept;
 
 public:
 	/*

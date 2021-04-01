@@ -10,9 +10,9 @@
 int main(void)
 {
     // Testarea aplicatiei
-    TestingApp testing_app; // instantiem un obiect de clasa TestingApp
+    const TestingApp testing_app; // instantiem un obiect de clasa TestingApp
     testing_app.runTestsApp(); // rulam toate testele (pentru fiecare layer/strat din aplicatie)
-    
+
     // Asamblarea si rularea aplicatie
     RepoProducts repo; // instantiem un obiect de clasa RepoProducts
     ProductValidator valid; // instantiem un obiect de clasa ProductValidator

@@ -1,14 +1,14 @@
 #include "Console.h"
-#include "ProductException.h"
+#include "ServiceException.h"
 #include "RepoException.h"
+#include "ProductException.h"
 
 #include <iostream>
-#include <exception>
 
 using std::cin;
 using std::cout;
 using std::cerr;
-using std::exception;
+using std::endl;
 
 void UI::showMenu() const
 {
@@ -36,23 +36,23 @@ void UI::addUI() const
 	try {
 		srv.verifyIfDouble(price_str);
 	}
-	catch (const exception& ex) {
-		cerr << '\n' << ex.what() << '\n';
+	catch (const ServiceException& se) {
+		cerr << endl << se.getMessage() << endl;
 		return;
 	}
 	const auto& price = stod(price_str, nullptr);
 	cout << "Producator: ";
 	getline(cin, producer);
-	cout << '\n';
+	cout << endl;
 	try {
 		srv.add(name, type, price, producer);
 		cout << "Adaugarea s-a realizat cu succes!\n\n";
 	}
 	catch (const ProductException& pe) {
-		cerr << pe.getMessage() << '\n';
+		cerr << pe.getMessage() << endl;
 	}
 	catch (const RepoException& re) {
-		cerr << re.getMessage() << '\n';
+		cerr << re.getMessage() << endl;
 	}
 }
 
@@ -63,16 +63,16 @@ void UI::delUI() const
 	getline(cin, name);
 	cout << "Producator: ";
 	getline(cin, producer);
-	cout << '\n';
+	cout << endl;
 	try {
 		srv.del(name, producer);
 		cout << "Stergerea s-a realizat cu succes!\n\n";
 	}
-	catch (const exception& ex) {
-		cerr << ex.what() << '\n';
+	catch (const ServiceException& se) {
+		cerr << se.getMessage() << endl;
 	}
 	catch (const RepoException& re) {
-		cerr << re.getMessage() << '\n';
+		cerr << re.getMessage() << endl;
 	}
 }
 
@@ -88,23 +88,23 @@ void UI::modifyUI() const
 	try {
 		srv.verifyIfDouble(price_str);
 	}
-	catch (const exception& ex) {
-		cerr << '\n' << ex.what() << '\n';
+	catch (const ServiceException& se) {
+		cerr << endl << se.getMessage() << endl;
 		return;
 	}
 	const auto& price = stod(price_str, nullptr);
 	cout << "Producator: ";
 	getline(cin, producer);
-	cout << '\n';
+	cout << endl;
 	try {
 		srv.modify(name, type, price, producer);
 		cout << "Modificarea s-a realizat cu succes!\n\n";
 	}
 	catch (const ProductException& pe) {
-		cerr << pe.getMessage() << '\n';
+		cerr << pe.getMessage() << endl;
 	}
 	catch (const RepoException& re) {
-		cerr << re.getMessage() << '\n';
+		cerr << re.getMessage() << endl;
 	}
 }
 
@@ -118,14 +118,22 @@ void UI::searchUI() const
 	cout << '\n';
 	try {
 		const auto& p = srv.search(name, producer);
-		cout << "Produsul cu numele " << name << " si producatorul " << producer << " este:\n" << p.strProduct() << '\n';
+		cout << "Produsul cu numele " << name << " si producatorul " << producer << " este:\n" << p.strProduct() << endl;
 	}
-	catch (const exception& ex) {
-		cerr << ex.what() << '\n';
+	catch (const ServiceException& se) {
+		cerr << se.getMessage() << endl;
 	}
 	catch (const RepoException& re) {
-		cerr << re.getMessage() << '\n';
+		cerr << re.getMessage() << endl;
 	}
+}
+
+void UI::typeProducts(const vector<Product>& products) const
+{
+	auto cont{ 0 };
+	for (const auto& p : products)
+		cout << "\nProdusul #" << ++cont << ":\n" << p.strProduct();
+	cout << endl;
 }
 
 void UI::printAllUI() const
@@ -133,22 +141,24 @@ void UI::printAllUI() const
 	try{
 		const auto& products = srv.getAll();
 		cout << "Produsele din magazin sunt:\n";
-		auto cont{ 0 };
-		for (const auto& p : products)
-			cout << "\nProdusul #" << ++cont << ":\n" << p.strProduct();
-		cout << '\n';
+		typeProducts(products);
 	}
 	catch(const RepoException& re){
-		cerr << re.getMessage() << '\n';
+		cerr << re.getMessage() << endl;
 	}
 }
 
-void UI::filterUI() const
+void UI::showFilterCriterions() const
 {
 	cout << "Criterii de filtrare:\n";
 	cout << "1 - dupa pret\n";
 	cout << "2 - dupa nume\n";
 	cout << "3 - dupa producator\n";
+}
+
+string UI::readFilterCrt() const
+{
+	showFilterCriterions();
 	cout << "\nIntroduceti criteriu de filtrare dorit [1|2|3]: ";
 	string crt;
 	getline(cin, crt);
@@ -158,6 +168,11 @@ void UI::filterUI() const
 		cout << "\nReintroduceti criteriu dorit [1|2|3]: ";
 		getline(cin, crt);
 	}
+	return crt;
+}
+
+string UI::readFilter(const string& crt) const
+{
 	string filter;
 	if (crt == "1")
 		cout << "\nAlegeti pretul dupa care sa se faca filtrarea: ";
@@ -166,75 +181,76 @@ void UI::filterUI() const
 	else
 		cout << "\nAlegeti producatorul dupa care sa se faca filtrarea: ";
 	getline(cin, filter);
+	return filter;
+}
+
+string UI::readFilterSign() const
+{
+	string sign;
+	cout << "\nAlegeti cum sa fie pretul produselor filtrate in raport cu pretul introdus [<|=|>]: ";
+	getline(cin, sign);
+	while (sign != "<" && sign != "=" && sign != ">")
+	{
+		cerr << "Semnul de inegalitate intre preturi este invalid!\n";
+		cout << "\nReintroduceti semnul de inegalitate dorit [<|=|>]: ";
+		getline(cin, sign);
+	}
+	return sign;
+}
+
+void UI::filterUI() const
+{
+	const auto crt = readFilterCrt();
+	const auto filter = readFilter(crt);
 	string sign{ "-" };
 	if (crt == "1")
-	{
-		cout << "\nAlegeti cum sa fie pretul produselor filtrate in raport cu pretul introdus [<|=|>]: ";
-		getline(cin, sign);
-		while (sign != "<" && sign != "=" && sign != ">")
-		{
-			cerr << "Semnul de inegalitate intre preturi este invalid!\n";
-			cout << "\nReintroduceti semnul de inegalitate dorit [<|=|>]: ";
-			getline(cin, sign);
-		}
-	}
+		sign = readFilterSign();
 	try {
-		const auto& produse = srv.filterProducts(crt, filter, sign);
-		if (!produse.size())
-		{
+		const auto& products = srv.filterProducts(crt, filter, sign);
+		if (!products.size())
 			cout << "\nNu exista produse in magazin cu ";
-			if (crt == "1")
-			{
-				cout << "pretul ";
-				if (sign == "<")
-					cout << "mai mic decat ";
-				else if (sign == "=")
-					cout << "egal cu ";
-				else
-					cout << "mai mare decat ";
-			}
-			else if (crt == "2")
-				cout << "numele ";
-			else cout << "producatorul ";
-			cout << filter << "\n\n";
-			return;
-		}
-		cout << "\nProdusele din magazin cu ";
+		else
+			cout << "\nProdusele din magazin cu ";
 		if (crt == "1")
 		{
 			cout << "pretul ";
 			if (sign == "<")
-				cout << "mai mic decat ";
+				cout << "mai mic (strict) decat ";
 			else if (sign == "=")
 				cout << "egal cu ";
 			else
-				cout << "mai mare decat ";
+				cout << "mai mare (strict) decat ";
 		}
 		else if (crt == "2")
 			cout << "numele ";
 		else cout << "producatorul ";
-		cout << filter << " sunt:\n\n";
-		auto cont{ 0 };
-		for (const auto& p : produse)
+		cout << filter;
+		if (products.size())
 		{
-			cout << "Produsul #" << ++cont << ":\n";
-			cout << p.strProduct() << '\n';
+			cout << " sunt:\n";
+			typeProducts(products);
 		}
+		else cout << "\n\n";
 	}
 	catch (const RepoException& re) {
-		cerr << '\n' << re.getMessage() << '\n';
+		cerr << endl << re.getMessage() << endl;
 	}
-	catch (const exception& ex) {
-		cerr << '\n' << ex.what() << '\n';
+	catch (const ServiceException& se) {
+		cerr << endl << se.getMessage() << endl;
 	}
 }
 
-void UI::sortUI() const
+void UI::showSortingCriterions() const
 {
 	cout << "Criterii de sortare:\n";
 	cout << "1 - dupa nume\n";
 	cout << "2 - dupa pret\n";
 	cout << "3 - dupa nume + tip\n";
+}
+
+string UI::readSortingCrt() const
+{
+	showSortingCriterions();
 	cout << "\nIntroduceti criteriu de sortare dorit [1|2|3]: ";
 	string crt;
 	getline(cin, crt);
@@ -244,9 +260,19 @@ void UI::sortUI() const
 		cout << "\nReintroduceti criteriu dorit [1|2|3]: ";
 		getline(cin, crt);
 	}
+	return crt;
+}
+
+void UI::showSortingOrders() const
+{
 	cout << "\nOrdinea de sortare poate fi:\n";
 	cout << "c - crescator\n";
 	cout << "d - descrescator\n";
+}
+
+string UI::readSortingOrd() const
+{
+	showSortingOrders();
 	cout << "\nIntroduceti ordinea de sortare dorita [c|d]: ";
 	string ord;
 	getline(cin, ord);
@@ -256,32 +282,33 @@ void UI::sortUI() const
 		cout << "\nReintroduceti ordinea dorita [c|d]: ";
 		getline(cin, ord);
 	}
-	ord = (ord == "C") ? ("c") : (ord == "D") ? ("d") : (ord);
+	return ord;
+}
+
+void UI::sortUI() const
+{
+	const auto crt = readSortingCrt(); // criteriul de sortare
+	const auto ord = readSortingOrd(); // ordinea de sortare
 	try {
-		const auto& produse = srv.sortProducts(crt, ord);
+		const auto& products = srv.sortProducts(crt, ord);
 		cout << "\nProdusele din magazin ordonate ";
-		if(ord == "d")
+		if(ord == "d" || ord == "D")
 			cout << "des";
-		cout << "crescator dupa criteriul ";
+		cout << "crescator dupa ";
 		if (crt == "1")
 			cout << "nume";
 		else if (crt == "2")
 			cout << "pret";
 		else cout << "nume + tip";
-		cout << " sunt:\n\n";
-		auto cont{ 0 };
-		for (const auto& p : produse)
-		{
-			cout << "Produsul #" << ++cont << ":\n";
-			cout << p.strProduct() << '\n';
-		}
+		cout << " sunt:\n";
+		typeProducts(products);
 	}
 	catch (const RepoException& re) {
-		cerr << '\n' << re.getMessage() << '\n';
+		cerr << endl << re.getMessage() << endl;
 	}
 }
 
-void UI::clearUI() const
+void UI::clearUI() const noexcept
 {
 	system("CLS");
 }
@@ -304,10 +331,10 @@ void UI::debugUI() const
 void UI::runApp() const
 {
 	auto run{ true };
-	vector<string> commands{ "adaugare", "stergere", "modificare",
-		"cautare", "afisare", "filtrare",
-		"sortare", "clear", "exit",
-		"debug" };
+	const vector<string> commands{ "adaugare", "stergere", "modificare",
+								   "cautare", "afisare", "filtrare",
+								   "sortare", "clear", "exit",
+								   "debug" };
 	string cmd;
 	while (run)
 	{

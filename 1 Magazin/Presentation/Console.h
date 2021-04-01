@@ -33,14 +33,61 @@ private:
 	void searchUI() const;
 
 	/*
+	* Procedura care primeste o referinta constanta la o lista (vector) de produse (obiecte de clasa Product)
+	* si afiseaza/tipareste pe ecran (in consola/terminal) fiecare produs din lista primita
+	*/
+	void typeProducts(const vector<Product>& products) const;
+
+	/*
 	* Procedura care afiseaza toate produsele existente in magazin
 	*/
 	void printAllUI() const;
 
 	/*
+	* Procedura care afiseaza pe ecran criteriile existente de filtrare a produselor din magazin
+	*/
+	void showFilterCriterions() const;
+
+	/*
+	* Functie de tip operand (rezultat) care citeste criteriul pentru functionalitatea de filtrare ca si string si il returneaza/intoarce prin numele ei
+	*/
+	string readFilterCrt() const;
+
+	/*
+	* Functie de tip operand (rezultat) care citeste filtrul pentru functionalitatea de filtrare ca si string si il returneaza/intoarce prin numele ei
+	* Functia primeste ca si argument (parametru de intrare) criteriul dupa care se va face/realiza filtrarea
+	*/
+	string readFilter(const string& crt) const;
+
+	/*
+	* Functie de tip operand (rezultat) care citeste semnul (de egalitate sau inegalitate) dupa care sa se faca filtrarea pentru criteriul pret
+	*/
+	string readFilterSign() const;
+
+	/*
 	* Procedura care filtreaza produsele din magazin dupa un anumit criteriu
 	*/
 	void filterUI() const;
+
+	/*
+	* Procedura care afiseaza criteriile de sortare disponibile
+	*/
+	void showSortingCriterions() const;
+
+	/*
+	* Functie de tip operand (rezultat) care citeste criteriul pentru functionalitatea de sortare ca si string si il returneaza/intoarce prin numele ei
+	*/
+	string readSortingCrt() const;
+
+	/*
+	* Procedura care afiseaza ordinea in care se poate efectua/realiza sortarea pentru toate criteriile (general valabil)
+	*/
+	void showSortingOrders() const;
+
+	/*
+	* Functie de tip operand (rezultat) care citeste ordinea de sortare pentru functionalitatea de sortare/ordonare ca si string si o returneaza/intoarce prin numele ei
+	*/
+	string readSortingOrd() const;
 
 	/*
 	* Procedura care sorteaza/ordoneaza produsele existente in magazin dupa un anumit criteriu si o ordine data (crescator sau descrescator)
@@ -50,7 +97,7 @@ private:
 	/*
 	* Procedura care curata terminalul/consola aplicatiei (sterge continutul de pe ecran)
 	*/
-	void clearUI() const;
+	void clearUI() const noexcept;
 
 	/*
 	* Procedura care adauaga 10 obiecte de clasa Product (10 inregistrari) in lista din repo (adica in magazin)
@@ -68,7 +115,7 @@ public:
 	* Definim un constructor al clasei care primeste un obiect de clasa Service (referinta la acest obiect)
 	* Constructorul va instantia obiectul curent de clasa UI, populand atributul privat srv al acestuia cu obiectul primit ca argument
 	*/
-	UI(Service& srv) :srv{ srv } {
+	UI(Service& srv) noexcept :srv{ srv } {
 
 	}
 

@@ -5,7 +5,7 @@
 
 void TestingUtils::runTestsUtilsCompareStr() const
 {
-	Utils utils;
+	const Utils utils;
 
 	assert(utils.compareStr("abc", "") == false);
 	assert(utils.compareStr("", "abc") == false);
@@ -43,7 +43,7 @@ void TestingUtils::runTestsUtilsCompareStr() const
 
 void TestingUtils::runTestsUtilsIsDouble() const
 {
-	Utils utils;
+	const Utils utils;
 	
 	assert(utils.isDouble("") == false);
 	assert(utils.isDouble("4287.") == false);

@@ -1,4 +1,3 @@
 C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Debug\1 Magazin.exe
-C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Debug\1 Magazin.pdb
 C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Debug\1 Magazin.exe.lastcodeanalysissucceeded
 C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Debug\NativeCodeAnalysis.read.1.tlog

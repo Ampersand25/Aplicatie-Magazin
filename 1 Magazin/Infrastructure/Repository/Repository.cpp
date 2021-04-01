@@ -94,7 +94,7 @@ const vector<Product>& RepoProducts::getAll() const
 	return products; // return this->products;
 }
 
-unsigned RepoProducts::len() const
+unsigned RepoProducts::len() const noexcept
 {
 	return products.size(); // return this->products.size();
 }

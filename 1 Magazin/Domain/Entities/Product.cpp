@@ -2,29 +2,24 @@
 
 using std::to_string;
 
-const string& Product::getName() const
+const string& Product::getName() const noexcept
 {
 	return name; // return this->name;
 }
 
-const string& Product::getType() const
+const string& Product::getType() const noexcept
 {
 	return type; // return this->type;
 }
 
-const double& Product::getPrice() const
+const double& Product::getPrice() const noexcept
 {
 	return price; // return this->price;
 }
 
-const string& Product::getProducer() const
+const string& Product::getProducer() const noexcept
 {
 	return producer; // return this->producer;
-}
-
-void Product::setName(const string& new_name)
-{
-	name = new_name; // this->name = new_name;
 }
 
 void Product::setType(const string& new_type)
@@ -32,17 +27,12 @@ void Product::setType(const string& new_type)
 	type = new_type; // this->type = new_type;
 }
 
-void Product::setPrice(const double& new_price)
+void Product::setPrice(const double& new_price) noexcept
 {
 	price = new_price; // this->price = new_price;
 }
 
-void Product::setProducer(const string& new_producer)
-{
-	producer = new_producer; // this->producer = new_producer;
-}
-
-bool Product::cmpProducts(const Product& ot) const
+bool Product::cmpProducts(const Product& ot) const noexcept
 {
 	return name == ot.name && producer == ot.producer; // return name == ot.getName() && producer == ot.getProducer();
 }

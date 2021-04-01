@@ -92,6 +92,6 @@ public:
 	* Date de iesire (rezultate): intreg fara semn (unsigned)
 	* Postconditii: len() = numarul de entitati/inregistrari din repo
 	*/
-	unsigned len() const;
+	unsigned len() const noexcept;
 };
 

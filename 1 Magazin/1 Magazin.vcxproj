@@ -73,7 +73,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>Rules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>CppRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -151,6 +151,7 @@
     <ClCompile Include="RepoException.cpp" />
     <ClCompile Include="Repository.cpp" />
     <ClCompile Include="Service.cpp" />
+    <ClCompile Include="ServiceException.cpp" />
     <ClCompile Include="TestingApp.cpp" />
     <ClCompile Include="TestingDomain.cpp" />
     <ClCompile Include="TestingRepo.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="RepoException.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="Service.h" />
+    <ClInclude Include="ServiceException.h" />
     <ClInclude Include="TestingApp.h" />
     <ClInclude Include="TestingDomain.h" />
     <ClInclude Include="TestingRepo.h" />

@@ -7,7 +7,7 @@ using std::string;
 class ProductException
 {
 private:
-	string msg; // mesajul de eroare/exceptie al unui obiect de clasa ProductException
+	const string msg; // mesajul de eroare/exceptie al unui obiect de clasa ProductException
 
 public:
 	/*
@@ -25,7 +25,7 @@ public:
 	};
 
 	/*
-	* Constructorul de copiere (il setam ca si constructorul default = implicit)
+	* Constructorul de copiere (il setam ca si constructor default = implicit)
 	*/
 	ProductException(const ProductException& ot) = default;
 
@@ -36,6 +36,6 @@ public:
 	* Date de iesrie: referinta constanta la un string
 	* Postconditii: getMessage = referinta constanta la stringul msg (atributul privat al obiectului pe care apelam metoda)
 	*/
-	const string& getMessage() const;
+	const string& getMessage() const noexcept;
 };
 

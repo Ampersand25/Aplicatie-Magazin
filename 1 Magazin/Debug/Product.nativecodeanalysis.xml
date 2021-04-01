@@ -4,98 +4,14 @@
     <SFA>
       <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
       <FILENAME>Product.h</FILENAME>
-      <LINE>38</LINE>
+      <LINE>40</LINE>
       <COLUMN>1</COLUMN>
     </SFA>
     <DEFECTCODE>26432</DEFECTCODE>
     <DESCRIPTION>If you define or delete any default operation in the type 'class Product', define or delete them all (c.21).</DESCRIPTION>
     <FUNCTION>Product::{ctor}</FUNCTION>
     <DECORATED>??0Product@@QAE@ABV0@@Z</DECORATED>
-    <FUNCLINE>38</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
-      <FILENAME>Product.cpp</FILENAME>
-      <LINE>5</LINE>
-      <COLUMN>23</COLUMN>
-    </SFA>
-    <DEFECTCODE>26440</DEFECTCODE>
-    <DESCRIPTION>Function 'Product::getName' can be declared 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>Product::getName</FUNCTION>
-    <DECORATED>?getName@Product@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ</DECORATED>
-    <FUNCLINE>5</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
-      <FILENAME>Product.cpp</FILENAME>
-      <LINE>10</LINE>
-      <COLUMN>23</COLUMN>
-    </SFA>
-    <DEFECTCODE>26440</DEFECTCODE>
-    <DESCRIPTION>Function 'Product::getType' can be declared 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>Product::getType</FUNCTION>
-    <DECORATED>?getType@Product@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ</DECORATED>
-    <FUNCLINE>10</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
-      <FILENAME>Product.cpp</FILENAME>
-      <LINE>15</LINE>
-      <COLUMN>23</COLUMN>
-    </SFA>
-    <DEFECTCODE>26440</DEFECTCODE>
-    <DESCRIPTION>Function 'Product::getPrice' can be declared 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>Product::getPrice</FUNCTION>
-    <DECORATED>?getPrice@Product@@QBEABNXZ</DECORATED>
-    <FUNCLINE>15</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
-      <FILENAME>Product.cpp</FILENAME>
-      <LINE>20</LINE>
-      <COLUMN>23</COLUMN>
-    </SFA>
-    <DEFECTCODE>26440</DEFECTCODE>
-    <DESCRIPTION>Function 'Product::getProducer' can be declared 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>Product::getProducer</FUNCTION>
-    <DECORATED>?getProducer@Product@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ</DECORATED>
-    <FUNCLINE>20</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
-      <FILENAME>Product.cpp</FILENAME>
-      <LINE>35</LINE>
-      <COLUMN>14</COLUMN>
-    </SFA>
-    <DEFECTCODE>26440</DEFECTCODE>
-    <DESCRIPTION>Function 'Product::setPrice' can be declared 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>Product::setPrice</FUNCTION>
-    <DECORATED>?setPrice@Product@@QAEXABN@Z</DECORATED>
-    <FUNCLINE>35</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
-      <FILENAME>Product.cpp</FILENAME>
-      <LINE>45</LINE>
-      <COLUMN>14</COLUMN>
-    </SFA>
-    <DEFECTCODE>26440</DEFECTCODE>
-    <DESCRIPTION>Function 'Product::cmpProducts' can be declared 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>Product::cmpProducts</FUNCTION>
-    <DECORATED>?cmpProducts@Product@@QBE_NABV1@@Z</DECORATED>
-    <FUNCLINE>45</FUNCLINE>
+    <FUNCLINE>40</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

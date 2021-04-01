@@ -18,33 +18,24 @@ void TestingDomain::runTestsDomainSetters() const
 {
 	Product p{ "Milka cu lapte", "produse lactate", 6.99, "Milka UK" };
 
-	p.setName("Detergent lichid LENOR");
-
-	assert(p.getName() == "Detergent lichid LENOR");
+	assert(p.getName() == "Milka cu lapte");
 	assert(p.getType() == "produse lactate");
 	assert(fabs(p.getPrice() - 6.99) < 1e-12);
 	assert(p.getProducer() == "Milka UK");
 
 	p.setType("produse curatenie");
 	
-	assert(p.getName() == "Detergent lichid LENOR");
+	assert(p.getName() == "Milka cu lapte");
 	assert(p.getType() == "produse curatenie");
 	assert(fabs(p.getPrice() - 6.99) < 1e-12);
 	assert(p.getProducer() == "Milka UK");
 
 	p.setPrice(25.1375);
 
-	assert(p.getName() == "Detergent lichid LENOR");
+	assert(p.getName() == "Milka cu lapte");
 	assert(p.getType() == "produse curatenie");
 	assert(fabs(p.getPrice() - 25.1375) < 1e-12);
 	assert(p.getProducer() == "Milka UK");
-
-	p.setProducer("LENOR");
-
-	assert(p.getName() == "Detergent lichid LENOR");
-	assert(p.getType() == "produse curatenie");
-	assert(fabs(p.getPrice() - 25.1375) < 1e-12);
-	assert(p.getProducer() == "LENOR");
 }
 
 void TestingDomain::runTestsDomainCmpProducts() const

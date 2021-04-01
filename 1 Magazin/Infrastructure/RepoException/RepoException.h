@@ -7,7 +7,7 @@ using std::string;
 class RepoException
 {
 private:
-	string msg; // mesajul de eroare/exceptie al unui obiect de clasa RepoException
+	const string msg; // mesajul de eroare/exceptie al unui obiect de clasa RepoException
 
 public:
 	/*
@@ -25,7 +25,7 @@ public:
 	};
 
 	/*
-	* Constructorul de copiere (il setam ca si constructorul default = implicit)
+	* Constructorul de copiere (il setam ca si constructor default = implicit)
 	*/
 	RepoException(const RepoException& ot) = default;
 
@@ -36,6 +36,6 @@ public:
 	* Date de iesire: referinta constanta la un string
 	* Postconditii: getMessage() = referinta constanta la atributul privat msg (string) al obiectului de clasa RepoException pentru care s-a apelat metoda
 	*/
-	const string& getMessage() const;
+	const string& getMessage() const noexcept;
 };
 
