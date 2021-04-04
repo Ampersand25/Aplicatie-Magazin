@@ -4,14 +4,14 @@
     <SFA>
       <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
       <FILENAME>Product.h</FILENAME>
-      <LINE>40</LINE>
+      <LINE>42</LINE>
       <COLUMN>1</COLUMN>
     </SFA>
     <DEFECTCODE>26432</DEFECTCODE>
     <DESCRIPTION>If you define or delete any default operation in the type 'class Product', define or delete them all (c.21).</DESCRIPTION>
     <FUNCTION>Product::{ctor}</FUNCTION>
     <DECORATED>??0Product@@QAE@ABV0@@Z</DECORATED>
-    <FUNCLINE>40</FUNCLINE>
+    <FUNCLINE>42</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

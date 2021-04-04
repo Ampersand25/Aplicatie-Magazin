@@ -2,14 +2,144 @@
     <SFA>
       <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
       <FILENAME>Product.h</FILENAME>
-      <LINE>40</LINE>
+      <LINE>42</LINE>
       <COLUMN>1</COLUMN>
     </SFA>
     <DEFECTCODE>26432</DEFECTCODE>
     <DESCRIPTION>If you define or delete any default operation in the type 'class Product', define or delete them all (c.21).</DESCRIPTION>
     <FUNCTION>Product::{ctor}</FUNCTION>
     <DECORATED>??0Product@@QAE@ABV0@@Z</DECORATED>
-    <FUNCLINE>40</FUNCLINE>
+    <FUNCLINE>42</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+      <FILENAME>IteratorListaVD.cpp</FILENAME>
+      <LINE>29</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26481</DEFECTCODE>
+    <DESCRIPTION>Don't use pointer arithmetic. Use span instead (bounds.1).</DESCRIPTION>
+    <FUNCTION>IteratorListaVD::*</FUNCTION>
+    <DECORATED>??DIteratorListaVD@@QBE@XZ</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+      <FILENAME>IteratorListaVD.cpp</FILENAME>
+      <LINE>39</LINE>
+      <COLUMN>40</COLUMN>
+    </SFA>
+    <DEFECTCODE>26432</DEFECTCODE>
+    <DESCRIPTION>If you define or delete any default operation in the type 'class IteratorListaVD', define or delete them all (c.21).</DESCRIPTION>
+    <FUNCTION>IteratorListaVD::=</FUNCTION>
+    <DECORATED>??4IteratorListaVD@@QAEABV0@ABV0@@Z</DECORATED>
+    <FUNCLINE>39</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+      <FILENAME>ListaVD.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>45</COLUMN>
+    </SFA>
+    <DEFECTCODE>26409</DEFECTCODE>
+    <DESCRIPTION>Avoid calling new and delete explicitly, use std::make_unique&lt;T&gt; instead (r.11).</DESCRIPTION>
+    <FUNCTION>ListaVD::{ctor}</FUNCTION>
+    <DECORATED>??0ListaVD@@QAE@XZ</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+      <FILENAME>ListaVD.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>26455</DEFECTCODE>
+    <DESCRIPTION>Default constructor may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>ListaVD::{ctor}</FUNCTION>
+    <DECORATED>??0ListaVD@@QAE@XZ</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+      <FILENAME>ListaVD.cpp</FILENAME>
+      <LINE>28</LINE>
+      <COLUMN>22</COLUMN>
+    </SFA>
+    <DEFECTCODE>26409</DEFECTCODE>
+    <DESCRIPTION>Avoid calling new and delete explicitly, use std::make_unique&lt;T&gt; instead (r.11).</DESCRIPTION>
+    <FUNCTION>ListaVD::redim</FUNCTION>
+    <DECORATED>?redim@ListaVD@@AAEXXZ</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+      <FILENAME>ListaVD.cpp</FILENAME>
+      <LINE>28</LINE>
+      <COLUMN>22</COLUMN>
+    </SFA>
+    <DEFECTCODE>26400</DEFECTCODE>
+    <DESCRIPTION>Do not assign the result of an allocation or a function call with an owner&lt;T&gt; return value to a raw pointer, use owner&lt;T&gt; instead (i.11).</DESCRIPTION>
+    <FUNCTION>ListaVD::redim</FUNCTION>
+    <DECORATED>?redim@ListaVD@@AAEXXZ</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+      <FILENAME>ListaVD.cpp</FILENAME>
+      <LINE>48</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26481</DEFECTCODE>
+    <DESCRIPTION>Don't use pointer arithmetic. Use span instead (bounds.1).</DESCRIPTION>
+    <FUNCTION>ListaVD::at</FUNCTION>
+    <DECORATED>?at@ListaVD@@QBEAAVProduct@@ABH@Z</DECORATED>
+    <FUNCLINE>44</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+      <FILENAME>ListaVD.cpp</FILENAME>
+      <LINE>66</LINE>
+      <COLUMN>68</COLUMN>
+    </SFA>
+    <DEFECTCODE>26409</DEFECTCODE>
+    <DESCRIPTION>Avoid calling new and delete explicitly, use std::make_unique&lt;T&gt; instead (r.11).</DESCRIPTION>
+    <FUNCTION>ListaVD::{ctor}</FUNCTION>
+    <DECORATED>??0ListaVD@@QAE@ABV0@@Z</DECORATED>
+    <FUNCLINE>66</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+      <FILENAME>ListaVD.cpp</FILENAME>
+      <LINE>66</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>26432</DEFECTCODE>
+    <DESCRIPTION>If you define or delete any default operation in the type 'class ListaVD', define or delete them all (c.21).</DESCRIPTION>
+    <FUNCTION>ListaVD::{ctor}</FUNCTION>
+    <DECORATED>??0ListaVD@@QAE@ABV0@@Z</DECORATED>
+    <FUNCLINE>66</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+      <FILENAME>ListaVD.cpp</FILENAME>
+      <LINE>77</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>26409</DEFECTCODE>
+    <DESCRIPTION>Avoid calling new and delete explicitly, use std::make_unique&lt;T&gt; instead (r.11).</DESCRIPTION>
+    <FUNCTION>ListaVD::=</FUNCTION>
+    <DECORATED>??4ListaVD@@QAEABV0@ABV0@@Z</DECORATED>
+    <FUNCLINE>72</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
@@ -37,6 +167,46 @@
     <DECORATED>??0RepoException@@QAE@ABV0@@Z</DECORATED>
     <FUNCLINE>30</FUNCLINE>
     <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+      <FILENAME>Repository.cpp</FILENAME>
+      <LINE>139</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26489</DEFECTCODE>
+    <DESCRIPTION>Don't dereference a pointer that may be invalid: 'allotemp.12'. '(temporary 12)' may have been invalidated at line 139 (lifetime.1).</DESCRIPTION>
+    <FUNCTION>RepoProducts::searchProduct</FUNCTION>
+    <DECORATED>?searchProduct@RepoProducts@@QBEABVProduct@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z</DECORATED>
+    <FUNCLINE>119</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+        <FILENAME>Repository.cpp</FILENAME>
+        <LINE>139</LINE>
+        <COLUMN>1</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+      <FILENAME>Repository.cpp</FILENAME>
+      <LINE>139</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26487</DEFECTCODE>
+    <DESCRIPTION>Don't return a pointer '(119's result)' that may be invalid (lifetime.4).</DESCRIPTION>
+    <FUNCTION>RepoProducts::searchProduct</FUNCTION>
+    <DECORATED>?searchProduct@RepoProducts@@QBEABVProduct@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z</DECORATED>
+    <FUNCLINE>119</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+        <FILENAME>Repository.cpp</FILENAME>
+        <LINE>139</LINE>
+        <COLUMN>1</COLUMN>
+      </SFA>
+    </PATH>
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>

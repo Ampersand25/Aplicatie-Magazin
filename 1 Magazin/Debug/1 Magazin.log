@@ -1,23 +1,21 @@
-﻿  ApplicationCoordinator.cpp
-  Console.cpp
-  Product.cpp
-  ProductException.cpp
-  ProductValidator.cpp
-  RepoException.cpp
-  Repository.cpp
-  Service.cpp
-  ServiceException.cpp
-  TestingApp.cpp
-  TestingDomain.cpp
-  TestingRepo.cpp
-  TestingService.cpp
-  TestingUtils.cpp
-  TestingValidation.cpp
-  Utils.cpp
+﻿  IteratorListaVD.cpp
+  ListaVD.cpp
   Running Code Analysis for C/C++...
   Generating Code...
   1 Magazin.vcxproj -> C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Debug\1 Magazin.exe
-C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Product.h(40): warning C26432: If you define or delete any default operation in the type 'class Product', define or delete them all (c.21).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Product.h(42): warning C26432: If you define or delete any default operation in the type 'class Product', define or delete them all (c.21).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\IteratorListaVD.cpp(29): warning C26481: Don't use pointer arithmetic. Use span instead (bounds.1).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\IteratorListaVD.cpp(39): warning C26432: If you define or delete any default operation in the type 'class IteratorListaVD', define or delete them all (c.21).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\ListaVD.cpp(7): warning C26409: Avoid calling new and delete explicitly, use std::make_unique<T> instead (r.11).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\ListaVD.cpp(7): warning C26455: Default constructor may not throw. Declare it 'noexcept' (f.6).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\ListaVD.cpp(28): warning C26409: Avoid calling new and delete explicitly, use std::make_unique<T> instead (r.11).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\ListaVD.cpp(28): warning C26400: Do not assign the result of an allocation or a function call with an owner<T> return value to a raw pointer, use owner<T> instead (i.11).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\ListaVD.cpp(48): warning C26481: Don't use pointer arithmetic. Use span instead (bounds.1).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\ListaVD.cpp(66): warning C26409: Avoid calling new and delete explicitly, use std::make_unique<T> instead (r.11).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\ListaVD.cpp(66): warning C26432: If you define or delete any default operation in the type 'class ListaVD', define or delete them all (c.21).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\ListaVD.cpp(77): warning C26409: Avoid calling new and delete explicitly, use std::make_unique<T> instead (r.11).
 C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\ProductException.h(30): warning C26432: If you define or delete any default operation in the type 'class ProductException', define or delete them all (c.21).
 C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\RepoException.h(30): warning C26432: If you define or delete any default operation in the type 'class RepoException', define or delete them all (c.21).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Repository.cpp(139): warning C26489: Don't dereference a pointer that may be invalid: 'allotemp.12'. '(temporary 12)' may have been invalidated at line 139 (lifetime.1).
+C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\Repository.cpp(139): warning C26487: Don't return a pointer '(119's result)' that may be invalid (lifetime.4).
 C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\ServiceException.h(30): warning C26432: If you define or delete any default operation in the type 'class ServiceException', define or delete them all (c.21).

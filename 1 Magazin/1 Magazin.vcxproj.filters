@@ -73,6 +73,15 @@
     <Filter Include="Source Files\Business\ServiceException">
       <UniqueIdentifier>{3881d35d-3621-46da-a2bf-653c3a8f1ce5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Lista">
+      <UniqueIdentifier>{643fb028-0cb0-4ac4-a693-4090ac623fc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lista\ListaVD">
+      <UniqueIdentifier>{a38d18f7-2a9f-44e6-8e4e-737c95ef25e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lista\IteratorListaVD">
+      <UniqueIdentifier>{8f3eef31-474d-42bd-891a-a1c19333d7c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ApplicationCoordinator.cpp">
@@ -123,6 +132,12 @@
     <ClCompile Include="ServiceException.cpp">
       <Filter>Source Files\Business\ServiceException</Filter>
     </ClCompile>
+    <ClCompile Include="ListaVD.cpp">
+      <Filter>Source Files\Lista\ListaVD</Filter>
+    </ClCompile>
+    <ClCompile Include="IteratorListaVD.cpp">
+      <Filter>Source Files\Lista\IteratorListaVD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestingApp.h">
@@ -169,6 +184,12 @@
     </ClInclude>
     <ClInclude Include="ServiceException.h">
       <Filter>Source Files\Business\ServiceException</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaVD.h">
+      <Filter>Source Files\Lista\ListaVD</Filter>
+    </ClInclude>
+    <ClInclude Include="IteratorListaVD.h">
+      <Filter>Source Files\Lista\IteratorListaVD</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+      <FILENAME>Product.h</FILENAME>
+      <LINE>42</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26432</DEFECTCODE>
+    <DESCRIPTION>If you define or delete any default operation in the type 'class Product', define or delete them all (c.21).</DESCRIPTION>
+    <FUNCTION>Product::{ctor}</FUNCTION>
+    <DECORATED>??0Product@@QAE@ABV0@@Z</DECORATED>
+    <FUNCLINE>42</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+      <FILENAME>IteratorListaVD.cpp</FILENAME>
+      <LINE>29</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26481</DEFECTCODE>
+    <DESCRIPTION>Don't use pointer arithmetic. Use span instead (bounds.1).</DESCRIPTION>
+    <FUNCTION>IteratorListaVD::*</FUNCTION>
+    <DECORATED>??DIteratorListaVD@@QBE@XZ</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab6-7\1 Magazin\</FILEPATH>
+      <FILENAME>IteratorListaVD.cpp</FILENAME>
+      <LINE>39</LINE>
+      <COLUMN>40</COLUMN>
+    </SFA>
+    <DEFECTCODE>26432</DEFECTCODE>
+    <DESCRIPTION>If you define or delete any default operation in the type 'class IteratorListaVD', define or delete them all (c.21).</DESCRIPTION>
+    <FUNCTION>IteratorListaVD::=</FUNCTION>
+    <DECORATED>??4IteratorListaVD@@QAEABV0@ABV0@@Z</DECORATED>
+    <FUNCLINE>39</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

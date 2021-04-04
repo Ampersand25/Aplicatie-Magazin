@@ -21,9 +21,11 @@ public:
 	// metode/functii publice (pot fi accesate din exteriorul clasei)
 	
 	/*
-	* Constructorul default (il "stergem" prin calificativul delete)
+	* Constructorul default
 	*/
-	Product() = delete;
+	Product() noexcept : price{1e-2} {
+	
+	};
 
 	/*
 	* Constructor care primeste 4 valori (name, type, price si producer) si instantiaza un obiect de clasa Product

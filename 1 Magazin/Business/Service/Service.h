@@ -23,7 +23,7 @@ private:
 	* Exceptii: metoda privata poate arunca urmatoarele exceptii:
 	* [!]ServiceException cu mesajul "Simbol de inegalitate invalid!\n" daca nu sunt respectate preconditiile (sign <> "<", sign <> "=" si sign <> ">")
 	*/
-	bool validPriceFilter(const Product& p, const string& price, const string& sign) const;
+	// bool validPriceFilter(const Product& p, const string& price, const string& sign) const;
 
 	/*
 	* Functie booleana care verifica daca un produs (obiect de clasa Product) p respecta filtrul de nume name (are atributul name egal cu parametrul name care reprezinta filtrul)
@@ -35,7 +35,7 @@ private:
 	*                                 true , daca produsul p va fi filtrat (satisface filtrul impus)
 	* Exceptii: -
 	*/
-	bool validNameFilter(const Product& p, const string& name) const;
+	// bool validNameFilter(const Product& p, const string& name) const;
 
 	/*
 	* Functie booleana care verifica daca un produs (obiect de clasa Product) p respecta filtrul de producator producer (are atributul producer egal cu parametrul producer care reprezinta filtrul)
@@ -47,7 +47,7 @@ private:
 	*                                     true , daca produsul p va fi filtrat (satisface filtrul impus)
 	* Exceptii: -
 	*/
-	bool validProducerFilter(const Product& p, const string& producer) const;
+	// bool validProducerFilter(const Product& p, const string& producer) const;
 
 	/*
 	* Metoda care sorteaza in-place crescator o lista products de obiecte de clasa Product dupa un criteriu crt
@@ -59,7 +59,7 @@ private:
 	* Postconditii: lista products va fi sortate/ordonata crescator dupa criteriu nume (crt = "1"), pret (crt = "2") sau nume + tip (crt = "3")
 	* Exceptii: metoda ridica exceptie de tipul ServiceException cu mesajul de eroare/exceptie "Criteriu de sortare invalid!\n" daca nu se respecta preconditiile (crt <> "1" si crt <> "2" si crt <> "3", adica criteriu de sortare este invalid)
 	*/
-	void sortProductsAscending(vector<Product>& products, const string& crt) const;
+	// void sortProductsAscending(vector<Product>& products, const string& crt) const;
 	
 	/*
 	* Metoda care sorteaza in-place descrescator o lista products de obiecte de clasa Product dupa un criteriu crt
@@ -71,7 +71,83 @@ private:
 	* Postconditii: lista products va fi sortate/ordonata descrescator dupa criteriu nume (crt = "1"), pret (crt = "2") sau nume + tip (crt = "3")
 	* Exceptii: metoda ridica exceptie de tipul ServiceException cu mesajul de eroare/exceptie "Criteriu de sortare invalid!\n" daca nu se respecta preconditiile (crt <> "1" si crt <> "2" si crt <> "3", adica criteriu de sortare este invalid)
 	*/
-	void sortProductsDescending(vector<Product>& products, const string& crt) const;
+	// void sortProductsDescending(vector<Product>& products, const string& crt) const;
+	
+	/*
+	* Metoda privata care sorteaza/ordoneaza in-place o lista de obiecte de clasa Product dupa atributul/campul name (nume) in ordine crescatoare sau descrescatoare
+	* Date de intrare: products - referinta la o lista (vector din STL) de obiecte de clasa Product
+	*				   reversed - referinta constanta la o variabila de tip bool (tip de data logic), care poate lua doar valorile true (1) si false (0)
+	* Preconditii: reversed = true  => sortare crescatoare
+	*              reversed = false => sortare descrescatoare
+	* Date de iesire (rezultate): -
+	* Postconditii: in urma apelului, lista products va contine produse sortate crescator (reversed = 0) sau descrescator (reversed = 1) dupa numele (atributul privat name) produselor
+	* Exceptii aruncate/ridicate: -
+	*/
+	void sortCrtName(vector<Product>& products, const bool& reversed) const;
+
+	/*
+	* Metoda privata care sorteaza/ordoneaza in-place o lista de obiecte de clasa Product dupa atributul/campul price (pret) in ordine crescatoare sau descrescatoare
+	* Date de intrare: products - referinta la o lista (vector din STL) de obiecte de clasa Product
+	*				   reversed - referinta constanta la o variabila de tip bool (tip de data logic), care poate lua doar valorile true (1) si false (0)
+	* Preconditii: reversed = true  => sortare crescatoare
+	*              reversed = false => sortare descrescatoare
+	* Date de iesire (rezultate): -
+	* Postconditii: in urma apelului, lista products va contine produse sortate crescator (reversed = 0) sau descrescator (reversed = 1) dupa pretul (atributul privat price) produselor
+	* Exceptii aruncate/ridicate: -
+	*/
+	void sortCrtPrice(vector<Product>& products, const bool& reversed) const;
+
+	/*
+	* Metoda privata care sorteaza/ordoneaza in-place o lista de obiecte de clasa Product dupa atributele/campurile name (nume) si type (tip) in ordine crescatoare sau descrescatoare
+	* Date de intrare: products - referinta la o lista (vector din STL) de obiecte de clasa Product
+	*				   reversed - referinta constanta la o variabila de tip bool (tip de data logic), care poate lua doar valorile true (1) si false (0)
+	* Preconditii: reversed = true  => sortare crescatoare
+	*              reversed = false => sortare descrescatoare
+	* Date de iesire (rezultate):
+	* Postconditii: in urma apelului, lista products va contine produse sortate crescator (reversed = 0) sau descrescator (reversed = 1) dupa numele (atributul privat name) produselor si dupa tipul acestora (atributul privat type)
+	* Daca doua produse au acelasi atribtut name (nume), atunci ele vor fi sortate/ordonate dupa atributul type (tip)
+	* Exceptii aruncate/ridicate: -
+	*/
+	void sortCrtNamePlusType(vector<Product>& products, const bool& reversed) const;
+
+	/*
+	* Procedura care filtreaza o lista de produse (obiecte de clasa Product) dupa criteriul pret (in functie de atributul price) si in raport cu o relatie sign (simbol/semn de egalitate sau inegalitate)
+	* Date de intrare: products      - referinta constanta la o lista de obiecte de clasa Product (lista care se filtreaza)
+	*                  filtered_list - referinta constanta la o lista de obiecte de clasa Product (lista in care are loc filtrarea)
+	*                  price         - referinta constanta la un string
+	*                  sign          - referinta constanta la un string
+	* Preconditii: stringul price trebuie sa contina reprezentarea unui numar real
+	*              sign = "<" sau sign = "=" sau sign = ">"
+	* Date de iesire (rezultate): -
+	* Postconditii: lista filtered_list va contine toate produsele (obiectele de clasa Product) din products care satisfac filtrul impus: au atributul price (pret) mai mare strict (sign = ">"), mai mic strict (sign = "<") sau egal (sign = "=") decat parametrul price convertit la double
+	* Exceptii: metoda privata poate arunca urmatoarele exceptii:
+	* [!]ServiceException daca nu sunt respectate preconditiile (price nu e un numar real sau sign <> "<" si sign <> "=" si sign <> ">")
+	*/
+	void filterAfterPrice(const vector<Product>& products, vector<Product>& filtered_list, const string& price, const string& sign) const;
+
+	/*
+	* Procedura care filtreaza o lista de produse (obiecte de clasa Product) dupa criteriul nume (in functie de atributul name)
+	* Date de intrare: products      - referinta constanta la o lista de obiecte de clasa Product (lista care se filtreaza)
+	*                  filtered_list - referinta constanta la o lista de obiecte de clasa Product (lista in care are loc filtrarea)
+	*                  name          - referinta constanta la un string
+	* Preconditii: -
+	* Date de iesire (rezultate): -
+	* Postconditii: lista filtered_list va contine toate produsele (obiectele de clasa Product) din products care satisfac filtrul impus: au atributul name (nume) asemenea cu parametrul name
+	* Exceptii: - (subrutina nu arunca/ridica exceptii)
+	*/
+	void filterAfterName(const vector<Product>& products, vector<Product>& filtered_list, const string& name) const;
+
+	/*
+	* Procedura care filtreaza o lista de produse (obiecte de clasa Product) dupa criteriul producator (in functie de atributul producer)
+	* Date de intrare: products      - referinta constanta la o lista de obiecte de clasa Product (lista care se filtreaza)
+	*                  filtered_list - referinta constanta la o lista de obiecte de clasa Product (lista in care are loc filtrarea)
+	*                  producer      - referinta constanta la un string
+	* Preconditii: -
+	* Date de iesire (rezultate): -
+	* Postconditii: lista filtered_list va contine toate produsele (obiectele de clasa Product) din products care satisfac filtrul impus: au atributul producer (producator) asemenea cu parametrul producer
+	* Exceptii: - (subrutina nu arunca/ridica exceptii)
+	*/
+	void filterAfterProducer(const vector<Product>& products, vector<Product>& filtered_list, const string& producer) const;
 
 public:
 	// metode (functii) publice

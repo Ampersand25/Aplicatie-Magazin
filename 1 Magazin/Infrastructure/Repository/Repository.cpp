@@ -1,11 +1,26 @@
 #include "Repository.h"
 #include "RepoException.h"
 
+#include <algorithm>
+
+using std::find_if;
+
 void RepoProducts::addProduct(const Product& product)
 {
+	// Varianta I
+	/*
 	for (const auto& p : products)
 		if (p.cmpProducts(product)) // if (p.getName() == product.getName() && p.getProducer() == product.getProducer())
 			throw RepoException("Produs deja existent!\n");
+	products.push_back(product);
+	*/
+
+	// Varianta II (cu functia build-in find_if din algorithm)
+	const auto& p = find_if(products.begin(),
+							products.end(),
+							[&product](const Product& p) noexcept {return p.cmpProducts(product); });
+	if(p != products.end())
+		throw RepoException("Produs deja existent!\n");
 	products.push_back(product);
 }
 
@@ -15,9 +30,10 @@ void RepoProducts::deleteProduct(const string& name, const string& producer)
 				// if (!this->len())
 		throw RepoException("Nu exista produse in magazin!\n");
 
+	// Varianta I
 	/*
 	auto found{ false };
-	auto pos = 0;
+	auto pos{ pos };
 	for (const auto& p : products)
 	{
 		if (p.getName() == name && p.getProducer() == producer)
@@ -32,7 +48,9 @@ void RepoProducts::deleteProduct(const string& name, const string& producer)
 		throw RepoException("Produs inexistent!\n");
 	*/
 	
-	auto pos = 0;
+	// Varianta II
+	/*
+	auto pos{ 0 };
 	for (const auto& p : products)
 	{
 		if (p.getName() == name && p.getProducer() == producer)
@@ -43,6 +61,15 @@ void RepoProducts::deleteProduct(const string& name, const string& producer)
 		++pos;
 	}
 	throw RepoException("Produs inexistent!\n");
+	*/
+
+	// Varianta III (cu functia build-in find_if din algorithm)
+	const auto& p = find_if(products.begin(),
+							products.end(),
+							[&name, &producer](const Product& product) noexcept {return product.getName() == name && product.getProducer() == producer; });
+	if (p == products.end())
+		throw RepoException("Produs inexistent!\n");
+	products.erase(p);
 }
 
 void RepoProducts::modifyProduct(const Product& product)
@@ -51,6 +78,7 @@ void RepoProducts::modifyProduct(const Product& product)
 				// if (!this->len())
 		throw RepoException("Nu exista produse in magazin!\n");
 
+	// Varianta I
 	/*
 	auto found{ false };
 	for (auto& p : products)
@@ -65,6 +93,8 @@ void RepoProducts::modifyProduct(const Product& product)
 		throw RepoException("Produs inexistent!\n");
 	*/
 	
+	// Varianta II
+	/*
 	for (auto& p : products)
 		if(p.cmpProducts(product)) // if (p.getName() == product.getName() && p.getProducer() == product.getProducer())
 		{
@@ -73,6 +103,17 @@ void RepoProducts::modifyProduct(const Product& product)
 			return;
 		}
 	throw RepoException("Produs inexistent!\n");
+	*/
+
+	// Varianta III (cu functia build-in find_if din algorithm)
+	const auto& p = find_if(products.begin(),
+							products.end(),
+							[&product](const Product& p) noexcept {return p.cmpProducts(product); });
+	if (p == products.end())
+		throw RepoException("Produs inexistent!\n");
+	auto& prod = *p;
+	prod.setType(product.getType());
+	prod.setPrice(product.getPrice());
 }
 
 const Product& RepoProducts::searchProduct(const string& name, const string& producer) const
@@ -80,10 +121,22 @@ const Product& RepoProducts::searchProduct(const string& name, const string& pro
 	if (!len()) // if (!products.size())
 				// if (!this->len())
 		throw RepoException("Nu exista produse in magazin!\n");
+
+	// Varianta I
+	/*
 	for (const auto& p : products)
 		if (p.getName() == name && p.getProducer() == producer)
 			return p;
 	throw RepoException("Produs inexistent!\n");
+	*/
+
+	// Varianta II (cu functia build-in find_if din algorithm)
+	const auto& p = find_if(products.begin(),
+							products.end(),
+							[&name, &producer](const Product& product) noexcept {return product.getName() == name && product.getProducer() == producer; });
+	if (p == products.end())
+		throw RepoException("Produs inexistent!\n");
+	return *p;
 }
 
 const vector<Product>& RepoProducts::getAll() const
