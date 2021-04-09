@@ -145,8 +145,6 @@
   <ItemGroup>
     <ClCompile Include="ApplicationCoordinator.cpp" />
     <ClCompile Include="Console.cpp" />
-    <ClCompile Include="IteratorListaVD.cpp" />
-    <ClCompile Include="ListaVD.cpp" />
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="ProductException.cpp" />
     <ClCompile Include="ProductValidator.cpp" />
@@ -164,8 +162,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Console.h" />
-    <ClInclude Include="IteratorListaVD.h" />
-    <ClInclude Include="ListaVD.h" />
     <ClInclude Include="Product.h" />
     <ClInclude Include="ProductException.h" />
     <ClInclude Include="ProductValidator.h" />
