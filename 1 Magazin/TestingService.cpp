@@ -4,9 +4,12 @@
 #include "Repository.h"
 #include "RepoException.h"
 #include "ProductException.h"
+#include "CosException.h"
 
 #include <cmath>   // #include <math.h>
+                   // for fabs (float absolute value)
 #include <cassert> // #include <assert.h>
+                   // for assert
 
 void TestingService::runTestsServiceCmpStrings() const
 {
@@ -871,15 +874,651 @@ void TestingService::runTestsServiceSortProducts() const
 	}
 }
 
+void TestingService::runTestsAdaugareCos() const
+{
+	RepoProducts repo;
+	Service srv{ repo, valid };
+
+	try {
+		srv.adaugareCos("chipsuri", "Lays");
+		assert(false);
+	}
+	catch (const CosException&) {
+		assert(false);
+	}
+	catch (const RepoException& re) {
+		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+	}
+
+	srv.add("iaurt", "produse lactate", 4.63, "Danone");
+	srv.add("chipsuri", "snaksuri", 9.6, "Lays");
+	srv.add("ton in ulei", "conserve", 13.9841, "Tonno Rio Mare");
+	srv.add("boia", "condimente", 0.999, "Delikat");
+	srv.add("pasta de dinti", "igiena", 7.12, "Colgate");
+	srv.add("iaurt", "produse lactate", 5.013, "Milka UK");
+	srv.add("sare", "condimente", 11, "Maggi");
+	srv.add("parmezan", "condimente", 8.301, "Delikat");
+	srv.add("chipsuri", "snaksuri", 1.53, "Chio");
+	srv.add("chipsuri", "snaksuri", 9.1, "Pringles");
+
+	try {
+		srv.adaugareCos("", "");
+		assert(false);
+	}
+	catch (const CosException&) {
+		assert(false);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "Nume invalid!\nProducator invalid!\n");
+	}
+
+	try {
+		srv.adaugareCos("", "producator");
+		assert(false);
+	}
+	catch (const CosException&) {
+		assert(false);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "Nume invalid!\n");
+	}
+
+	try {
+		srv.adaugareCos("nume produs", "");
+		assert(false);
+	}
+	catch (const CosException&) {
+		assert(false);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "Producator invalid!\n");
+	}
+
+	try {
+		srv.adaugareCos("chipsuri", "Colgate");
+		assert(false);
+	}
+	catch (const CosException& ce) {
+		assert(ce.getMessage() == "Produsul cautat nu se afla in stoc!\n");
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	try {
+		srv.adaugareCos("iaurt", "Delikat");
+		assert(false);
+	}
+	catch (const CosException& ce) {
+		assert(ce.getMessage() == "Produsul cautat nu se afla in stoc!\n");
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	try {
+		srv.adaugareCos("iaurt", "Pringles");
+		assert(false);
+	}
+	catch (const CosException& ce) {
+		assert(ce.getMessage() == "Produsul cautat nu se afla in stoc!\n");
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	try {
+		srv.adaugareCos("boia", "Delikat");
+		assert(true);
+	}
+	catch (const CosException&) {
+		assert(false);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	try {
+		srv.adaugareCos("boia", "Delikat");
+		assert(true);
+	}
+	catch (const CosException&) {
+		assert(false);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	try {
+		srv.adaugareCos("iaurt", "Danone");
+		assert(true);
+	}
+	catch (const CosException&) {
+		assert(false);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	try {
+		srv.adaugareCos("boia", "Delikat");
+		assert(true);
+	}
+	catch (const CosException&) {
+		assert(false);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	try {
+		srv.adaugareCos("chipsuri", "Chio");
+		assert(true);
+	}
+	catch (const CosException&) {
+		assert(false);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	srv.del("chipsuri", "Chio");
+
+	try {
+		srv.adaugareCos("chipsuri", "Chio");
+		assert(false);
+	}
+	catch (const CosException& ce) {
+		assert(ce.getMessage() == "Produsul cautat nu se afla in stoc!\n");
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	try {
+		srv.adaugareCos("sare", "Maggi");
+		assert(true);
+	}
+	catch (const CosException&) {
+		assert(false);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	srv.modify("sare", "condimente traditionale", 13.265, "Maggi");
+
+	try {
+		srv.adaugareCos("sare", "Maggi");
+		assert(true);
+	}
+	catch (const CosException&) {
+		assert(false);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	srv.del("sare", "Maggi");
+
+	try {
+		srv.adaugareCos("sare", "Maggi");
+		assert(false);
+	}
+	catch (const CosException& ce) {
+		assert(ce.getMessage() == "Produsul cautat nu se afla in stoc!\n");
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+}
+
+void TestingService::cmpDouble(const double& a, const double& b) const noexcept
+{
+	assert(fabs(a - b) < 1e-12);
+}
+
+void TestingService::runTestsTotalCos() const
+{
+	RepoProducts repo;
+	Service srv{ repo, valid };
+
+	assert(srv.totalCos() < 1e-12);
+
+	srv.add("iaurt", "produse lactate", 4.63, "Danone");
+	srv.add("chipsuri", "snaksuri", 9.6, "Lays");
+	srv.add("ton in ulei", "conserve", 13.9841, "Tonno Rio Mare");
+	srv.add("boia", "condimente", 0.999, "Delikat");
+	srv.add("pasta de dinti", "igiena", 7.12, "Colgate");
+
+	srv.adaugareCos("chipsuri", "Lays");
+	cmpDouble(srv.totalCos(), 9.6);
+
+	srv.adaugareCos("chipsuri", "Lays");
+	cmpDouble(srv.totalCos(), 9.6 + 9.6);
+
+	srv.adaugareCos("pasta de dinti", "Colgate");
+	cmpDouble(srv.totalCos(), 9.6 + 9.6 + 7.12);
+
+	srv.adaugareCos("ton in ulei", "Tonno Rio Mare");
+	cmpDouble(srv.totalCos(), 9.6 + 9.6 + 7.12 + 13.9841);
+
+	srv.adaugareCos("pasta de dinti", "Colgate");
+	cmpDouble(srv.totalCos(), 9.6 + 9.6 + 7.12 + 13.9841 + 7.12);
+
+	srv.adaugareCos("iaurt", "Danone");
+	cmpDouble(srv.totalCos(), 9.6 + 9.6 + 7.12 + 13.9841 + 7.12 + 4.63);
+
+	srv.adaugareCos("chipsuri", "Lays");
+	cmpDouble(srv.totalCos(), 9.6 + 9.6 + 7.12 + 13.9841 + 7.12 + 4.63 + 9.6);
+
+	srv.adaugareCos("boia", "Delikat");
+	cmpDouble(srv.totalCos(), 9.6 + 9.6 + 7.12 + 13.9841 + 7.12 + 4.63 + 9.6 + 0.999);
+}
+
+void TestingService::runTestsCantitateCos() const
+{
+	RepoProducts repo;
+	Service srv{ repo, valid };
+
+	assert(srv.cantitateCos() == 0);
+
+	srv.add("iaurt", "produse lactate", 4.63, "Danone");
+	srv.add("chipsuri", "snaksuri", 9.6, "Lays");
+	srv.add("ton in ulei", "conserve", 13.9841, "Tonno Rio Mare");
+	srv.add("boia", "condimente", 0.999, "Delikat");
+	srv.add("pasta de dinti", "igiena", 7.12, "Colgate");
+
+	srv.adaugareCos("chipsuri", "Lays");
+	assert(srv.cantitateCos() == 1);
+
+	srv.adaugareCos("chipsuri", "Lays");
+	assert(srv.cantitateCos() == 2);
+
+	srv.adaugareCos("pasta de dinti", "Colgate");
+	assert(srv.cantitateCos() == 3);
+
+	srv.adaugareCos("ton in ulei", "Tonno Rio Mare");
+	assert(srv.cantitateCos() == 4);
+
+	srv.adaugareCos("pasta de dinti", "Colgate");
+	assert(srv.cantitateCos() == 5);
+
+	srv.adaugareCos("iaurt", "Danone");
+	assert(srv.cantitateCos() == 6);
+
+	srv.adaugareCos("chipsuri", "Lays");
+	assert(srv.cantitateCos() == 7);
+
+	srv.adaugareCos("boia", "Delikat");
+	assert(srv.cantitateCos() == 8);
+}
+
+void TestingService::runTestsGolireCos() const
+{
+	RepoProducts repo;
+	Service srv{ repo, valid };
+
+	cmpDouble(srv.totalCos(), 0); // assert(srv.totalCos() < 1e-12);
+	assert(srv.cantitateCos() == 0);
+
+	try {
+		srv.golireCos();
+		assert(false);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+	catch (const CosException& ce) {
+		assert(ce.getMessage() == "Nu exista produse in cosul de cumparaturi!\n");
+	}
+
+	srv.add("sare", "condimente", 11, "Maggi");
+	srv.add("parmezan", "condimente", 8.301, "Delikat");
+	srv.add("chipsuri", "snaksuri", 1.53, "Chio");
+	srv.add("chipsuri", "snaksuri", 9.1, "Pringles");
+
+	srv.adaugareCos("parmezan", "Delikat");
+	srv.adaugareCos("chipsuri", "Pringles");
+	srv.adaugareCos("chipsuri", "Pringles");
+	srv.adaugareCos("sare", "Maggi");
+	srv.adaugareCos("parmezan", "Delikat");
+	srv.adaugareCos("chipsuri", "Pringles");
+	srv.adaugareCos("chipsuri", "Chio");
+	srv.adaugareCos("sare", "Maggi");
+
+	assert(srv.totalCos() != 0);
+	assert(srv.cantitateCos() == 8);
+
+	srv.golireCos();
+
+	cmpDouble(srv.totalCos(), 0); // assert(srv.totalCos() < 1e-12);
+	assert(srv.cantitateCos() == 0);
+}
+
+void TestingService::runTestsGenerareCos() const
+{
+	RepoProducts repo;
+	Service srv{ repo, valid };
+
+	cmpDouble(srv.totalCos(), 0);
+	assert(srv.cantitateCos() == 0);
+
+	try {
+		srv.generareCos("abc");
+		assert(false);
+	}
+	catch(const ServiceException& se){
+		assert(se.getMessage() == "Nu ati introdus un numar!\n");
+	}
+
+	try {
+		srv.generareCos(".385");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "Nu ati introdus un numar!\n");
+	}
+
+	try {
+		srv.generareCos("f921asf1");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "Nu ati introdus un numar!\n");
+	}
+
+	try {
+		srv.generareCos("-25");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "Numarul introdus nu este o valoare pozitiva!\n");
+	}
+
+	try {
+		srv.generareCos("-371");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "Numarul introdus nu este o valoare pozitiva!\n");
+	}
+
+	try {
+		srv.generareCos("-1");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "Numarul introdus nu este o valoare pozitiva!\n");
+	}
+
+	try {
+		srv.generareCos("5");
+		assert(false);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+	catch (const RepoException& re) {
+		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+	}
+
+	try {
+		srv.generareCos("0");
+		assert(false);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+	catch (const RepoException& re) {
+		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+	}
+
+	try {
+		srv.generareCos("13");
+		assert(false);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+	catch (const RepoException& re) {
+		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+	}
+
+	srv.add("iaurt", "produse lactate", 4.63, "Danone");
+	srv.add("chipsuri", "snaksuri", 9.6, "Lays");
+	srv.add("ton in ulei", "conserve", 13.9841, "Tonno Rio Mare");
+	srv.add("boia", "condimente", 0.999, "Delikat");
+	srv.add("pasta de dinti", "igiena", 7.12, "Colgate");
+	srv.add("iaurt", "produse lactate", 5.013, "Milka UK");
+	srv.add("sare", "condimente", 11, "Maggi");
+	srv.add("parmezan", "condimente", 8.301, "Delikat");
+	srv.add("chipsuri", "snaksuri", 1.53, "Chio");
+	srv.add("chipsuri", "snaksuri", 9.1, "Pringles");
+
+	try {
+		srv.generareCos("3");
+		assert(true);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	assert(srv.totalCos() != 0);
+	assert(srv.cantitateCos() == 3);
+
+	try {
+		srv.generareCos("5");
+		assert(true);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	assert(srv.totalCos() != 0);
+	assert(srv.cantitateCos() == 8);
+
+	try {
+		srv.generareCos("0");
+		assert(true);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	assert(srv.totalCos() != 0);
+	assert(srv.cantitateCos() == 8);
+
+	try {
+		srv.generareCos("1");
+		assert(true);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	assert(srv.totalCos() != 0);
+	assert(srv.cantitateCos() == 9);
+}
+
+void TestingService::runTestsExportCos() const
+{
+	RepoProducts repo;
+	Service srv{ repo, valid };
+
+	try {
+		srv.exportCos("cos", "html");
+		assert(true);
+		assert(remove("cos.html") == 0);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+	catch (const CosException&) {
+		assert(false);
+	}
+
+	try {
+		srv.exportCos("cos", "csv");
+		assert(true);
+		assert(remove("cos.csv") == 0);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+	catch (const CosException&) {
+		assert(false);
+	}
+
+	srv.add("boia", "condimente", 0.999, "Delikat");
+	srv.add("pasta de dinti", "igiena", 7.12, "Colgate");
+	srv.add("iaurt", "produse lactate", 5.013, "Milka UK");
+	srv.add("sare", "condimente", 11, "Maggi");
+	srv.add("parmezan", "condimente", 8.301, "Delikat");
+
+	srv.generareCos("9");
+
+	try {
+		srv.exportCos("", "");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "Numele fisierului nu poate fi vid!\n");
+	}
+
+	try {
+		srv.exportCos("", "html");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "Numele fisierului nu poate fi vid!\n");
+	}
+
+	try {
+		srv.exportCos("", "CSV");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "Numele fisierului nu poate fi vid!\n");
+	}
+
+	try {
+		srv.exportCos("", "abc");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "Numele fisierului nu poate fi vid!\n");
+	}
+
+	try {
+		srv.exportCos("cos", "");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "Tip fisier export invalid!\n");
+	}
+
+	try {
+		srv.exportCos("cos", "abc");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "Tip fisier export invalid!\n");
+	}
+
+	try {
+		srv.exportCos("cos", "=/fg123");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "Tip fisier export invalid!\n");
+	}
+
+	try {
+		srv.exportCos("cos1", "cSv");
+		assert(true);
+		assert(remove("cos1.csv") == 0);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+
+	try {
+		srv.exportCos("cos2", "html");
+		assert(true);
+		assert(remove("cos2.html") == 0);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+
+	try {
+		srv.exportCos("cos3", "CSV");
+		assert(true);
+		assert(remove("cos3.csv") == 0);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+
+	try {
+		srv.exportCos("cos4", "hTml");
+		assert(true);
+		assert(remove("cos4.html") == 0);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+
+	try {
+		srv.exportCos("cos5", "CsV");
+		assert(true);
+		assert(remove("cos5.csv") == 0);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+}
+
 void TestingService::runTestsService() const
 {
 	runTestsServiceCmpStrings();
 	runTestsServiceVerifyIfDouble();
+
 	runTestsServiceAdd();
 	runTestsServiceDel();
 	runTestsServiceModify();
 	runTestsServiceSearch();
 	runTestsServiceGetAll();
+
 	runTestsServiceFilterProducts();
 	runTestsServiceSortProducts();
+
+	runTestsAdaugareCos();
+	runTestsTotalCos();
+	runTestsCantitateCos();
+	runTestsGolireCos();
+	runTestsGenerareCos();
+	runTestsExportCos();
 }

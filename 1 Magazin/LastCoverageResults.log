@@ -1,4 +1,4 @@
-[2021-04-10 14:31:47] [info] Start Program:
+[2021-04-10 16:17:06] [info] Start Program:
 Path:"C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin\\Debug\\1 Magazin.exe"
 Arguments:
 Working directory: "C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin"
@@ -9,13 +9,13 @@ Cover Children: 0
 Aggregate by file: 1
 Continue after C++ exception: 0
 Optimized build support: 0
-Export: binary C:\Users\Admin\AppData\Local\Temp\muqo3u3t.e2z 
+Export: binary C:\Users\Admin\AppData\Local\Temp\karo5yqf.opz 
 Input coverage: 
 Unified diff: 
 Excluded line regular expressions: 
 Substitute pdb source paths: 
 
-[2021-04-10 14:31:47] [info] Module: C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Debug\1 Magazin.exe is selected because it matches selected pattern: C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Debug\1 Magazin.exe
-[2021-04-10 14:31:47] [info] ----------------------------------------------------
-[2021-04-10 14:31:47] [info] Coverage binary generated in file: C:\Users\Admin\AppData\Local\Temp\muqo3u3t.e2z
-[2021-04-10 14:31:47] [info] ----------------------------------------------------
+[2021-04-10 16:17:06] [info] Module: C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Debug\1 Magazin.exe is selected because it matches selected pattern: C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Debug\1 Magazin.exe
+[2021-04-10 16:17:06] [info] ----------------------------------------------------
+[2021-04-10 16:17:06] [info] Coverage binary generated in file: C:\Users\Admin\AppData\Local\Temp\karo5yqf.opz
+[2021-04-10 16:17:06] [info] ----------------------------------------------------

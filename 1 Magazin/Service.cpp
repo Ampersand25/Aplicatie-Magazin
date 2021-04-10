@@ -372,3 +372,8 @@ const double& Service::totalCos() noexcept
 {
 	return cosCumparaturi.getTotal();
 }
+
+unsigned Service::cantitateCos() noexcept
+{
+	return cosCumparaturi.nrProduseCos();
+}

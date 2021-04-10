@@ -118,6 +118,16 @@ public:
 	const double& getTotal() const noexcept;
 
 	/*
+	* Functie de tip operand (rezultat) care returneaza numarul total de produse din cosul de cumparaturi
+	* Date de intrare: -
+	* Preconditii: -
+	* Date de iesire (rezultate): intreg fara semn (unsigned), adica un numar natural (>= 0)
+	* Postconditii: rezultatul intors/returnat de functie reprezinta marimea cosului de cumparaturi (adica numarul de produse din cos)
+	* Exceptii: -
+	*/
+	unsigned nrProduseCos() const noexcept;
+
+	/*
 	* Procedura (subrutina procedurala) care incearca sa modifice/actualizeze toate produsele cu acelasi nume si producator ca si produsul product din cosul de cumparaturi
 	* Date de intrare: product - referinta constanta la un obiect de clasa Product
 	* Preconditii: -

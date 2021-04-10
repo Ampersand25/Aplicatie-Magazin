@@ -116,6 +116,8 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	
 	out << "</p>\n";
 
+	out << "\n<span style=\"color:blue\">[$]Pret total produse: " << this->getTotal() << "</span>\n";
+
 	out << "</body>\n";
 	out << "</html>";
 
@@ -134,6 +136,11 @@ const double& CosCumparaturi::getTotal() const noexcept
 
 	return total;
 	*/
+}
+
+unsigned CosCumparaturi::nrProduseCos() const noexcept
+{
+	return cos.size();
 }
 
 void CosCumparaturi::modificaProduseCos(const Product& product)

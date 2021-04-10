@@ -62,6 +62,42 @@ private:
 	*/
 	void runTestsServiceSortProducts() const;
 
+	/*
+	* Metoda care testeaza functia adaugareCos din fisierul antet/header Business.h
+	*/
+	void runTestsAdaugareCos() const;
+
+	/*
+	* Functie de test care compara doua numere reale in dubla precizie (double-uri) a si b
+	* Metoda foloseste functia build-in assert pentru comparare
+	*/
+	void cmpDouble(const double& a, const double& b) const noexcept;
+
+	/*
+	* Metoda care testeaza functia totalCos din fisierul antet/header Business.h
+	*/
+	void runTestsTotalCos() const;
+
+	/*
+	* Metoda care testeaza functia cantitateCos din fisierul antet/header Business.h
+	*/
+	void runTestsCantitateCos() const;
+
+	/*
+	* Metoda care testeaza functia golireCos din fisierul antet/header Business.h
+	*/
+	void runTestsGolireCos() const;
+
+	/*
+	* Metoda care testeaza functia generareCos din fisierul antet/header Business.h
+	*/
+	void runTestsGenerareCos() const;
+
+	/*
+	* Metoda care testeaza functia exportCos din fisierul antet/header Business.h
+	*/
+	void runTestsExportCos() const;
+
 public:
 	// metode publice (pot fi apelate din exteriorul clasei)
 

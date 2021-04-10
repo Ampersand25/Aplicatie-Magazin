@@ -365,5 +365,15 @@ public:
 	* Exceptii: -
 	*/
 	const double& totalCos() noexcept;
+
+	/*
+	* Functie de tip operand (rezultat) care returneaza numarul total de produse din cos
+	* Date de intrare: -
+	* Preconditii: -
+	* Date de iesire (rezultate): intreg fara semn (unsigned)
+	* Postconditii: rezultatul intors/returnat de functie reprezinta numarul de produse din cosul de cumparaturi
+	* Exceptii: -
+	*/
+	unsigned cantitateCos() noexcept;
 };
 
