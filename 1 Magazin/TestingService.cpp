@@ -11,7 +11,7 @@
 void TestingService::runTestsServiceCmpStrings() const
 {
 	RepoProducts repo;
-	const Service srv{repo, valid};
+	const Service srv{ repo, valid };
 
 	assert(srv.cmpStrings(" ", "") == false);
 	assert(srv.cmpStrings("afs", "32jio") == false);

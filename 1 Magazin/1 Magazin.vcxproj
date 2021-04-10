@@ -145,6 +145,8 @@
   <ItemGroup>
     <ClCompile Include="ApplicationCoordinator.cpp" />
     <ClCompile Include="Console.cpp" />
+    <ClCompile Include="CosCumparaturi.cpp" />
+    <ClCompile Include="CosException.cpp" />
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="ProductException.cpp" />
     <ClCompile Include="ProductValidator.cpp" />
@@ -162,6 +164,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Console.h" />
+    <ClInclude Include="CosCumparaturi.h" />
+    <ClInclude Include="CosException.h" />
     <ClInclude Include="Product.h" />
     <ClInclude Include="ProductException.h" />
     <ClInclude Include="ProductValidator.h" />

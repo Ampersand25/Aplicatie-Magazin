@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include <iostream>
+// #include <iostream>
 
 using std::string;
 
@@ -48,7 +48,7 @@ public:
 	* Se copiaza atribut cu atribut in obiectul curent campurile obiectului dat ca parametru/argument
 	*/
 	Product(const Product& ot) : name{ot.name}, type{ot.type}, price{ot.price}, producer{ot.producer} {
-		std::cout << "[!]Copiere produs!\n";
+		// std::cout << "[!]Copiere produs!\n";
 	}
 
 	/*

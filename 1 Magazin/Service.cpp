@@ -2,11 +2,15 @@
 #include "ServiceException.h"
 #include "Utils.h"
 
-#include <algorithm>
+#include <algorithm> // for std::sort, std::copy_if, std::back_inserter
+#include <exception> // for std::exception
+#include <string>    // for stoi (string to integer build-in function)
+#include <iostream>  // for back_inserter
 
 using std::sort;
 using std::copy_if;
 using std::back_inserter;
+using std::exception;
 
 bool Service::cmpStrings(const string& str_1, const string& str_2) const noexcept
 {
@@ -17,6 +21,7 @@ bool Service::cmpStrings(const string& str_1, const string& str_2) const noexcep
 void Service::verifyIfDouble(const string& str) const
 {
 	const Utils utils;
+
 	if (!utils.isDouble(str)) // verificam daca str contine reprezentarea unui numar real
 		throw ServiceException("Pretul introdus nu este un numar real!\n"); // aruncam/ridicam exceptie de clasa ServiceException
 }
@@ -24,6 +29,7 @@ void Service::verifyIfDouble(const string& str) const
 void Service::add(const string& name, const string& type, const double& price, const string& producer)
 {
 	Product product{ name, type, price, producer }; // cream produsul cu numele name, tipul type, pretul price si producatorul producer
+	
 	valid.validateProduct(product); // validam obiectul de clasa Product (produsul) creat (instantiat) anterior/precedent
 	repo.addProduct(product); // incercam sa adaugam in repo produsul product
 }
@@ -33,8 +39,8 @@ void Service::del(const string& name, const string& producer)
 	// validam numele name si producatorul producer
 	string err{ "" }; // lista de erori (string)
 	
-	if (!name.size()) // if (name == "")
-		err += "Nume invalid!\n"; // name invalid
+	if (!name.size())     // if (name == "")
+		err += "Nume invalid!\n";       // name invalid
 	if (!producer.size()) // if (producer == "")
 		err += "Producator invalid!\n"; // producer invalid
 
@@ -42,13 +48,22 @@ void Service::del(const string& name, const string& producer)
 		throw ServiceException(err); // aruncam exceptie de clasa ServiceException cu mesajul de eroare/exceptie err
 
 	repo.deleteProduct(name, producer); // incercam sa stergem produsul cu numele name si producatorul producer din magazin (repo)
+	
+	// pe linia asta se ajunge daca exista cel putin un produs (obiect de clasa Product) cu numele name si producatorul producer
+	// cu alte cuvinte, metoda publica deleteProduct a obiectului repo nu a aruncat exceptie (deci stergerea s-a realizat cu succes)
+	cosCumparaturi.stergeProduseCos(name, producer); // stergem/eliminam toate produsele din cosul de cumparaturi cu numele name si producatorul producer
 }
 
 void Service::modify(const string& name, const string& type, const double& price, const string& producer)
 {
 	Product product{ name, type, price, producer }; // cream produsul cu numele name, tipul type, pretul price si producatorul producer
+	
 	valid.validateProduct(product); // validam obiectul de clasa Product (produsul) creat (instantiat) anterior/precedent
 	repo.modifyProduct(product); // incercam sa modificam un produs care are numele name si producatorul producer din repo (daca acesta exista) cu noul produs product
+	
+	// pe linia asta se ajunge daca exista cel putin un produs (obiect de clasa Product) product in magazin (repository)
+	// cu alte cuvinte, metoda publica modifyProduct a obiectului repo nu a aruncat exceptie (deci modificarea s-a realizat cu succes)
+	cosCumparaturi.modificaProduseCos(product); // modificam toate produsele din cosul de cumparaturi care au acelasi nume si producator cu produsul product (adica numele name si producatorul producer)
 }
 
 const Product& Service::search(const string& name, const string& producer) const
@@ -56,9 +71,9 @@ const Product& Service::search(const string& name, const string& producer) const
 	// validam numele name si producatorul producer
 	if (!name.size() * !producer.size()) // if (name == "" && producer == "")
 		throw ServiceException("Nume invalid!\nProducator invalid!\n");
-	if (!name.size()) // if (name == "")
+	if (!name.size())                    // if (name == "")
 		throw ServiceException("Nume invalid!\n");
-	if (!producer.size()) // if (producer == "")
+	if (!producer.size())                // if (producer == "")
 		throw ServiceException("Producator invalid!\n");
 	
 	return repo.searchProduct(name, producer); // cautam un produs cu numele name si producatorul producer in lista de produse din repository
@@ -302,4 +317,58 @@ vector<Product> Service::sortProducts(const string& crt, const string& ord) cons
 		throw ServiceException("Criteriu de sortare invalid!\n");
 
 	return products;
+}
+
+void Service::golireCos()
+{
+	cosCumparaturi.golesteCos();
+}
+
+void Service::adaugareCos(const string& name, const string& producer)
+{
+	// validam numele name si producatorul producer
+	string err{ "" }; // lista de erori (string)
+
+	if (!name.size())     // if (name == "")
+		err += "Nume invalid!\n";       // name invalid
+	if (!producer.size()) // if (producer == "")
+		err += "Producator invalid!\n"; // producer invalid
+
+	if (err.size()) // lista de erori contine cel putin o eroare (name si/sau producer sunt stringuri vide, deci invalide)
+		throw ServiceException(err); // aruncam exceptie de clasa ServiceException cu mesajul de eroare/exceptie err
+
+	cosCumparaturi.adaugaInCos(name, producer);
+}
+
+void Service::generareCos(const string& num)
+{
+	try {
+		const int number_of_products{ stoi(num) };
+
+		if (number_of_products < 0)
+			throw ServiceException("Numarul introdus nu este o valoare pozitiva!\n");
+
+		cosCumparaturi.genereazaCos(number_of_products);
+	}
+	catch (const exception&) {
+		throw ServiceException("Nu ati introdus un numar!\n");
+	}
+}
+
+void Service::exportCos(const string& filename, const string& filetype)
+{
+	if (!filename.size()) // if (filename == "")
+		throw ServiceException("Numele fisierului nu poate fi vid!\n");
+
+	if (cmpStrings(filetype, "html"))     // exportul cosului de cumparaturi se face intr-un fisier html
+		cosCumparaturi.exportCosFisierHTML(filename);
+	else if (cmpStrings(filetype, "csv")) // exportul cosului de cumparaturi se face intr-un fisier csv
+		cosCumparaturi.exportCosFisierCSV(filename);
+	else                                  // tipul fisierului este invalid (nu este html sau csv)
+		throw ServiceException("Tip fisier export invalid!\n");
+}
+
+const double& Service::totalCos() noexcept
+{
+	return cosCumparaturi.getTotal();
 }

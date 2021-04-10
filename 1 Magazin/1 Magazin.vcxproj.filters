@@ -73,6 +73,15 @@
     <Filter Include="Source Files\Business\ServiceException">
       <UniqueIdentifier>{3881d35d-3621-46da-a2bf-653c3a8f1ce5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Cos">
+      <UniqueIdentifier>{1c842b16-2121-42bf-bd2d-f45ac6fd0ec0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cos\CosCumparaturi">
+      <UniqueIdentifier>{778fb9f7-e05b-4933-9a32-c05456a90226}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cos\CosException">
+      <UniqueIdentifier>{1203c43f-eeeb-439c-b40a-0cfb6e10bbc0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ApplicationCoordinator.cpp">
@@ -123,6 +132,12 @@
     <ClCompile Include="ServiceException.cpp">
       <Filter>Source Files\Business\ServiceException</Filter>
     </ClCompile>
+    <ClCompile Include="CosCumparaturi.cpp">
+      <Filter>Source Files\Cos\CosCumparaturi</Filter>
+    </ClCompile>
+    <ClCompile Include="CosException.cpp">
+      <Filter>Source Files\Cos\CosException</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestingApp.h">
@@ -169,6 +184,12 @@
     </ClInclude>
     <ClInclude Include="ServiceException.h">
       <Filter>Source Files\Business\ServiceException</Filter>
+    </ClInclude>
+    <ClInclude Include="CosCumparaturi.h">
+      <Filter>Source Files\Cos\CosCumparaturi</Filter>
+    </ClInclude>
+    <ClInclude Include="CosException.h">
+      <Filter>Source Files\Cos\CosException</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

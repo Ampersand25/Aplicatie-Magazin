@@ -22,7 +22,7 @@ public:
 	*/
 	ProductException(string msg) : msg{ msg } {
 
-	};
+	}
 
 	/*
 	* Constructorul de copiere (il setam ca si constructor default = implicit)

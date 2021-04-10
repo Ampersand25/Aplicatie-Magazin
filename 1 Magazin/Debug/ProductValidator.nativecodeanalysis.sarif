@@ -71,7 +71,7 @@
       },
       "invocations": [
         {
-          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x005FB1C0 -il C:\\Users\\Admin\\AppData\\Local\\Temp\\_CL_d13d2b67ast -typedil -f ProductValidator.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829913 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\ProductValidator.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset CppRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x004EB1C0 -il C:\\Users\\Admin\\AppData\\Local\\Temp\\_CL_353e6ee7ast -typedil -f ProductValidator.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829913 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\ProductValidator.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset CppRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
           "executionSuccessful": true
         }
       ],
@@ -84,7 +84,7 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "d37ce98e09ce77074f066476332469cd"
+            "md5": "e616e16120175913a90b8af19878d253"
           }
         },
         {
@@ -95,7 +95,7 @@
             "analysisTarget"
           ],
           "hashes": {
-            "md5": "d3ae440ca2cd00901757d58e845166d8"
+            "md5": "847d6036322c7c6b43e7c65533a7a689"
           }
         },
         {
@@ -103,18 +103,7 @@
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingvalidation.h"
           },
           "hashes": {
-            "md5": "438d3550f88986e441505cacba54619b"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/productexception.h"
-          },
-          "roles": [
-            "resultFile"
-          ],
-          "hashes": {
-            "md5": "2fe865ac7be77a6627d187c22ed32598"
+            "md5": "575bf36cdcd08b2bcb5b410e07dffdab"
           }
         },
         {
@@ -127,13 +116,24 @@
         },
         {
           "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/productexception.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "d65e3729a4df2705a489a61e580e6fcb"
+          }
+        },
+        {
+          "location": {
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingservice.cpp"
           },
           "roles": [
             "analysisTarget"
           ],
           "hashes": {
-            "md5": "4a91854bf66c4529a9bd6ad7dd5179f5"
+            "md5": "48821871f767a829b37201d4a86e3801"
           }
         },
         {
@@ -141,7 +141,7 @@
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingservice.h"
           },
           "hashes": {
-            "md5": "3921b611c857a39684ec3168ebee02a2"
+            "md5": "18844e6b55e658deca97c1f43fcc2854"
           }
         },
         {
@@ -149,7 +149,7 @@
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/service.h"
           },
           "hashes": {
-            "md5": "def6ab22e4df513bde92f46639694620"
+            "md5": "50b5c4f7e387e82e75ed3fcdb1b3f8e6"
           }
         },
         {
@@ -162,11 +162,16 @@
         },
         {
           "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/coscumparaturi.h"
+          },
+          "hashes": {
+            "md5": "7df112f455882a4a401014e8509ce269"
+          }
+        },
+        {
+          "location": {
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/serviceexception.h"
           },
-          "roles": [
-            "resultFile"
-          ],
           "hashes": {
             "md5": "7d090bd068e22ca5a9ed4e3e344782bb"
           }
@@ -179,7 +184,7 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "f18c08c331d761596a56f58b9105adcf"
+            "md5": "18cad41a7be06289f679a6e463da1275"
           }
         },
         {
@@ -228,7 +233,7 @@
             "analysisTarget"
           ],
           "hashes": {
-            "md5": "11f0814126ce4515a181a3fb4c2bcadc"
+            "md5": "b8e72709dbad7c5b85784a571bab810d"
           }
         },
         {
@@ -244,19 +249,7 @@
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingutils.h"
           },
           "hashes": {
-            "md5": "2fd9b273a5a0bfdca7ff74e49a754eb5"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Service.cpp"
-          },
-          "roles": [
-            "analysisTarget",
-            "resultFile"
-          ],
-          "hashes": {
-            "md5": "58217e373bddf50209c823b11e0ae730"
+            "md5": "1eff9c8bac2766f3104994edbd3a83f2"
           }
         },
         {
@@ -276,7 +269,7 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "423acf7f834ea0f0402108e483a3ff52"
+            "md5": "8efce01dd6116a1c27539dbd339157cb"
           }
         },
         {

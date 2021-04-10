@@ -15,7 +15,7 @@ void RepoProducts::addProduct(const Product& product)
 	
 	products.push_back(product);
 	*/
-
+	
 	// Varianta II (cu functia build-in std::find_if din algorithm (STL = Standard Template Library))
 	const auto& p = find_if(products.begin(),
 							products.end(),

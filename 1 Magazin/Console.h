@@ -95,9 +95,45 @@ private:
 	void sortUI() const;
 	
 	/*
+	* Procedura care afiseaza/tipareste meniul cosului de cumparaturi (lista de actiuni disponibile)
+	*/
+	void afiseazaMeniuCosCumparaturi() const;
+
+	/*
+	* Procedura care goleste toate produsele din cosul de cumparaturi
+	*/
+	void golireCosUI() const;
+
+	/*
+	* Procedura care adauga un produs in cosul de cumparaturi
+	*/
+	void adaugareCosUI() const;
+
+	/*
+	* Procedura care genereaza un cos de cumparaturi total aleator
+	* (introduce n produse din stoc in cos, unde n este citit de la tastatura)
+	*/
+	void generareCosUI() const;
+
+	/*
+	* Procedura care afiseaza toate produsele din cosul de cumparaturi intr-un fisier CSV
+	*/
+	void exportCosUI() const;
+
+	/*
+	* Procedura care gestioneaza cosul de cumparaturi din aplicatie
+	*/
+	void cosCumparaturiUI() const;
+
+	/*
 	* Procedura care curata terminalul/consola aplicatiei (sterge continutul de pe ecran)
 	*/
 	void clearUI() const noexcept;
+
+	/*
+	* Procedura care incearca adaugarea unui produs (obiect de clasa Product) cu numele name, tipul type, preturl price si producatorul producer
+	*/
+	void addDebug(const string& name, const string& type, const double& price, const string& producer) const;
 
 	/*
 	* Procedura care adauaga 10 obiecte de clasa Product (10 inregistrari) in lista din repo (adica in magazin)

@@ -22,7 +22,7 @@ public:
 	*/
 	RepoException(string msg) : msg{ msg } {
 	
-	};
+	}
 
 	/*
 	* Constructorul de copiere (il setam ca si constructor default = implicit)

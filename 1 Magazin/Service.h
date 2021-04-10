@@ -2,14 +2,16 @@
 
 #include "Repository.h"
 #include "ProductValidator.h"
+#include "CosCumparaturi.h"
 
 class Service
 {
 private:
 	// atribute (campuri) si metode (functii) private
 
-	RepoProducts& repo;      // atribut de tip referinta la un obiect repo de clasa RepoProducts
-	ProductValidator& valid; // atribut de tip referinta la un obiect valid de clasa ProductValidator
+	RepoProducts& repo;                  // atribut de tip referinta la un obiect repo de clasa RepoProducts
+	ProductValidator& valid;             // atribut de tip referinta la un obiect valid de clasa ProductValidator
+	CosCumparaturi cosCumparaturi;       // atribut de tip referinta la un obiect cosCumparaturi de clasa CosCumparaturi
 
 	/*
 	* Functie booleana care verifica daca un produs (obiect de clasa Product) p respecta filtrul de pret price in raport cu semnul (simbolul) de inegalitate sign
@@ -84,7 +86,7 @@ private:
 	* Exceptii aruncate/ridicate: -
 	*/
 	void sortCrtName(vector<Product>& products, bool reversed) const;
-
+	
 	/*
 	* Metoda privata care sorteaza/ordoneaza in-place o lista de obiecte de clasa Product dupa atributul/campul price (pret) in ordine crescatoare sau descrescatoare
 	* Date de intrare: products - referinta la o lista (vector din STL) de obiecte de clasa Product
@@ -162,7 +164,7 @@ public:
 	* Constructor custom al unui obiect de clasa Service care primeste o referinta la un obiect repo de clasa RepoProducts si o referinta la un obiect valid de clasa ProductValidator
 	* Contructorul va popula atributele private repo si valid ale obiectului instantiat cu obiectele primite
 	*/
-	Service(RepoProducts& repo, ProductValidator& valid) noexcept : repo{ repo }, valid{ valid }  {
+	Service(RepoProducts& repo, ProductValidator& valid) noexcept : repo{ repo }, valid{ valid }, cosCumparaturi{ repo }  {
 
 	}
 
@@ -299,5 +301,69 @@ public:
 	* [!]ServiceException daca nu sunt respectate preconditiile
 	*/
 	vector<Product> sortProducts(const string& crt, const string& ord) const;
+
+	/*
+	* Procedura care goleste toate produsele din cosul de cumparaturi
+	* Date de intrare: -
+	* Preconditii: -
+	* Date de iesire (rezultate): -
+	* Postconditii: -
+	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
+	* [!]CosException cu mesajul "Nu exista produse in cosul de cumparaturi!\n" daca cosul de cumparaturi este gol
+	*/
+	void golireCos();
+
+	/*
+	* Procedura care incearca sa adauge un produs cu numele name si producatorul producer in cosul de cumparaturi al utilizatorului (userului)
+	* Date de intrare: name     - referinta constanta la un string (dinamic) din STL
+	*                  producer - referinta constanta la un string (dinamic) din STL
+	* Preconditii: name     <> "" (stringul name trebuie sa fie nevid)     <=> name.length     <> 0
+	*              producer <> "" (stringul producer trebuie sa fie nevid) <=> producer.length <> 0
+	* Date de iesire (rezultate): -
+	* Postconditii: -
+	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
+	* [!]CosException cu mesajul "Produsul cautat nu se afla in stoc!\n"
+	* [!]ServiceException (nu sunt respectate preconditiile privind datele de intrare)
+	* cu unul din mesajele: "Nume invalid!\n", daca doar numele name este invalid (stringul name este vid)
+	*                       "Producator invalid!\n", daca doar producatorul producer este invalid (stringul producer este vid)
+	*                       "Nume invalid!\nProducator invalid!\n", daca atat numele name cat si producatorul producer sunt atribute invalide (stringuri vide)
+	*/
+	void adaugareCos(const string& name, const string& producer);
+
+	/*
+	* Procedura care incearca sa adauge num produse random din stocul magazinului in cosul de cumparaturi
+	* Date de intrare: num - referinta constanta la un string (sir de caractere alocat dinamic din STL = Standard Template Library)
+	* Preconditii: stringul num trebuie sa contina reprezentarea scrisa/text a unui numar intreg fara semn (unsigned = numar natural)
+	* Date de iesire (rezultate): -
+	* Postconditii: -
+	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
+	* [!]ServiceException cu mesajul "Numarul introdus nu este o valoare pozitiva!\n", daca num contine reprezentarea unui numar care nu este pozitiv (numar intreg negativ)
+	* [!]ServiceException cu mesajul "Nu ati introdus un numar!\n", daca num nu contine reprezentarea unui numar intreg (integer) cu (signed) sau fara semn (unsigned)
+	*/
+	void generareCos(const string& num);
+
+	/*
+	* Procedura care incearca sa scrie lista de produse din cosul de cumparaturi intr-un fisier CSV (filetype = "csv") sau HTML (filetype = "html") cu numele filename (filename nu trebuie sa contina extensia .csv sau .html, aceasta va fi adaugata automat in functie de natura fisierului)
+	* Date de intrare: filename - referinta constanta la un string (sir de caractere din STL)
+	*                  filetype - referinta constanta la un string (sir de caractere din STL)
+	* Preconditii: filename trebuie sa fie un string nevid (adica sa contina cel putin un caracter)
+	*              filetype trebuie sa fie stringul "html" sau "csv" (case insensitive)
+	* Date de iesire (rezultate): -
+	* Postconditii: -
+	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii (nu sunt respectate preconditiile):
+	* [!]ServiceException cu mesajul "Numele fisierului nu poate fi vid!\n", daca stringul filename este vid
+	* [!]ServiceException cu mesajul "Tip fisier export invalid!\n", daca filetype nu este un tip de fisier valabil
+	*/
+	void exportCos(const string& filename, const string& filetype);
+
+	/*
+	* Functie de tip operand (rezultat) care returneaza pretul total al produselor din cos
+	* Date de intrare: -
+	* Preconditii: -
+	* Date de iesire (rezultate): referinta constanta la o variabila de tip double (numar real in dubla precizie)
+	* Postconditii: rezultatul intors/returnat de functie reprezinta suma preturilor (atributelor price) ale produselor (obiecte de clasa Product) din cosul de cumparaturi
+	* Exceptii: -
+	*/
+	const double& totalCos() noexcept;
 };
 
