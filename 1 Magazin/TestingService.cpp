@@ -41,7 +41,7 @@ void TestingService::runTestsServiceVerifyIfDouble() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Pretul introdus nu este un numar real!\n");
+		assert(se.getMessage() == "[!]Pretul introdus nu este un numar real!\n");
 	}
 
 	try {
@@ -49,7 +49,7 @@ void TestingService::runTestsServiceVerifyIfDouble() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Pretul introdus nu este un numar real!\n");
+		assert(se.getMessage() == "[!]Pretul introdus nu este un numar real!\n");
 	}
 
 	try {
@@ -57,7 +57,7 @@ void TestingService::runTestsServiceVerifyIfDouble() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Pretul introdus nu este un numar real!\n");
+		assert(se.getMessage() == "[!]Pretul introdus nu este un numar real!\n");
 	}
 
 	try {
@@ -160,7 +160,7 @@ void TestingService::runTestsServiceAdd() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs deja existent!\n");
+		assert(re.getMessage() == "[!]Produs deja existent!\n");
 	}
 	catch (const ProductException&) {
 		assert(false);
@@ -177,7 +177,7 @@ void TestingService::runTestsServiceAdd() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Nume invalid!\nPret invalid!\n");
+		assert(pe.getMessage() == "[!]Nume invalid!\n[!]Pret invalid!\n");
 	}
 }
 
@@ -194,7 +194,7 @@ void TestingService::runTestsServiceDel() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 	catch (const ProductException&) {
 		assert(false);
@@ -252,7 +252,7 @@ void TestingService::runTestsServiceDel() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	catch (const ProductException&) {
 		assert(false);
@@ -263,7 +263,7 @@ void TestingService::runTestsServiceDel() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Producator invalid!\n");
+		assert(se.getMessage() == "[!]Producator invalid!\n");
 	}
 	catch (const RepoException&) {
 		assert(false);
@@ -277,7 +277,7 @@ void TestingService::runTestsServiceDel() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Nume invalid!\n");
+		assert(se.getMessage() == "[!]Nume invalid!\n");
 	}
 	catch (const RepoException&) {
 		assert(false);
@@ -291,7 +291,7 @@ void TestingService::runTestsServiceDel() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Nume invalid!\nProducator invalid!\n");
+		assert(se.getMessage() == "[!]Nume invalid!\n[!]Producator invalid!\n");
 	}
 	catch (const RepoException&) {
 		assert(false);
@@ -328,7 +328,7 @@ void TestingService::runTestsServiceModify() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 	catch (const ProductException&) {
 		assert(false);
@@ -344,7 +344,7 @@ void TestingService::runTestsServiceModify() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	catch (const ProductException&) {
 		assert(false);
@@ -361,7 +361,7 @@ void TestingService::runTestsServiceModify() const
 		assert(false);
 	}
 	catch (const ProductException& ex) {
-		assert(ex.getMessage() == "Nume invalid!\nTip invalid!\nPret invalid!\n");
+		assert(ex.getMessage() == "[!]Nume invalid!\n[!]Tip invalid!\n[!]Pret invalid!\n");
 	}
 
 	try {
@@ -389,7 +389,7 @@ void TestingService::runTestsServiceSearch() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Nume invalid!\nProducator invalid!\n");
+		assert(se.getMessage() == "[!]Nume invalid!\n[!]Producator invalid!\n");
 	}
 	catch (const RepoException&) {
 		assert(false);
@@ -403,7 +403,7 @@ void TestingService::runTestsServiceSearch() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Producator invalid!\n");
+		assert(se.getMessage() == "[!]Producator invalid!\n");
 	}
 	catch (const RepoException&) {
 		assert(false);
@@ -417,7 +417,7 @@ void TestingService::runTestsServiceSearch() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Nume invalid!\n");
+		assert(se.getMessage() == "[!]Nume invalid!\n");
 	}
 	catch (const RepoException&) {
 		assert(false);
@@ -434,7 +434,7 @@ void TestingService::runTestsServiceSearch() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 	catch (const ProductException&) {
 		assert(false);
@@ -447,7 +447,7 @@ void TestingService::runTestsServiceSearch() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Nume invalid!\nProducator invalid!\n");
+		assert(se.getMessage() == "[!]Nume invalid!\n[!]Producator invalid!\n");
 	}
 	catch (const RepoException&) {
 		assert(false);
@@ -461,7 +461,7 @@ void TestingService::runTestsServiceSearch() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Producator invalid!\n");
+		assert(se.getMessage() == "[!]Producator invalid!\n");
 	}
 	catch (const RepoException&) {
 		assert(false);
@@ -475,7 +475,7 @@ void TestingService::runTestsServiceSearch() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Nume invalid!\n");
+		assert(se.getMessage() == "[!]Nume invalid!\n");
 	}
 	catch (const RepoException&) {
 		assert(false);
@@ -510,7 +510,7 @@ void TestingService::runTestsServiceSearch() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	catch (const ProductException&) {
 		assert(false);
@@ -530,7 +530,7 @@ void TestingService::runTestsServiceGetAll() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 	catch (const ProductException&) {
 		assert(false);
@@ -632,7 +632,7 @@ void TestingService::runTestsServiceFilterProducts() const
 		assert(false);
 	}
 	catch (const RepoException& ex) {
-		assert(ex.getMessage() == "Nu exista produse in magazin!\n");
+		assert(ex.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 
 	srv.add("iaurt", "produse lactate", 4.63, "Danone");
@@ -662,7 +662,7 @@ void TestingService::runTestsServiceFilterProducts() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Simbol de inegalitate invalid!\n");
+		assert(se.getMessage() == "[!]Simbol de inegalitate invalid!\n");
 	}
 
 	try {
@@ -670,7 +670,7 @@ void TestingService::runTestsServiceFilterProducts() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Simbol de inegalitate invalid!\n");
+		assert(se.getMessage() == "[!]Simbol de inegalitate invalid!\n");
 	}
 
 	try {
@@ -678,7 +678,7 @@ void TestingService::runTestsServiceFilterProducts() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Criteriu de filtrare invalid!\n");
+		assert(se.getMessage() == "[!]Criteriu de filtrare invalid!\n");
 	}
 
 	try {
@@ -686,7 +686,7 @@ void TestingService::runTestsServiceFilterProducts() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Criteriu de filtrare invalid!\n");
+		assert(se.getMessage() == "[!]Criteriu de filtrare invalid!\n");
 	}
 
 	try {
@@ -694,7 +694,7 @@ void TestingService::runTestsServiceFilterProducts() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Criteriu de filtrare invalid!\n");
+		assert(se.getMessage() == "[!]Criteriu de filtrare invalid!\n");
 	}
 
 	try {
@@ -702,7 +702,7 @@ void TestingService::runTestsServiceFilterProducts() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Criteriu de filtrare invalid!\n");
+		assert(se.getMessage() == "[!]Criteriu de filtrare invalid!\n");
 	}
 
 	products = srv.filterProducts("1", "0.1", "<");
@@ -759,7 +759,7 @@ void TestingService::runTestsServiceSortProducts() const
 		assert(false);
 	}
 	catch (const RepoException& ex) {
-		assert(ex.getMessage() == "Nu exista produse in magazin!\n");
+		assert(ex.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 
 	srv.add("iaurt", "produse lactate", 4.63, "Danone");
@@ -822,7 +822,7 @@ void TestingService::runTestsServiceSortProducts() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Ordine de sortare invalida!\n");
+		assert(se.getMessage() == "[!]Ordine de sortare invalida!\n");
 	}
 
 	try {
@@ -830,7 +830,7 @@ void TestingService::runTestsServiceSortProducts() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Ordine de sortare invalida!\n");
+		assert(se.getMessage() == "[!]Ordine de sortare invalida!\n");
 	}
 
 	try {
@@ -838,7 +838,7 @@ void TestingService::runTestsServiceSortProducts() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Ordine de sortare invalida!\n");
+		assert(se.getMessage() == "[!]Ordine de sortare invalida!\n");
 	}
 
 	try {
@@ -846,7 +846,7 @@ void TestingService::runTestsServiceSortProducts() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Criteriu de sortare invalid!\n");
+		assert(se.getMessage() == "[!]Criteriu de sortare invalid!\n");
 	}
 
 	try {
@@ -854,7 +854,7 @@ void TestingService::runTestsServiceSortProducts() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Criteriu de sortare invalid!\n");
+		assert(se.getMessage() == "[!]Criteriu de sortare invalid!\n");
 	}
 
 	try {
@@ -862,7 +862,7 @@ void TestingService::runTestsServiceSortProducts() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Criteriu de sortare invalid!\n");
+		assert(se.getMessage() == "[!]Criteriu de sortare invalid!\n");
 	}
 
 	try {
@@ -870,7 +870,7 @@ void TestingService::runTestsServiceSortProducts() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Criteriu de sortare invalid!\n");
+		assert(se.getMessage() == "[!]Criteriu de sortare invalid!\n");
 	}
 }
 
@@ -887,7 +887,7 @@ void TestingService::runTestsAdaugareCos() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 
 	srv.add("iaurt", "produse lactate", 4.63, "Danone");
@@ -912,7 +912,7 @@ void TestingService::runTestsAdaugareCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Nume invalid!\nProducator invalid!\n");
+		assert(se.getMessage() == "[!]Nume invalid!\n[!]Producator invalid!\n");
 	}
 
 	try {
@@ -926,7 +926,7 @@ void TestingService::runTestsAdaugareCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Nume invalid!\n");
+		assert(se.getMessage() == "[!]Nume invalid!\n");
 	}
 
 	try {
@@ -940,7 +940,7 @@ void TestingService::runTestsAdaugareCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Producator invalid!\n");
+		assert(se.getMessage() == "[!]Producator invalid!\n");
 	}
 
 	try {
@@ -948,7 +948,7 @@ void TestingService::runTestsAdaugareCos() const
 		assert(false);
 	}
 	catch (const CosException& ce) {
-		assert(ce.getMessage() == "Produsul cautat nu se afla in stoc!\n");
+		assert(ce.getMessage() == "[!]Produsul cautat nu se afla in stoc!\n");
 	}
 	catch (const RepoException&) {
 		assert(false);
@@ -959,7 +959,7 @@ void TestingService::runTestsAdaugareCos() const
 		assert(false);
 	}
 	catch (const CosException& ce) {
-		assert(ce.getMessage() == "Produsul cautat nu se afla in stoc!\n");
+		assert(ce.getMessage() == "[!]Produsul cautat nu se afla in stoc!\n");
 	}
 	catch (const RepoException&) {
 		assert(false);
@@ -970,7 +970,7 @@ void TestingService::runTestsAdaugareCos() const
 		assert(false);
 	}
 	catch (const CosException& ce) {
-		assert(ce.getMessage() == "Produsul cautat nu se afla in stoc!\n");
+		assert(ce.getMessage() == "[!]Produsul cautat nu se afla in stoc!\n");
 	}
 	catch (const RepoException&) {
 		assert(false);
@@ -1038,7 +1038,7 @@ void TestingService::runTestsAdaugareCos() const
 		assert(false);
 	}
 	catch (const CosException& ce) {
-		assert(ce.getMessage() == "Produsul cautat nu se afla in stoc!\n");
+		assert(ce.getMessage() == "[!]Produsul cautat nu se afla in stoc!\n");
 	}
 	catch (const RepoException&) {
 		assert(false);
@@ -1075,7 +1075,7 @@ void TestingService::runTestsAdaugareCos() const
 		assert(false);
 	}
 	catch (const CosException& ce) {
-		assert(ce.getMessage() == "Produsul cautat nu se afla in stoc!\n");
+		assert(ce.getMessage() == "[!]Produsul cautat nu se afla in stoc!\n");
 	}
 	catch (const RepoException&) {
 		assert(false);
@@ -1179,7 +1179,7 @@ void TestingService::runTestsGolireCos() const
 		assert(false);
 	}
 	catch (const CosException& ce) {
-		assert(ce.getMessage() == "Nu exista produse in cosul de cumparaturi!\n");
+		assert(ce.getMessage() == "[!]Nu exista produse in cosul de cumparaturi!\n");
 	}
 
 	srv.add("sare", "condimente", 11, "Maggi");
@@ -1218,7 +1218,7 @@ void TestingService::runTestsGenerareCos() const
 		assert(false);
 	}
 	catch(const ServiceException& se){
-		assert(se.getMessage() == "Nu ati introdus un numar!\n");
+		assert(se.getMessage() == "[!]Nu ati introdus un numar!\n");
 	}
 
 	try {
@@ -1226,7 +1226,7 @@ void TestingService::runTestsGenerareCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Nu ati introdus un numar!\n");
+		assert(se.getMessage() == "[!]Nu ati introdus un numar!\n");
 	}
 
 	try {
@@ -1234,7 +1234,7 @@ void TestingService::runTestsGenerareCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Nu ati introdus un numar!\n");
+		assert(se.getMessage() == "[!]Nu ati introdus un numar!\n");
 	}
 
 	try {
@@ -1242,7 +1242,7 @@ void TestingService::runTestsGenerareCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Numarul introdus nu este o valoare pozitiva!\n");
+		assert(se.getMessage() == "[!]Numarul introdus nu este o valoare pozitiva!\n");
 	}
 
 	try {
@@ -1250,7 +1250,7 @@ void TestingService::runTestsGenerareCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Numarul introdus nu este o valoare pozitiva!\n");
+		assert(se.getMessage() == "[!]Numarul introdus nu este o valoare pozitiva!\n");
 	}
 
 	try {
@@ -1258,7 +1258,7 @@ void TestingService::runTestsGenerareCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Numarul introdus nu este o valoare pozitiva!\n");
+		assert(se.getMessage() == "[!]Numarul introdus nu este o valoare pozitiva!\n");
 	}
 
 	try {
@@ -1269,7 +1269,7 @@ void TestingService::runTestsGenerareCos() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 
 	try {
@@ -1280,7 +1280,7 @@ void TestingService::runTestsGenerareCos() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 
 	try {
@@ -1291,7 +1291,7 @@ void TestingService::runTestsGenerareCos() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 
 	srv.add("iaurt", "produse lactate", 4.63, "Danone");
@@ -1404,7 +1404,7 @@ void TestingService::runTestsExportCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Numele fisierului nu poate fi vid!\n");
+		assert(se.getMessage() == "[!]Numele fisierului nu poate fi vid!\n");
 	}
 
 	try {
@@ -1412,7 +1412,7 @@ void TestingService::runTestsExportCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Numele fisierului nu poate fi vid!\n");
+		assert(se.getMessage() == "[!]Numele fisierului nu poate fi vid!\n");
 	}
 
 	try {
@@ -1420,7 +1420,7 @@ void TestingService::runTestsExportCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Numele fisierului nu poate fi vid!\n");
+		assert(se.getMessage() == "[!]Numele fisierului nu poate fi vid!\n");
 	}
 
 	try {
@@ -1428,7 +1428,7 @@ void TestingService::runTestsExportCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Numele fisierului nu poate fi vid!\n");
+		assert(se.getMessage() == "[!]Numele fisierului nu poate fi vid!\n");
 	}
 
 	try {
@@ -1436,7 +1436,7 @@ void TestingService::runTestsExportCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Tip fisier export invalid!\n");
+		assert(se.getMessage() == "[!]Tip fisier export invalid!\n");
 	}
 
 	try {
@@ -1444,7 +1444,7 @@ void TestingService::runTestsExportCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Tip fisier export invalid!\n");
+		assert(se.getMessage() == "[!]Tip fisier export invalid!\n");
 	}
 
 	try {
@@ -1452,7 +1452,7 @@ void TestingService::runTestsExportCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "Tip fisier export invalid!\n");
+		assert(se.getMessage() == "[!]Tip fisier export invalid!\n");
 	}
 
 	try {

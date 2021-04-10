@@ -55,7 +55,7 @@ public:
 	* Postconditii: atributul privat total_price (care stocheaza pretul curent al produselor din cos) se va reseta (va deveni 0)
 	*               cosul de cumparaturi va deveni gol (atributul privat cos va fi un vector vid (fara elemente))
 	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
-	* [!]CosException cu mesajul "Nu exista produse in cosul de cumparaturi!\n", in cazul in care nu exista produse in cos (cosul este gol)
+	* [!]CosException cu mesajul "[!]Nu exista produse in cosul de cumparaturi!\n", in cazul in care nu exista produse in cos (cosul este gol)
 	*/
 	void golesteCos();
 
@@ -69,8 +69,8 @@ public:
 	* Postconditii: atributul privat total_price va fi incrementat cu pretul produsului adaugat, daca adaugarea va avea loc (sau nu se va modifica/altera in cazul in care adaugarea nu se realizeaza)
 	*               se adauga produsul cu numele name si producatorul producer din magazin daca acesta exista in stoc sau se ridica/arunca exceptie in caz contrar
 	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
-	* [!]RepoException cu mesajul "Nu exista produse in magazin!\n", in cazul in care nu exista produse in magazin (entitati in repo)
-	* [!]CosException cu mesajul "Produsul cautat nu se afla in stoc!\n", in cazul in care nu exista niciun produs (obiect de clasa Product) cu numele name si producatorul producer in magazin
+	* [!]RepoException cu mesajul "[!]Nu exista produse in magazin!\n", in cazul in care nu exista produse in magazin (entitati in repo)
+	* [!]CosException cu mesajul "[!]Produsul cautat nu se afla in stoc!\n", in cazul in care nu exista niciun produs (obiect de clasa Product) cu numele name si producatorul producer in magazin
 	*/
 	void adaugaInCos(const string& name, const string& producer);
 
@@ -82,7 +82,7 @@ public:
 	* Postconditii: atributul privat total_price va fi incrementat cu pretul fiecarui produs din cele number_of_products generate din stocul magazinului
 	*               se adauga number_of_products produse in cosul de cumparaturi
 	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
-	* [!]CosException cu mesajul "Produsul cautat nu se afla in stoc!\n", in cazul in care nu exista niciun produs (obiect de clasa Product) cu numele name si producatorul producer in magazin
+	* [!]CosException cu mesajul "[!]Produsul cautat nu se afla in stoc!\n", in cazul in care nu exista niciun produs (obiect de clasa Product) cu numele name si producatorul producer in magazin
 	*/
 	void genereazaCos(unsigned number_of_products);
 

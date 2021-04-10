@@ -23,7 +23,7 @@ void Service::verifyIfDouble(const string& str) const
 	const Utils utils;
 
 	if (!utils.isDouble(str)) // verificam daca str contine reprezentarea unui numar real
-		throw ServiceException("Pretul introdus nu este un numar real!\n"); // aruncam/ridicam exceptie de clasa ServiceException
+		throw ServiceException("[!]Pretul introdus nu este un numar real!\n"); // aruncam/ridicam exceptie de clasa ServiceException
 }
 
 void Service::add(const string& name, const string& type, const double& price, const string& producer)
@@ -40,9 +40,9 @@ void Service::del(const string& name, const string& producer)
 	string err{ "" }; // lista de erori (string)
 	
 	if (!name.size())     // if (name == "")
-		err += "Nume invalid!\n";       // name invalid
+		err += "[!]Nume invalid!\n";       // name invalid
 	if (!producer.size()) // if (producer == "")
-		err += "Producator invalid!\n"; // producer invalid
+		err += "[!]Producator invalid!\n"; // producer invalid
 
 	if(err.size()) // lista de erori contine cel putin o eroare (name si/sau producer sunt stringuri vide, deci invalide)
 		throw ServiceException(err); // aruncam exceptie de clasa ServiceException cu mesajul de eroare/exceptie err
@@ -70,11 +70,11 @@ const Product& Service::search(const string& name, const string& producer) const
 {
 	// validam numele name si producatorul producer
 	if (!name.size() * !producer.size()) // if (name == "" && producer == "")
-		throw ServiceException("Nume invalid!\nProducator invalid!\n");
+		throw ServiceException("[!]Nume invalid!\n[!]Producator invalid!\n");
 	if (!name.size())                    // if (name == "")
-		throw ServiceException("Nume invalid!\n");
+		throw ServiceException("[!]Nume invalid!\n");
 	if (!producer.size())                // if (producer == "")
-		throw ServiceException("Producator invalid!\n");
+		throw ServiceException("[!]Producator invalid!\n");
 	
 	return repo.searchProduct(name, producer); // cautam un produs cu numele name si producatorul producer in lista de produse din repository
 }
@@ -96,7 +96,7 @@ bool Service::validPriceFilter(const Product& p, const string& price, const stri
 	else if (sign == ">") // se filtreaza produsele cu pret mai mare
 		return p.getPrice() > stod(price, nullptr);
 	else                  // simbol/semn de inegalitate invalid
-		throw ServiceException("Simbol de inegalitate invalid!\n");
+		throw ServiceException("[!]Simbol de inegalitate invalid!\n");
 }
 
 bool Service::validNameFilter(const Product& p, const string& name) const
@@ -121,7 +121,7 @@ void Service::filterAfterPrice(const vector<Product>& products, vector<Product>&
 	const auto& price_double{ stod(price, nullptr) };
 
 	if (sign != "<" && sign != "=" && sign != ">") // simbol/semn de inegalitate invalid
-		throw ServiceException("Simbol de inegalitate invalid!\n");
+		throw ServiceException("[!]Simbol de inegalitate invalid!\n");
 
 	copy_if(products.begin(),
 		products.end(),
@@ -174,7 +174,7 @@ vector<Product> Service::filterProducts(const string& crt, const string& filter,
 		else if (crt == "3") // criteriu de filtrare: producator (fieldul producer)
 			isValid = validProducerFilter(p, filter);
 		else                 // criteriu de filtrare invalid
-			throw ServiceException("Criteriu de filtrare invalid!\n");
+			throw ServiceException("[!]Criteriu de filtrare invalid!\n");
 
 		if (isValid) // obiectul p de clasa Product respecta filtrul impus
 			filtered_list.pb(p); // filtram produsul p
@@ -195,7 +195,7 @@ vector<Product> Service::filterProducts(const string& crt, const string& filter,
 	else if (crt == "3") // criteriu de filtrare: producator (fieldul producer)
 		filterAfterProducer(products, filtered_list, filter);
 	else                 // criteriu de filtrare invalid
-		throw ServiceException("Criteriu de filtrare invalid!\n");
+		throw ServiceException("[!]Criteriu de filtrare invalid!\n");
 
 	return filtered_list;
 }
@@ -216,7 +216,7 @@ void Service::sortProductsAscending(vector<Product>& products, const string& crt
 			products.end(),
 			[](const Product& p1, const Product& p2) noexcept {if (p1.getName() == p2.getName()) { return p1.getType() < p2.getType(); } return p1.getName() < p2.getName(); });
 	else // criteriu de sortare invalid
-		throw ServiceException("Criteriu de sortare invalid!\n");
+		throw ServiceException("[!]Criteriu de sortare invalid!\n");
 }
 
 void Service::sortProductsDescending(vector<Product>& products, const string& crt) const
@@ -234,7 +234,7 @@ void Service::sortProductsDescending(vector<Product>& products, const string& cr
 			products.end(),
 			[](const Product& p1, const Product& p2) noexcept {if (p1.getName() == p2.getName()) { return p1.getType() > p2.getType(); } return p1.getName() > p2.getName(); });
 	else // criteriu de sortare invalid
-		throw ServiceException("Criteriu de sortare invalid!\n");
+		throw ServiceException("[!]Criteriu de sortare invalid!\n");
 }
 */
 
@@ -289,13 +289,13 @@ vector<Product> Service::sortProducts(const string& crt, const string& ord) cons
 	else if (ord == "d" || ord == "D") // ordinea de sortare: descrescator
 		sortProductsDescending(products, crt);
 	else                               // ordine de sortare invalida
-		throw ServiceException("Ordine de sortare invalida!\n");
+		throw ServiceException("[!]Ordine de sortare invalida!\n");
 
 	return products;
 	*/
 
 	if (ord != "c" && ord != "C" && ord != "d" && ord != "D") // ordine de sortare invalida
-		throw ServiceException("Ordine de sortare invalida!\n");
+		throw ServiceException("[!]Ordine de sortare invalida!\n");
 
 	auto products{ repo.getAll() };
 
@@ -314,7 +314,7 @@ vector<Product> Service::sortProducts(const string& crt, const string& ord) cons
 	else if (crt == "3") // criteriu sortare: nume + tip
 		sortCrtNamePlusType(products, reversed);
 	else                 // criteriu de sortare invalid
-		throw ServiceException("Criteriu de sortare invalid!\n");
+		throw ServiceException("[!]Criteriu de sortare invalid!\n");
 
 	return products;
 }
@@ -330,9 +330,9 @@ void Service::adaugareCos(const string& name, const string& producer)
 	string err{ "" }; // lista de erori (string)
 
 	if (!name.size())     // if (name == "")
-		err += "Nume invalid!\n";       // name invalid
+		err += "[!]Nume invalid!\n";       // name invalid
 	if (!producer.size()) // if (producer == "")
-		err += "Producator invalid!\n"; // producer invalid
+		err += "[!]Producator invalid!\n"; // producer invalid
 
 	if (err.size()) // lista de erori contine cel putin o eroare (name si/sau producer sunt stringuri vide, deci invalide)
 		throw ServiceException(err); // aruncam exceptie de clasa ServiceException cu mesajul de eroare/exceptie err
@@ -346,26 +346,26 @@ void Service::generareCos(const string& num)
 		const int number_of_products{ stoi(num) };
 
 		if (number_of_products < 0)
-			throw ServiceException("Numarul introdus nu este o valoare pozitiva!\n");
+			throw ServiceException("[!]Numarul introdus nu este o valoare pozitiva!\n");
 
 		cosCumparaturi.genereazaCos(number_of_products);
 	}
 	catch (const exception&) {
-		throw ServiceException("Nu ati introdus un numar!\n");
+		throw ServiceException("[!]Nu ati introdus un numar!\n");
 	}
 }
 
 void Service::exportCos(const string& filename, const string& filetype)
 {
 	if (!filename.size()) // if (filename == "")
-		throw ServiceException("Numele fisierului nu poate fi vid!\n");
+		throw ServiceException("[!]Numele fisierului nu poate fi vid!\n");
 
 	if (cmpStrings(filetype, "html"))     // exportul cosului de cumparaturi se face intr-un fisier html
 		cosCumparaturi.exportCosFisierHTML(filename);
 	else if (cmpStrings(filetype, "csv")) // exportul cosului de cumparaturi se face intr-un fisier csv
 		cosCumparaturi.exportCosFisierCSV(filename);
 	else                                  // tipul fisierului este invalid (nu este html sau csv)
-		throw ServiceException("Tip fisier export invalid!\n");
+		throw ServiceException("[!]Tip fisier export invalid!\n");
 }
 
 const double& Service::totalCos() noexcept

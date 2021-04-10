@@ -23,7 +23,7 @@ private:
 	* Postconditii: validPriceFilter = false, daca produsul p nu va fi filtrat (nu satisface filtrul impus)
 	*                                  true , daca produsul p va fi filtrat (satisface filtrul impus)
 	* Exceptii: metoda privata poate arunca urmatoarele exceptii:
-	* [!]ServiceException cu mesajul "Simbol de inegalitate invalid!\n" daca nu sunt respectate preconditiile (sign <> "<", sign <> "=" si sign <> ">")
+	* [!]ServiceException cu mesajul "[!]Simbol de inegalitate invalid!\n" daca nu sunt respectate preconditiile (sign <> "<", sign <> "=" si sign <> ">")
 	*/
 	// bool validPriceFilter(const Product& p, const string& price, const string& sign) const;
 
@@ -59,7 +59,7 @@ private:
 	* Date de iesire: -
 	*                 arunca exceptie daca criteriul crt nu este valid
 	* Postconditii: lista products va fi sortate/ordonata crescator dupa criteriu nume (crt = "1"), pret (crt = "2") sau nume + tip (crt = "3")
-	* Exceptii: metoda ridica exceptie de tipul ServiceException cu mesajul de eroare/exceptie "Criteriu de sortare invalid!\n" daca nu se respecta preconditiile (crt <> "1" si crt <> "2" si crt <> "3", adica criteriu de sortare este invalid)
+	* Exceptii: metoda ridica exceptie de tipul ServiceException cu mesajul de eroare/exceptie "[!]Criteriu de sortare invalid!\n" daca nu se respecta preconditiile (crt <> "1" si crt <> "2" si crt <> "3", adica criteriu de sortare este invalid)
 	*/
 	// void sortProductsAscending(vector<Product>& products, const string& crt) const;
 	
@@ -71,7 +71,7 @@ private:
 	* Date de iesire: -
 	*                 arunca exceptie daca criteriul crt nu este valid
 	* Postconditii: lista products va fi sortate/ordonata descrescator dupa criteriu nume (crt = "1"), pret (crt = "2") sau nume + tip (crt = "3")
-	* Exceptii: metoda ridica exceptie de tipul ServiceException cu mesajul de eroare/exceptie "Criteriu de sortare invalid!\n" daca nu se respecta preconditiile (crt <> "1" si crt <> "2" si crt <> "3", adica criteriu de sortare este invalid)
+	* Exceptii: metoda ridica exceptie de tipul ServiceException cu mesajul de eroare/exceptie "[!]Criteriu de sortare invalid!\n" daca nu se respecta preconditiile (crt <> "1" si crt <> "2" si crt <> "3", adica criteriu de sortare este invalid)
 	*/
 	// void sortProductsDescending(vector<Product>& products, const string& crt) const;
 	
@@ -191,7 +191,7 @@ public:
 	* Date de iesire: -, daca stringul str este un numar real
 	*                 arunca/ridica exceptie daca str nu contine reprezentarea text/scrisa a unui double (numar real in dubla precizie)
 	* Postconditii: -
-	* Exceptii: metoda arunca exceptie de tipul ServiceException cu mesajul "Pretul introdus nu este un numar real!\n" daca stringul dat ca parametru nu contine reprezentarea unui double
+	* Exceptii: metoda arunca exceptie de tipul ServiceException cu mesajul "[!]Pretul introdus nu este un numar real!\n" daca stringul dat ca parametru nu contine reprezentarea unui double
 	*/
 	void verifyIfDouble(const string& str) const;
 
@@ -309,7 +309,7 @@ public:
 	* Date de iesire (rezultate): -
 	* Postconditii: -
 	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
-	* [!]CosException cu mesajul "Nu exista produse in cosul de cumparaturi!\n" daca cosul de cumparaturi este gol
+	* [!]CosException cu mesajul "[!]Nu exista produse in cosul de cumparaturi!\n" daca cosul de cumparaturi este gol
 	*/
 	void golireCos();
 
@@ -322,11 +322,11 @@ public:
 	* Date de iesire (rezultate): -
 	* Postconditii: -
 	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
-	* [!]CosException cu mesajul "Produsul cautat nu se afla in stoc!\n"
+	* [!]CosException cu mesajul "[!]Produsul cautat nu se afla in stoc!\n"
 	* [!]ServiceException (nu sunt respectate preconditiile privind datele de intrare)
-	* cu unul din mesajele: "Nume invalid!\n", daca doar numele name este invalid (stringul name este vid)
-	*                       "Producator invalid!\n", daca doar producatorul producer este invalid (stringul producer este vid)
-	*                       "Nume invalid!\nProducator invalid!\n", daca atat numele name cat si producatorul producer sunt atribute invalide (stringuri vide)
+	* cu unul din mesajele: "[!]Nume invalid!\n", daca doar numele name este invalid (stringul name este vid)
+	*                       "[!]Producator invalid!\n", daca doar producatorul producer este invalid (stringul producer este vid)
+	*                       "[!]Nume invalid!\n[!]Producator invalid!\n", daca atat numele name cat si producatorul producer sunt atribute invalide (stringuri vide)
 	*/
 	void adaugareCos(const string& name, const string& producer);
 
@@ -337,8 +337,8 @@ public:
 	* Date de iesire (rezultate): -
 	* Postconditii: -
 	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
-	* [!]ServiceException cu mesajul "Numarul introdus nu este o valoare pozitiva!\n", daca num contine reprezentarea unui numar care nu este pozitiv (numar intreg negativ)
-	* [!]ServiceException cu mesajul "Nu ati introdus un numar!\n", daca num nu contine reprezentarea unui numar intreg (integer) cu (signed) sau fara semn (unsigned)
+	* [!]ServiceException cu mesajul "[!]Numarul introdus nu este o valoare pozitiva!\n", daca num contine reprezentarea unui numar care nu este pozitiv (numar intreg negativ)
+	* [!]ServiceException cu mesajul "[!]Nu ati introdus un numar!\n", daca num nu contine reprezentarea unui numar intreg (integer) cu (signed) sau fara semn (unsigned)
 	*/
 	void generareCos(const string& num);
 
@@ -351,8 +351,8 @@ public:
 	* Date de iesire (rezultate): -
 	* Postconditii: -
 	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii (nu sunt respectate preconditiile):
-	* [!]ServiceException cu mesajul "Numele fisierului nu poate fi vid!\n", daca stringul filename este vid
-	* [!]ServiceException cu mesajul "Tip fisier export invalid!\n", daca filetype nu este un tip de fisier valabil
+	* [!]ServiceException cu mesajul "[!]Numele fisierului nu poate fi vid!\n", daca stringul filename este vid
+	* [!]ServiceException cu mesajul "[!]Tip fisier export invalid!\n", daca filetype nu este un tip de fisier valabil
 	*/
 	void exportCos(const string& filename, const string& filetype);
 

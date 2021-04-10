@@ -19,7 +19,7 @@ void TestingValidation::runTestsProductValidator() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Producator invalid!\n");
+		assert(pe.getMessage() == "[!]Producator invalid!\n");
 	}
 
 	try {
@@ -27,7 +27,7 @@ void TestingValidation::runTestsProductValidator() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Pret invalid!\n");
+		assert(pe.getMessage() == "[!]Pret invalid!\n");
 	}
 
 	try {
@@ -35,7 +35,7 @@ void TestingValidation::runTestsProductValidator() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Pret invalid!\nProducator invalid!\n");
+		assert(pe.getMessage() == "[!]Pret invalid!\n[!]Producator invalid!\n");
 	}
 
 	try {
@@ -43,7 +43,7 @@ void TestingValidation::runTestsProductValidator() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Tip invalid!\n");
+		assert(pe.getMessage() == "[!]Tip invalid!\n");
 	}
 
 	try {
@@ -51,7 +51,7 @@ void TestingValidation::runTestsProductValidator() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Tip invalid!\nProducator invalid!\n");
+		assert(pe.getMessage() == "[!]Tip invalid!\n[!]Producator invalid!\n");
 	}
 
 	try {
@@ -59,7 +59,7 @@ void TestingValidation::runTestsProductValidator() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Tip invalid!\nPret invalid!\n");
+		assert(pe.getMessage() == "[!]Tip invalid!\n[!]Pret invalid!\n");
 	}
 
 	try {
@@ -67,7 +67,7 @@ void TestingValidation::runTestsProductValidator() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Tip invalid!\nPret invalid!\nProducator invalid!\n");
+		assert(pe.getMessage() == "[!]Tip invalid!\n[!]Pret invalid!\n[!]Producator invalid!\n");
 	}
 
 	try {
@@ -75,7 +75,7 @@ void TestingValidation::runTestsProductValidator() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Nume invalid!\n");
+		assert(pe.getMessage() == "[!]Nume invalid!\n");
 	}
 
 	try {
@@ -83,7 +83,7 @@ void TestingValidation::runTestsProductValidator() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Nume invalid!\nProducator invalid!\n");
+		assert(pe.getMessage() == "[!]Nume invalid!\n[!]Producator invalid!\n");
 	}
 
 	try {
@@ -91,7 +91,7 @@ void TestingValidation::runTestsProductValidator() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Nume invalid!\nPret invalid!\n");
+		assert(pe.getMessage() == "[!]Nume invalid!\n[!]Pret invalid!\n");
 	}
 
 	try {
@@ -99,7 +99,7 @@ void TestingValidation::runTestsProductValidator() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Nume invalid!\nPret invalid!\nProducator invalid!\n");
+		assert(pe.getMessage() == "[!]Nume invalid!\n[!]Pret invalid!\n[!]Producator invalid!\n");
 	}
 
 	try {
@@ -107,7 +107,7 @@ void TestingValidation::runTestsProductValidator() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Nume invalid!\nTip invalid!\n");
+		assert(pe.getMessage() == "[!]Nume invalid!\n[!]Tip invalid!\n");
 	}
 
 	try {
@@ -115,7 +115,7 @@ void TestingValidation::runTestsProductValidator() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Nume invalid!\nTip invalid!\nProducator invalid!\n");
+		assert(pe.getMessage() == "[!]Nume invalid!\n[!]Tip invalid!\n[!]Producator invalid!\n");
 	}
 
 	try {
@@ -123,7 +123,7 @@ void TestingValidation::runTestsProductValidator() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Nume invalid!\nTip invalid!\nPret invalid!\n");
+		assert(pe.getMessage() == "[!]Nume invalid!\n[!]Tip invalid!\n[!]Pret invalid!\n");
 	}
 
 	try {
@@ -131,6 +131,6 @@ void TestingValidation::runTestsProductValidator() const
 		assert(false);
 	}
 	catch (const ProductException& pe) {
-		assert(pe.getMessage() == "Nume invalid!\nTip invalid!\nPret invalid!\nProducator invalid!\n");
+		assert(pe.getMessage() == "[!]Nume invalid!\n[!]Tip invalid!\n[!]Pret invalid!\n[!]Producator invalid!\n");
 	}
 }

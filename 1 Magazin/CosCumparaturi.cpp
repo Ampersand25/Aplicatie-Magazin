@@ -23,7 +23,7 @@ bool CosCumparaturi::cosGol() const noexcept
 void CosCumparaturi::golesteCos()
 {
 	if (cosGol()) // if (this->cosGol())
-		throw CosException("Nu exista produse in cosul de cumparaturi!\n");
+		throw CosException("[!]Nu exista produse in cosul de cumparaturi!\n");
 
 	cos.clear();
 
@@ -39,7 +39,7 @@ void CosCumparaturi::adaugaInCos(const string& name, const string& producer)
 							[&name, &producer](const Product& product) noexcept {return product.getName() == name && product.getProducer() == producer; });
 
 	if (p == products.end())
-		throw CosException("Produsul cautat nu se afla in stoc!\n");
+		throw CosException("[!]Produsul cautat nu se afla in stoc!\n");
 
 	const auto& prod{ *p };
 
@@ -59,7 +59,7 @@ void CosCumparaturi::genereazaCos(unsigned number_of_products)
 	{
 		// dist(m) - numar aleator/arbitrar (random) intre [0, size - 1],
 		// unde size este numarul de produse (obiecte de clasa Product) din repozitoriu
-		const auto& prod = products.at(dist(mt));
+		const auto& prod{ products.at(dist(mt)) };
 		cos.push_back(prod);
 
 		total_price += prod.getPrice();
@@ -69,7 +69,7 @@ void CosCumparaturi::genereazaCos(unsigned number_of_products)
 void CosCumparaturi::exportCosFisierCSV(const string& filename) const
 {
 	//if (cosGol()) // if (this->cosGol())
-	//	throw CosException("Nu exista produse in cosul de cumparaturi!\n");
+	//	throw CosException("[!]Nu exista produse in cosul de cumparaturi!\n");
 
 	const auto& full_filename{ filename + ".csv" };
 	ofstream out(full_filename);
@@ -88,7 +88,7 @@ void CosCumparaturi::exportCosFisierCSV(const string& filename) const
 void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 {
 	//if (cosGol()) // if (this->cosGol())
-	//	throw CosException("Nu exista produse in cosul de cumparaturi!\n");
+	//	throw CosException("[!]Nu exista produse in cosul de cumparaturi!\n");
 
 	const auto& full_filename{ filename + ".html" };
 	ofstream out(full_filename);

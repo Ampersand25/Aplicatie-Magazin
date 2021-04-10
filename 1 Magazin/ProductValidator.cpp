@@ -46,13 +46,13 @@ void ProductValidator::validateProduct(const Product& bad_product) const
 	string err{ "" }; // lista de erori (un string care contine concatenate toate erorile separate prin metacaracterul '\n')
 
 	if (invalidName(bad_product))     // validam campul name (nume)
-		err += "Nume invalid!\n";
+		err += "[!]Nume invalid!\n";
 	if (invalidType(bad_product))     // validam campul type (tip)
-		err += "Tip invalid!\n";
+		err += "[!]Tip invalid!\n";
 	if (invalidPrice(bad_product))    // validam campul price (pret)
-		err += "Pret invalid!\n";
+		err += "[!]Pret invalid!\n";
 	if (invalidProducer(bad_product)) // validam campul producer (producator)
-		err += "Producator invalid!\n";
+		err += "[!]Producator invalid!\n";
 	
 	if (err.size()) // if (err.size() != 0)
 		            // if (err != "")

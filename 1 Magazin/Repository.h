@@ -33,8 +33,8 @@ public:
 	* Preconditii: -
 	* Date de iesire (rezultate): -
 	* Postconditii: -
-	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
-	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "Produs deja existent!\n" daca produsul product exista deja in lista din repo (exista un produs cu acelasi nume si producator)
+	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
+	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Produs deja existent!\n" daca produsul product exista deja in lista din repo (exista un produs cu acelasi nume si producator)
 	*/
 	void addProduct(const Product& product);
 
@@ -45,8 +45,8 @@ public:
 	* Preconditii: -
 	* Date de iesire (rezultate): -
 	* Postconditii: -
-	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
-	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "Produs inexistent!\n" daca produsul product nu se afla in magazin (nu exista obiect de clasa Product (entitati/inregistrari) nu numele name si producatorul producer in lista din repo)    
+	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
+	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Produs inexistent!\n" daca produsul product nu se afla in magazin (nu exista obiect de clasa Product (entitati/inregistrari) nu numele name si producatorul producer in lista din repo)    
 	*/
 	void deleteProduct(const string& name, const string& producer);
 
@@ -56,8 +56,8 @@ public:
 	* Preconditii: -
 	* Date de iesire (rezultate): -
 	* Postconditii: -
-	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
-	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "Produs inexistent!\n" daca produsul care se doreste a fi actualizat nu se afla in repo (magazin), adica nu exista nicio inregistrare cu numele produsului product si producatorul produsului product
+	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
+	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Produs inexistent!\n" daca produsul care se doreste a fi actualizat nu se afla in repo (magazin), adica nu exista nicio inregistrare cu numele produsului product si producatorul produsului product
 	*/
 	void modifyProduct(const Product& product);
 
@@ -69,8 +69,8 @@ public:
 	* Date de iesire (rezultate): referinta constanta la un obiect de clasa Product
 	* Postconditii: searchProduct() = referinta la obiectul (produsul) cu numele name si producatorul producer gasit
 	*                                 -, daca produsul cautat nu se afla in repo (ridica exceptie)
-	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
-	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "Produs inexistent!\n" daca produsul cautat nu se afla in repo (magazin), adica nu exista nicio inregistrare cu numele name si producatorul producer
+	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
+	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Produs inexistent!\n" daca produsul cautat nu se afla in repo (magazin), adica nu exista nicio inregistrare cu numele name si producatorul producer
 	*/
 	const Product& searchProduct(const string& name, const string& producer) const;
 
@@ -81,7 +81,7 @@ public:
 	* Date de iesire (rezultate): referinta constanta la un vector de obiecte de clasa Product
 	* Postconditii: getAll() = referinta constanta la lista de obiecte (produse) din repo (magazin)
 	*                          -, daca nu exista produse in repo (ridica exceptie)
-	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
+	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
 	*/
 	const vector<Product>& getAll() const;
 

@@ -54,19 +54,19 @@
     <SFA>
       <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
       <FILENAME>Repository.cpp</FILENAME>
-      <LINE>167</LINE>
+      <LINE>171</LINE>
       <COLUMN>1</COLUMN>
     </SFA>
     <DEFECTCODE>26489</DEFECTCODE>
-    <DESCRIPTION>Don't dereference a pointer that may be invalid: 'allotemp.12'. '(temporary 12)' may have been invalidated at line 167 (lifetime.1).</DESCRIPTION>
+    <DESCRIPTION>Don't dereference a pointer that may be invalid: 'allotemp.12'. '(temporary 12)' may have been invalidated at line 171 (lifetime.1).</DESCRIPTION>
     <FUNCTION>RepoProducts::searchProduct</FUNCTION>
     <DECORATED>?searchProduct@RepoProducts@@QBEABVProduct@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z</DECORATED>
-    <FUNCLINE>144</FUNCLINE>
+    <FUNCLINE>148</FUNCLINE>
     <PATH>
       <SFA>
         <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
         <FILENAME>Repository.cpp</FILENAME>
-        <LINE>167</LINE>
+        <LINE>171</LINE>
         <COLUMN>1</COLUMN>
       </SFA>
     </PATH>
@@ -74,19 +74,19 @@
     <SFA>
       <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
       <FILENAME>Repository.cpp</FILENAME>
-      <LINE>167</LINE>
+      <LINE>171</LINE>
       <COLUMN>1</COLUMN>
     </SFA>
     <DEFECTCODE>26487</DEFECTCODE>
-    <DESCRIPTION>Don't return a pointer '(144's result)' that may be invalid (lifetime.4).</DESCRIPTION>
+    <DESCRIPTION>Don't return a pointer '(148's result)' that may be invalid (lifetime.4).</DESCRIPTION>
     <FUNCTION>RepoProducts::searchProduct</FUNCTION>
     <DECORATED>?searchProduct@RepoProducts@@QBEABVProduct@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z</DECORATED>
-    <FUNCLINE>144</FUNCLINE>
+    <FUNCLINE>148</FUNCLINE>
     <PATH>
       <SFA>
         <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
         <FILENAME>Repository.cpp</FILENAME>
-        <LINE>167</LINE>
+        <LINE>171</LINE>
         <COLUMN>1</COLUMN>
       </SFA>
     </PATH>

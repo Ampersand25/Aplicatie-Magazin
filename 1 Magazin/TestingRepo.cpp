@@ -23,7 +23,7 @@ void TestingRepo::runTestsRepoAddProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 
 	repo.addProduct({ "Nume produs 1", "Tip produs 1", 5.14, "Producator produs 1" });
@@ -52,7 +52,7 @@ void TestingRepo::runTestsRepoAddProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs deja existent!\n");
+		assert(re.getMessage() == "[!]Produs deja existent!\n");
 	}
 	assert(repo.len() == 3);
 
@@ -61,7 +61,7 @@ void TestingRepo::runTestsRepoAddProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs deja existent!\n");
+		assert(re.getMessage() == "[!]Produs deja existent!\n");
 	}
 	assert(repo.len() == 3);
 
@@ -70,7 +70,7 @@ void TestingRepo::runTestsRepoAddProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs deja existent!\n");
+		assert(re.getMessage() == "[!]Produs deja existent!\n");
 	}
 	assert(repo.len() == 3);
 
@@ -79,7 +79,7 @@ void TestingRepo::runTestsRepoAddProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs deja existent!\n");
+		assert(re.getMessage() == "[!]Produs deja existent!\n");
 	}
 	assert(repo.len() == 3);
 
@@ -136,7 +136,7 @@ void TestingRepo::runTestsRepoDeleteProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	assert(repo.len() == 5);
 
@@ -145,7 +145,7 @@ void TestingRepo::runTestsRepoDeleteProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	assert(repo.len() == 5);
 
@@ -170,7 +170,7 @@ void TestingRepo::runTestsRepoDeleteProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	assert(repo.len() == 4);
 
@@ -187,7 +187,7 @@ void TestingRepo::runTestsRepoDeleteProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	assert(repo.len() == 3);
 
@@ -203,7 +203,7 @@ void TestingRepo::runTestsRepoDeleteProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	assert(repo.len() == 2);
 
@@ -218,7 +218,7 @@ void TestingRepo::runTestsRepoDeleteProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	assert(repo.len() == 1);
 
@@ -230,7 +230,7 @@ void TestingRepo::runTestsRepoDeleteProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 	assert(repo.len() == 0);
 
@@ -239,7 +239,7 @@ void TestingRepo::runTestsRepoDeleteProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 	assert(repo.len() == 0);
 
@@ -248,7 +248,7 @@ void TestingRepo::runTestsRepoDeleteProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 	assert(repo.len() == 0);
 
@@ -257,7 +257,7 @@ void TestingRepo::runTestsRepoDeleteProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 	assert(repo.len() == 0);
 
@@ -266,7 +266,7 @@ void TestingRepo::runTestsRepoDeleteProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 	assert(repo.len() == 0);
 
@@ -275,7 +275,7 @@ void TestingRepo::runTestsRepoDeleteProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 }
 
@@ -289,7 +289,7 @@ void TestingRepo::runTestsRepoModifyProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 
 	repo.addProduct(Product{ "Nume produs 1", "Tip produs 1", 5.14, "Producator produs 1" });
@@ -304,7 +304,7 @@ void TestingRepo::runTestsRepoModifyProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	assert(repo.len() == 5);
 
@@ -313,7 +313,7 @@ void TestingRepo::runTestsRepoModifyProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	assert(repo.len() == 5);
 
@@ -322,7 +322,7 @@ void TestingRepo::runTestsRepoModifyProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	assert(repo.len() == 5);
 
@@ -394,7 +394,7 @@ void TestingRepo::runTestsRepoSearchProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Nu exista produse in magazin!\n");
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
 	}
 
 	repo.addProduct(Product{ "Nume produs 1", "Tip produs 1", 5.14, "Producator produs 1" });
@@ -409,7 +409,7 @@ void TestingRepo::runTestsRepoSearchProduct() const
 		assert(false);
 	}
 	catch(const RepoException& re){
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	assert(repo.len() == 5);
 
@@ -418,7 +418,7 @@ void TestingRepo::runTestsRepoSearchProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	assert(repo.len() == 5);
 
@@ -427,7 +427,7 @@ void TestingRepo::runTestsRepoSearchProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	assert(repo.len() == 5);
 
@@ -436,7 +436,7 @@ void TestingRepo::runTestsRepoSearchProduct() const
 		assert(false);
 	}
 	catch (const RepoException& re) {
-		assert(re.getMessage() == "Produs inexistent!\n");
+		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	assert(repo.len() == 5);
 

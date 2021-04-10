@@ -63,7 +63,7 @@
         {
           "ruleId": "C26489",
           "message": {
-            "text": "Don't dereference a pointer that may be invalid: 'allotemp.12'. '(temporary 12)' may have been invalidated at line 167 (lifetime.1)."
+            "text": "Don't dereference a pointer that may be invalid: 'allotemp.12'. '(temporary 12)' may have been invalidated at line 171 (lifetime.1)."
           },
           "locations": [
             {
@@ -72,9 +72,9 @@
                   "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Repository.cpp"
                 },
                 "region": {
-                  "startLine": 167,
+                  "startLine": 171,
                   "startColumn": 2,
-                  "endLine": 167,
+                  "endLine": 171,
                   "endColumn": 10
                 }
               },
@@ -98,7 +98,7 @@
                             "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Repository.cpp"
                           },
                           "region": {
-                            "startLine": 167,
+                            "startLine": 171,
                             "startColumn": 2
                           }
                         }
@@ -115,7 +115,7 @@
         {
           "ruleId": "C26487",
           "message": {
-            "text": "Don't return a pointer '(144's result)' that may be invalid (lifetime.4)."
+            "text": "Don't return a pointer '(148's result)' that may be invalid (lifetime.4)."
           },
           "locations": [
             {
@@ -124,9 +124,9 @@
                   "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Repository.cpp"
                 },
                 "region": {
-                  "startLine": 167,
+                  "startLine": 171,
                   "startColumn": 2,
-                  "endLine": 167,
+                  "endLine": 171,
                   "endColumn": 10
                 }
               },
@@ -150,7 +150,7 @@
                             "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Repository.cpp"
                           },
                           "region": {
-                            "startLine": 167,
+                            "startLine": 171,
                             "startColumn": 2
                           }
                         }
@@ -175,7 +175,7 @@
       },
       "invocations": [
         {
-          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x004EB1C0 -il C:\\Users\\Admin\\AppData\\Local\\Temp\\_CL_70e9fd72ast -typedil -f Repository.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829913 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\Repository.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset CppRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x00BDB1C0 -il C:\\Users\\Admin\\AppData\\Local\\Temp\\_CL_8a0ee58east -typedil -f Repository.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829913 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\Repository.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset CppRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
           "executionSuccessful": true
         }
       ],
@@ -193,172 +193,13 @@
         },
         {
           "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingvalidation.cpp"
-          },
-          "roles": [
-            "analysisTarget"
-          ],
-          "hashes": {
-            "md5": "847d6036322c7c6b43e7c65533a7a689"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingvalidation.h"
-          },
-          "hashes": {
-            "md5": "575bf36cdcd08b2bcb5b410e07dffdab"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/productvalidator.h"
-          },
-          "hashes": {
-            "md5": "528619a8dfb7809910d216c0d0a086b9"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/productexception.h"
-          },
-          "hashes": {
-            "md5": "d65e3729a4df2705a489a61e580e6fcb"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingservice.cpp"
-          },
-          "roles": [
-            "analysisTarget"
-          ],
-          "hashes": {
-            "md5": "48821871f767a829b37201d4a86e3801"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingservice.h"
-          },
-          "hashes": {
-            "md5": "18844e6b55e658deca97c1f43fcc2854"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/service.h"
-          },
-          "hashes": {
-            "md5": "50b5c4f7e387e82e75ed3fcdb1b3f8e6"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/repository.h"
-          },
-          "hashes": {
-            "md5": "c84ccfb997ca4d45abfc2ecc6312283c"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/coscumparaturi.h"
-          },
-          "hashes": {
-            "md5": "7df112f455882a4a401014e8509ce269"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/serviceexception.h"
-          },
-          "hashes": {
-            "md5": "7d090bd068e22ca5a9ed4e3e344782bb"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/repoexception.h"
+            "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/RepoException.h"
           },
           "roles": [
             "resultFile"
           ],
           "hashes": {
             "md5": "18cad41a7be06289f679a6e463da1275"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingrepo.cpp"
-          },
-          "roles": [
-            "analysisTarget"
-          ],
-          "hashes": {
-            "md5": "670c9d717540ceebf3f31e23c26b459c"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingrepo.h"
-          },
-          "hashes": {
-            "md5": "1101bb85037819328bfe29623647dbc7"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingdomain.cpp"
-          },
-          "roles": [
-            "analysisTarget"
-          ],
-          "hashes": {
-            "md5": "1c8a5b48f01ff108828d0a7252528dd9"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingdomain.h"
-          },
-          "hashes": {
-            "md5": "86a5894732faa6135acdf6a4fdbd6dcd"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingapp.cpp"
-          },
-          "roles": [
-            "analysisTarget"
-          ],
-          "hashes": {
-            "md5": "b8e72709dbad7c5b85784a571bab810d"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingapp.h"
-          },
-          "hashes": {
-            "md5": "5c8c606e220afd5391730e774e4968c3"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingutils.h"
-          },
-          "hashes": {
-            "md5": "1eff9c8bac2766f3104994edbd3a83f2"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/utils.h"
-          },
-          "hashes": {
-            "md5": "e4cb890e3c1b86bc38831ca84dbb69a9"
           }
         },
         {
@@ -370,7 +211,15 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "8efce01dd6116a1c27539dbd339157cb"
+            "md5": "c5ccaecdcad3413226f4bb1c4eb17bf0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/repository.h"
+          },
+          "hashes": {
+            "md5": "3586be5e1e6d7c82adc9f53178faca15"
           }
         }
       ]
