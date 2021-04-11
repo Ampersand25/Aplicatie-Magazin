@@ -127,6 +127,7 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 
 	out << "<!DOCTYPE html>\n";
 	out << "<html lang=\"en\">\n";
+	
 	out << "<head>\n";
 	out << "<title>Cos produse magazin</title>\n";
 	out << "<meta charset=\"utf-8\">\n";
@@ -135,6 +136,7 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	out << "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\n";
 	out << "<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>\n";
 	out << "</head>\n";
+	
 	out << "<body>\n";
 	out << "<div class=\"cos cumparaturi\">\n";
 	out << "<h1><b>Cos de cumparaturi</b></h1>\n";
@@ -143,24 +145,28 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 		out << "Momentan nu exista produse in cosul de cumparaturi!\n";
 	else {
 		out << "<table class=\"table table-bordered\">\n";
+
 		out << "<thead>\n";
 		out << "<tr>\n";
+
 		out << "<th style=\"background-color:#7FCDCD;\">Nume</th>\n";
 		out << "<th style=\"background-color:#B565A7;\">Tip</th>\n";
 		out << "<th style=\"background-color:#FF6F61;\">Pret</th>\n";
 		out << "<th style=\"background-color:#92A8D1;\">Producator</th>\n";
+		
 		out << "</tr>\n";
 		out << "</thead>\n";
+
 		out << "<tbody>\n";
 
 		for (const auto& p : cos)
 		{
-			out << "<tr>"
-				<< "<td style=\"background-color:#7FCDCD;\">" << p.getName() << "</td>"
-				<< "<td style=\"background-color:#B565A7;\">" << p.getType() << "</td>"
-				<< "<td style=\"background-color:#FF6F61;\">" << p.getPrice() << "</td>"
-				<< "<td style=\"background-color:#92A8D1;\">" << p.getProducer() << "</td>"
-				<< "</tr>";
+			out << "<tr>\n"
+				<< "<td style=\"background-color:#7FCDCD;\">" << p.getName() << "</td>\n"
+				<< "<td style=\"background-color:#B565A7;\">" << p.getType() << "</td>\n"
+				<< "<td style=\"background-color:#FF6F61;\">" << p.getPrice() << "</td>\n"
+				<< "<td style=\"background-color:#92A8D1;\">" << p.getProducer() << "</td>\n"
+				<< "</tr>\n";
 		}
 
 		out << "</tbody>\n";
@@ -169,7 +175,7 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	
 	out << "</div>\n";
 
-	out << "\n<span style=\"color:blue\">[$]Pret total produse: " << this->getTotal() << "</span>\n";
+	out << "<span style=\"color:blue\">[$]Pret total produse: " << this->getTotal() << "</span>\n";
 
 	out << "</body>\n";
 	out << "</html>\n";

@@ -155,6 +155,7 @@
     <ClCompile Include="Service.cpp" />
     <ClCompile Include="ServiceException.cpp" />
     <ClCompile Include="TestingApp.cpp" />
+    <ClCompile Include="TestingCosCumparaturi.cpp" />
     <ClCompile Include="TestingDomain.cpp" />
     <ClCompile Include="TestingRepo.cpp" />
     <ClCompile Include="TestingService.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="Service.h" />
     <ClInclude Include="ServiceException.h" />
     <ClInclude Include="TestingApp.h" />
+    <ClInclude Include="TestingCosCumparaturi.h" />
     <ClInclude Include="TestingDomain.h" />
     <ClInclude Include="TestingRepo.h" />
     <ClInclude Include="TestingService.h" />

@@ -4,6 +4,7 @@
 #include "TestingValidation.h"
 #include "TestingUtils.h"
 #include "TestingService.h"
+#include "TestingCosCumparaturi.h"
 
 void TestingApp::runTestsApp() const
 {
@@ -41,5 +42,14 @@ void TestingApp::runTestsApp() const
 
 		const TestingService testing_service{ valid };
 		testing_service.runTestsService();
+	}
+
+	// Testarea clasei CosCumparaturi
+	{
+		RepoProducts repo;
+		CosCumparaturi cos_cumparaturi{ repo };
+		
+		const TestingCosCumparaturi testing_cos_cumparaturi{ cos_cumparaturi, repo };
+		testing_cos_cumparaturi.runTestsCosCumparaturi();
 	}
 }

@@ -82,6 +82,9 @@
     <Filter Include="Source Files\Cos\CosException">
       <UniqueIdentifier>{1203c43f-eeeb-439c-b40a-0cfb6e10bbc0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Testing\TestingCos">
+      <UniqueIdentifier>{90337892-56a3-4397-b17a-4fff5ae2ab8e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ApplicationCoordinator.cpp">
@@ -138,6 +141,9 @@
     <ClCompile Include="CosException.cpp">
       <Filter>Source Files\Cos\CosException</Filter>
     </ClCompile>
+    <ClCompile Include="TestingCosCumparaturi.cpp">
+      <Filter>Source Files\Testing\TestingCos</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestingApp.h">
@@ -190,6 +196,9 @@
     </ClInclude>
     <ClInclude Include="CosException.h">
       <Filter>Source Files\Cos\CosException</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingCosCumparaturi.h">
+      <Filter>Source Files\Testing\TestingCos</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
