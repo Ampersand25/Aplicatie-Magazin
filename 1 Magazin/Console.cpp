@@ -21,6 +21,7 @@ void UI::showMenu() const
 	cout << "afisare     - tipareste in consola toate produsele disponibile in magazin\n";
 	cout << "filtrare    - filtrare produse dupa: pret, nume, producator\n";
 	cout << "sortare     - sortare produse dupa: nume, pret, nume + tip\n";
+	cout << "info tipuri - afiseaza toate tipurile de produse din magazin si cate produse de tipul respectiv exista in stoc!\n";
 	cout << "cumparaturi - crearea si gestionarea cosului de cumparaturi\n";
 	cout << "clear       - curata ecranul (se sterge continutul terminalului)\n";
 	cout << "exit        - inchide aplicatia\n";
@@ -175,6 +176,37 @@ void UI::printAllUI() const
 	catch(const RepoException& re){
 		cerr << re.getMessage() << endl;
 	}
+}
+
+void UI::countTypeUI() const
+{
+	try {
+		const auto& types_map{ srv.countType() };
+
+#define type first
+#define freq second
+
+		for (const auto elem : types_map) // parcurgem toate perechile <cheie, valoare> din dictionarul ordonat
+		{
+			const auto key{ elem.first };    // cheia elementului elem
+			const auto value{ elem.second }; // valoarea elementului elem
+
+			// key (cheia): TKey = string
+			// value (valoarea cheii): TPair = pair<string, unsigned>
+			// value.type (value.first): string (sir de caractere din STL = Standard Template Library)
+			// value.freq (value.second): unsigned (intreg fara semn)
+
+			cout << "Exista " << value.freq << " produse cu tipul \"" << key << "\" in magazin!\n";
+		}
+
+#undef type
+#undef freq
+	}
+	catch (const RepoException& re) {
+		cerr << re.getMessage();
+	}
+
+	cout << endl;
 }
 
 void UI::showFilterCriterions() const
@@ -587,8 +619,8 @@ void UI::runApp() const
 	auto run{ true };
 	const vector<string> commands{ "adaugare", "stergere", "modificare",
 								   "cautare", "afisare", "filtrare",
-								   "sortare", "cumparaturi", "clear",
-								   "exit", "debug" };
+								   "sortare", "info tipuri", "cumparaturi",
+								   "clear", "exit", "debug" };
 	string cmd;
 	
 	while (run)
@@ -613,12 +645,14 @@ void UI::runApp() const
 		else if (srv.cmpStrings(cmd, commands.at(6)))
 			sortUI();
 		else if (srv.cmpStrings(cmd, commands.at(7)))
-			cosCumparaturiUI();
+			countTypeUI();
 		else if (srv.cmpStrings(cmd, commands.at(8)))
-			clearUI();
+			cosCumparaturiUI();
 		else if (srv.cmpStrings(cmd, commands.at(9)))
-			run = false;
+			clearUI();
 		else if (srv.cmpStrings(cmd, commands.at(10)))
+			run = false;
+		else if (srv.cmpStrings(cmd, commands.at(11)))
 			debugUI();
 		else
 			cerr << "[X]Comanda invalida!\n\n";

@@ -44,6 +44,12 @@ private:
 	void printAllUI() const;
 
 	/*
+	* Procedura care afiseaza pentru fiecare tip de produs din magazin de cate ori apare
+	* Subrutina va tipari in consola/terminal (adica pe ecran) tipurile de produse din magazin ordonate/sortate crescator si cate produse cu tipul respectiv exista in stoc
+	*/
+	void countTypeUI() const;
+
+	/*
 	* Procedura care afiseaza pe ecran criteriile existente de filtrare a produselor din magazin
 	*/
 	void showFilterCriterions() const;

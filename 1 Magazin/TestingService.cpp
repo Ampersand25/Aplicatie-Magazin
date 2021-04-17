@@ -612,6 +612,138 @@ void TestingService::runTestsServiceGetAll() const
 	}
 }
 
+void TestingService::runTestsCountType() const
+{
+	RepoProducts repo;
+	Service srv{ repo, valid };
+
+	try {
+		srv.countType();
+		assert(false);
+	}
+	catch (const RepoException& re) {
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
+	}
+
+	srv.add("a", "b", 5.74, "c");
+
+	try {
+		auto m{ srv.countType() };
+
+		assert(m.size() == 1);
+
+		assert(m.find("b") != m.end());
+		assert(m["b"].first == "b");
+		assert(m["b"].second == 1);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	srv.add("x", "b", 7.213, "z");
+
+	try {
+		auto m{ srv.countType() };
+
+		assert(m.size() == 1);
+
+		assert(m.find("b") != m.end());
+		assert(m["b"].first == "b");
+		assert(m["b"].second == 2);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	srv.add("d", "e", 3, "f");
+
+	try {
+		auto m{ srv.countType() };
+
+		assert(m.size() == 2);
+
+		assert(m.find("b") != m.end());
+		assert(m["b"].first == "b");
+		assert(m["b"].second == 2);
+
+		assert(m.find("e") != m.end());
+		assert(m["e"].first == "e");
+		assert(m["e"].second == 1);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	srv.add("u", "v", 9.45, "w");
+
+	try {
+		auto m{ srv.countType() };
+
+		assert(m.size() == 3);
+
+		assert(m.find("b") != m.end());
+		assert(m["b"].first == "b");
+		assert(m["b"].second == 2);
+
+		assert(m.find("e") != m.end());
+		assert(m["e"].first == "e");
+		assert(m["e"].second == 1);
+
+		assert(m.find("e") != m.end());
+		assert(m["v"].first == "v");
+		assert(m["v"].second == 1);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	srv.add("r", "b", 85.5337, "t");
+
+	try {
+		auto m{ srv.countType() };
+
+		assert(m.size() == 3);
+
+		assert(m.find("b") != m.end());
+		assert(m["b"].first == "b");
+		assert(m["b"].second == 3);
+
+		assert(m.find("e") != m.end());
+		assert(m["e"].first == "e");
+		assert(m["e"].second == 1);
+
+		assert(m.find("e") != m.end());
+		assert(m["v"].first == "v");
+		assert(m["v"].second == 1);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+
+	srv.add("m", "e", 13.1, "o");
+
+	try {
+		auto m{ srv.countType() };
+
+		assert(m.size() == 3);
+
+		assert(m.find("b") != m.end());
+		assert(m["b"].first == "b");
+		assert(m["b"].second == 3);
+
+		assert(m.find("e") != m.end());
+		assert(m["e"].first == "e");
+		assert(m["e"].second == 2);
+
+		assert(m.find("e") != m.end());
+		assert(m["v"].first == "v");
+		assert(m["v"].second == 1);
+	}
+	catch (const RepoException&) {
+		assert(false);
+	}
+}
+
 void TestingService::testFunction(const Product& p, const string& name, const string& type, const double& price, const string& producer) const noexcept
 {
 	assert(p.getName() == name);
@@ -1511,6 +1643,7 @@ void TestingService::runTestsService() const
 	runTestsServiceModify();
 	runTestsServiceSearch();
 	runTestsServiceGetAll();
+	runTestsCountType();
 
 	runTestsServiceFilterProducts();
 	runTestsServiceSortProducts();

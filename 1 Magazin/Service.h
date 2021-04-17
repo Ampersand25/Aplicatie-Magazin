@@ -4,6 +4,11 @@
 #include "ProductValidator.h"
 #include "CosCumparaturi.h"
 
+#include <map>
+
+using std::map;
+using std::pair;
+
 class Service
 {
 private:
@@ -273,6 +278,21 @@ public:
 	* [!]RepoException daca nu exista obiecte de clasa Product in lista din repo
 	*/
 	const vector<Product>& getAll() const;
+
+#define TKey string
+#define TValue pair<string, unsigned>
+#define dictionary map<TKey, TValue>
+
+	/*
+	* Functie de tip operand (rezultat) care returneaza un dictionary (map = dictionar ordonat) care contine toate tipurile de produse (obiecte de clasa Product) din magazin (repo) si de cate ori apare fiecare
+	* Date de intrare: -
+	* Preconditii: -
+	* Date de iesire (rezultate): map din STL care va avea ca si cheie (key) un sir de caractere din STL (TKey = string), iar ca si valoare o pereche (TValue = pair) care contine un string (first) si un intreg fara semn (second)
+	* Postconditii: dictionarul returnat/intors de functie contine ca si chei toate tipurile de produse din magazin ordonate/sortate crescator dupa tip (cheie) si pentru fiecare tip de produs retine ca si valoare tipul produsului si cate produse cu tipul respectiv exista in stoc
+	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
+	* [!]RepoException cu mesajul "Nu exista produse in magazin!\n", daca stocul din magazin este gol (nu exista entitati (obiecte de clasa Product) in repo)
+	*/
+	dictionary countType() const;
 
 	/*
 	* Functie care filtreaza produsele din magazin dupa un anumit criteriu (pret, nume, producator), filtru (valoarea pretului, numelui sau producatorului) si un semn (<, = sau >) in cazul in care criteriul de filtrare este pretul

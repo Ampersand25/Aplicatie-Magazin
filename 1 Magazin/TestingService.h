@@ -48,6 +48,11 @@ private:
 	void runTestsServiceGetAll() const;
 
 	/*
+	* Metoda care testeaza functia countType din fisierul antet/header Business.h
+	*/
+	void runTestsCountType() const;
+
+	/*
 	* Functie de test care verifica daca un produs p are atributul name identic cu name, atributul type identic cu type, atributul price identic cu price si atributul producer identic cu producer
 	*/
 	void testFunction(const Product& p, const string& name, const string& type, const double& price, const string& producer) const noexcept;

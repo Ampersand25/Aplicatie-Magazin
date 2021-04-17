@@ -84,6 +84,21 @@ const vector<Product>& Service::getAll() const
 	return repo.getAll(); // returnam o referinta constanta la lista de obiecte de clasa Product din repo
 }
 
+dictionary Service::countType() const
+{
+	dictionary types_map;
+
+	const auto& products{ getAll() };
+
+	for (const auto& prod : products)
+		if (types_map.find(prod.getType()) == types_map.end())
+			types_map[prod.getType()] = make_pair(prod.getType(), 1); // types_map[prod.getType()] = { prod.getType(), 1 };
+		else
+			++types_map[prod.getType()].second;
+
+	return types_map;
+}
+
 /*
 bool Service::validPriceFilter(const Product& p, const string& price, const string& sign) const
 {
