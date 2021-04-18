@@ -4,6 +4,9 @@
 #include "Product.h"
 
 #include <cassert> // #include <assert.h>
+#include <algorithm>
+
+using std::count_if;
 
 void TestingCosCumparaturi::cmpDouble(const double& a, const double& b) const noexcept
 {
@@ -458,6 +461,69 @@ void TestingCosCumparaturi::runTestsNrProduseCos() const
 	assert(cos.nrProduseCos() == 0);
 }
 
+void TestingCosCumparaturi::cmpCantity(const CosCumparaturi& cos, const int& x, const int& y, const int& z) const
+{
+	assert(count_if(cos.getCos().begin(), cos.getCos().end(), [](const Product& prod) {return prod.getName() == "pasta de dinti" && prod.getProducer() == "Colgate"; }) == x);
+	assert(count_if(cos.getCos().begin(), cos.getCos().end(), [](const Product& prod) {return prod.getName() == "vegeta" && prod.getProducer() == "Vegeta"; }) == y);
+	assert(count_if(cos.getCos().begin(), cos.getCos().end(), [](const Product& prod) {return prod.getName() == "chipsuri" && prod.getProducer() == "Lays"; }) == z);
+}
+
+void TestingCosCumparaturi::runTestsGetCos() const
+{
+	CosCumparaturi cos{ repo };
+
+	// repo.addProduct(Product{ "pasta de dinti", "igiena orala", 5.7, "Colgate" });
+	// repo.addProduct(Product{ "vegeta", "condimenete", 9, "Vegeta" });
+	// repo.addProduct(Product{ "chipsuri", "rontanele", 21.47, "Lays" });
+
+	try {
+		assert(cos.getCos().size() == 0);
+	}
+	catch (const CosException& ce) {
+		assert(ce.getMessage() == "[!]Nu exista produse in cosul de cumparaturi!\n");
+	}
+
+	cos.adaugaInCos("vegeta", "Vegeta");
+	assert(cos.getCos().size() == 1);
+	cmpCantity(cos, 0, 1, 0);
+
+	cos.adaugaInCos("chipsuri", "Lays");
+	assert(cos.getCos().size() == 2);
+	cmpCantity(cos, 0, 1, 1);
+
+	cos.adaugaInCos("chipsuri", "Lays");
+	assert(cos.getCos().size() == 3);
+	cmpCantity(cos, 0, 1, 2);
+
+	cos.adaugaInCos("vegeta", "Vegeta");
+	assert(cos.getCos().size() == 4);
+	cmpCantity(cos, 0, 2, 2);
+
+	cos.adaugaInCos("pasta de dinti", "Colgate");
+	assert(cos.getCos().size() == 5);
+	cmpCantity(cos, 1, 2, 2);
+
+	cos.adaugaInCos("vegeta", "Vegeta");
+	assert(cos.getCos().size() == 6);
+	cmpCantity(cos, 1, 3, 2);
+
+	cos.adaugaInCos("vegeta", "Vegeta");
+	assert(cos.getCos().size() == 7);
+	cmpCantity(cos, 1, 4, 2);
+
+	cos.adaugaInCos("pasta de dinti", "Colgate");
+	assert(cos.getCos().size() == 8);
+	cmpCantity(cos, 2, 4, 2);
+
+	cos.adaugaInCos("pasta de dinti", "Colgate");
+	assert(cos.getCos().size() == 9);
+	cmpCantity(cos, 3, 4, 2);
+
+	cos.adaugaInCos("pasta de dinti", "Colgate");
+	assert(cos.getCos().size() == 10);
+	cmpCantity(cos, 4, 4, 2);
+}
+
 void TestingCosCumparaturi::runTestsStergeProduseCos() const
 {
 	CosCumparaturi cos{ repo };
@@ -725,6 +791,7 @@ void TestingCosCumparaturi::runTestsCosCumparaturi() const
 	runTestsExportCosFisier();
 	runTestsGetTotal();
 	runTestsNrProduseCos();
+	runTestsGetCos();
 	runTestsStergeProduseCos();
 	runTestsModificaProduseCos();
 }

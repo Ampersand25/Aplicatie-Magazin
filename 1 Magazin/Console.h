@@ -50,6 +50,11 @@ private:
 	void countTypeUI() const;
 
 	/*
+	* Procedura care face undo la ultima operatie (adauga, modifica sau sterge)
+	*/
+	void undoUI() const;
+
+	/*
 	* Procedura care afiseaza pe ecran criteriile existente de filtrare a produselor din magazin
 	*/
 	void showFilterCriterions() const;
@@ -122,6 +127,11 @@ private:
 	void generareCosUI() const;
 
 	/*
+	* Procedura care afiseaza toate produsele din cosul de cumparaturi
+	*/
+	void tiparireCos() const;
+
+	/*
 	* Procedura care afiseaza toate produsele din cosul de cumparaturi intr-un fisier CSV
 	*/
 	void exportCosUI() const;
@@ -138,8 +148,10 @@ private:
 
 	/*
 	* Procedura care incearca adaugarea unui produs (obiect de clasa Product) cu numele name, tipul type, preturl price si producatorul producer
+	* Valoarea (continutul) variabilei cont se va incrementa daca adaugarea s-a reazlizat cu succes (adica nu exista un produs cu numele name si producatorul producer in stocul magazinului)
+	* Variabila cont este transmisa prin referinta (este o resursa volatila care se poate modifica/altera in corpul subprogramului/subrutinei)
 	*/
-	void addDebug(const string& name, const string& type, const double& price, const string& producer) const;
+	void addDebug(const string& name, const string& type, const double& price, const string& producer, unsigned& cont) const;
 
 	/*
 	* Procedura care adauaga 10 obiecte de clasa Product (10 inregistrari) in lista din repo (adica in magazin)

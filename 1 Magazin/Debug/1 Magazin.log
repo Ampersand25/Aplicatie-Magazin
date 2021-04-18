@@ -1,6 +1,7 @@
-﻿  Utils.cpp
+﻿  ApplicationCoordinator.cpp
   1 Magazin.vcxproj -> C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Debug\1 Magazin.exe
 C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Product.h(50): warning C26432: If you define or delete any default operation in the type 'class Product', define or delete them all (c.21).
+C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Undo.h(19): warning C26432: If you define or delete any default operation in the type 'class ActiuneUndo', define or delete them all (c.21).
 C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\CosException.h(30): warning C26432: If you define or delete any default operation in the type 'class CosException', define or delete them all (c.21).
 C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\ProductException.h(30): warning C26432: If you define or delete any default operation in the type 'class ProductException', define or delete them all (c.21).
 C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\RepoException.h(30): warning C26432: If you define or delete any default operation in the type 'class RepoException', define or delete them all (c.21).

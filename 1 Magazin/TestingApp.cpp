@@ -5,6 +5,7 @@
 #include "TestingUtils.h"
 #include "TestingService.h"
 #include "TestingCosCumparaturi.h"
+#include "TestingUndo.h"
 
 void TestingApp::runTestsApp() const
 {
@@ -44,12 +45,18 @@ void TestingApp::runTestsApp() const
 		testing_service.runTestsService();
 	}
 
-	// Testarea clasei CosCumparaturi
+	// Testarea clasei CosCumparaturi si a metodelor aferente (metode publice)
 	{
 		RepoProducts repo;
 		CosCumparaturi cos_cumparaturi{ repo };
 		
 		const TestingCosCumparaturi testing_cos_cumparaturi{ cos_cumparaturi, repo };
 		testing_cos_cumparaturi.runTestsCosCumparaturi();
+	}
+
+	// Testarea claselor care fac undo (clase derivate din clasa de baza ActiuneUndo)
+	{
+		TestingUndo testing_undo;
+		testing_undo.runTestsUndo();
 	}
 }

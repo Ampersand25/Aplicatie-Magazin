@@ -17,6 +17,20 @@
   <DEFECT>
     <SFA>
       <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
+      <FILENAME>Undo.h</FILENAME>
+      <LINE>19</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26432</DEFECTCODE>
+    <DESCRIPTION>If you define or delete any default operation in the type 'class ActiuneUndo', define or delete them all (c.21).</DESCRIPTION>
+    <FUNCTION>ActiuneUndo::{dtor}</FUNCTION>
+    <DECORATED>??1ActiuneUndo@@UAE@XZ</DECORATED>
+    <FUNCLINE>19</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
       <FILENAME>ServiceException.h</FILENAME>
       <LINE>30</LINE>
       <COLUMN>1</COLUMN>

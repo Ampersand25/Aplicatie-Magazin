@@ -7,10 +7,11 @@
 #include <string>    // for stoi (string to integer build-in function)
 #include <iostream>  // for back_inserter
 
-using std::sort;
-using std::copy_if;
-using std::back_inserter;
-using std::exception;
+using std::sort;          // functie build-in de sortare (ordonare) a unei structuri de date
+using std::copy_if;       // functie de copiere dintr-o structura de date in alta (folosita la filtrare)
+using std::back_inserter; // functie care face push_back la copy_if in structura de date in care se face copierea/filtarea si da ensure capacity (daca nu mai exista spatiu in zona de memorie unde se face copierea, atunci se face resize/redimensionare astfel incat sa acomodeze toate elementele ce trebuie copiate)
+using std::make_unique;   // functie care creeaza un smart pointer
+using std::exception;     // clasa de exceptie din STL
 
 bool Service::cmpStrings(const string& str_1, const string& str_2) const noexcept
 {
@@ -26,12 +27,22 @@ void Service::verifyIfDouble(const string& str) const
 		throw ServiceException("[!]Pretul introdus nu este un numar real!\n"); // aruncam/ridicam exceptie de clasa ServiceException
 }
 
+void Service::verifyIfInteger(const string& str) const
+{
+	const Utils utils;
+
+	if (!utils.isInteger(str)) // verificam daca str contine reprezentarea unui numar intreg
+		throw ServiceException("[!]Informatia introdusa nu este un numar intreg!\n"); // aruncam/ridicam exceptie de clasa ServiceException
+}
+
 void Service::add(const string& name, const string& type, const double& price, const string& producer)
 {
 	Product product{ name, type, price, producer }; // cream produsul cu numele name, tipul type, pretul price si producatorul producer
 	
 	valid.validateProduct(product); // validam obiectul de clasa Product (produsul) creat (instantiat) anterior/precedent
 	repo.addProduct(product); // incercam sa adaugam in repo produsul product
+
+	undo_list.push_back(make_unique<UndoAdauga>(repo, product)); // adaugam in lista (vectorul) undo_list un smart pointer la un obiect de clasa UndoAdauga care va retine un obiect de clasa Repository si elementeul (obiect de clasa Product) adaugat in repo
 }
 
 void Service::del(const string& name, const string& producer)
@@ -47,11 +58,15 @@ void Service::del(const string& name, const string& producer)
 	if(err.size()) // lista de erori contine cel putin o eroare (name si/sau producer sunt stringuri vide, deci invalide)
 		throw ServiceException(err); // aruncam exceptie de clasa ServiceException cu mesajul de eroare/exceptie err
 
+	// salvam in variabila deleted_product o copie a produsului (obiect de clasa Product) de dinainte de stergere
+	auto deleted_product{ this->search(name, producer) }; // const auto& deleted_product{ repo.searchProduct(name, producer) };
 	repo.deleteProduct(name, producer); // incercam sa stergem produsul cu numele name si producatorul producer din magazin (repo)
 	
-	// pe linia asta se ajunge daca exista cel putin un produs (obiect de clasa Product) cu numele name si producatorul producer
+	// pe linia asta se ajunge daca exista un produs (obiect de clasa Product) cu numele name si producatorul producer
 	// cu alte cuvinte, metoda publica deleteProduct a obiectului repo nu a aruncat exceptie (deci stergerea s-a realizat cu succes)
 	cosCumparaturi.stergeProduseCos(name, producer); // stergem/eliminam toate produsele din cosul de cumparaturi cu numele name si producatorul producer
+	
+	undo_list.push_back(make_unique<UndoSterge>(repo, deleted_product)); // adaugam in lista (vectorul) undo_list un smart pointer la un obiect de clasa UndoSterge care va retine un obiect de clasa Repository si elementeul (obiect de clasa Product) sters din repo
 }
 
 void Service::modify(const string& name, const string& type, const double& price, const string& producer)
@@ -59,11 +74,15 @@ void Service::modify(const string& name, const string& type, const double& price
 	Product product{ name, type, price, producer }; // cream produsul cu numele name, tipul type, pretul price si producatorul producer
 	
 	valid.validateProduct(product); // validam obiectul de clasa Product (produsul) creat (instantiat) anterior/precedent
+	// salvam in variabila modified_product o copie a produsului (obiect de clasa Product) de dinainte de modificare
+	auto modified_product{ this->search(name, producer) }; // const auto& modified_product{ repo.searchProduct(name, producer) };
 	repo.modifyProduct(product); // incercam sa modificam un produs care are numele name si producatorul producer din repo (daca acesta exista) cu noul produs product
 	
-	// pe linia asta se ajunge daca exista cel putin un produs (obiect de clasa Product) product in magazin (repository)
+	// pe linia asta se ajunge daca exista un produs (obiect de clasa Product) product in magazin (repository)
 	// cu alte cuvinte, metoda publica modifyProduct a obiectului repo nu a aruncat exceptie (deci modificarea s-a realizat cu succes)
 	cosCumparaturi.modificaProduseCos(product); // modificam toate produsele din cosul de cumparaturi care au acelasi nume si producator cu produsul product (adica numele name si producatorul producer)
+	
+	undo_list.push_back(make_unique<UndoModifica>(repo, modified_product)); // adaugam in lista (vectorul) undo_list un smart pointer la un obiect de clasa UndoModifica care va retine un obiect de clasa Repository si elementeul (obiect de clasa Product) modificat din repo
 }
 
 const Product& Service::search(const string& name, const string& producer) const
@@ -97,6 +116,21 @@ dictionary Service::countType() const
 			++types_map[prod.getType()].second;
 
 	return types_map;
+}
+
+string Service::undo()
+{
+	if (!undo_list.size()) // if (undo_list.empty())
+		// lista de undo este vida/goala (nu se mai poate face operatia de undo)
+		throw ServiceException("[!]Nu se mai poate realiza operatia de undo!\n"); // ridicam/aruncam exceptie de clasa ServiceException
+
+	const auto& undo_class_ptr{ undo_list.back() }; // retinem in variabila undo_class_ptr ultimul element (smart pointer) din vectorul undo_list
+
+	undo_class_ptr->doUndo(); // apel polimorfic la metoda virtuala doUndo a unui obiect de clasa UndoAdauga, UndoSterge sau UndoModifica (obiecte derivate din clasa de baza ActiuneUndo)
+	auto mesaj_undo{ (*undo_class_ptr).typeUndo() }; // apelam metoda publica typeUndo pe obiectul referit de smart pointerul undo_class_ptr si retinem stringul intors de metoda in variabila mesaj_undo
+	undo_list.pop_back(); // eliminam/stergem ultimul element (pointer la un obiect de clasa ActiuneUndo) din vectorul undo_list
+
+	return mesaj_undo; // returnam stringul care sa contina mesajul cu operatia la care s-a facut undo (adaugare/modificare/stergere)
 }
 
 /*
@@ -357,6 +391,7 @@ void Service::adaugareCos(const string& name, const string& producer)
 
 void Service::generareCos(const string& num)
 {
+	/*
 	try {
 		const int number_of_products{ stoi(num) };
 
@@ -366,8 +401,18 @@ void Service::generareCos(const string& num)
 		cosCumparaturi.genereazaCos(number_of_products);
 	}
 	catch (const exception&) {
-		throw ServiceException("[!]Nu ati introdus un numar!\n");
+		throw ServiceException("[!]Informatia introdusa nu este un numar intreg!\n");
 	}
+	*/
+
+	this->verifyIfInteger(num); // verifyIfInteger(num);
+
+	const int number_of_products{ stoi(num) };
+
+	if (number_of_products < 0)
+		throw ServiceException("[!]Numarul introdus nu este o valoare pozitiva!\n");
+
+	cosCumparaturi.genereazaCos(number_of_products);
 }
 
 void Service::exportCos(const string& filename, const string& filetype)
@@ -391,4 +436,9 @@ const double& Service::totalCos() noexcept
 unsigned Service::cantitateCos() noexcept
 {
 	return cosCumparaturi.nrProduseCos();
+}
+
+const vector<Product>& Service::getCosCumparaturi() const
+{
+	return cosCumparaturi.getCos();
 }

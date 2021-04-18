@@ -66,6 +66,19 @@ private:
 	void runTestsNrProduseCos() const;
 
 	/*
+	* Functie privata auxiliara de test care face urmatoarele verificari pentru functia runTestsGetCos:
+	* - daca in cosul de cumparaturi cos (obiect de clasa CosCumparaturi) exista x produse (obiecte de clasa Product) cu numele (atributul name) "pasta de dinti" si producatorul (atributul producer) "Colgate"
+	* - daca in cosul de cumparaturi cos (obiect de clasa CosCumparaturi) exista y produse (obiecte de clasa Product) cu numele (atributul name) "vegeta" si producatorul (atributul producer) "Vegeta"
+	* - daca in cosul de cumparaturi cos (obiect de clasa CosCumparaturi) exista z produse (obiecte de clasa Product) cu numele (atributul name) "chipsuri" si producatorul (atributul producer) "Lays"
+	*/
+	void cmpCantity(const CosCumparaturi& cos, const int& x, const int& y, const int& z) const;
+
+	/*
+	* Functie privata care testeaza metoda publica getCos a unui obiect de clasa CosCumparaturi
+	*/
+	void runTestsGetCos() const;
+
+	/*
 	* Functie privata care testeaza metoda publica stergeProduseCos a unui obiect de clasa CosCumparaturi
 	*/
 	void runTestsStergeProduseCos() const;

@@ -202,6 +202,14 @@ unsigned CosCumparaturi::nrProduseCos() const noexcept
 	return cos.size();
 }
 
+const vector<Product>& CosCumparaturi::getCos() const
+{
+	if (cosGol()) // if (this->cosGol())
+		throw CosException("[!]Nu exista produse in cosul de cumparaturi!\n");
+
+	return cos;
+}
+
 void CosCumparaturi::modificaProduseCos(const Product& product)
 {
 	for (auto& p : cos)

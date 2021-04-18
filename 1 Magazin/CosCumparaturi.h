@@ -128,6 +128,17 @@ public:
 	unsigned nrProduseCos() const noexcept;
 
 	/*
+	* Functie de tip operand (rezultat) care returneaza o referinta constanta la lista de produse (obiecte de clasa Product) din cosul de cumparaturi
+	* Date de intrare: -
+	* Preconditii: -
+	* Date de iesire (rezultate): referinta constanta la un vector din STL (Standard Template Library) cu obiecte de clasa Product
+	* Postconditii: vectorul intors/returnat/furnizat de subprogram/subrutina contine toate produsele din lista de cumparaturi
+	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
+	* [!]CosException cu mesajul "[!]Nu exista produse in cosul de cumparaturi!\n", in cazul in care lista care contine produsele din cosul de cumparaturi este goala/vida
+	*/
+	const vector<Product>& getCos() const;
+
+	/*
 	* Procedura (subrutina procedurala) care incearca sa modifice/actualizeze toate produsele cu acelasi nume si producator ca si produsul product din cosul de cumparaturi
 	* Date de intrare: product - referinta constanta la un obiect de clasa Product
 	* Preconditii: -

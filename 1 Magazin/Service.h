@@ -3,20 +3,26 @@
 #include "Repository.h"
 #include "ProductValidator.h"
 #include "CosCumparaturi.h"
+#include "Undo.h"
 
 #include <map>
+#include <vector>
+#include <memory>
 
 using std::map;
 using std::pair;
+using std::vector;
+using std::unique_ptr;
 
 class Service
 {
 private:
 	// atribute (campuri) si metode (functii) private
 
-	RepoProducts& repo;                  // atribut de tip referinta la un obiect repo de clasa RepoProducts
-	ProductValidator& valid;             // atribut de tip referinta la un obiect valid de clasa ProductValidator
-	CosCumparaturi cosCumparaturi;       // atribut de tip referinta la un obiect cosCumparaturi de clasa CosCumparaturi
+	RepoProducts& repo;                        // atribut de tip referinta la un obiect repo de clasa RepoProducts
+	ProductValidator& valid;                   // atribut de tip referinta la un obiect valid de clasa ProductValidator
+	CosCumparaturi cosCumparaturi;             // atribut de tip obiect de clasa cosCumparaturi
+	vector<unique_ptr<ActiuneUndo>> undo_list; // atribut de tip vector din STL (Standard Template Library) cu elemente avand tipul pointer la obiecte de clasa ActiuneUndo
 
 	/*
 	* Functie booleana care verifica daca un produs (obiect de clasa Product) p respecta filtrul de pret price in raport cu semnul (simbolul) de inegalitate sign
@@ -201,6 +207,17 @@ public:
 	void verifyIfDouble(const string& str) const;
 
 	/*
+	* Metoda care verifica daca un string contine reprezentarea unui numar intreg cu semn (signed)
+	* Date de intrare: str - adresa constanta la un string
+	* Preconditii: -
+	* Date de iesire: -, daca stringul str este un numar intreg
+	*                 arunca/ridica exceptie daca str nu contine reprezentarea text/scrisa a unui intreg
+	* Postconditii: -
+	* Exceptii: metoda arunca exceptie de tipul ServiceException cu mesajul "[!]Informatia introdusa nu este un numar intreg!\n" daca stringul dat ca parametru nu contine reprezentarea unui intreg
+	*/
+	void verifyIfInteger(const string& str) const;
+
+	/*
 	* Metoda care incearca sa adauge un obiect de clasa Product cu atributele name, type, price si producer
 	* Date de intrare: name     - referinta constanta la un string
 	*                  type     - referinta constanta la un string
@@ -290,9 +307,25 @@ public:
 	* Date de iesire (rezultate): map din STL care va avea ca si cheie (key) un sir de caractere din STL (TKey = string), iar ca si valoare o pereche (TValue = pair) care contine un string (first) si un intreg fara semn (second)
 	* Postconditii: dictionarul returnat/intors de functie contine ca si chei toate tipurile de produse din magazin ordonate/sortate crescator dupa tip (cheie) si pentru fiecare tip de produs retine ca si valoare tipul produsului si cate produse cu tipul respectiv exista in stoc
 	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
-	* [!]RepoException cu mesajul "Nu exista produse in magazin!\n", daca stocul din magazin este gol (nu exista entitati (obiecte de clasa Product) in repo)
+	* [!]RepoException cu mesajul "[!]Nu exista produse in magazin!\n", daca stocul din magazin este gol (nu exista entitati (obiecte de clasa Product) in repo)
 	*/
 	dictionary countType() const;
+
+	/*
+	* Procedura care face undo la operatiile de adaugare, modificare si stergere pentru repository
+	* Date de intrare: -
+	* Preconditii: -
+	* Date de iesire (rezultate): un string (structura de date din STL)
+	* Postconditii: - dupa apelul functiei se va reface ultima adunare (se va sterge ultimul produs adaugat in magazin), daca ultima operatie efectuata a fost o adunare
+	*                                                        stergere (se va re-adauga ultimul produs sters din magazin), daca ultima operatie efectuata a fost o stergere
+	*                                                        modificare (se va modifica ultimul produs modificat din magazin, acesta va reveni la configuratia de dinainte de modificare), daca ultima operatie efectuata a fost o modificare
+	*				- stringul intors/returnat de functie este: "[+]Undo stergere realizat cu succes!\n"  , daca s-a facut undo la stergere (ultima operatie pe repo a fost una de stergere)
+	*                                                           "[+]Undo adaugare realizat cu succes!\n"  , daca s-a facut undo la adaugare (ultima operatie pe repo a fost una de adaugare)
+	*															"[+]Undo modificare realizat cu succes!\n", daca s-a facut undo la modificare (ultima operatie pe repo a fost una de modificare)
+	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
+	* [!]ServiceException cu mesajul "[!]Nu se mai poate realiza operatia de undo\n", daca nu se mai poate face undo la lista de produse din repository
+	*/
+	string undo();
 
 	/*
 	* Functie care filtreaza produsele din magazin dupa un anumit criteriu (pret, nume, producator), filtru (valoarea pretului, numelui sau producatorului) si un semn (<, = sau >) in cazul in care criteriul de filtrare este pretul
@@ -358,7 +391,7 @@ public:
 	* Postconditii: -
 	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
 	* [!]ServiceException cu mesajul "[!]Numarul introdus nu este o valoare pozitiva!\n", daca num contine reprezentarea unui numar care nu este pozitiv (numar intreg negativ)
-	* [!]ServiceException cu mesajul "[!]Nu ati introdus un numar!\n", daca num nu contine reprezentarea unui numar intreg (integer) cu (signed) sau fara semn (unsigned)
+	* [!]ServiceException cu mesajul "[!]Informatia introdusa nu este un numar intreg!\n", daca num nu contine reprezentarea unui numar intreg (integer) cu (signed) sau fara semn (unsigned)
 	*/
 	void generareCos(const string& num);
 
@@ -395,5 +428,16 @@ public:
 	* Exceptii: -
 	*/
 	unsigned cantitateCos() noexcept;
+
+	/*
+	* Functie de tip operand (rezultat) care returneaza o referinta constanta la lista de produse (obiecte de clasa Product) din cosul de cumparaturi
+	* Date de intrare: -
+	* Preconditii: -
+	* Date de iesire (rezultate): referinta constanta la un vector din STL (Standard Template Library) cu obiecte de clasa Product
+	* Postconditii: vectorul intors/returnat/furnizat de subprogram/subrutina contine toate produsele din lista de cumparaturi
+	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
+	* [!]CosException cu mesajul "[!]Nu exista produse in cosul de cumparaturi!\n", in cazul in care lista care contine produsele din cosul de cumparaturi este goala/vida
+	*/
+	const vector<Product>& getCosCumparaturi() const;
 };
 

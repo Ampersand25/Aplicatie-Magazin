@@ -1,15 +1,18 @@
 #include "TestingService.h"
-#include "Service.h"
+//#include "Service.h"
 #include "ServiceException.h"
 #include "Repository.h"
 #include "RepoException.h"
 #include "ProductException.h"
 #include "CosException.h"
 
-#include <cmath>   // #include <math.h>
-                   // for fabs (float absolute value)
-#include <cassert> // #include <assert.h>
-                   // for assert
+#include <cmath>     // #include <math.h>
+                     // for fabs (float absolute value)
+#include <cassert>   // #include <assert.h>
+                     // for assert
+#include <algorithm> // for std::count_if
+
+using std::count_if;
 
 void TestingService::runTestsServiceCmpStrings() const
 {
@@ -126,6 +129,176 @@ void TestingService::runTestsServiceVerifyIfDouble() const
 
 	try {
 		srv.verifyIfDouble("-0.3");
+		assert(true);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+}
+
+void TestingService::runTestsServiceVerifyIfInteger() const
+{
+	RepoProducts repo;
+	const Service srv{ repo, valid };
+
+	// Cazuri de exceptie
+
+	try {
+		srv.verifyIfInteger("");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
+	}
+
+	try {
+		srv.verifyIfInteger("+");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
+	}
+
+	try {
+		srv.verifyIfInteger("-");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
+	}
+
+	try {
+		srv.verifyIfInteger("++");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
+	}
+
+	try {
+		srv.verifyIfInteger("+-");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
+	}
+
+	try {
+		srv.verifyIfInteger("-+");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
+	}
+
+	try {
+		srv.verifyIfInteger("--");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
+	}
+
+	try {
+		srv.verifyIfInteger("abc");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
+	}
+
+	try {
+		srv.verifyIfInteger("123abc4567");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
+	}
+
+	try {
+		srv.verifyIfInteger("ab12345");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
+	}
+
+	try {
+		srv.verifyIfInteger("10.25");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
+	}
+
+	try {
+		srv.verifyIfInteger("5+");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
+	}
+
+	try {
+		srv.verifyIfInteger("25-");
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
+	}
+
+	// Cazuri in care nu se arunca exceptie
+
+	try {
+		srv.verifyIfInteger("+7");
+		assert(true);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+
+	try {
+		srv.verifyIfInteger("-3");
+		assert(true);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+
+	try {
+		srv.verifyIfInteger("+5781");
+		assert(true);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+
+	try {
+		srv.verifyIfInteger("-370");
+		assert(true);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+
+	try {
+		srv.verifyIfInteger("0");
+		assert(true);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+
+	try {
+		srv.verifyIfInteger("+0");
+		assert(true);
+	}
+	catch (const ServiceException&) {
+		assert(false);
+	}
+
+	try {
+		srv.verifyIfInteger("-0");
 		assert(true);
 	}
 	catch (const ServiceException&) {
@@ -744,6 +917,213 @@ void TestingService::runTestsCountType() const
 	}
 }
 
+void TestingService::runTestsUndo() const
+{
+	RepoProducts repo;
+	Service srv{ repo, valid };
+
+	try {
+		srv.undo();
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Nu se mai poate realiza operatia de undo!\n");
+	}
+
+	srv.add("a", "b", 6.37, "c");
+	assert(srv.getAll().size() == 1);
+	testFunction(srv.getAll().at(0), "a", "b", 6.37, "c");
+
+	srv.add("d", "e", 13.206, "f");
+	assert(srv.getAll().size() == 2);
+	testFunction(srv.getAll().at(0), "a", "b", 6.37, "c");
+	testFunction(srv.getAll().at(1), "d", "e", 13.206, "f");
+
+	srv.add("g", "h", 4.1, "i");
+	assert(srv.getAll().size() == 3);
+	testFunction(srv.getAll().at(0), "a", "b", 6.37, "c");
+	testFunction(srv.getAll().at(1), "d", "e", 13.206, "f");
+	testFunction(srv.getAll().at(2), "g", "h", 4.1, "i");
+
+	srv.add("j", "k", 9, "l");
+	assert(srv.getAll().size() == 4);
+	testFunction(srv.getAll().at(0), "a", "b", 6.37, "c");
+	testFunction(srv.getAll().at(1), "d", "e", 13.206, "f");
+	testFunction(srv.getAll().at(2), "g", "h", 4.1, "i");
+	testFunction(srv.getAll().at(3), "j", "k", 9, "l");
+
+	assert(srv.undo() == "[+]Undo adaugare realizat cu succes!\n");
+	assert(srv.getAll().size() == 3);
+	testFunction(srv.getAll().at(0), "a", "b", 6.37, "c");
+	testFunction(srv.getAll().at(1), "d", "e", 13.206, "f");
+	testFunction(srv.getAll().at(2), "g", "h", 4.1, "i");
+
+	assert(srv.undo() == "[+]Undo adaugare realizat cu succes!\n");
+	assert(srv.getAll().size() == 2);
+	testFunction(srv.getAll().at(0), "a", "b", 6.37, "c");
+	testFunction(srv.getAll().at(1), "d", "e", 13.206, "f");
+
+	assert(srv.undo() == "[+]Undo adaugare realizat cu succes!\n");
+	assert(srv.getAll().size() == 1);
+	testFunction(srv.getAll().at(0), "a", "b", 6.37, "c");
+
+	assert(srv.undo() == "[+]Undo adaugare realizat cu succes!\n");
+	try {
+		assert(srv.getAll().size() == 0);
+		assert(false);
+	}
+	catch (const RepoException& re) {
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
+	}
+
+	try {
+		srv.undo();
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Nu se mai poate realiza operatia de undo!\n");
+	}
+
+	srv.add("a", "b", 6.37, "c");
+	srv.add("d", "e", 13.206, "f");
+	srv.add("g", "h", 4.1, "i");
+	srv.add("j", "k", 9, "l");
+
+	srv.modify("g", "x", 24.45, "i");
+	assert(srv.getAll().size() == 4);
+	testFunction(srv.getAll().at(0), "a", "b", 6.37, "c");
+	testFunction(srv.getAll().at(1), "d", "e", 13.206, "f");
+	testFunction(srv.getAll().at(2), "g", "x", 24.45, "i");
+	testFunction(srv.getAll().at(3), "j", "k", 9, "l");
+
+	srv.modify("a", "y", 11.6, "c");
+	assert(srv.getAll().size() == 4);
+	testFunction(srv.getAll().at(0), "a", "y", 11.6, "c");
+	testFunction(srv.getAll().at(1), "d", "e", 13.206, "f");
+	testFunction(srv.getAll().at(2), "g", "x", 24.45, "i");
+	testFunction(srv.getAll().at(3), "j", "k", 9, "l");
+
+	srv.modify("j", "z", 0.571, "l");
+	assert(srv.getAll().size() == 4);
+	testFunction(srv.getAll().at(0), "a", "y", 11.6, "c");
+	testFunction(srv.getAll().at(1), "d", "e", 13.206, "f");
+	testFunction(srv.getAll().at(2), "g", "x", 24.45, "i");
+	testFunction(srv.getAll().at(3), "j", "z", 0.571, "l");
+
+	srv.modify("d", "w", 4.57014, "f");
+	assert(srv.getAll().size() == 4);
+	testFunction(srv.getAll().at(0), "a", "y", 11.6, "c");
+	testFunction(srv.getAll().at(1), "d", "w", 4.57014, "f");
+	testFunction(srv.getAll().at(2), "g", "x", 24.45, "i");
+	testFunction(srv.getAll().at(3), "j", "z", 0.571, "l");
+
+	assert(srv.undo() == "[+]Undo modificare realizat cu succes!\n");
+	assert(srv.getAll().size() == 4);
+	testFunction(srv.getAll().at(0), "a", "y", 11.6, "c");
+	testFunction(srv.getAll().at(1), "d", "e", 13.206, "f");
+	testFunction(srv.getAll().at(2), "g", "x", 24.45, "i");
+	testFunction(srv.getAll().at(3), "j", "z", 0.571, "l");
+
+	assert(srv.undo() == "[+]Undo modificare realizat cu succes!\n");
+	assert(srv.getAll().size() == 4);
+	testFunction(srv.getAll().at(0), "a", "y", 11.6, "c");
+	testFunction(srv.getAll().at(1), "d", "e", 13.206, "f");
+	testFunction(srv.getAll().at(2), "g", "x", 24.45, "i");
+	testFunction(srv.getAll().at(3), "j", "k", 9, "l");
+
+	assert(srv.undo() == "[+]Undo modificare realizat cu succes!\n");
+	assert(srv.getAll().size() == 4);
+	testFunction(srv.getAll().at(0), "a", "b", 6.37, "c");
+	testFunction(srv.getAll().at(1), "d", "e", 13.206, "f");
+	testFunction(srv.getAll().at(2), "g", "x", 24.45, "i");
+	testFunction(srv.getAll().at(3), "j", "k", 9, "l");
+
+	assert(srv.undo() == "[+]Undo modificare realizat cu succes!\n");
+	assert(srv.getAll().size() == 4);
+	testFunction(srv.getAll().at(0), "a", "b", 6.37, "c");
+	testFunction(srv.getAll().at(1), "d", "e", 13.206, "f");
+	testFunction(srv.getAll().at(2), "g", "h", 4.1, "i");
+	testFunction(srv.getAll().at(3), "j", "k", 9, "l");
+
+	srv.del("d", "f");
+	assert(srv.getAll().size() == 3);
+	testFunction(srv.getAll().at(0), "a", "b", 6.37, "c");
+	testFunction(srv.getAll().at(1), "g", "h", 4.1, "i");
+	testFunction(srv.getAll().at(2), "j", "k", 9, "l");
+
+	srv.del("a", "c");
+	assert(srv.getAll().size() == 2);
+	testFunction(srv.getAll().at(0), "g", "h", 4.1, "i");
+	testFunction(srv.getAll().at(1), "j", "k", 9, "l");
+
+	srv.del("j", "l");
+	assert(srv.getAll().size() == 1);
+	testFunction(srv.getAll().at(0), "g", "h", 4.1, "i");
+
+	srv.del("g", "i");
+	try {
+		assert(srv.getAll().size() == 0);
+		assert(false);
+	}
+	catch (const RepoException& re) {
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
+	}
+
+	assert(srv.undo() == "[+]Undo stergere realizat cu succes!\n");
+	assert(srv.getAll().size() == 1);
+	testFunction(srv.getAll().at(0), "g", "h", 4.1, "i");
+
+	assert(srv.undo() == "[+]Undo stergere realizat cu succes!\n");
+	assert(srv.getAll().size() == 2);
+	testFunction(srv.getAll().at(0), "g", "h", 4.1, "i");
+	testFunction(srv.getAll().at(1), "j", "k", 9, "l");
+
+	assert(srv.undo() == "[+]Undo stergere realizat cu succes!\n");
+	assert(srv.getAll().size() == 3);
+	testFunction(srv.getAll().at(0), "g", "h", 4.1, "i");
+	testFunction(srv.getAll().at(1), "j", "k", 9, "l");
+	testFunction(srv.getAll().at(2), "a", "b", 6.37, "c");
+	
+	assert(srv.undo() == "[+]Undo stergere realizat cu succes!\n");
+	assert(srv.getAll().size() == 4);
+	testFunction(srv.getAll().at(0), "g", "h", 4.1, "i");
+	testFunction(srv.getAll().at(1), "j", "k", 9, "l");
+	testFunction(srv.getAll().at(2), "a", "b", 6.37, "c");
+	testFunction(srv.getAll().at(3), "d", "e", 13.206, "f");
+
+	assert(srv.undo() == "[+]Undo adaugare realizat cu succes!\n");
+	assert(srv.getAll().size() == 3);
+	testFunction(srv.getAll().at(0), "g", "h", 4.1, "i");
+	testFunction(srv.getAll().at(1), "a", "b", 6.37, "c");
+	testFunction(srv.getAll().at(2), "d", "e", 13.206, "f");
+
+	assert(srv.undo() == "[+]Undo adaugare realizat cu succes!\n");
+	assert(srv.getAll().size() == 2);
+	testFunction(srv.getAll().at(0), "a", "b", 6.37, "c");
+	testFunction(srv.getAll().at(1), "d", "e", 13.206, "f");
+
+	assert(srv.undo() == "[+]Undo adaugare realizat cu succes!\n");
+	assert(srv.getAll().size() == 1);
+	testFunction(srv.getAll().at(0), "a", "b", 6.37, "c");
+
+	assert(srv.undo() == "[+]Undo adaugare realizat cu succes!\n");
+	try {
+		assert(srv.getAll().size() == 0);
+		assert(false);
+	}
+	catch (const RepoException& re) {
+		assert(re.getMessage() == "[!]Nu exista produse in magazin!\n");
+	}
+
+	try {
+		srv.undo();
+		assert(false);
+	}
+	catch (const ServiceException& se) {
+		assert(se.getMessage() == "[!]Nu se mai poate realiza operatia de undo!\n");
+	}
+}
+
 void TestingService::testFunction(const Product& p, const string& name, const string& type, const double& price, const string& producer) const noexcept
 {
 	assert(p.getName() == name);
@@ -1004,6 +1384,61 @@ void TestingService::runTestsServiceSortProducts() const
 	catch (const ServiceException& se) {
 		assert(se.getMessage() == "[!]Criteriu de sortare invalid!\n");
 	}
+
+	srv.add("hartie igienica", "produse de baie", 3.678, "Zewa");
+	srv.add("hartie igienica", "hartie parfumata", 8.4, "Emeka");
+	srv.add("hartie igienica", "igiena", 7.42, "Milde");
+
+	products = srv.sortProducts("3", "C");
+	testFunction(products.at(0), "boia", "condimente", 0.999, "Delikat");
+	testFunction(products.at(1), "chipsuri", "snacks", 9.1, "Pringles");
+	testFunction(products.at(2), "chipsuri", "snacksuri", 9.6, "Lays");
+	testFunction(products.at(3), "hartie igienica", "hartie parfumata", 8.4, "Emeka");
+	testFunction(products.at(4), "hartie igienica", "igiena", 7.42, "Milde");
+	testFunction(products.at(5), "hartie igienica", "produse de baie", 3.678, "Zewa");
+	testFunction(products.at(6), "iaurt", "produse lactate", 4.63, "Danone");
+	testFunction(products.at(7), "parmezan", "condimente", 8.301, "Delikat");
+	testFunction(products.at(8), "sare", "condimente", 11, "Maggi");
+
+	products = srv.sortProducts("3", "d");
+	testFunction(products.at(0), "sare", "condimente", 11, "Maggi");
+	testFunction(products.at(1), "parmezan", "condimente", 8.301, "Delikat");
+	testFunction(products.at(2), "iaurt", "produse lactate", 4.63, "Danone");
+	testFunction(products.at(3), "hartie igienica", "produse de baie", 3.678, "Zewa");
+	testFunction(products.at(4), "hartie igienica", "igiena", 7.42, "Milde");
+	testFunction(products.at(5), "hartie igienica", "hartie parfumata", 8.4, "Emeka");
+	testFunction(products.at(6), "chipsuri", "snacksuri", 9.6, "Lays");
+	testFunction(products.at(7), "chipsuri", "snacks", 9.1, "Pringles");
+	testFunction(products.at(8), "boia", "condimente", 0.999, "Delikat");
+
+	srv.add("tuica de prune", "alcool", 6.325, "Maramures");
+	srv.add("tuica de prune", "alcool", 13, "Ardealu");
+
+	products = srv.sortProducts("3", "c");
+	testFunction(products.at(0), "boia", "condimente", 0.999, "Delikat");
+	testFunction(products.at(1), "chipsuri", "snacks", 9.1, "Pringles");
+	testFunction(products.at(2), "chipsuri", "snacksuri", 9.6, "Lays");
+	testFunction(products.at(3), "hartie igienica", "hartie parfumata", 8.4, "Emeka");
+	testFunction(products.at(4), "hartie igienica", "igiena", 7.42, "Milde");
+	testFunction(products.at(5), "hartie igienica", "produse de baie", 3.678, "Zewa");
+	testFunction(products.at(6), "iaurt", "produse lactate", 4.63, "Danone");
+	testFunction(products.at(7), "parmezan", "condimente", 8.301, "Delikat");
+	testFunction(products.at(8), "sare", "condimente", 11, "Maggi");
+	testFunction(products.at(9), "tuica de prune", "alcool", 6.325, "Maramures");
+	testFunction(products.at(10), "tuica de prune", "alcool", 13, "Ardealu");
+
+	products = srv.sortProducts("3", "d");
+	testFunction(products.at(0), "tuica de prune", "alcool", 6.325, "Maramures");
+	testFunction(products.at(1), "tuica de prune", "alcool", 13, "Ardealu");
+	testFunction(products.at(2), "sare", "condimente", 11, "Maggi");
+	testFunction(products.at(3), "parmezan", "condimente", 8.301, "Delikat");
+	testFunction(products.at(4), "iaurt", "produse lactate", 4.63, "Danone");
+	testFunction(products.at(5), "hartie igienica", "produse de baie", 3.678, "Zewa");
+	testFunction(products.at(6), "hartie igienica", "igiena", 7.42, "Milde");
+	testFunction(products.at(7), "hartie igienica", "hartie parfumata", 8.4, "Emeka");
+	testFunction(products.at(8), "chipsuri", "snacksuri", 9.6, "Lays");
+	testFunction(products.at(9), "chipsuri", "snacks", 9.1, "Pringles");
+	testFunction(products.at(10), "boia", "condimente", 0.999, "Delikat");
 }
 
 void TestingService::runTestsAdaugareCos() const
@@ -1350,7 +1785,7 @@ void TestingService::runTestsGenerareCos() const
 		assert(false);
 	}
 	catch(const ServiceException& se){
-		assert(se.getMessage() == "[!]Nu ati introdus un numar!\n");
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
 	}
 
 	try {
@@ -1358,7 +1793,7 @@ void TestingService::runTestsGenerareCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "[!]Nu ati introdus un numar!\n");
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
 	}
 
 	try {
@@ -1366,7 +1801,7 @@ void TestingService::runTestsGenerareCos() const
 		assert(false);
 	}
 	catch (const ServiceException& se) {
-		assert(se.getMessage() == "[!]Nu ati introdus un numar!\n");
+		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
 	}
 
 	try {
@@ -1633,10 +2068,128 @@ void TestingService::runTestsExportCos() const
 	}
 }
 
+void TestingService::cmpCantityCos(const Service& srv, const int& a, const int& b, const int& c, const int& d, const int& e) const
+{
+	assert(count_if(srv.getCosCumparaturi().begin(), srv.getCosCumparaturi().end(), [](const Product& prod) {return prod.getName() == "chipsuri" && prod.getProducer() == "Lays"; }) == a);
+	assert(count_if(srv.getCosCumparaturi().begin(), srv.getCosCumparaturi().end(), [](const Product& prod) {return prod.getName() == "ton in ulei" && prod.getProducer() == "Tonno Rio Mare"; }) == b);
+	assert(count_if(srv.getCosCumparaturi().begin(), srv.getCosCumparaturi().end(), [](const Product& prod) {return prod.getName() == "boia" && prod.getProducer() == "Delikat"; }) == c);
+	assert(count_if(srv.getCosCumparaturi().begin(), srv.getCosCumparaturi().end(), [](const Product& prod) {return prod.getName() == "pasta de dinti" && prod.getProducer() == "Colgate"; }) == d);
+	assert(count_if(srv.getCosCumparaturi().begin(), srv.getCosCumparaturi().end(), [](const Product& prod) {return prod.getName() == "iaurt" && prod.getProducer() == "Milka UK"; }) == e);
+}
+
+void TestingService::runTestsGetCosCumparaturi() const
+{
+	RepoProducts repo;
+	Service srv{ repo, valid };
+
+	try {
+		assert(srv.getCosCumparaturi().size() == 0);
+		assert(false);
+	}
+	catch (const CosException& ce) {
+		assert(ce.getMessage() == "[!]Nu exista produse in cosul de cumparaturi!\n");
+	}
+
+	srv.add("chipsuri", "snaksuri", 9.6, "Lays");
+	srv.add("ton in ulei", "conserve", 13.9841, "Tonno Rio Mare");
+	srv.add("boia", "condimente", 0.999, "Delikat");
+	srv.add("pasta de dinti", "igiena", 7.12, "Colgate");
+	srv.add("iaurt", "produse lactate", 5.013, "Milka UK");
+
+	srv.adaugareCos("iaurt", "Milka UK");
+	assert(srv.getCosCumparaturi().size() == 1);
+	cmpCantityCos(srv, 0, 0, 0, 0, 1);
+
+	srv.adaugareCos("ton in ulei", "Tonno Rio Mare");
+	assert(srv.getCosCumparaturi().size() == 2);
+	cmpCantityCos(srv, 0, 1, 0, 0, 1);
+
+	srv.adaugareCos("pasta de dinti", "Colgate");
+	assert(srv.getCosCumparaturi().size() == 3);
+	cmpCantityCos(srv, 0, 1, 0, 1, 1);
+
+	srv.adaugareCos("pasta de dinti", "Colgate");
+	assert(srv.getCosCumparaturi().size() == 4);
+	cmpCantityCos(srv, 0, 1, 0, 2, 1);
+
+	srv.adaugareCos("chipsuri", "Lays");
+	assert(srv.getCosCumparaturi().size() == 5);
+	cmpCantityCos(srv, 1, 1, 0, 2, 1);
+
+	srv.adaugareCos("iaurt", "Milka UK");
+	assert(srv.getCosCumparaturi().size() == 6);
+	cmpCantityCos(srv, 1, 1, 0, 2, 2);
+
+	srv.adaugareCos("boia", "Delikat");
+	assert(srv.getCosCumparaturi().size() == 7);
+	cmpCantityCos(srv, 1, 1, 1, 2, 2);
+
+	srv.adaugareCos("pasta de dinti", "Colgate");
+	assert(srv.getCosCumparaturi().size() == 8);
+	cmpCantityCos(srv, 1, 1, 1, 3, 2);
+
+	srv.adaugareCos("ton in ulei", "Tonno Rio Mare");
+	assert(srv.getCosCumparaturi().size() == 9);
+	cmpCantityCos(srv, 1, 2, 1, 3, 2);
+
+	srv.adaugareCos("ton in ulei", "Tonno Rio Mare");
+	assert(srv.getCosCumparaturi().size() == 10);
+	cmpCantityCos(srv, 1, 3, 1, 3, 2);
+
+	srv.adaugareCos("ton in ulei", "Tonno Rio Mare");
+	assert(srv.getCosCumparaturi().size() == 11);
+	cmpCantityCos(srv, 1, 4, 1, 3, 2);
+
+	srv.adaugareCos("boia", "Delikat");
+	assert(srv.getCosCumparaturi().size() == 12);
+	cmpCantityCos(srv, 1, 4, 2, 3, 2);
+
+	srv.adaugareCos("iaurt", "Milka UK");
+	assert(srv.getCosCumparaturi().size() == 13);
+	cmpCantityCos(srv, 1, 4, 2, 3, 3);
+
+	srv.adaugareCos("ton in ulei", "Tonno Rio Mare");
+	assert(srv.getCosCumparaturi().size() == 14);
+	cmpCantityCos(srv, 1, 5, 2, 3, 3);
+
+	srv.adaugareCos("chipsuri", "Lays");
+	assert(srv.getCosCumparaturi().size() == 15);
+	cmpCantityCos(srv, 2, 5, 2, 3, 3);
+
+	srv.adaugareCos("chipsuri", "Lays");
+	assert(srv.getCosCumparaturi().size() == 16);
+	cmpCantityCos(srv, 3, 5, 2, 3, 3);
+
+	srv.golireCos();
+	try {
+		assert(srv.getCosCumparaturi().size() == 0);
+		assert(false);
+	}
+	catch (const CosException& ce) {
+		assert(ce.getMessage() == "[!]Nu exista produse in cosul de cumparaturi!\n");
+	}
+
+	srv.generareCos("5");
+	assert(srv.getCosCumparaturi().size() == 5);
+
+	srv.generareCos("3");
+	assert(srv.getCosCumparaturi().size() == 8);
+
+	srv.generareCos("1");
+	assert(srv.getCosCumparaturi().size() == 9);
+
+	srv.generareCos("11");
+	assert(srv.getCosCumparaturi().size() == 20);
+
+	srv.generareCos("0");
+	assert(srv.getCosCumparaturi().size() == 20);
+}
+
 void TestingService::runTestsService() const
 {
 	runTestsServiceCmpStrings();
 	runTestsServiceVerifyIfDouble();
+	runTestsServiceVerifyIfInteger();
 
 	runTestsServiceAdd();
 	runTestsServiceDel();
@@ -1644,6 +2197,7 @@ void TestingService::runTestsService() const
 	runTestsServiceSearch();
 	runTestsServiceGetAll();
 	runTestsCountType();
+	runTestsUndo();
 
 	runTestsServiceFilterProducts();
 	runTestsServiceSortProducts();
@@ -1654,4 +2208,5 @@ void TestingService::runTestsService() const
 	runTestsGolireCos();
 	runTestsGenerareCos();
 	runTestsExportCos();
+	runTestsGetCosCumparaturi();
 }

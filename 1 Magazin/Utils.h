@@ -14,9 +14,9 @@ public:
 	Utils() = default;
 
 	/*
-	* Constructorul de copiere (il stergem => nu se vor putea copia la nivel de cod obiecte de clasa Utils)
+	* Stergem operatorul de assignment (asignare/atribuire) folosind calificativul delete
 	*/
-	Utils(const Utils& ot) = delete;
+	void operator=(const Utils& ot) = delete;
 
 	/*
 	* Subprogram care compara case insensitive (nu se face deosebirea/distingerea dintre litere mici (minuscule) si litere mari (majuscule)) doua stringuri
@@ -38,5 +38,15 @@ public:
 	*                        = false, in caz contrar
 	*/
 	bool isDouble(const string& str) const;
+
+	/*
+	* Subprogram care verifica daca un string dat ca si argument contine reprezentarea unui numar intreg
+	* Date de intrare: str - referinta constanta la un string
+	* Preconditii: -
+	* Date de iesire: bool (true sau false)
+	* Postconditii: isInteger = true , daca stringul str reprezinta un intreg (cu semn = signed)
+	*                         = false, in caz contrar
+	*/
+	bool isInteger(const string& str) const;
 };
 

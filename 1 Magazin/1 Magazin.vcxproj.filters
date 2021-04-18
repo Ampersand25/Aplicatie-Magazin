@@ -85,6 +85,12 @@
     <Filter Include="Source Files\Testing\TestingCos">
       <UniqueIdentifier>{90337892-56a3-4397-b17a-4fff5ae2ab8e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Undo">
+      <UniqueIdentifier>{6f9de857-c701-4477-b484-e9a53ca93037}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingUndo">
+      <UniqueIdentifier>{a723a4cc-ecb4-4fd4-a98f-64852d0fd601}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ApplicationCoordinator.cpp">
@@ -144,6 +150,9 @@
     <ClCompile Include="TestingCosCumparaturi.cpp">
       <Filter>Source Files\Testing\TestingCos</Filter>
     </ClCompile>
+    <ClCompile Include="TestingUndo.cpp">
+      <Filter>Source Files\Testing\TestingUndo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestingApp.h">
@@ -199,6 +208,12 @@
     </ClInclude>
     <ClInclude Include="TestingCosCumparaturi.h">
       <Filter>Source Files\Testing\TestingCos</Filter>
+    </ClInclude>
+    <ClInclude Include="Undo.h">
+      <Filter>Source Files\Undo</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingUndo.h">
+      <Filter>Source Files\Testing\TestingUndo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

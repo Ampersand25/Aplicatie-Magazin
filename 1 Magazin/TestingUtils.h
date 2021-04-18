@@ -21,6 +21,11 @@ private:
 	*/
 	void runTestsUtilsIsDouble() const;
 
+	/*
+	* Metoda privata pentru testarea functiei isInteger din fisierul antet (header) Utils.h
+	*/
+	void runTestsUtilsIsInteger() const;
+
 public:
 	// metode publice (pot fi apelate atat din interiorul cat si din exteriorul clasei)
 

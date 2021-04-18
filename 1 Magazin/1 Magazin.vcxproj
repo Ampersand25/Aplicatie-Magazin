@@ -159,11 +159,14 @@
     <ClCompile Include="TestingDomain.cpp" />
     <ClCompile Include="TestingRepo.cpp" />
     <ClCompile Include="TestingService.cpp" />
+    <ClCompile Include="TestingUndo.cpp" />
     <ClCompile Include="TestingUtils.cpp" />
     <ClCompile Include="TestingValidation.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="TestingUndo.h" />
+    <ClInclude Include="Undo.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="CosCumparaturi.h" />
     <ClInclude Include="CosException.h" />

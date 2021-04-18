@@ -19,9 +19,10 @@ void UI::showMenu() const
 	cout << "modificare  - modifica un produs din magazin\n";
 	cout << "cautare     - cauta un produs in magazin dupa un nume si un producator introdusi\n";
 	cout << "afisare     - tipareste in consola toate produsele disponibile in magazin\n";
+	cout << "info tipuri - afiseaza toate tipurile de produse din magazin si cate produse de tipul respectiv exista in stoc!\n";
+	cout << "undo        - face undo la ultima operatie de adaugare, modificare sau stergere\n";
 	cout << "filtrare    - filtrare produse dupa: pret, nume, producator\n";
 	cout << "sortare     - sortare produse dupa: nume, pret, nume + tip\n";
-	cout << "info tipuri - afiseaza toate tipurile de produse din magazin si cate produse de tipul respectiv exista in stoc!\n";
 	cout << "cumparaturi - crearea si gestionarea cosului de cumparaturi\n";
 	cout << "clear       - curata ecranul (se sterge continutul terminalului)\n";
 	cout << "exit        - inchide aplicatia\n";
@@ -57,7 +58,7 @@ void UI::addUI() const
 	
 	try {
 		srv.add(name, type, price, producer);
-		cout << "Adaugarea s-a realizat cu succes!\n\n";
+		cout << "[+]Adaugarea s-a realizat cu succes!\n\n";
 	}
 	catch (const ProductException& pe) {
 		cerr << pe.getMessage() << endl;
@@ -81,7 +82,7 @@ void UI::delUI() const
 	
 	try {
 		srv.del(name, producer);
-		cout << "Stergerea s-a realizat cu succes!\n\n";
+		cout << "[+]Stergerea s-a realizat cu succes!\n\n";
 	}
 	catch (const ServiceException& se) {
 		cerr << se.getMessage() << endl;
@@ -121,7 +122,7 @@ void UI::modifyUI() const
 	
 	try {
 		srv.modify(name, type, price, producer);
-		cout << "Modificarea s-a realizat cu succes!\n\n";
+		cout << "[+]Modificarea s-a realizat cu succes!\n\n";
 	}
 	catch (const ProductException& pe) {
 		cerr << pe.getMessage() << endl;
@@ -207,6 +208,33 @@ void UI::countTypeUI() const
 	}
 
 	cout << endl;
+}
+
+void UI::undoUI() const
+{
+	cout << "Sunteti sigur ca doriti sa faceti undo la ultima operatie efectuata? [Y/N]: ";
+	string ans;
+	getline(cin, ans);
+
+	while (ans != "y" && ans != "Y" && ans != "n" && ans != "N")
+	{
+		cerr << "[X]Optiune invalida!\n";
+		cout << "\nReintroduceti optiunea aleasa [Y/N]: ";
+		getline(cin, ans);
+	}
+
+	cout << endl;
+
+	if (ans == "n" || ans == "N")
+		return;
+
+	try {
+		auto msg_undo{ srv.undo() };
+		cout << msg_undo << endl;
+	}
+	catch(const ServiceException& se){
+		cerr << se.getMessage() << endl;
+	}
 }
 
 void UI::showFilterCriterions() const
@@ -409,6 +437,7 @@ void UI::afiseazaMeniuCosCumparaturi() const
 	cout << "golire   - sterge toate produsele din cosul de cumparaturi\n";
 	cout << "adaugare - adauga in cosul de cumparaturi un produs dupa nume si producator\n";
 	cout << "generare - cosul de cumparaturi se populeaza aleator cu produse\n";
+	cout << "tiparire - afiseaza pe ecran produsele din cosul de cumparaturi\n";
 	cout << "export   - se salveaza intr-un fisier CSV (Comma-separated values) cosul de cumparaturi\n";
 	cout << "clear    - curata ecranul (se sterge continutul terminalului)\n";
 	cout << "back     - revenire la meniul principal al aplicatiei\n";
@@ -434,9 +463,10 @@ void UI::golireCosUI() const
 
 	try {
 		srv.golireCos();
+		cout << "[+]Golirea cosului de cumparaturi s-a realizat cu succes!\n";
 	}
 	catch (const CosException& ce) {
-		cerr << ce.getMessage() << endl;
+		cerr << ce.getMessage();
 	}
 }
 
@@ -456,15 +486,16 @@ void UI::adaugareCosUI() const
 
 	try {
 		srv.adaugareCos(name, producer);
+		cout << "[+]Adaugarea produsului cos s-a realizat cu succes!\n";
 	}
 	catch (const CosException& ce) {
-		cerr << ce.getMessage() << endl;
+		cerr << ce.getMessage();
 	}
 	catch (const RepoException& re) {
-		cerr << re.getMessage() << endl;
+		cerr << re.getMessage();
 	}
 	catch (const ServiceException& se) {
-		cerr << se.getMessage() << endl;
+		cerr << se.getMessage();
 	}
 }
 
@@ -478,12 +509,36 @@ void UI::generareCosUI() const
 
 	try {
 		srv.generareCos(num);
+		cout << "[+]Generarea cosului de cumparaturi s-a realizat cu succes!\n";
 	}
 	catch (const RepoException& re) {
-		cerr << re.getMessage() << endl;
+		cerr << re.getMessage();
 	}
 	catch (const ServiceException& se) {
-		cerr << se.getMessage() << endl;
+		cerr << se.getMessage();
+	}
+}
+
+void UI::tiparireCos() const
+{
+	try {
+		const auto& lista_cumparaturi{ srv.getCosCumparaturi() };
+
+		auto cont{ 0 };
+
+		cout << "Cele " << srv.cantitateCos() << " produse din cosul de cumparaturi sunt:\n\n";
+
+		for (const auto& prod : lista_cumparaturi)
+			cout << ++cont          << ": " <<
+					prod.getName()  << " | " <<
+					prod.getType()  << " | " <<
+					prod.getPrice() << " | " <<
+					prod.getProducer() << endl;
+
+		cout << endl;
+	}
+	catch (const CosException& ce) {
+		cerr << ce.getMessage();
 	}
 }
 
@@ -501,12 +556,13 @@ void UI::exportCosUI() const
 
 	try {
 		srv.exportCos(filename, filetype);
+		cout << "[+]Exportul in fisier s-a realizat cu succes!\n";
 	}
 	catch(const CosException& ce) {
-		cerr << ce.getMessage() << endl;
+		cerr << ce.getMessage();
 	}
 	catch (const ServiceException& se) {
-		cerr << se.getMessage() << endl;
+		cerr << se.getMessage();
 	}
 }
 
@@ -515,7 +571,8 @@ void UI::cosCumparaturiUI() const
 	cout << endl;
 
 	const vector<string> commands{ "golire", "adaugare", "generare",
-								   "export", "clear", "back" };
+								   "tiparire", "export", "clear",
+								   "back"};
 	string cmd;
 
 	while (true)
@@ -544,12 +601,17 @@ void UI::cosCumparaturiUI() const
 		}
 		else if (srv.cmpStrings(cmd, commands.at(3)))
 		{
-			exportCosUI();
+			tiparireCos();
 			actiuneCos = true;
 		}
 		else if (srv.cmpStrings(cmd, commands.at(4)))
-			clearUI();
+		{
+			exportCosUI();
+			actiuneCos = true;
+		}
 		else if (srv.cmpStrings(cmd, commands.at(5)))
+			clearUI();
+		else if (srv.cmpStrings(cmd, commands.at(6)))
 		{
 			cout << endl;
 			return;
@@ -558,7 +620,7 @@ void UI::cosCumparaturiUI() const
 			cerr << "[X]Actiune inexistenta!\n\n";
 
 		if (actiuneCos)
-			cout << "[$]Pretul total: " << srv.totalCos() << "\n\n";
+			cout << "[$]Pret total: " << srv.totalCos() << "\n\n";
 	}
 }
 
@@ -567,10 +629,11 @@ void UI::clearUI() const noexcept
 	system("CLS");
 }
 
-void UI::addDebug(const string& name, const string& type, const double& price, const string& producer) const
+void UI::addDebug(const string& name, const string& type, const double& price, const string& producer, unsigned& cont) const
 {
 	try {
 		srv.add(name, type, price, producer);
+		++cont;
 	}
 	catch (const RepoException& re) {
 		cerr << re.getMessage();
@@ -597,30 +660,36 @@ void UI::debugUI() const
 		return;
 	}
 	
-	cout << "Cele 10 produse au fost adaugate cu succes in magazin!\n\n";
+	cout << "Cele 10 produse au fost adaugate cu succes in stoc!\n\n";
 	*/
 
-	addDebug("iaurt"         , "produse lactate", 4.63   , "Danone");
-	addDebug("chipsuri"      , "snaksuri"       , 9.6    , "Lays");
-	addDebug("ton in ulei"   , "conserve"       , 13.9841, "Tonno Rio Mare");
-	addDebug("boia"          , "condimente"     , 0.999  , "Delikat");
-	addDebug("pasta de dinti", "igiena"         , 7.12   , "Colgate");
-	addDebug("iaurt"         , "produse lactate", 5.013  , "Milka UK");
-	addDebug("sare"          , "condimente"     , 11     , "Maggi");
-	addDebug("parmezan"      , "condimente"     , 8.301  , "Delikat");
-	addDebug("chipsuri"      , "snaksuri"       , 1.53   , "Chio");
-	addDebug("chipsuri"      , "snaksuri"       , 9.1    , "Pringles");
+	unsigned cont{ 0 };
 
-	cout << "Cele 10 produse au fost adaugate cu succes in magazin!\n\n";
+	addDebug("iaurt"         , "produse lactate", 4.63   , "Danone",         cont);
+	addDebug("chipsuri"      , "snaksuri"       , 9.6    , "Lays",           cont);
+	addDebug("ton in ulei"   , "conserve"       , 13.9841, "Tonno Rio Mare", cont);
+	addDebug("boia"          , "condimente"     , 0.999  , "Delikat",		 cont);
+	addDebug("pasta de dinti", "igiena"         , 7.12   , "Colgate",		 cont);
+	addDebug("iaurt"         , "produse lactate", 5.013  , "Milka UK",		 cont);
+	addDebug("sare"          , "condimente"     , 11     , "Maggi",			 cont);
+	addDebug("parmezan"      , "condimente"     , 8.301  , "Delikat",		 cont);
+	addDebug("chipsuri"      , "snaksuri"       , 1.53   , "Chio",			 cont);
+	addDebug("chipsuri"      , "snaksuri"       , 9.1    , "Pringles",		 cont);
+
+	if (!cont)
+		cout << "[X]Nu au fost adaugate produse noi in stoc!\n\n";
+	else
+		cout << "[+]Au fost adaugate " << cont << " produse noi in stoc!\n\n";
 }
 
 void UI::runApp() const
 {
 	auto run{ true };
 	const vector<string> commands{ "adaugare", "stergere", "modificare",
-								   "cautare", "afisare", "filtrare",
-								   "sortare", "info tipuri", "cumparaturi",
-								   "clear", "exit", "debug" };
+								   "cautare", "afisare", "info tipuri",
+								   "undo", "filtrare", "sortare",
+		                           "cumparaturi", "clear", "exit",
+		                           "debug" };
 	string cmd;
 	
 	while (run)
@@ -641,18 +710,20 @@ void UI::runApp() const
 		else if (srv.cmpStrings(cmd, commands.at(4)))
 			printAllUI();
 		else if (srv.cmpStrings(cmd, commands.at(5)))
-			filterUI();
-		else if (srv.cmpStrings(cmd, commands.at(6)))
-			sortUI();
-		else if (srv.cmpStrings(cmd, commands.at(7)))
 			countTypeUI();
+		else if (srv.cmpStrings(cmd, commands.at(6)))
+			undoUI();
+		else if (srv.cmpStrings(cmd, commands.at(7)))
+			filterUI();
 		else if (srv.cmpStrings(cmd, commands.at(8)))
-			cosCumparaturiUI();
+			sortUI();
 		else if (srv.cmpStrings(cmd, commands.at(9)))
-			clearUI();
+			cosCumparaturiUI();
 		else if (srv.cmpStrings(cmd, commands.at(10)))
-			run = false;
+			clearUI();
 		else if (srv.cmpStrings(cmd, commands.at(11)))
+			run = false;
+		else if (srv.cmpStrings(cmd, commands.at(12)))
 			debugUI();
 		else
 			cerr << "[X]Comanda invalida!\n\n";

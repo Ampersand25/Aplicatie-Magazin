@@ -2,6 +2,7 @@
 
 #include "Product.h"
 #include "ProductValidator.h"
+#include "Service.h"
 
 class TestingService
 {
@@ -21,6 +22,11 @@ private:
 	* Metoda care testeaza functia verifyIfDouble din fisierul antet/header Business.h
 	*/
 	void runTestsServiceVerifyIfDouble() const;
+
+	/*
+	* Metoda care testeaza functia verifyIfInteger din fisierul antet/header Business.h
+	*/
+	void runTestsServiceVerifyIfInteger() const;
 
 	/*
 	* Metoda care testeaza functia add din fisierul antet/header Business.h
@@ -51,6 +57,11 @@ private:
 	* Metoda care testeaza functia countType din fisierul antet/header Business.h
 	*/
 	void runTestsCountType() const;
+
+	/*
+	* Metoda care testeaza functia undo din fisierul antet/header Business.h
+	*/
+	void runTestsUndo() const;
 
 	/*
 	* Functie de test care verifica daca un produs p are atributul name identic cu name, atributul type identic cu type, atributul price identic cu price si atributul producer identic cu producer
@@ -102,6 +113,21 @@ private:
 	* Metoda care testeaza functia exportCos din fisierul antet/header Business.h
 	*/
 	void runTestsExportCos() const;
+
+	/*
+	* Functie privata auxiliara de test care face urmatoarele verificari pentru functia runTestsGetCosCumparaturi:
+	* - daca in cosul de cumparaturi cos (obiect de clasa CosCumparaturi) exista a produse (obiecte de clasa Product) cu numele (atributul name) "chipsuri" si producatorul (atributul producer) "Lays"
+	* - daca in cosul de cumparaturi cos (obiect de clasa CosCumparaturi) exista b produse (obiecte de clasa Product) cu numele (atributul name) "ton in ulei" si producatorul (atributul producer) "Tonno Rio Mare"
+	* - daca in cosul de cumparaturi cos (obiect de clasa CosCumparaturi) exista c produse (obiecte de clasa Product) cu numele (atributul name) "boia" si producatorul (atributul producer) "Delikat"
+	* - daca in cosul de cumparaturi cos (obiect de clasa CosCumparaturi) exista d produse (obiecte de clasa Product) cu numele (atributul name) "pasta de dinti" si producatorul (atributul producer) "Colgate"
+	* - daca in cosul de cumparaturi cos (obiect de clasa CosCumparaturi) exista e produse (obiecte de clasa Product) cu numele (atributul name) "iaurt" si producatorul (atributul producer) "Milka UK"
+	*/
+	void cmpCantityCos(const Service& srv, const int& a, const int& b, const int& c, const int& d, const int& e) const;
+
+	/*
+	* Metoda care testeaza functia getCosCumparaturi din fisierul antet/header Business.h
+	*/
+	void runTestsGetCosCumparaturi() const;
 
 public:
 	// metode publice (pot fi apelate din exteriorul clasei)
