@@ -16,15 +16,43 @@
                   "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Product.h"
                 },
                 "region": {
-                  "startLine": 50,
+                  "startLine": 49,
                   "startColumn": 2,
-                  "endLine": 50,
+                  "endLine": 49,
                   "endColumn": 2
                 }
               },
               "logicalLocations": [
                 {
                   "decoratedName": "??0Product@@QAE@ABV0@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26432",
+          "message": {
+            "text": "If you define or delete any default operation in the type 'class RepoProducts', define or delete them all (c.21)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Repository.h"
+                },
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 11,
+                  "endLine": 27,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??1RepoProducts@@UAE@XZ",
                   "kind": "function"
                 }
               ]
@@ -44,15 +72,99 @@
                   "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Undo.h"
                 },
                 "region": {
-                  "startLine": 19,
+                  "startLine": 38,
                   "startColumn": 11,
-                  "endLine": 19,
+                  "endLine": 38,
                   "endColumn": 11
                 }
               },
               "logicalLocations": [
                 {
                   "decoratedName": "??1ActiuneUndo@@UAE@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26410",
+          "message": {
+            "text": "The parameter 'repo' is a reference to const unique pointer, use const T* or const T& instead (r.32)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/ApplicationCoordinator.cpp"
+                },
+                "region": {
+                  "startLine": 101,
+                  "startColumn": 6,
+                  "endLine": 101,
+                  "endColumn": 6
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?runApplication@@YAXABV?$unique_ptr@VRepoProducts@@U?$default_delete@VRepoProducts@@@std@@@std@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26415",
+          "message": {
+            "text": "Smart pointer parameter 'repo' is used only to access contained pointer. Use T* or T& instead (r.30)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/ApplicationCoordinator.cpp"
+                },
+                "region": {
+                  "startLine": 101,
+                  "startColumn": 6,
+                  "endLine": 101,
+                  "endColumn": 6
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?runApplication@@YAXABV?$unique_ptr@VRepoProducts@@U?$default_delete@VRepoProducts@@@std@@@std@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26414",
+          "message": {
+            "text": "Move, copy, reassign or reset a local smart pointer 'repo' (r.5)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/ApplicationCoordinator.cpp"
+                },
+                "region": {
+                  "startLine": 124,
+                  "startColumn": 30,
+                  "endLine": 124,
+                  "endColumn": 34
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?setUpRepository@@YAXXZ",
                   "kind": "function"
                 }
               ]
@@ -71,7 +183,7 @@
       },
       "invocations": [
         {
-          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x007CB1C0 -il C:\\Users\\Admin\\AppData\\Local\\Temp\\_CL_1f97c4e2ast -typedil -f ApplicationCoordinator.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829913 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\ApplicationCoordinator.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset CppRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x000BB1C0 -il C:\\Users\\Admin\\AppData\\Local\\Temp\\_CL_9f23459aast -typedil -f ApplicationCoordinator.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829913 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\ApplicationCoordinator.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset CppRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
           "executionSuccessful": true
         }
       ],
@@ -84,7 +196,18 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "e616e16120175913a90b8af19878d253"
+            "md5": "18e41b0509724c816a43e9137935ab41"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Repository.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "b4c4203e8e68a6f8a812a697baca33b4"
           }
         },
         {
@@ -95,18 +218,19 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "853b3c50ce9be068e38b7c8a120862fe"
+            "md5": "0061fee6677e709d951be76e0f300452"
           }
         },
         {
           "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/applicationcoordinator.cpp"
+            "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/ApplicationCoordinator.cpp"
           },
           "roles": [
-            "analysisTarget"
+            "analysisTarget",
+            "resultFile"
           ],
           "hashes": {
-            "md5": "6d506550ad2290b270cc2e63f1d4cb08"
+            "md5": "e93aaad4c9c01eb1e546972e71bba8e7"
           }
         },
         {
@@ -119,10 +243,10 @@
         },
         {
           "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/repository.h"
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/filerepository.h"
           },
           "hashes": {
-            "md5": "3586be5e1e6d7c82adc9f53178faca15"
+            "md5": "fc44424f8dd34157dc899b93229374c0"
           }
         },
         {
@@ -138,7 +262,7 @@
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/service.h"
           },
           "hashes": {
-            "md5": "eb57d217842f5d74d2db0a9b2535bb0c"
+            "md5": "35ad8c70dfe589e6cba3623ddb5acdca"
           }
         },
         {
@@ -146,7 +270,7 @@
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/coscumparaturi.h"
           },
           "hashes": {
-            "md5": "ce9e3298e3ed7cdb86f2066fa0beb28e"
+            "md5": "8b3ce914fb0f10c84e65b76efbf8b383"
           }
         },
         {

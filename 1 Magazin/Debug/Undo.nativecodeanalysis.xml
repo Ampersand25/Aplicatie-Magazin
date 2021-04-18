@@ -4,28 +4,28 @@
     <SFA>
       <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
       <FILENAME>Product.h</FILENAME>
-      <LINE>50</LINE>
+      <LINE>49</LINE>
       <COLUMN>1</COLUMN>
     </SFA>
     <DEFECTCODE>26432</DEFECTCODE>
     <DESCRIPTION>If you define or delete any default operation in the type 'class Product', define or delete them all (c.21).</DESCRIPTION>
     <FUNCTION>Product::{ctor}</FUNCTION>
     <DECORATED>??0Product@@QAE@ABV0@@Z</DECORATED>
-    <FUNCLINE>50</FUNCLINE>
+    <FUNCLINE>49</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
       <FILENAME>Undo.h</FILENAME>
-      <LINE>13</LINE>
+      <LINE>38</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26432</DEFECTCODE>
     <DESCRIPTION>If you define or delete any default operation in the type 'class ActiuneUndo', define or delete them all (c.21).</DESCRIPTION>
     <FUNCTION>ActiuneUndo::{dtor}</FUNCTION>
     <DECORATED>??1ActiuneUndo@@UAE@XZ</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>38</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

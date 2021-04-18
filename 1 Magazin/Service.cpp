@@ -2,10 +2,10 @@
 #include "ServiceException.h"
 #include "Utils.h"
 
-#include <algorithm> // for std::sort, std::copy_if, std::back_inserter
-#include <exception> // for std::exception
-#include <string>    // for stoi (string to integer build-in function)
-#include <iostream>  // for back_inserter
+#include <algorithm> // pentru std::sort, std::copy_if si std::back_inserter
+#include <exception> // pentru std::exception
+#include <string>    // pentru stoi (string to integer build-in function)
+#include <iostream>  // pentru back_inserter
 
 using std::sort;          // functie build-in de sortare (ordonare) a unei structuri de date
 using std::copy_if;       // functie de copiere dintr-o structura de date in alta (folosita la filtrare)

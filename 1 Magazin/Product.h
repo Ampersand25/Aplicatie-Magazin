@@ -1,7 +1,6 @@
 #pragma once
 
-#include <string>
-// #include <iostream>
+#include <string> // pentru std::string
 
 using std::string;
 

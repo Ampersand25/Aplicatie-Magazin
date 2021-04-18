@@ -1,8 +1,8 @@
 #include "CosCumparaturi.h"
 #include "CosException.h"
 
-#include <random>   // for std::random_device, std::mt19937 and std::uniform_int_distribution
-#include <fstream>  // for std::ofstream
+#include <random>   // pentru std::random_device, std::mt19937 si std::uniform_int_distribution
+#include <fstream>  // pentru std::ofstream
 
 using std::random_device;
 using std::mt19937;

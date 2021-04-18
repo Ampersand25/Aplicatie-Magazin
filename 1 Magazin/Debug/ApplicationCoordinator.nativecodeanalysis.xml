@@ -4,28 +4,84 @@
     <SFA>
       <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
       <FILENAME>Product.h</FILENAME>
-      <LINE>50</LINE>
+      <LINE>49</LINE>
       <COLUMN>1</COLUMN>
     </SFA>
     <DEFECTCODE>26432</DEFECTCODE>
     <DESCRIPTION>If you define or delete any default operation in the type 'class Product', define or delete them all (c.21).</DESCRIPTION>
     <FUNCTION>Product::{ctor}</FUNCTION>
     <DECORATED>??0Product@@QAE@ABV0@@Z</DECORATED>
-    <FUNCLINE>50</FUNCLINE>
+    <FUNCLINE>49</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
+      <FILENAME>Repository.h</FILENAME>
+      <LINE>27</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26432</DEFECTCODE>
+    <DESCRIPTION>If you define or delete any default operation in the type 'class RepoProducts', define or delete them all (c.21).</DESCRIPTION>
+    <FUNCTION>RepoProducts::{dtor}</FUNCTION>
+    <DECORATED>??1RepoProducts@@UAE@XZ</DECORATED>
+    <FUNCLINE>27</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
       <FILENAME>Undo.h</FILENAME>
-      <LINE>19</LINE>
+      <LINE>38</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26432</DEFECTCODE>
     <DESCRIPTION>If you define or delete any default operation in the type 'class ActiuneUndo', define or delete them all (c.21).</DESCRIPTION>
     <FUNCTION>ActiuneUndo::{dtor}</FUNCTION>
     <DECORATED>??1ActiuneUndo@@UAE@XZ</DECORATED>
-    <FUNCLINE>19</FUNCLINE>
+    <FUNCLINE>38</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
+      <FILENAME>ApplicationCoordinator.cpp</FILENAME>
+      <LINE>101</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>26410</DEFECTCODE>
+    <DESCRIPTION>The parameter 'repo' is a reference to const unique pointer, use const T* or const T&amp; instead (r.32).</DESCRIPTION>
+    <FUNCTION>runApplication</FUNCTION>
+    <DECORATED>?runApplication@@YAXABV?$unique_ptr@VRepoProducts@@U?$default_delete@VRepoProducts@@@std@@@std@@@Z</DECORATED>
+    <FUNCLINE>101</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
+      <FILENAME>ApplicationCoordinator.cpp</FILENAME>
+      <LINE>101</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>26415</DEFECTCODE>
+    <DESCRIPTION>Smart pointer parameter 'repo' is used only to access contained pointer. Use T* or T&amp; instead (r.30).</DESCRIPTION>
+    <FUNCTION>runApplication</FUNCTION>
+    <DECORATED>?runApplication@@YAXABV?$unique_ptr@VRepoProducts@@U?$default_delete@VRepoProducts@@@std@@@std@@@Z</DECORATED>
+    <FUNCLINE>101</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
+      <FILENAME>ApplicationCoordinator.cpp</FILENAME>
+      <LINE>124</LINE>
+      <COLUMN>29</COLUMN>
+    </SFA>
+    <DEFECTCODE>26414</DEFECTCODE>
+    <DESCRIPTION>Move, copy, reassign or reset a local smart pointer 'repo' (r.5).</DESCRIPTION>
+    <FUNCTION>setUpRepository</FUNCTION>
+    <DECORATED>?setUpRepository@@YAXXZ</DECORATED>
+    <FUNCLINE>114</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

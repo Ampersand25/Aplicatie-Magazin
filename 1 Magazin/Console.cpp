@@ -4,7 +4,7 @@
 #include "ProductException.h"
 #include "CosException.h"
 
-#include <iostream>
+#include <iostream> // pentru std::cin, std::cout, std::cerr si std::endl
 
 using std::cin;
 using std::cout;
@@ -684,6 +684,8 @@ void UI::debugUI() const
 
 void UI::runApp() const
 {
+	clearUI();
+
 	auto run{ true };
 	const vector<string> commands{ "adaugare", "stergere", "modificare",
 								   "cautare", "afisare", "info tipuri",

@@ -1,6 +1,7 @@
 #include "Utils.h"
 
 #include <cctype> // #include <ctype.h>
+                  // pentru isdigit si tolower
 
 bool Utils::compareStr(const string& str_1, const string& str_2) const noexcept
 {

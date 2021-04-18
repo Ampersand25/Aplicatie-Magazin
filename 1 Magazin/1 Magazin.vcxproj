@@ -147,6 +147,7 @@
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="CosCumparaturi.cpp" />
     <ClCompile Include="CosException.cpp" />
+    <ClCompile Include="FileRepository.cpp" />
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="ProductException.cpp" />
     <ClCompile Include="ProductValidator.cpp" />
@@ -157,14 +158,18 @@
     <ClCompile Include="TestingApp.cpp" />
     <ClCompile Include="TestingCosCumparaturi.cpp" />
     <ClCompile Include="TestingDomain.cpp" />
+    <ClCompile Include="TestingFileRepo.cpp" />
     <ClCompile Include="TestingRepo.cpp" />
     <ClCompile Include="TestingService.cpp" />
     <ClCompile Include="TestingUndo.cpp" />
     <ClCompile Include="TestingUtils.cpp" />
     <ClCompile Include="TestingValidation.cpp" />
+    <ClCompile Include="Undo.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FileRepository.h" />
+    <ClInclude Include="TestingFileRepo.h" />
     <ClInclude Include="TestingUndo.h" />
     <ClInclude Include="Undo.h" />
     <ClInclude Include="Console.h" />

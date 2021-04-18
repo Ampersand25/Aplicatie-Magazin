@@ -2,7 +2,7 @@
 
 #include "Product.h"
 
-#include <vector>
+#include <vector> // pentru std::vector
 
 using std::vector;
 
@@ -22,6 +22,11 @@ public:
 	RepoProducts() = default;
 
 	/*
+	* Destructorul virtual al unui obiect de clasa RepoProducts (il setam ca fiind default)
+	*/
+	virtual ~RepoProducts() = default;
+
+	/*
 	* Constructorul de copiere a unui obiect de clasa RepoProducts (il setam ca fiind delete)
 	* Astfel nu se vor putea copia obiecte de clasa RepoProducts
 	*/
@@ -36,10 +41,10 @@ public:
 	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
 	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Produs deja existent!\n" daca produsul product exista deja in lista din repo (exista un produs cu acelasi nume si producator)
 	*/
-	void addProduct(const Product& product);
+	virtual void addProduct(const Product& product);
 
 	/*
-	* Procedura care incearca stearga un obiect de clasa Product cu numele name si producatorul producer din lista de produse (entitati de clasa Product) din repo (magazin)
+	* Metoda virtuala care incearca stearga un obiect de clasa Product cu numele name si producatorul producer din lista de produse (entitati de clasa Product) din repo (magazin)
 	* Date de intrare: name     - referinta constanta la un string
 	*                  producer - referinta constanta la un string
 	* Preconditii: -
@@ -48,10 +53,10 @@ public:
 	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
 	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Produs inexistent!\n" daca produsul product nu se afla in magazin (nu exista obiect de clasa Product (entitati/inregistrari) nu numele name si producatorul producer in lista din repo)    
 	*/
-	void deleteProduct(const string& name, const string& producer);
+	virtual void deleteProduct(const string& name, const string& producer);
 
 	/*
-	* Procedura care incearca actualizarea/modificarea atributele price si type a unui obiect product de clasa Product din repo (magazin)
+	* Metoda virtuala care incearca actualizarea/modificarea atributele price si type a unui obiect product de clasa Product din repo (magazin)
 	* Date de intrare: product - referinta constanta la un obiect de clasa Product
 	* Preconditii: -
 	* Date de iesire (rezultate): -
@@ -59,7 +64,7 @@ public:
 	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
 	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Produs inexistent!\n" daca produsul care se doreste a fi actualizat nu se afla in repo (magazin), adica nu exista nicio inregistrare cu numele produsului product si producatorul produsului product
 	*/
-	void modifyProduct(const Product& product);
+	virtual void modifyProduct(const Product& product);
 
 	/*
 	* Functie care cauta un produs in lista de produse din repo dupa nume si producator

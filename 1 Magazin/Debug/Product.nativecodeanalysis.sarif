@@ -16,9 +16,9 @@
                   "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Product.h"
                 },
                 "region": {
-                  "startLine": 50,
+                  "startLine": 49,
                   "startColumn": 2,
-                  "endLine": 50,
+                  "endLine": 49,
                   "endColumn": 2
                 }
               },
@@ -43,7 +43,7 @@
       },
       "invocations": [
         {
-          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x004EB1C0 -il C:\\Users\\Admin\\AppData\\Local\\Temp\\_CL_77f167abast -typedil -f Product.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829913 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\Product.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset CppRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x000BB1C0 -il C:\\Users\\Admin\\AppData\\Local\\Temp\\_CL_ec272c3dast -typedil -f Product.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829913 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\Product.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset CppRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
           "executionSuccessful": true
         }
       ],
@@ -56,7 +56,40 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "e616e16120175913a90b8af19878d253"
+            "md5": "18e41b0509724c816a43e9137935ab41"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Undo.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "0061fee6677e709d951be76e0f300452"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/undo.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "7b116996299c573960ebae35d38ed3f7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/repository.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "b4c4203e8e68a6f8a812a697baca33b4"
           }
         },
         {
@@ -67,7 +100,7 @@
             "analysisTarget"
           ],
           "hashes": {
-            "md5": "847d6036322c7c6b43e7c65533a7a689"
+            "md5": "050ec316e03d72d813ba3773f40a64a6"
           }
         },
         {
@@ -94,7 +127,26 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "d65e3729a4df2705a489a61e580e6fcb"
+            "md5": "5e25849966385e1e2a044beaa0d78a09"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingundo.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "89c6261c7502999bdbc9023d8608096f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingundo.h"
+          },
+          "hashes": {
+            "md5": "a8b20ce05700cf89fd28f465e601f5a5"
           }
         },
         {
@@ -105,7 +157,7 @@
             "analysisTarget"
           ],
           "hashes": {
-            "md5": "48821871f767a829b37201d4a86e3801"
+            "md5": "ddecc95e42a968dd5badacdb13a90914"
           }
         },
         {
@@ -113,7 +165,7 @@
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingservice.h"
           },
           "hashes": {
-            "md5": "18844e6b55e658deca97c1f43fcc2854"
+            "md5": "534bd9a1caf04d3dc660cfdf3408172b"
           }
         },
         {
@@ -121,15 +173,7 @@
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/service.h"
           },
           "hashes": {
-            "md5": "50b5c4f7e387e82e75ed3fcdb1b3f8e6"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/repository.h"
-          },
-          "hashes": {
-            "md5": "c84ccfb997ca4d45abfc2ecc6312283c"
+            "md5": "35ad8c70dfe589e6cba3623ddb5acdca"
           }
         },
         {
@@ -137,15 +181,18 @@
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/coscumparaturi.h"
           },
           "hashes": {
-            "md5": "7df112f455882a4a401014e8509ce269"
+            "md5": "8b3ce914fb0f10c84e65b76efbf8b383"
           }
         },
         {
           "location": {
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/serviceexception.h"
           },
+          "roles": [
+            "resultFile"
+          ],
           "hashes": {
-            "md5": "7d090bd068e22ca5a9ed4e3e344782bb"
+            "md5": "5eaf468d99d9093dd2a9f6bf5f9901ea"
           }
         },
         {
@@ -156,7 +203,15 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "18cad41a7be06289f679a6e463da1275"
+            "md5": "2fb7604cb66f75375178401de0660526"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/cosexception.h"
+          },
+          "hashes": {
+            "md5": "4ac08254a4f8a2c877231878b435b277"
           }
         },
         {
@@ -167,7 +222,7 @@
             "analysisTarget"
           ],
           "hashes": {
-            "md5": "670c9d717540ceebf3f31e23c26b459c"
+            "md5": "088e09f293fefe02efca6ea0213762e2"
           }
         },
         {
@@ -199,13 +254,32 @@
         },
         {
           "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingcoscumparaturi.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "1079fae25458a3c3472d96c07eea9b22"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingcoscumparaturi.h"
+          },
+          "hashes": {
+            "md5": "054e42c2045eae9b27d4cd6a3a9eb05d"
+          }
+        },
+        {
+          "location": {
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingapp.cpp"
           },
           "roles": [
             "analysisTarget"
           ],
           "hashes": {
-            "md5": "b8e72709dbad7c5b85784a571bab810d"
+            "md5": "d93433cbf6670f0764c6085cb67a61d3"
           }
         },
         {
@@ -221,7 +295,7 @@
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingutils.h"
           },
           "hashes": {
-            "md5": "1eff9c8bac2766f3104994edbd3a83f2"
+            "md5": "ded5a1c2b87c70e2dd304e1089a64009"
           }
         },
         {
@@ -229,7 +303,29 @@
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/utils.h"
           },
           "hashes": {
-            "md5": "e4cb890e3c1b86bc38831ca84dbb69a9"
+            "md5": "68f1fc1d255f2b5bc298ec7b165b07a2"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/serviceexception.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "3a5a80fbf4e0f9007bcbd12ceb509461"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/service.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "b79f11114cb41a54871387faea6ac6cc"
           }
         },
         {
@@ -241,7 +337,18 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "8efce01dd6116a1c27539dbd339157cb"
+            "md5": "fe2f905e359a52e13b1e0cf2f3d25cd0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/repoexception.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "fc3777731e3055254e3ec87bfa7a5468"
           }
         },
         {
@@ -252,7 +359,18 @@
             "analysisTarget"
           ],
           "hashes": {
-            "md5": "31c376ecbc7fbddd398e3059574aab8a"
+            "md5": "23b5cc69430356b309554596f691ecc0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/productexception.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "6fa4a3bff9d2d886076ebdb587e51c04"
           }
         },
         {
@@ -263,7 +381,7 @@
             "analysisTarget"
           ],
           "hashes": {
-            "md5": "f331b975b875577b47ce3963fc1e5d29"
+            "md5": "63e308075602d583e071e769722eecdc"
           }
         }
       ]

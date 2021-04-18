@@ -1,5 +1,7 @@
 #include "Product.h"
 
+#include <iostream> // pentru std::to_string
+
 using std::to_string;
 
 // Metode de tip getter

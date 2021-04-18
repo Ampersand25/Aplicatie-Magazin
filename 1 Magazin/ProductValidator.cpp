@@ -1,7 +1,7 @@
 #include "ProductValidator.h"
 #include "ProductException.h"
 
-#include <string>
+#include <string> // pentru std::string
 
 using std::string;
 

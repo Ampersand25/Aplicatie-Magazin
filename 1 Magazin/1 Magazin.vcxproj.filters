@@ -91,6 +91,18 @@
     <Filter Include="Source Files\Testing\TestingUndo">
       <UniqueIdentifier>{a723a4cc-ecb4-4fd4-a98f-64852d0fd601}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Infrastructure\Repository\MemoryRepo">
+      <UniqueIdentifier>{96a99f3f-caca-47cd-8cdc-10c6149bb72c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Infrastructure\Repository\FileRepo">
+      <UniqueIdentifier>{62a7886c-4b3b-4bd2-8baf-dce6f970a6ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingInfrastructure\TestingMemoryRepo">
+      <UniqueIdentifier>{226d0ca9-7ce9-4e0f-a23b-b4c93f68f161}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingInfrastructure\TestingFileRepo">
+      <UniqueIdentifier>{955da198-c68b-4815-a016-e82d08027936}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ApplicationCoordinator.cpp">
@@ -102,9 +114,6 @@
     <ClCompile Include="TestingDomain.cpp">
       <Filter>Source Files\Testing\TestingDomain</Filter>
     </ClCompile>
-    <ClCompile Include="Repository.cpp">
-      <Filter>Source Files\Infrastructure\Repository</Filter>
-    </ClCompile>
     <ClCompile Include="RepoException.cpp">
       <Filter>Source Files\Infrastructure\RepoException</Filter>
     </ClCompile>
@@ -113,9 +122,6 @@
     </ClCompile>
     <ClCompile Include="Product.cpp">
       <Filter>Source Files\Domain\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="TestingRepo.cpp">
-      <Filter>Source Files\Testing\TestingInfrastructure</Filter>
     </ClCompile>
     <ClCompile Include="ProductValidator.cpp">
       <Filter>Source Files\Validation\EntityValidator</Filter>
@@ -153,6 +159,21 @@
     <ClCompile Include="TestingUndo.cpp">
       <Filter>Source Files\Testing\TestingUndo</Filter>
     </ClCompile>
+    <ClCompile Include="Repository.cpp">
+      <Filter>Source Files\Infrastructure\Repository\MemoryRepo</Filter>
+    </ClCompile>
+    <ClCompile Include="FileRepository.cpp">
+      <Filter>Source Files\Infrastructure\Repository\FileRepo</Filter>
+    </ClCompile>
+    <ClCompile Include="Undo.cpp">
+      <Filter>Source Files\Undo</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingRepo.cpp">
+      <Filter>Source Files\Testing\TestingInfrastructure\TestingMemoryRepo</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingFileRepo.cpp">
+      <Filter>Source Files\Testing\TestingInfrastructure\TestingFileRepo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestingApp.h">
@@ -160,9 +181,6 @@
     </ClInclude>
     <ClInclude Include="TestingDomain.h">
       <Filter>Source Files\Testing\TestingDomain</Filter>
-    </ClInclude>
-    <ClInclude Include="Repository.h">
-      <Filter>Source Files\Infrastructure\Repository</Filter>
     </ClInclude>
     <ClInclude Include="RepoException.h">
       <Filter>Source Files\Infrastructure\RepoException</Filter>
@@ -172,9 +190,6 @@
     </ClInclude>
     <ClInclude Include="Product.h">
       <Filter>Source Files\Domain\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="TestingRepo.h">
-      <Filter>Source Files\Testing\TestingInfrastructure</Filter>
     </ClInclude>
     <ClInclude Include="ProductValidator.h">
       <Filter>Source Files\Validation\EntityValidator</Filter>
@@ -214,6 +229,18 @@
     </ClInclude>
     <ClInclude Include="TestingUndo.h">
       <Filter>Source Files\Testing\TestingUndo</Filter>
+    </ClInclude>
+    <ClInclude Include="Repository.h">
+      <Filter>Source Files\Infrastructure\Repository\MemoryRepo</Filter>
+    </ClInclude>
+    <ClInclude Include="FileRepository.h">
+      <Filter>Source Files\Infrastructure\Repository\FileRepo</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingRepo.h">
+      <Filter>Source Files\Testing\TestingInfrastructure\TestingMemoryRepo</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingFileRepo.h">
+      <Filter>Source Files\Testing\TestingInfrastructure\TestingFileRepo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

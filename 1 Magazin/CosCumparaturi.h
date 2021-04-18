@@ -3,8 +3,8 @@
 #include "Product.h"
 #include "Repository.h"
 
-#include <vector>
-#include <string>
+#include <vector> // pentru std::vector
+#include <string> // pentru std::string
 
 using std::vector;
 using std::string;

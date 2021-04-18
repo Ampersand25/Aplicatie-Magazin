@@ -1,7 +1,7 @@
 #include "Repository.h"
 #include "RepoException.h"
 
-#include <algorithm>
+#include <algorithm> // pentru std::find_if
 
 using std::find_if;
 

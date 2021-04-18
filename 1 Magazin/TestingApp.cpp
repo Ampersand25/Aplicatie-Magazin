@@ -1,6 +1,7 @@
 #include "TestingApp.h"
 #include "TestingDomain.h"
 #include "TestingRepo.h"
+#include "TestingFileRepo.h"
 #include "TestingValidation.h"
 #include "TestingUtils.h"
 #include "TestingService.h"
@@ -17,8 +18,17 @@ void TestingApp::runTestsApp() const
 
 	// Testarea layerului/stratului Infrastructure/Repository (leyerul/stratul de persistenta a datelor, unde sunt stocate inregistrarile din aplicatie)
 	{
-		TestingRepo testing_repo;
-		testing_repo.runTestsRepo();
+		// Testare repository (repozitoriu) fara fisiere (cu salvare in memorie)
+		{
+			TestingRepo testing_repo;
+			testing_repo.runTestsRepo();
+		}
+
+		// Testare repository (repozitoriu) cu fisiere text
+		{
+			TestingFileRepo testing_file_repo;
+			testing_file_repo.runTestsFileRepo();
+		}
 	}
 
 	// Testarea layerului/stratului Validation (leyerul/stratul de validare a datelor)

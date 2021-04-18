@@ -5,9 +5,10 @@
 #include "CosCumparaturi.h"
 #include "Undo.h"
 
-#include <map>
-#include <vector>
-#include <memory>
+#include <map>     // pentru std::map
+#include <vector>  // pentru std::vector
+#include <memory>  // pentru std::unique_ptrs
+#include <utility> // pentru std::pair si make_pair
 
 using std::map;
 using std::pair;
