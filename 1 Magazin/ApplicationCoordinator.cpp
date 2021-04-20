@@ -155,7 +155,7 @@ int main(void)
 
     // Asamblarea si rularea aplicatie
     setUpRepository();
-
+    
     // Testam aplicatia de memory leaks (scurgeri/leak-uri de memorie)
     testMemoryLeaks();
 

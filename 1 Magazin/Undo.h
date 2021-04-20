@@ -100,7 +100,7 @@ public:
 	* Acesta populeaza atributule (campurile) private repo si product cu valorile primite
 	*/
 	UndoModifica(RepoProducts& repo, const Product& product) : repo{ repo }, product{ product } {
-		
+
 	}
 
 	/*

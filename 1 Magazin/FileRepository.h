@@ -2,11 +2,11 @@
 
 #include "Repository.h"
 
-#include <string> // pentru std::string
+//#include <string> // pentru std::string
 
-using std::string;
+//using std::string;
 
-class FileRepoProducts : public RepoProducts // clasa derivata din clasa de baza RepoProducts
+class FileRepoProducts : public RepoProducts // clasa derivata din clasa de baza RepoProducts (clasa care la randul ei este derivata din clasa de baza AbstractRepo)
 {
 private:
 	// atribute private
@@ -17,14 +17,25 @@ private:
 
 	/*
 	* Metoda care citeste continutul fisierului text cu numele filename si salveaza in repository produsele (obiectele de clasa Product) din acest fisier
-	* Functia incarca datele din fisier in memorie => face import
+	* Procedura (functia procedurala) incarca datele din fisier in memorie => face import
+	* Date de intrare: -
+	* Preconditii: -
+	* Date de iesire (rezultate): -
+	* Postconditii: -
+	* Exceptii: - (metoda nu arunca exceptii)
+	* Metoda face exit cu codul de retur 1 (exit status/code) daca datele din fisier nu sunt valide (pretul nu este corect definit)
 	*/
 	void loadFromFile();
 
 	/*
 	* Metoda care scrie (afiseaza/tipareste) in fisierul cu numele filename, lista de produse (obiecte de clasa Product) din repozitoriu
 	* Astfel se salveaza datele in fisier
-	* Functia incarca datele din memorie in fisier => face export
+	* Procedura (functia procedurala) incarca datele din memorie in fisier => face export
+	* Date de intrare: -
+	* Preconditii: -
+	* Date de iesire (rezultate): -
+	* Postconditii: -
+	* Exceptii: - (metoda nu arunca exceptii)
 	*/
 	void writeToFile();
 

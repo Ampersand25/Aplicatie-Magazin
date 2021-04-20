@@ -29,7 +29,7 @@ void RepoProducts::addProduct(const Product& product)
 
 void RepoProducts::deleteProduct(const string& name, const string& producer)
 {
-	if (!len()) // if (!products.size())
+	if (!len()) // if (!products.size())s
 				// if (!this->len())
 		throw RepoException("[!]Nu exista produse in magazin!\n");
 

@@ -1,14 +1,12 @@
 ﻿  ApplicationCoordinator.cpp
   1 Magazin.vcxproj -> C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Debug\1 Magazin.exe
 C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Product.h(49): warning C26432: If you define or delete any default operation in the type 'class Product', define or delete them all (c.21).
-C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Repository.h(27): warning C26432: If you define or delete any default operation in the type 'class RepoProducts', define or delete them all (c.21).
+C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Repository.h(28): warning C26432: If you define or delete any default operation in the type 'class RepoProducts', define or delete them all (c.21).
+C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\AbstractRepo.h(103): warning C26432: If you define or delete any default operation in the type 'class AbstractRepo', define or delete them all (c.21).
 C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Undo.h(38): warning C26432: If you define or delete any default operation in the type 'class ActiuneUndo', define or delete them all (c.21).
 C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\ApplicationCoordinator.cpp(101): warning C26410: The parameter 'repo' is a reference to const unique pointer, use const T* or const T& instead (r.32).
 C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\ApplicationCoordinator.cpp(101): warning C26415: Smart pointer parameter 'repo' is used only to access contained pointer. Use T* or T& instead (r.30).
 C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\ApplicationCoordinator.cpp(124): warning C26414: Move, copy, reassign or reset a local smart pointer 'repo' (r.5).
-C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\CosException.h(30): warning C26432: If you define or delete any default operation in the type 'class CosException', define or delete them all (c.21).
-C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\ProductException.h(30): warning C26432: If you define or delete any default operation in the type 'class ProductException', define or delete them all (c.21).
-C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\RepoException.h(30): warning C26432: If you define or delete any default operation in the type 'class RepoException', define or delete them all (c.21).
+C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Exception.h(34): warning C26432: If you define or delete any default operation in the type 'class Exception', define or delete them all (c.21).
 C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Repository.cpp(171): warning C26489: Don't dereference a pointer that may be invalid: 'allotemp.12'. '(temporary 12)' may have been invalidated at line 171 (lifetime.1).
 C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Repository.cpp(171): warning C26487: Don't return a pointer '(148's result)' that may be invalid (lifetime.4).
-C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\ServiceException.h(30): warning C26432: If you define or delete any default operation in the type 'class ServiceException', define or delete them all (c.21).

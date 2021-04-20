@@ -17,7 +17,9 @@ using std::endl;
 
 void FileRepoProducts::loadFromFile()
 {
-	const string path{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin\\Persistenta datelor\\" };
+	// const string path{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin\\Fisiere text - repo\\" };
+	
+	const string path{ ".\\Fisiere text - repo\\" };
 	const string extension{ ".txt" };
 	const string full_filename{ path + this->filename + extension }; // const string full_filename{ path + filename + extension };
 
@@ -68,7 +70,9 @@ void FileRepoProducts::loadFromFile()
 
 void FileRepoProducts::writeToFile()
 {
-	const string path{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin\\Persistenta datelor\\" };
+	// const string path{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin\\Fisiere text - repo\\" };
+	
+	const string path{ ".\\Fisiere text - repo\\" };
 	const string extension{".txt"};
 	const string full_filename{ path + this->filename + extension }; // const string full_filename{ path + filename + extension };
 

@@ -1,17 +1,20 @@
 #include "CosCumparaturi.h"
 #include "CosException.h"
 
-#include <random>   // pentru std::random_device, std::mt19937 si std::uniform_int_distribution
-#include <fstream>  // pentru std::ofstream
+#include <random>    // pentru std::random_device, std::mt19937 si std::uniform_int_distribution
+#include <fstream>   // pentru std::ofstream
+#include <algorithm> // for find_if and count_if
 
 using std::random_device;
 using std::mt19937;
 using std::uniform_int_distribution;
 using std::ofstream;
+using std::find_if;
+using std::count_if;
 
 bool CosCumparaturi::cosGol() const noexcept
 {
-	return !cos.size();
+	return !cos.size(); // return cos.empty();
 
 	/*
 	if (!cos.size())
@@ -71,9 +74,14 @@ void CosCumparaturi::exportCosFisierCSV(const string& filename) const
 	//if (cosGol()) // if (this->cosGol())
 	//	throw CosException("[!]Nu exista produse in cosul de cumparaturi!\n");
 
-	const auto& full_filename{ filename + ".csv" };
-	ofstream out(full_filename);
+	const auto path{ ".\\Export cos cumparaturi\\" };        // const string path{ ".\\Export cos cumparaturi\\" };
+	const auto extension{ ".csv" };                          // const string extension{ ".csv" };
+	const auto full_filename{ path + filename + extension }; // const string full_filename{ path + filename + extension };
 
+	ofstream out{ full_filename }; // ofstream out(full_filename);
+
+	// Varianta I
+	/*
 	out << "Nume,Tip,Pret,Producator\n"; // de la berlioz10 (aka Dragon Spiridus)
 
 	for (const auto& p : cos)
@@ -83,6 +91,33 @@ void CosCumparaturi::exportCosFisierCSV(const string& filename) const
 		p.getProducer() << '\n';
 
 	out.close();
+	*/
+
+	// Varianta II
+	out << "Nume,Tip,Pret,Producator,Cantitate\n"; // de la berlioz10 (aka Dragon Spiridus)
+	
+	auto it{ cos.begin() };
+
+	while (it != cos.end())
+	{
+		const auto& prod{ *it };
+		const auto& pos{ find_if(cos.begin(), cos.end(), [&prod](const Product& product) noexcept {return product.cmpProducts(prod); }) };
+
+		if (pos == it)
+		{
+			const auto& freq{ count_if(cos.begin(), cos.end(), [&prod](const Product& product) noexcept {return product.cmpProducts(prod); }) };
+
+			out << prod.getName() << ',' <<
+			prod.getType() << ',' <<
+			prod.getPrice() << ',' <<
+			prod.getProducer() << ',' <<
+			freq << '\n';
+		}
+
+		++it;
+	}
+
+	out.close();
 }
 
 void CosCumparaturi::exportCosFisierHTML(const string& filename) const
@@ -90,8 +125,11 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	//if (cosGol()) // if (this->cosGol())
 	//	throw CosException("[!]Nu exista produse in cosul de cumparaturi!\n");
 	
-	const auto& full_filename{ filename + ".html" };
-	ofstream out(full_filename);
+	const auto path{ ".\\Export cos cumparaturi\\" };        // const string path{ ".\\Export cos cumparaturi\\" };
+	const auto extension{ ".html" };                         // const string extension{ ".html" };
+	const auto full_filename{ path + filename + extension }; // const string full_filename{ path + filename + extension };
+	
+	ofstream out{ full_filename }; // ofstream out(full_filename);
 
 	/*
 	out << "<!DOCTYPE html>\n";
@@ -124,7 +162,7 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 
 	out.close();
 	*/
-
+	
 	out << "<!DOCTYPE html>\n";
 	out << "<html lang=\"en\">\n";
 	
@@ -153,12 +191,14 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 		out << "<th style=\"background-color:#B565A7;\">Tip</th>\n";
 		out << "<th style=\"background-color:#FF6F61;\">Pret</th>\n";
 		out << "<th style=\"background-color:#92A8D1;\">Producator</th>\n";
-		
+		out << "<th style=\"background-color:#EFC050;\">Cantitate</th>\n";
+
 		out << "</tr>\n";
 		out << "</thead>\n";
 
 		out << "<tbody>\n";
 
+		/*
 		for (const auto& p : cos)
 		{
 			out << "<tr>\n"
@@ -167,6 +207,30 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 				<< "<td style=\"background-color:#FF6F61;\">" << p.getPrice() << "</td>\n"
 				<< "<td style=\"background-color:#92A8D1;\">" << p.getProducer() << "</td>\n"
 				<< "</tr>\n";
+		}
+		*/
+
+		auto it{ cos.begin() };
+
+		while (it != cos.end())
+		{
+			const auto& prod{ *it };
+			const auto& pos{ find_if(cos.begin(), cos.end(), [&prod](const Product& product) noexcept {return product.cmpProducts(prod); }) };
+
+			if (pos == it)
+			{
+				const auto& freq{ count_if(cos.begin(), cos.end(), [&prod](const Product& product) noexcept {return product.cmpProducts(prod); }) };
+
+				out << "<tr>\n"
+					<< "<td style=\"background-color:#7FCDCD;\">" << prod.getName() << "</td>\n"
+					<< "<td style=\"background-color:#B565A7;\">" << prod.getType() << "</td>\n"
+					<< "<td style=\"background-color:#FF6F61;\">" << prod.getPrice() << "</td>\n"
+					<< "<td style=\"background-color:#92A8D1;\">" << prod.getProducer() << "</td>\n"
+					<< "<td style=\"background-color:#EFC050;\">" << freq << "</td>\n"
+					<< "</tr>\n";
+			}
+
+			++it;
 		}
 
 		out << "</tbody>\n";

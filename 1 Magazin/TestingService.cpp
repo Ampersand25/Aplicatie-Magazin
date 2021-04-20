@@ -1937,7 +1937,7 @@ void TestingService::runTestsExportCos() const
 	try {
 		srv.exportCos("cos", "html");
 		assert(true);
-		assert(remove("cos.html") == 0);
+		assert(remove(".\\Export cos cumparaturi\\cos.html") == 0);
 	}
 	catch (const ServiceException&) {
 		assert(false);
@@ -1949,7 +1949,7 @@ void TestingService::runTestsExportCos() const
 	try {
 		srv.exportCos("cos", "csv");
 		assert(true);
-		assert(remove("cos.csv") == 0);
+		assert(remove(".\\Export cos cumparaturi\\cos.csv") == 0);
 	}
 	catch (const ServiceException&) {
 		assert(false);
@@ -2025,7 +2025,7 @@ void TestingService::runTestsExportCos() const
 	try {
 		srv.exportCos("cos1", "cSv");
 		assert(true);
-		assert(remove("cos1.csv") == 0);
+		assert(remove(".\\Export cos cumparaturi\\cos1.csv") == 0);
 	}
 	catch (const ServiceException&) {
 		assert(false);
@@ -2034,7 +2034,7 @@ void TestingService::runTestsExportCos() const
 	try {
 		srv.exportCos("cos2", "html");
 		assert(true);
-		assert(remove("cos2.html") == 0);
+		assert(remove(".\\Export cos cumparaturi\\cos2.html") == 0);
 	}
 	catch (const ServiceException&) {
 		assert(false);
@@ -2043,7 +2043,7 @@ void TestingService::runTestsExportCos() const
 	try {
 		srv.exportCos("cos3", "CSV");
 		assert(true);
-		assert(remove("cos3.csv") == 0);
+		assert(remove(".\\Export cos cumparaturi\\cos3.csv") == 0);
 	}
 	catch (const ServiceException&) {
 		assert(false);
@@ -2052,7 +2052,7 @@ void TestingService::runTestsExportCos() const
 	try {
 		srv.exportCos("cos4", "hTml");
 		assert(true);
-		assert(remove("cos4.html") == 0);
+		assert(remove(".\\Export cos cumparaturi\\cos4.html") == 0);
 	}
 	catch (const ServiceException&) {
 		assert(false);
@@ -2061,7 +2061,7 @@ void TestingService::runTestsExportCos() const
 	try {
 		srv.exportCos("cos5", "CsV");
 		assert(true);
-		assert(remove("cos5.csv") == 0);
+		assert(remove(".\\Export cos cumparaturi\\cos5.csv") == 0);
 	}
 	catch (const ServiceException&) {
 		assert(false);

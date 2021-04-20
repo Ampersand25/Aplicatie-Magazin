@@ -288,7 +288,7 @@ void TestingCosCumparaturi::runTestsExportCosFisierCSV() const
 	try {
 		cos_cumparaturi.exportCosFisierCSV("test");
 		assert(true);
-		assert(remove("test.csv") == 0);
+		assert(remove(".\\Export cos cumparaturi\\test.csv") == 0);
 	}
 	catch (const CosException&) {
 		assert(false);
@@ -306,7 +306,7 @@ void TestingCosCumparaturi::runTestsExportCosFisierCSV() const
 	try {
 		cos_gol.exportCosFisierCSV("test_gol");
 		assert(true);
-		assert(remove("test_gol.csv") == 0);
+		assert(remove(".\\Export cos cumparaturi\\test_gol.csv") == 0);
 	}
 	catch (const CosException&) {
 		assert(false);
@@ -324,7 +324,7 @@ void TestingCosCumparaturi::runTestsExportCosFisierHTML() const
 	try {
 		cos_cumparaturi.exportCosFisierHTML("test");
 		assert(true);
-		assert(remove("test.html") == 0);
+		assert(remove(".\\Export cos cumparaturi\\test.html") == 0);
 	}
 	catch (const CosException&) {
 		assert(false);
@@ -342,7 +342,7 @@ void TestingCosCumparaturi::runTestsExportCosFisierHTML() const
 	try {
 		cos_gol.exportCosFisierHTML("test_gol2");
 		assert(true);
-		assert(remove("test_gol2.html") == 0);
+		assert(remove(".\\Export cos cumparaturi\\test_gol2.html") == 0);
 	}
 	catch (const CosException&) {
 		assert(false);

@@ -72,15 +72,43 @@
                   "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Repository.h"
                 },
                 "region": {
-                  "startLine": 27,
+                  "startLine": 28,
                   "startColumn": 11,
-                  "endLine": 27,
+                  "endLine": 28,
                   "endColumn": 11
                 }
               },
               "logicalLocations": [
                 {
                   "decoratedName": "??1RepoProducts@@UAE@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26432",
+          "message": {
+            "text": "If you define or delete any default operation in the type 'class AbstractRepo', define or delete them all (c.21)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/AbstractRepo.h"
+                },
+                "region": {
+                  "startLine": 103,
+                  "startColumn": 11,
+                  "endLine": 103,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??1AbstractRepo@@UAE@XZ",
                   "kind": "function"
                 }
               ]
@@ -99,7 +127,7 @@
       },
       "invocations": [
         {
-          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x000BB1C0 -il C:\\Users\\Admin\\AppData\\Local\\Temp\\_CL_963cd6baast -typedil -f TestingUndo.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829913 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\TestingUndo.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset CppRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x000DB1C0 -il C:\\Users\\Admin\\AppData\\Local\\Temp\\_CL_98ffcfd5ast -typedil -f TestingUndo.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829913 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\TestingUndo.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset CppRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
           "executionSuccessful": true
         }
       ],
@@ -123,7 +151,7 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "0061fee6677e709d951be76e0f300452"
+            "md5": "4a9cf3035127652918069a3e243e9cd0"
           }
         },
         {
@@ -145,42 +173,18 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "b4c4203e8e68a6f8a812a697baca33b4"
+            "md5": "62654d87603d1cfee6e9c611245d756f"
           }
         },
         {
           "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingvalidation.cpp"
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/abstractrepo.h"
           },
           "roles": [
-            "analysisTarget"
+            "resultFile"
           ],
           "hashes": {
-            "md5": "050ec316e03d72d813ba3773f40a64a6"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingvalidation.h"
-          },
-          "hashes": {
-            "md5": "575bf36cdcd08b2bcb5b410e07dffdab"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/productvalidator.h"
-          },
-          "hashes": {
-            "md5": "528619a8dfb7809910d216c0d0a086b9"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/productexception.h"
-          },
-          "hashes": {
-            "md5": "5e25849966385e1e2a044beaa0d78a09"
+            "md5": "5649aedba30527bdc70ddfa65ee67440"
           }
         },
         {

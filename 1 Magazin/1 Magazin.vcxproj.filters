@@ -103,6 +103,15 @@
     <Filter Include="Source Files\Testing\TestingInfrastructure\TestingFileRepo">
       <UniqueIdentifier>{955da198-c68b-4815-a016-e82d08027936}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Infrastructure\AbstractRepo">
+      <UniqueIdentifier>{2a4392a8-f5cd-4d2e-bd20-3b713726b626}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Exception">
+      <UniqueIdentifier>{04563505-2546-4034-9701-259838521899}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Undo\AbstractUndo">
+      <UniqueIdentifier>{7717665c-8db4-429e-a6aa-d02560b26113}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ApplicationCoordinator.cpp">
@@ -113,12 +122,6 @@
     </ClCompile>
     <ClCompile Include="TestingDomain.cpp">
       <Filter>Source Files\Testing\TestingDomain</Filter>
-    </ClCompile>
-    <ClCompile Include="RepoException.cpp">
-      <Filter>Source Files\Infrastructure\RepoException</Filter>
-    </ClCompile>
-    <ClCompile Include="ProductException.cpp">
-      <Filter>Source Files\Domain\EntityException</Filter>
     </ClCompile>
     <ClCompile Include="Product.cpp">
       <Filter>Source Files\Domain\Entities</Filter>
@@ -144,14 +147,8 @@
     <ClCompile Include="Service.cpp">
       <Filter>Source Files\Business\Service</Filter>
     </ClCompile>
-    <ClCompile Include="ServiceException.cpp">
-      <Filter>Source Files\Business\ServiceException</Filter>
-    </ClCompile>
     <ClCompile Include="CosCumparaturi.cpp">
       <Filter>Source Files\Cos\CosCumparaturi</Filter>
-    </ClCompile>
-    <ClCompile Include="CosException.cpp">
-      <Filter>Source Files\Cos\CosException</Filter>
     </ClCompile>
     <ClCompile Include="TestingCosCumparaturi.cpp">
       <Filter>Source Files\Testing\TestingCos</Filter>
@@ -165,14 +162,17 @@
     <ClCompile Include="FileRepository.cpp">
       <Filter>Source Files\Infrastructure\Repository\FileRepo</Filter>
     </ClCompile>
-    <ClCompile Include="Undo.cpp">
-      <Filter>Source Files\Undo</Filter>
-    </ClCompile>
     <ClCompile Include="TestingRepo.cpp">
       <Filter>Source Files\Testing\TestingInfrastructure\TestingMemoryRepo</Filter>
     </ClCompile>
     <ClCompile Include="TestingFileRepo.cpp">
       <Filter>Source Files\Testing\TestingInfrastructure\TestingFileRepo</Filter>
+    </ClCompile>
+    <ClCompile Include="Exception.cpp">
+      <Filter>Source Files\Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="Undo.cpp">
+      <Filter>Source Files\Undo\AbstractUndo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -224,9 +224,6 @@
     <ClInclude Include="TestingCosCumparaturi.h">
       <Filter>Source Files\Testing\TestingCos</Filter>
     </ClInclude>
-    <ClInclude Include="Undo.h">
-      <Filter>Source Files\Undo</Filter>
-    </ClInclude>
     <ClInclude Include="TestingUndo.h">
       <Filter>Source Files\Testing\TestingUndo</Filter>
     </ClInclude>
@@ -241,6 +238,15 @@
     </ClInclude>
     <ClInclude Include="TestingFileRepo.h">
       <Filter>Source Files\Testing\TestingInfrastructure\TestingFileRepo</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractRepo.h">
+      <Filter>Source Files\Infrastructure\AbstractRepo</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.h">
+      <Filter>Source Files\Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="Undo.h">
+      <Filter>Source Files\Undo\AbstractUndo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

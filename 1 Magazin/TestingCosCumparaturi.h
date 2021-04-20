@@ -11,7 +11,6 @@ private:
 	CosCumparaturi& cos_cumparaturi;
 	RepoProducts& repo;
 
-
 	// metode/functii private
 
 	/*

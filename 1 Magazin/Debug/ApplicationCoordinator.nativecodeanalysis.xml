@@ -18,14 +18,28 @@
     <SFA>
       <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
       <FILENAME>Repository.h</FILENAME>
-      <LINE>27</LINE>
+      <LINE>28</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26432</DEFECTCODE>
     <DESCRIPTION>If you define or delete any default operation in the type 'class RepoProducts', define or delete them all (c.21).</DESCRIPTION>
     <FUNCTION>RepoProducts::{dtor}</FUNCTION>
     <DECORATED>??1RepoProducts@@UAE@XZ</DECORATED>
-    <FUNCLINE>27</FUNCLINE>
+    <FUNCLINE>28</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
+      <FILENAME>AbstractRepo.h</FILENAME>
+      <LINE>103</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26432</DEFECTCODE>
+    <DESCRIPTION>If you define or delete any default operation in the type 'class AbstractRepo', define or delete them all (c.21).</DESCRIPTION>
+    <FUNCTION>AbstractRepo::{dtor}</FUNCTION>
+    <DECORATED>??1AbstractRepo@@UAE@XZ</DECORATED>
+    <FUNCLINE>103</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>

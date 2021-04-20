@@ -31,15 +31,15 @@
   <DEFECT>
     <SFA>
       <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
-      <FILENAME>ServiceException.h</FILENAME>
-      <LINE>30</LINE>
+      <FILENAME>Exception.h</FILENAME>
+      <LINE>34</LINE>
       <COLUMN>1</COLUMN>
     </SFA>
     <DEFECTCODE>26432</DEFECTCODE>
-    <DESCRIPTION>If you define or delete any default operation in the type 'class ServiceException', define or delete them all (c.21).</DESCRIPTION>
-    <FUNCTION>ServiceException::{ctor}</FUNCTION>
-    <DECORATED>??0ServiceException@@QAE@ABV0@@Z</DECORATED>
-    <FUNCLINE>30</FUNCLINE>
+    <DESCRIPTION>If you define or delete any default operation in the type 'class Exception', define or delete them all (c.21).</DESCRIPTION>
+    <FUNCTION>Exception::{ctor}</FUNCTION>
+    <DECORATED>??0Exception@@QAE@ABV0@@Z</DECORATED>
+    <FUNCLINE>34</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

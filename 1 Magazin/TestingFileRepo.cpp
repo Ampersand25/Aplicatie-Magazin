@@ -24,7 +24,7 @@ void TestingFileRepo::runTestsLoadFromFile() const
 
 	assert(empty_repo.len() == 0);
 
-	const string path{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin\\Persistenta datelor\\" };
+	const string path{ ".\\Fisiere text - repo\\" };
 	const string extension{ ".txt" };
 	const string full_filename{ path + "testare" + extension };
 
@@ -97,7 +97,7 @@ void TestingFileRepo::runTestsFileRepoAddProduct() const
 	repo.addProduct(Product{ "k", "l", 7.08503, "m" });
 	assert(repo.len() == 5);
 	
-	const string path{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin\\Persistenta datelor\\" };
+	const string path{ ".\\Fisiere text - repo\\" };
 	const string extension{ ".txt" };
 	const string full_filename{ path + "testare" + extension };
 
@@ -141,7 +141,7 @@ void TestingFileRepo::runTestsFileRepoDeleteProduct() const
 	repo.addProduct(Product{ "x", "y", 5, "z" });
 	repo.addProduct(Product{ "k", "l", 7.08503, "m" });
 
-	const string path{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin\\Persistenta datelor\\" };
+	const string path{ ".\\Fisiere text - repo\\" };
 	const string extension{ ".txt" };
 	const string full_filename{ path + "testare" + extension };
 
@@ -282,7 +282,7 @@ void TestingFileRepo::runTestsFileRepoModifyProduct() const
 	repo.addProduct(Product{ "x", "y", 5, "z" });
 	repo.addProduct(Product{ "k", "l", 7.08503, "m" });
 
-	const string path{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin\\Persistenta datelor\\" };
+	const string path{ ".\\Fisiere text - repo\\" };
 	const string extension{ ".txt" };
 	const string full_filename{ path + "testare" + extension };
 
@@ -360,6 +360,9 @@ void TestingFileRepo::runTestsFileRepo() const
 	runTestsLoadFromFile();
 	runTestsWriteToFile();
 
-	remove("C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin\\Persistenta datelor\\empty.txt");
-	remove("C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin\\Persistenta datelor\\testare.txt");
+	remove(".\\Fisiere text - repo\\empty.txt");
+	remove(".\\Fisiere text - repo\\testare.txt");
+
+	// remove("C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin\\Fisiere text - repo\\empty.txt");
+	// remove("C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin\\Fisiere text - repo\\testare.txt");
 }

@@ -15,14 +15,27 @@
     <SFA>
       <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
       <FILENAME>Repository.h</FILENAME>
-      <LINE>27</LINE>
+      <LINE>28</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26432</DEFECTCODE>
     <DESCRIPTION>If you define or delete any default operation in the type 'class RepoProducts', define or delete them all (c.21).</DESCRIPTION>
     <FUNCTION>RepoProducts::{dtor}</FUNCTION>
     <DECORATED>??1RepoProducts@@UAE@XZ</DECORATED>
-    <FUNCLINE>27</FUNCLINE>
+    <FUNCLINE>28</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
+      <FILENAME>AbstractRepo.h</FILENAME>
+      <LINE>103</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26432</DEFECTCODE>
+    <DESCRIPTION>If you define or delete any default operation in the type 'class AbstractRepo', define or delete them all (c.21).</DESCRIPTION>
+    <FUNCTION>AbstractRepo::{dtor}</FUNCTION>
+    <DECORATED>??1AbstractRepo@@UAE@XZ</DECORATED>
+    <FUNCLINE>103</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
@@ -79,41 +92,15 @@
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
-      <FILENAME>CosException.h</FILENAME>
-      <LINE>30</LINE>
+      <FILENAME>Exception.h</FILENAME>
+      <LINE>34</LINE>
       <COLUMN>1</COLUMN>
     </SFA>
     <DEFECTCODE>26432</DEFECTCODE>
-    <DESCRIPTION>If you define or delete any default operation in the type 'class CosException', define or delete them all (c.21).</DESCRIPTION>
-    <FUNCTION>CosException::{ctor}</FUNCTION>
-    <DECORATED>??0CosException@@QAE@ABV0@@Z</DECORATED>
-    <FUNCLINE>30</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
-      <FILENAME>ProductException.h</FILENAME>
-      <LINE>30</LINE>
-      <COLUMN>1</COLUMN>
-    </SFA>
-    <DEFECTCODE>26432</DEFECTCODE>
-    <DESCRIPTION>If you define or delete any default operation in the type 'class ProductException', define or delete them all (c.21).</DESCRIPTION>
-    <FUNCTION>ProductException::{ctor}</FUNCTION>
-    <DECORATED>??0ProductException@@QAE@ABV0@@Z</DECORATED>
-    <FUNCLINE>30</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
-      <FILENAME>RepoException.h</FILENAME>
-      <LINE>30</LINE>
-      <COLUMN>1</COLUMN>
-    </SFA>
-    <DEFECTCODE>26432</DEFECTCODE>
-    <DESCRIPTION>If you define or delete any default operation in the type 'class RepoException', define or delete them all (c.21).</DESCRIPTION>
-    <FUNCTION>RepoException::{ctor}</FUNCTION>
-    <DECORATED>??0RepoException@@QAE@ABV0@@Z</DECORATED>
-    <FUNCLINE>30</FUNCLINE>
+    <DESCRIPTION>If you define or delete any default operation in the type 'class Exception', define or delete them all (c.21).</DESCRIPTION>
+    <FUNCTION>Exception::{ctor}</FUNCTION>
+    <DECORATED>??0Exception@@QAE@ABV0@@Z</DECORATED>
+    <FUNCLINE>34</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
@@ -125,7 +112,7 @@
     <DEFECTCODE>26489</DEFECTCODE>
     <DESCRIPTION>Don't dereference a pointer that may be invalid: 'allotemp.12'. '(temporary 12)' may have been invalidated at line 171 (lifetime.1).</DESCRIPTION>
     <FUNCTION>RepoProducts::searchProduct</FUNCTION>
-    <DECORATED>?searchProduct@RepoProducts@@QBEABVProduct@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z</DECORATED>
+    <DECORATED>?searchProduct@RepoProducts@@UBEABVProduct@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z</DECORATED>
     <FUNCLINE>148</FUNCLINE>
     <PATH>
       <SFA>
@@ -145,7 +132,7 @@
     <DEFECTCODE>26487</DEFECTCODE>
     <DESCRIPTION>Don't return a pointer '(148's result)' that may be invalid (lifetime.4).</DESCRIPTION>
     <FUNCTION>RepoProducts::searchProduct</FUNCTION>
-    <DECORATED>?searchProduct@RepoProducts@@QBEABVProduct@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z</DECORATED>
+    <DECORATED>?searchProduct@RepoProducts@@UBEABVProduct@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z</DECORATED>
     <FUNCLINE>148</FUNCLINE>
     <PATH>
       <SFA>
@@ -155,17 +142,4 @@
         <COLUMN>1</COLUMN>
       </SFA>
     </PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\</FILEPATH>
-      <FILENAME>ServiceException.h</FILENAME>
-      <LINE>30</LINE>
-      <COLUMN>1</COLUMN>
-    </SFA>
-    <DEFECTCODE>26432</DEFECTCODE>
-    <DESCRIPTION>If you define or delete any default operation in the type 'class ServiceException', define or delete them all (c.21).</DESCRIPTION>
-    <FUNCTION>ServiceException::{ctor}</FUNCTION>
-    <DECORATED>??0ServiceException@@QAE@ABV0@@Z</DECORATED>
-    <FUNCLINE>30</FUNCLINE>
-    <PATH></PATH>
   </DEFECT></DEFECTS>

@@ -1,9 +1,0 @@
-iaurt|produse lactate|4.63|Danone
-chipsuri|snaksuri|9.6|Lays
-ton in ulei|conserve|13.9841|Tonno Rio Mare
-boia|condimente|0.999|Delikat
-pasta de dinti|igiena|7.12|Colgate
-iaurt|produse lactate|5.013|Milka UK
-sare|condimente|11|Maggi
-parmezan|condimente|8.301|Delikat
-chipsuri|snaksuri|1.53|Chio
