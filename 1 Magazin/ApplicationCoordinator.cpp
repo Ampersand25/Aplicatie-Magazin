@@ -61,7 +61,7 @@ string readOptionDataPersistence(void)
 
     while (ans != "1" && ans != "2" && ans != "3") // stringul ans nu este valid (raspunsul utilizatorului este invalid)
     {
-        cout << "Optiune inexistenta!\n";
+        cout << "[X]Optiune inexistenta!\n";
         cout << "\n>>>";
 
         getline(cin, ans); // re-citim in stringul ans cum sa se faca salvarea datelor in aplicatie
@@ -92,7 +92,7 @@ string readFilename(void)
         // stringul citit de la tastatura (filename) este vid/gol
         // acesta nu poate reprezenta numele unui fisier text
 
-        cout << "Numele fisierului nu poate sa fie vid!\n";
+        cout << "[X]Numele fisierului nu poate sa fie vid!\n";
         cout << "\nReintroduceti numele fisierului text in care se va face salvarea datelor: ";
 
         getline(cin, filename); // re-citim numele fisierului in care se vor salva datele
@@ -214,6 +214,9 @@ void setUpRepository(void)
 
     system("pause"); // oprim consola (terminaul) pana la primirea de input de la user (utilizator)
 
+    runApplication(repo); // apel polimorfic (dynamic dispatch) la procedura runApplication care va rula aplicatia
+
+    /*
     try {
         runApplication(repo); // apealam procedura runApplication care va rula aplicatia
     }
@@ -221,6 +224,7 @@ void setUpRepository(void)
         // functia runApplication poate arunca/ridica exceptie de clasa std::exception daca se apeleaza cu un repository de exceptii (obiect de clasa ExceptionRepo)
         cerr << ex.what(); // afisam/tiparim la iesirea standard de erori (stderr = standard error) mesajul asociat obiectului de clasa std::exception aruncat de functie
     }
+    */
 }
 
 /*

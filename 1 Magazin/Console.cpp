@@ -4,12 +4,14 @@
 #include "ProductException.h"
 #include "CosException.h"
 
-#include <iostream> // pentru std::cin, std::cout, std::cerr si std::endl
+#include <iostream>  // pentru std::cin, std::cout, std::cerr si std::endl
+#include <exception> // pentru std::exception
 
 using std::cin;
 using std::cout;
 using std::cerr;
 using std::endl;
+using std::exception;
 
 void UI::showMenu() const
 {
@@ -701,33 +703,38 @@ void UI::runApp() const
 		cout << "\n>>>";
 		getline(cin, cmd);
 		
-		if (srv.cmpStrings(cmd, commands.at(0)))
-			addUI();
-		else if (srv.cmpStrings(cmd, commands.at(1)))
-			delUI();
-		else if (srv.cmpStrings(cmd, commands.at(2)))
-			modifyUI();
-		else if (srv.cmpStrings(cmd, commands.at(3)))
-			searchUI();
-		else if (srv.cmpStrings(cmd, commands.at(4)))
-			printAllUI();
-		else if (srv.cmpStrings(cmd, commands.at(5)))
-			countTypeUI();
-		else if (srv.cmpStrings(cmd, commands.at(6)))
-			undoUI();
-		else if (srv.cmpStrings(cmd, commands.at(7)))
-			filterUI();
-		else if (srv.cmpStrings(cmd, commands.at(8)))
-			sortUI();
-		else if (srv.cmpStrings(cmd, commands.at(9)))
-			cosCumparaturiUI();
-		else if (srv.cmpStrings(cmd, commands.at(10)))
-			clearUI();
-		else if (srv.cmpStrings(cmd, commands.at(11)))
-			run = false;
-		else if (srv.cmpStrings(cmd, commands.at(12)))
-			debugUI();
-		else
-			cerr << "[X]Comanda invalida!\n\n";
+		try {
+			if (srv.cmpStrings(cmd, commands.at(0)))
+				addUI();
+			else if (srv.cmpStrings(cmd, commands.at(1)))
+				delUI();
+			else if (srv.cmpStrings(cmd, commands.at(2)))
+				modifyUI();
+			else if (srv.cmpStrings(cmd, commands.at(3)))
+				searchUI();
+			else if (srv.cmpStrings(cmd, commands.at(4)))
+				printAllUI();
+			else if (srv.cmpStrings(cmd, commands.at(5)))
+				countTypeUI();
+			else if (srv.cmpStrings(cmd, commands.at(6)))
+				undoUI();
+			else if (srv.cmpStrings(cmd, commands.at(7)))
+				filterUI();
+			else if (srv.cmpStrings(cmd, commands.at(8)))
+				sortUI();
+			else if (srv.cmpStrings(cmd, commands.at(9)))
+				cosCumparaturiUI();
+			else if (srv.cmpStrings(cmd, commands.at(10)))
+				clearUI();
+			else if (srv.cmpStrings(cmd, commands.at(11)))
+				run = false;
+			else if (srv.cmpStrings(cmd, commands.at(12)))
+				debugUI();
+			else
+				cerr << "[X]Comanda invalida!\n\n";
+		}
+		catch (const exception& ex) {
+			cerr << ex.what() << endl;
+		}
 	}
 }

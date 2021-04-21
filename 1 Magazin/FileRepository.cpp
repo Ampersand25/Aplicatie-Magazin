@@ -1,5 +1,7 @@
 #include "FileRepository.h"
 #include "RepoException.h"
+#include "ProductValidator.h"
+#include "ProductException.h"
 
 #include <iostream>  // pentru std::cerr si std::endl
 #include <fstream>   // pentru std::ifstream si std::ofstream
@@ -34,6 +36,8 @@ void FileRepoProducts::loadFromFile()
 		in.open(full_filename);
 	}
 
+	unsigned idx{ 1 };
+
 	while (!in.eof())
 	{
 		string line;
@@ -57,12 +61,23 @@ void FileRepoProducts::loadFromFile()
 
 		try {
 			const Product product{ record.at(0), record.at(1), stod(record.at(2)), record.at(3) };
-			RepoProducts::addProduct(product);
+			const ProductValidator valid;
+			
+			try {
+				valid.validateProduct(product);
+				RepoProducts::addProduct(product);
+			}
+			catch (const ProductException& pe) {
+				cerr << "\nProdusul #" << idx << " nu a putut fi importat din fisier!\n" << pe.getMessage();
+				// exit(1);
+			}
 		}
 		catch (const exception& ex) {
-			cerr << "[!]" << ex.what() << endl;
-			exit(1);
+			cerr << "\nProdusul #" << idx << " nu a putut fi importat din fisier!\n" << "[!]" << ex.what() << endl;
+			// exit(2);
 		}
+
+		++idx;
 	}
 
 	in.close();
