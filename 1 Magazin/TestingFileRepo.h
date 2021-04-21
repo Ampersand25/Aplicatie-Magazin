@@ -8,7 +8,11 @@ private:
 	// metode/functii private
 
 	/*
-	* Functie de test care verifica daca un produs p are atributul name identic cu name, atributul type identic cu type, atributul price identic cu price si atributul producer identic cu producer
+	* Functie de test care verifica daca un produs (obiect de clasa Product) p are:
+	* atributul/campul privat name (nume produs) identic cu parametrul/argumentul name
+	* atributul/campul privat type (tip produs) identic cu parametrul/argumentul type
+	* atributul/campul privat price (pret produs) identic cu parametrul/argumentul price
+	* atributul/campul privat producer (producator produs) identic cu parametrul/argumentul producer
 	*/
 	void testFunction(const Product& p, const string& name, const string& type, const double& price, const string& producer) const noexcept;
 

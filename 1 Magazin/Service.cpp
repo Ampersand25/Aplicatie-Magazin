@@ -98,7 +98,7 @@ const Product& Service::search(const string& name, const string& producer) const
 	return repo.searchProduct(name, producer); // cautam un produs cu numele name si producatorul producer in lista de produse din repository
 }
 
-const vector<Product>& Service::getAll() const
+vector<Product> Service::getAll() const
 {
 	return repo.getAll(); // returnam o referinta constanta la lista de obiecte de clasa Product din repo
 }

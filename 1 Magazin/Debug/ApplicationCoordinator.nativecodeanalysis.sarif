@@ -16,9 +16,9 @@
                   "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Product.h"
                 },
                 "region": {
-                  "startLine": 49,
+                  "startLine": 41,
                   "startColumn": 2,
-                  "endLine": 49,
+                  "endLine": 41,
                   "endColumn": 2
                 }
               },
@@ -72,9 +72,9 @@
                   "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/AbstractRepo.h"
                 },
                 "region": {
-                  "startLine": 103,
+                  "startLine": 102,
                   "startColumn": 11,
-                  "endLine": 103,
+                  "endLine": 102,
                   "endColumn": 11
                 }
               },
@@ -128,15 +128,15 @@
                   "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/ApplicationCoordinator.cpp"
                 },
                 "region": {
-                  "startLine": 101,
+                  "startLine": 110,
                   "startColumn": 6,
-                  "endLine": 101,
+                  "endLine": 110,
                   "endColumn": 6
                 }
               },
               "logicalLocations": [
                 {
-                  "decoratedName": "?runApplication@@YAXABV?$unique_ptr@VRepoProducts@@U?$default_delete@VRepoProducts@@@std@@@std@@@Z",
+                  "decoratedName": "?runApplication@@YAXABV?$unique_ptr@VAbstractRepo@@U?$default_delete@VAbstractRepo@@@std@@@std@@@Z",
                   "kind": "function"
                 }
               ]
@@ -156,15 +156,15 @@
                   "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/ApplicationCoordinator.cpp"
                 },
                 "region": {
-                  "startLine": 101,
+                  "startLine": 110,
                   "startColumn": 6,
-                  "endLine": 101,
+                  "endLine": 110,
                   "endColumn": 6
                 }
               },
               "logicalLocations": [
                 {
-                  "decoratedName": "?runApplication@@YAXABV?$unique_ptr@VRepoProducts@@U?$default_delete@VRepoProducts@@@std@@@std@@@Z",
+                  "decoratedName": "?runApplication@@YAXABV?$unique_ptr@VAbstractRepo@@U?$default_delete@VAbstractRepo@@@std@@@std@@@Z",
                   "kind": "function"
                 }
               ]
@@ -184,9 +184,9 @@
                   "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/ApplicationCoordinator.cpp"
                 },
                 "region": {
-                  "startLine": 124,
+                  "startLine": 165,
                   "startColumn": 30,
-                  "endLine": 124,
+                  "endLine": 165,
                   "endColumn": 34
                 }
               },
@@ -211,7 +211,7 @@
       },
       "invocations": [
         {
-          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x000DB1C0 -il C:\\Users\\Admin\\AppData\\Local\\Temp\\_CL_3e34fd75ast -typedil -f ApplicationCoordinator.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829913 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\ApplicationCoordinator.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset CppRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x00A2B1C0 -il C:\\Users\\Admin\\AppData\\Local\\Temp\\_CL_bee74317ast -typedil -f ApplicationCoordinator.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829913 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\ApplicationCoordinator.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset CppRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
           "executionSuccessful": true
         }
       ],
@@ -224,7 +224,7 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "18e41b0509724c816a43e9137935ab41"
+            "md5": "fbcf83cf043c4beca559920169fe6623"
           }
         },
         {
@@ -235,7 +235,7 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "62654d87603d1cfee6e9c611245d756f"
+            "md5": "2314a8ce2b5caa662abae6f31b6c5655"
           }
         },
         {
@@ -246,7 +246,7 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "5649aedba30527bdc70ddfa65ee67440"
+            "md5": "e8e975aa2e0f08205159efc9436e994d"
           }
         },
         {
@@ -257,7 +257,7 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "4a9cf3035127652918069a3e243e9cd0"
+            "md5": "48d140723c068804f0fd8dc1ca518306"
           }
         },
         {
@@ -269,7 +269,7 @@
             "resultFile"
           ],
           "hashes": {
-            "md5": "4e4866586a4dc539f6a5cf25cbbd4e2e"
+            "md5": "42d7b48b16776b40eb91c58eb828ea3a"
           }
         },
         {
@@ -285,7 +285,15 @@
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/filerepository.h"
           },
           "hashes": {
-            "md5": "f796007da3afa79a9dda857abcd92251"
+            "md5": "393285c5e7856aa7080c2016bfb3f2b8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/exceptionrepo.h"
+          },
+          "hashes": {
+            "md5": "929f68ce47acddf9a25ab34c3d507ea5"
           }
         },
         {
@@ -301,7 +309,7 @@
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/service.h"
           },
           "hashes": {
-            "md5": "35ad8c70dfe589e6cba3623ddb5acdca"
+            "md5": "0757322b06f580d1e3c997f12744dc7b"
           }
         },
         {
@@ -309,7 +317,7 @@
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/coscumparaturi.h"
           },
           "hashes": {
-            "md5": "8b3ce914fb0f10c84e65b76efbf8b383"
+            "md5": "e07b1e6de426cce1c4593e041b945b2c"
           }
         },
         {

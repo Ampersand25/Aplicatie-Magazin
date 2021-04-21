@@ -103,14 +103,20 @@
     <Filter Include="Source Files\Testing\TestingInfrastructure\TestingFileRepo">
       <UniqueIdentifier>{955da198-c68b-4815-a016-e82d08027936}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Infrastructure\AbstractRepo">
-      <UniqueIdentifier>{2a4392a8-f5cd-4d2e-bd20-3b713726b626}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Exception">
       <UniqueIdentifier>{04563505-2546-4034-9701-259838521899}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Undo\AbstractUndo">
       <UniqueIdentifier>{7717665c-8db4-429e-a6aa-d02560b26113}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Infrastructure\Repository\ExceptionRepo">
+      <UniqueIdentifier>{eaab7460-e034-492c-a2d9-d2253c0b8184}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Infrastructure\Repository\AbstractRepo">
+      <UniqueIdentifier>{2a4392a8-f5cd-4d2e-bd20-3b713726b626}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingInfrastructure\TestingExceptionRepo">
+      <UniqueIdentifier>{3fc678e1-bb28-4476-a202-18fd86f9c728}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +179,12 @@
     </ClCompile>
     <ClCompile Include="Undo.cpp">
       <Filter>Source Files\Undo\AbstractUndo</Filter>
+    </ClCompile>
+    <ClCompile Include="ExceptionRepo.cpp">
+      <Filter>Source Files\Infrastructure\Repository\ExceptionRepo</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingExceptionRepo.cpp">
+      <Filter>Source Files\Testing\TestingInfrastructure\TestingExceptionRepo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -240,13 +252,19 @@
       <Filter>Source Files\Testing\TestingInfrastructure\TestingFileRepo</Filter>
     </ClInclude>
     <ClInclude Include="AbstractRepo.h">
-      <Filter>Source Files\Infrastructure\AbstractRepo</Filter>
+      <Filter>Source Files\Infrastructure\Repository\AbstractRepo</Filter>
     </ClInclude>
     <ClInclude Include="Exception.h">
       <Filter>Source Files\Exception</Filter>
     </ClInclude>
     <ClInclude Include="Undo.h">
       <Filter>Source Files\Undo\AbstractUndo</Filter>
+    </ClInclude>
+    <ClInclude Include="ExceptionRepo.h">
+      <Filter>Source Files\Infrastructure\Repository\ExceptionRepo</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingExceptionRepo.h">
+      <Filter>Source Files\Testing\TestingInfrastructure\TestingExceptionRepo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

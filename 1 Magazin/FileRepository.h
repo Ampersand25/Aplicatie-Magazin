@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Repository.h"
+//#include "Product.h"
 
 //#include <string> // pentru std::string
 

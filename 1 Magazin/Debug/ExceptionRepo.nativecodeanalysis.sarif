@@ -1,0 +1,170 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26432",
+          "message": {
+            "text": "If you define or delete any default operation in the type 'class Product', define or delete them all (c.21)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Product.h"
+                },
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 2,
+                  "endLine": 41,
+                  "endColumn": 2
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0Product@@QAE@ABV0@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26432",
+          "message": {
+            "text": "If you define or delete any default operation in the type 'class AbstractRepo', define or delete them all (c.21)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/AbstractRepo.h"
+                },
+                "region": {
+                  "startLine": 102,
+                  "startColumn": 11,
+                  "endLine": 102,
+                  "endColumn": 11
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??1AbstractRepo@@UAE@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26432",
+          "message": {
+            "text": "If you define or delete any default operation in the type 'class Exception', define or delete them all (c.21)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Exception.h"
+                },
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 2,
+                  "endLine": 34,
+                  "endColumn": 2
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0Exception@@QAE@ABV0@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.28.29913.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x00A2B1C0 -il C:\\Users\\Admin\\AppData\\Local\\Temp\\_CL_4b5b55a3ast -typedil -f ExceptionRepo.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829913 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\ExceptionRepo.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset CppRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Product.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "fbcf83cf043c4beca559920169fe6623"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/AbstractRepo.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "e8e975aa2e0f08205159efc9436e994d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Exception.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "6ceadef89a603af9eab42cf72ecc5e11"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/exceptionrepo.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "a4f676b81548472c392cdd74954b8e54"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/exceptionrepo.h"
+          },
+          "hashes": {
+            "md5": "929f68ce47acddf9a25ab34c3d507ea5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/repoexception.h"
+          },
+          "hashes": {
+            "md5": "6b79b6af80d00bd9753b7a0793647ad6"
+          }
+        }
+      ]
+    }
+  ]
+}

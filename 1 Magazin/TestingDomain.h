@@ -6,9 +6,9 @@ private:
 	// metode/functii private
 
 	/*
-	* Metoda care testeaza constructorul default (implicit) al unei entitati din domain (domeniu)
+	* Metoda care testeaza constructorul de copiere (copy constructorul) al unei entitati din domain (domeniu)
 	*/
-	void runTestsDomainDefaultConstructor() const noexcept;
+	void runTestsDomainCopyConstructor() const;
 
 	/*
 	* Metoda care testeaza functiile de tip getter din domain (domeniu)
@@ -29,6 +29,30 @@ private:
 	* Metoda care testeaza functia strProduct din domain (domeniu)
 	*/
 	void runTestsDomainStrProduct() const;
+
+	/*
+	* Metoda care testeaza operatorul de inegalitate stricta < definit pe clasa Product din domain (domeniu)
+	* Se vor compara doua obiecte de clasa Product folosind operatorul < (simbol matematic de inegalitate stricta)
+	*/
+	void runTestsLessOperator() const;
+
+	/*
+	* Metoda care testeaza operatorul de egalitate == definit pe clasa Product din domain (domeniu)
+	* Se vor compara doua obiecte de clasa Product folosind operatorul == (simbol matematic de egalitate)
+	*/
+	void runTestsEqualOperator() const;
+
+	/*
+	* Metoda care testeaza operatorul de inegalitate != definit pe clasa Product din domain (domeniu)
+	* Se vor compara doua obiecte de clasa Product folosind operatorul != (simbol matematic de inegalitate)
+	*/
+	void runTestsNotEqualOperator() const;
+
+	/*
+	* Metoda care testeaza operatorul de assignment definit pe clasa Product din domain (domeniu)
+	* Acesta permite atribuiri (asignari) multiple (inlantuite) de obiecte de clasa Product
+	*/
+	void runTestsAssignmentOperator() const;
 
 public:
 	// metode/functii publice

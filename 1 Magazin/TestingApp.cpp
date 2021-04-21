@@ -2,6 +2,7 @@
 #include "TestingDomain.h"
 #include "TestingRepo.h"
 #include "TestingFileRepo.h"
+#include "TestingExceptionRepo.h"
 #include "TestingValidation.h"
 #include "TestingUtils.h"
 #include "TestingService.h"
@@ -28,6 +29,12 @@ void TestingApp::runTestsApp() const
 		{
 			TestingFileRepo testing_file_repo;
 			testing_file_repo.runTestsFileRepo();
+		}
+
+		// Testare repository (repozitoriu) de exceptii (arunca exceptie cu o anumita probabilitate data in constructor)
+		{
+			TestingExceptionRepo testing_exception_repo;
+			testing_exception_repo.runTestsExceptionRepo();
 		}
 	}
 

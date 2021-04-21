@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Repository.h"
+#include "AbstractRepo.h"
 #include "ProductValidator.h"
 #include "CosCumparaturi.h"
 #include "Undo.h"
@@ -20,7 +20,7 @@ class Service
 private:
 	// atribute (campuri) si metode (functii) private
 
-	RepoProducts& repo;                        // atribut de tip referinta la un obiect repo de clasa RepoProducts
+	AbstractRepo& repo;                        // atribut de tip referinta la un obiect repo de clasa AbstractRepo
 	ProductValidator& valid;                   // atribut de tip referinta la un obiect valid de clasa ProductValidator
 	CosCumparaturi cosCumparaturi;             // atribut de tip obiect de clasa cosCumparaturi
 	vector<unique_ptr<ActiuneUndo>> undo_list; // atribut de tip vector din STL (Standard Template Library) cu elemente avand tipul pointer la obiecte de clasa ActiuneUndo
@@ -173,10 +173,10 @@ public:
 	Service() = delete;
 
 	/*
-	* Constructor custom al unui obiect de clasa Service care primeste o referinta la un obiect repo de clasa RepoProducts si o referinta la un obiect valid de clasa ProductValidator
+	* Constructor custom al unui obiect de clasa Service care primeste o referinta la un obiect repo de clasa AbstractRepo si o referinta la un obiect valid de clasa ProductValidator
 	* Contructorul va popula atributele private repo si valid ale obiectului instantiat cu obiectele primite
 	*/
-	Service(RepoProducts& repo, ProductValidator& valid) noexcept : repo{ repo }, valid{ valid }, cosCumparaturi{ repo }  {
+	Service(AbstractRepo& repo, ProductValidator& valid) noexcept : repo{ repo }, valid{ valid }, cosCumparaturi{ repo }  {
 
 	}
 
@@ -290,12 +290,12 @@ public:
 	* Metoda care returneaza toate produsele din magazin
 	* Date de intrare: -
 	* Preconditii: -
-	* Date de iesire: referinta constanta la o lista (vector) de obiecte de clasa Product
-	* Postconditii: getAll = referinta constanta la lista de produse din repo (magazin)
+	* Date de iesire: copie la o lista (vector) de obiecte de clasa Product
+	* Postconditii: getAll = lista de produse din repo (magazin)
 	* Exceptii: metoda poate arunca urmatoarele exceptii:
 	* [!]RepoException daca nu exista obiecte de clasa Product in lista din repo
 	*/
-	const vector<Product>& getAll() const;
+	vector<Product> getAll() const;
 
 #define TKey string
 #define TValue pair<string, unsigned>

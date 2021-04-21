@@ -78,23 +78,22 @@ public:
 	* Calificativul const: starea obiectului nu se modifica in interiorul metodei
 	* Date de intrare: -
 	* Preconditii: -
-	* Date de iesire (rezultate): referinta constanta la un vector de obiecte de clasa Product
-	* Postconditii: getAll() = referinta constanta la lista de obiecte (produse) din repo (magazin)
+	* Date de iesire (rezultate): un vector de obiecte de clasa Product (copie a listei de inregistrari din repo)
+	* Postconditii: getAll() = o lista de obiecte (produse) din repo (magazin)
 	*                          -, daca nu exista produse in repo (ridica exceptie)
 	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
 	*/
-	virtual const vector<Product>& getAll() const = 0;
+	virtual vector<Product> getAll() const = 0;
 
 	/*
 	* Metoda pur virtuala care returneaza numarul de produse (obiecte de clasa Product) din repository (repozitoriu)
 	* Calificativul const: starea obiectului nu se modifica in interiorul metodei
-	* Calificativul noexcept: metoda nu arunca/ridica exceptii
 	* Date de intrare: -
 	* Preconditii: -
 	* Date de iesire (rezultate): intreg fara semn (unsigned)
 	* Postconditii: len() = numarul de entitati/inregistrari din repo
 	*/
-	virtual unsigned len() const noexcept = 0;
+	virtual unsigned len() const = 0;
 
 	/*
 	* Destructorul unui obiect de clasa AbstractRepo

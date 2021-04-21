@@ -645,15 +645,15 @@ void UI::debugUI() const
 	/*
 	try{
 		srv.add("iaurt"         , "produse lactate", 4.63   , "Danone");
-		srv.add("chipsuri"      , "snaksuri"       , 9.6    , "Lays");
+		srv.add("chipsuri"      , "snacksuri"       , 9.6    , "Lays");
 		srv.add("ton in ulei"   , "conserve"       , 13.9841, "Tonno Rio Mare");
 		srv.add("boia"          , "condimente"     , 0.999  , "Delikat");
 		srv.add("pasta de dinti", "igiena"         , 7.12   , "Colgate");
 		srv.add("iaurt"         , "produse lactate", 5.013  , "Milka UK");
 		srv.add("sare"          , "condimente"     , 11     , "Maggi");
 		srv.add("parmezan"      , "condimente"     , 8.301  , "Delikat");
-		srv.add("chipsuri"      , "snaksuri"       , 1.53   , "Chio");
-		srv.add("chipsuri"      , "snaksuri"       , 9.1    , "Pringles");
+		srv.add("chipsuri"      , "snacksuri"       , 1.53   , "Chio");
+		srv.add("chipsuri"      , "snacksuri"       , 9.1    , "Pringles");
 	}
 	catch (const RepoException& re) {
 		cerr << re.getMessage() << endl;
@@ -666,15 +666,15 @@ void UI::debugUI() const
 	unsigned cont{ 0 };
 
 	addDebug("iaurt"         , "produse lactate", 4.63   , "Danone",         cont);
-	addDebug("chipsuri"      , "snaksuri"       , 9.6    , "Lays",           cont);
+	addDebug("chipsuri"      , "snacksuri"       , 9.6    , "Lays",           cont);
 	addDebug("ton in ulei"   , "conserve"       , 13.9841, "Tonno Rio Mare", cont);
 	addDebug("boia"          , "condimente"     , 0.999  , "Delikat",		 cont);
 	addDebug("pasta de dinti", "igiena"         , 7.12   , "Colgate",		 cont);
 	addDebug("iaurt"         , "produse lactate", 5.013  , "Milka UK",		 cont);
 	addDebug("sare"          , "condimente"     , 11     , "Maggi",			 cont);
 	addDebug("parmezan"      , "condimente"     , 8.301  , "Delikat",		 cont);
-	addDebug("chipsuri"      , "snaksuri"       , 1.53   , "Chio",			 cont);
-	addDebug("chipsuri"      , "snaksuri"       , 9.1    , "Pringles",		 cont);
+	addDebug("chipsuri"      , "snacksuri"       , 1.53   , "Chio",			 cont);
+	addDebug("chipsuri"      , "snacksuri"       , 9.1    , "Pringles",		 cont);
 
 	if (!cont)
 		cout << "[X]Nu au fost adaugate produse noi in stoc!\n\n";

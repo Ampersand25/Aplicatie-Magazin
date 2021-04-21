@@ -1,13 +1,13 @@
 #pragma once
 
-#include "Product.h"
 #include "AbstractRepo.h"
+//#include "Product.h"
 
 //#include <vector> // pentru std::vector
 
 //using std::vector;
 
-class RepoProducts : public AbstractRepo
+class RepoProducts : public AbstractRepo // clasa RepoProducts este derivata din clasa de baza AbstractRepo (clasa pur abstracta <=> contine doar metode pur virtuale)
 {
 private:
 	// atribut/camp privat al unui obiect de clasa RepoProducts
@@ -86,15 +86,15 @@ public:
 
 	/*
 	* Metoda mostenita din clasa de baza AbstractRepo (aceasta va fi suprascrisa in clasa derivata)
-	* Functie care returneaza o referinta constanta a listei de obiecte din repo
+	* Functie care returneaza o copie a listei de obiecte din repo
 	* Date de intrare: -
 	* Preconditii: -
-	* Date de iesire (rezultate): referinta constanta la un vector de obiecte de clasa Product
-	* Postconditii: getAll() = referinta constanta la lista de obiecte (produse) din repo (magazin)
+	* Date de iesire (rezultate): un vector de obiecte de clasa Product
+	* Postconditii: getAll() = o copie a listei de obiecte (produse) din repo (magazin)
 	*                          -, daca nu exista produse in repo (ridica exceptie)
 	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
 	*/
-	const vector<Product>& getAll() const override;
+	vector<Product> getAll() const override;
 
 	/*
 	* Metoda mostenita din clasa de baza AbstractRepo (aceasta va fi suprascrisa in clasa derivata)
@@ -106,4 +106,3 @@ public:
 	*/
 	unsigned len() const noexcept override;
 };
-

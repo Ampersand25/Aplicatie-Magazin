@@ -43,7 +43,7 @@ class UndoAdauga : public ActiuneUndo // clasa derivata din clasa de baza Actiun
 private:
 	// atribute private (nu pot fi accesate din exteriorul clasei, ci doar din interiorul acesteia)
 
-	RepoProducts& repo; // referinta la un obiect de clasa RepoProducts
+	AbstractRepo& repo; // referinta la un obiect de clasa AbstractRepo
 	Product product;    // copie a unui obiect de clasa Product (obiectul adaugat in repo)
 
 public:
@@ -57,10 +57,10 @@ public:
 
 	/*
 	* Constructor custom al unui obiect de clasa UndoAdauga care instantiaza un obiect de clasa UndoAdauga
-	* Constructorul primeste o referinta la un obiect repo de clasa RepoProducts si o referinta constanta la un obiect product de clasa Product
+	* Constructorul primeste o referinta la un obiect repo de clasa AbstractRepo si o referinta constanta la un obiect product de clasa Product
 	* Acesta populeaza atributule (campurile) private repo si product cu valorile primite
 	*/
-	UndoAdauga(RepoProducts& repo, const Product& product) : repo{ repo }, product{ product } {
+	UndoAdauga(AbstractRepo& repo, const Product& product) : repo{ repo }, product{ product } {
 
 	}
 
@@ -82,7 +82,7 @@ class UndoModifica : public ActiuneUndo // clasa derivata din clasa de baza Acti
 private:
 	// atribute private (nu pot fi accesate din exteriorul clasei, ci doar din interiorul acesteia)
 
-	RepoProducts& repo; // referinta la un obiect de clasa RepoProducts
+	AbstractRepo& repo; // referinta la un obiect de clasa AbstractRepo
 	Product product;    // copie a unui obiect de clasa Product (obiectul modificat in repo)
 
 public:
@@ -96,10 +96,10 @@ public:
 
 	/*
 	* Constructor custom al unui obiect de clasa UndoModifica care instantiaza un obiect de clasa UndoModifica
-	* Constructorul primeste o referinta la un obiect repo de clasa RepoProducts si o referinta constanta la un obiect product de clasa Product
+	* Constructorul primeste o referinta la un obiect repo de clasa AbstractRepo si o referinta constanta la un obiect product de clasa Product
 	* Acesta populeaza atributule (campurile) private repo si product cu valorile primite
 	*/
-	UndoModifica(RepoProducts& repo, const Product& product) : repo{ repo }, product{ product } {
+	UndoModifica(AbstractRepo& repo, const Product& product) : repo{ repo }, product{ product } {
 
 	}
 
@@ -121,7 +121,7 @@ class UndoSterge : public ActiuneUndo // clasa derivata din clasa de baza Actiun
 private:
 	// atribute private (nu pot fi accesate din exteriorul clasei, ci doar din interiorul acesteia)
 
-	RepoProducts& repo; // referinta la un obiect de clasa RepoProducts
+	AbstractRepo& repo; // referinta la un obiect de clasa AbstractRepo
 	Product product;    // copie a unui obiect de clasa Product (obiectul sters din repo)
 
 public:
@@ -135,10 +135,10 @@ public:
 
 	/*
 	* Constructor custom al unui obiect de clasa UndoSterge care instantiaza un obiect de clasa UndoSterge
-	* Constructorul primeste o referinta la un obiect repo de clasa RepoProducts si o referinta constanta la un obiect product de clasa Product
+	* Constructorul primeste o referinta la un obiect repo de clasa AbstractRepo si o referinta constanta la un obiect product de clasa Product
 	* Acesta populeaza atributule (campurile) private repo si product cu valorile primite
 	*/
-	UndoSterge(RepoProducts& repo, const Product& product) : repo{ repo }, product{ product } {
+	UndoSterge(AbstractRepo& repo, const Product& product) : repo{ repo }, product{ product } {
 
 	}
 

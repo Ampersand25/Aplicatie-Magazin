@@ -14,7 +14,7 @@ class CosCumparaturi
 private:
 	// atribute/campuri private (nu pot fi accesate din exteriorul clasei)
 	vector<Product> cos; // cos         - vector (TAD Lista implementat cu vector dinamic) din STL de obiecte de clasa Product
-	RepoProducts& repo;  // repo        - referinta la un obiect de clasa RepoProducts
+	AbstractRepo& repo;  // repo        - referinta la un obiect de clasa AbstractRepo
 	double total_price;  // total_price - variabila de tip double (numar real reprezentat in virgula mobila/flotanta cu dubla precizie)
 
 	// metodele private (nu pot fi apelate din exteriorul clasei)
@@ -39,11 +39,11 @@ public:
 	CosCumparaturi() = delete;
 
 	/*
-	* Constructor custom al unui obiect de clasa CosCumparaturi care primeste o referinta la un obiect repo de clasa RepoProducts
+	* Constructor custom al unui obiect de clasa CosCumparaturi care primeste o referinta la un obiect repo de clasa AbstractRepo
 	* Contructorul va popula atributul privat repo cu referinta la obiectul primit si atributul privat total_price cu valoarea 0
 	* Pe atributul privat cos (de tipul vector) se va apela constructorul default si acesta va fi un vector vid (fara elemente)
 	*/
-	CosCumparaturi(RepoProducts& repo) noexcept : repo{ repo }, total_price{ 0 } {
+	CosCumparaturi(AbstractRepo& repo) noexcept : repo{ repo }, total_price{ 0 } {
 	
 	}
 
