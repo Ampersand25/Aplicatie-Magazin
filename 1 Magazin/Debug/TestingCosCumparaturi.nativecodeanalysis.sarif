@@ -99,7 +99,7 @@
       },
       "invocations": [
         {
-          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x00A2B1C0 -il C:\\Users\\Admin\\AppData\\Local\\Temp\\_CL_0fe96dd4ast -typedil -f TestingCosCumparaturi.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829913 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\TestingCosCumparaturi.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset CppRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x00C4B1C0 -il C:\\Users\\Admin\\AppData\\Local\\Temp\\_CL_d2a4a8a6ast -typedil -f TestingCosCumparaturi.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829913 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\TestingCosCumparaturi.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory C:\\Users\\Admin\\Documents\\VS Projects\\Lab8-9\\1 Magazin -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset CppRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
           "executionSuccessful": true
         }
       ],
@@ -128,18 +128,7 @@
         },
         {
           "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/undo.cpp"
-          },
-          "roles": [
-            "analysisTarget"
-          ],
-          "hashes": {
-            "md5": "7b116996299c573960ebae35d38ed3f7"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/repository.h"
+            "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/Repository.h"
           },
           "roles": [
             "resultFile"
@@ -150,7 +139,7 @@
         },
         {
           "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/abstractrepo.h"
+            "uri": "file:///C:/Users/Admin/Documents/VS Projects/Lab8-9/1 Magazin/AbstractRepo.h"
           },
           "roles": [
             "resultFile"
@@ -161,75 +150,13 @@
         },
         {
           "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingvalidation.cpp"
-          },
-          "roles": [
-            "analysisTarget"
-          ],
-          "hashes": {
-            "md5": "050ec316e03d72d813ba3773f40a64a6"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingvalidation.h"
-          },
-          "hashes": {
-            "md5": "575bf36cdcd08b2bcb5b410e07dffdab"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/productvalidator.h"
-          },
-          "hashes": {
-            "md5": "528619a8dfb7809910d216c0d0a086b9"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/productexception.h"
-          },
-          "hashes": {
-            "md5": "0265b55ce10df7d5b71b7c9f1a671a51"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/exception.h"
-          },
-          "hashes": {
-            "md5": "6ceadef89a603af9eab42cf72ecc5e11"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingundo.cpp"
-          },
-          "roles": [
-            "analysisTarget"
-          ],
-          "hashes": {
-            "md5": "89c6261c7502999bdbc9023d8608096f"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingundo.h"
-          },
-          "hashes": {
-            "md5": "a8b20ce05700cf89fd28f465e601f5a5"
-          }
-        },
-        {
-          "location": {
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingservice.cpp"
           },
           "roles": [
             "analysisTarget"
           ],
           "hashes": {
-            "md5": "93048cc12dae6a1db216476f78d347fd"
+            "md5": "d461ef4fc07e371e435e788946cec353"
           }
         },
         {
@@ -242,10 +169,18 @@
         },
         {
           "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/productvalidator.h"
+          },
+          "hashes": {
+            "md5": "528619a8dfb7809910d216c0d0a086b9"
+          }
+        },
+        {
+          "location": {
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/service.h"
           },
           "hashes": {
-            "md5": "0757322b06f580d1e3c997f12744dc7b"
+            "md5": "82ea09af57bcc6039c6d34a80a252b59"
           }
         },
         {
@@ -253,7 +188,7 @@
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/coscumparaturi.h"
           },
           "hashes": {
-            "md5": "e07b1e6de426cce1c4593e041b945b2c"
+            "md5": "4fc2f6777b602c2a847b874028c75a6c"
           }
         },
         {
@@ -266,10 +201,26 @@
         },
         {
           "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/exception.h"
+          },
+          "hashes": {
+            "md5": "6ceadef89a603af9eab42cf72ecc5e11"
+          }
+        },
+        {
+          "location": {
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/repoexception.h"
           },
           "hashes": {
             "md5": "6b79b6af80d00bd9753b7a0793647ad6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/productexception.h"
+          },
+          "hashes": {
+            "md5": "0265b55ce10df7d5b71b7c9f1a671a51"
           }
         },
         {
@@ -282,78 +233,13 @@
         },
         {
           "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingrepo.cpp"
-          },
-          "roles": [
-            "analysisTarget"
-          ],
-          "hashes": {
-            "md5": "088e09f293fefe02efca6ea0213762e2"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingrepo.h"
-          },
-          "hashes": {
-            "md5": "1101bb85037819328bfe29623647dbc7"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingfilerepo.cpp"
-          },
-          "roles": [
-            "analysisTarget"
-          ],
-          "hashes": {
-            "md5": "d4aad7109c79faa0a3bbdc574466e68e"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingfilerepo.h"
-          },
-          "hashes": {
-            "md5": "a3af8d65214732e93cc87b6b9173d7c3"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/filerepository.h"
-          },
-          "hashes": {
-            "md5": "393285c5e7856aa7080c2016bfb3f2b8"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingdomain.cpp"
-          },
-          "roles": [
-            "analysisTarget"
-          ],
-          "hashes": {
-            "md5": "d2dee6954e90c01c217a48cdf8f81bff"
-          }
-        },
-        {
-          "location": {
-            "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingdomain.h"
-          },
-          "hashes": {
-            "md5": "0b005aa636d08b3805075d5500b0847d"
-          }
-        },
-        {
-          "location": {
             "uri": "file:///c:/users/admin/documents/vs projects/lab8-9/1 magazin/testingcoscumparaturi.cpp"
           },
           "roles": [
             "analysisTarget"
           ],
           "hashes": {
-            "md5": "bf31f2c65fb2b26182ff677c380c4811"
+            "md5": "89413bc1e80113e87321dbbeea37665f"
           }
         },
         {

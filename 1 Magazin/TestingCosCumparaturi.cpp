@@ -463,9 +463,11 @@ void TestingCosCumparaturi::runTestsNrProduseCos() const
 
 void TestingCosCumparaturi::cmpCantity(const CosCumparaturi& cos, const int& x, const int& y, const int& z) const
 {
-	assert(count_if(cos.getCos().begin(), cos.getCos().end(), [](const Product& prod) {return prod.getName() == "pasta de dinti" && prod.getProducer() == "Colgate"; }) == x);
-	assert(count_if(cos.getCos().begin(), cos.getCos().end(), [](const Product& prod) {return prod.getName() == "vegeta" && prod.getProducer() == "Vegeta"; }) == y);
-	assert(count_if(cos.getCos().begin(), cos.getCos().end(), [](const Product& prod) {return prod.getName() == "chipsuri" && prod.getProducer() == "Lays"; }) == z);
+	const auto& list{ cos.getCos() };
+
+	assert(count_if(list.begin(), list.end(), [](const Product& prod) {return prod.getName() == "pasta de dinti" && prod.getProducer() == "Colgate"; }) == x);
+	assert(count_if(list.begin(), list.end(), [](const Product& prod) {return prod.getName() == "vegeta" && prod.getProducer() == "Vegeta"; }) == y);
+	assert(count_if(list.begin(), list.end(), [](const Product& prod) {return prod.getName() == "chipsuri" && prod.getProducer() == "Lays"; }) == z);
 }
 
 void TestingCosCumparaturi::runTestsGetCos() const

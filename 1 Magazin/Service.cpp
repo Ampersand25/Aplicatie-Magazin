@@ -438,7 +438,7 @@ unsigned Service::cantitateCos() noexcept
 	return cosCumparaturi.nrProduseCos();
 }
 
-const vector<Product>& Service::getCosCumparaturi() const
+vector<Product> Service::getCosCumparaturi() const
 {
 	return cosCumparaturi.getCos();
 }

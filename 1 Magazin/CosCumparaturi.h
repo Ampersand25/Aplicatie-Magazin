@@ -3,21 +3,29 @@
 #include "Product.h"
 #include "Repository.h"
 
-#include <vector> // pentru std::vector
+#include <map>    // pentru std::map
 #include <string> // pentru std::string
 
-using std::vector;
-using std::string;
+using std::map;    // dictionar sortat (ordonat) din STL (Standard Template Library)
+using std::string; // sir de caractere din STL (Standard Template Library)
+
+#define TKey Product                 // cheia din dictionarul ordonat/sortat (map): obiect de clasa Product
+#define TValue unsigned              // valoarea asociata unei chei din dictionar : intreg fara semn (unsigned) <=> numar natural
+#define dictionary map<TKey, TValue> // dictionar ordonat/sortat care mapeaza chei de tipul TKey (Product) la valori de tipul TValue (unsigned)
+
+// in map vom retine pentru fiecare produs (cheia dictionarului = obiect de clasa Product) de cate ori acesta apare in cosul de cumparaturi (valoarea asociata cheii)
 
 class CosCumparaturi
 {
 private:
 	// atribute/campuri private (nu pot fi accesate din exteriorul clasei)
-	vector<Product> cos; // cos         - vector (TAD Lista implementat cu vector dinamic) din STL de obiecte de clasa Product
-	AbstractRepo& repo;  // repo        - referinta la un obiect de clasa AbstractRepo
-	double total_price;  // total_price - variabila de tip double (numar real reprezentat in virgula mobila/flotanta cu dubla precizie)
+	
+	dictionary cos;     // cos         - map (TAD Dictionar ordonat/sortat implementat cu Red-Black Tree) din STL care mapeaza chei (obiecte de clasa Product) la valori intregi fara semn (unsigned)
+	AbstractRepo& repo; // repo        - referinta la un obiect de clasa AbstractRepo
+	double total_price; // total_price - variabila de tip double (numar real reprezentat in virgula mobila/flotanta cu dubla precizie)
 
 	// metodele private (nu pot fi apelate din exteriorul clasei)
+	
 	/*
 	* Functie de tip operand care verifica daca cosul de cumparaturi este sau nu gol
 	* Date de intrare: -
@@ -128,15 +136,15 @@ public:
 	unsigned nrProduseCos() const noexcept;
 
 	/*
-	* Functie de tip operand (rezultat) care returneaza o referinta constanta la lista de produse (obiecte de clasa Product) din cosul de cumparaturi
+	* Functie de tip operand (rezultat) care returneaza o un vector din STL care va contine lista de produse (obiecte de clasa Product) din cosul de cumparaturi
 	* Date de intrare: -
 	* Preconditii: -
-	* Date de iesire (rezultate): referinta constanta la un vector din STL (Standard Template Library) cu obiecte de clasa Product
+	* Date de iesire (rezultate): vector din STL (Standard Template Library) cu obiecte de clasa Product
 	* Postconditii: vectorul intors/returnat/furnizat de subprogram/subrutina contine toate produsele din lista de cumparaturi
 	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
 	* [!]CosException cu mesajul "[!]Nu exista produse in cosul de cumparaturi!\n", in cazul in care lista care contine produsele din cosul de cumparaturi este goala/vida
 	*/
-	const vector<Product>& getCos() const;
+	vector<Product> getCos() const;
 
 	/*
 	* Procedura (subrutina procedurala) care incearca sa modifice/actualizeze toate produsele cu acelasi nume si producator ca si produsul product din cosul de cumparaturi
@@ -146,7 +154,7 @@ public:
 	* Postconditii: toate produsele cu acelasi nume si producator din cosul de cumparaturi ca si product vor fi actualizate (vor avea acelasi tip si pret ca si produsul product in urma apelului metodei)
 	* Exceptii: -
 	*/
-	void modificaProduseCos(const Product& product);
+	void modificaProduseCos(const TKey& product);
 
 	/*
 	* Procedura (subrutina procedurala) care incearca sa stearga/elimine toate produsele (obiectele de clasa Product) din cosul de cumparaturi care au numele name si producatorul producer
@@ -158,5 +166,5 @@ public:
 	* Postconditii: apelul metodei publice stergeProduseCos va elimina din cosul de cumparaturi toate produsele cu numele name si producatorul producer
 	* Exceptii: -
 	*/
-	void stergeProduseCos(const string& name, const string& producer);
+	void stergeProduseCos(const string& name, const string& producer) noexcept;
 };

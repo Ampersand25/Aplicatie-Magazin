@@ -2070,11 +2070,13 @@ void TestingService::runTestsExportCos() const
 
 void TestingService::cmpCantityCos(const Service& srv, const int& a, const int& b, const int& c, const int& d, const int& e) const
 {
-	assert(count_if(srv.getCosCumparaturi().begin(), srv.getCosCumparaturi().end(), [](const Product& prod) {return prod.getName() == "chipsuri" && prod.getProducer() == "Lays"; }) == a);
-	assert(count_if(srv.getCosCumparaturi().begin(), srv.getCosCumparaturi().end(), [](const Product& prod) {return prod.getName() == "ton in ulei" && prod.getProducer() == "Tonno Rio Mare"; }) == b);
-	assert(count_if(srv.getCosCumparaturi().begin(), srv.getCosCumparaturi().end(), [](const Product& prod) {return prod.getName() == "boia" && prod.getProducer() == "Delikat"; }) == c);
-	assert(count_if(srv.getCosCumparaturi().begin(), srv.getCosCumparaturi().end(), [](const Product& prod) {return prod.getName() == "pasta de dinti" && prod.getProducer() == "Colgate"; }) == d);
-	assert(count_if(srv.getCosCumparaturi().begin(), srv.getCosCumparaturi().end(), [](const Product& prod) {return prod.getName() == "iaurt" && prod.getProducer() == "Milka UK"; }) == e);
+	const auto& list{ srv.getCosCumparaturi() };
+
+	assert(count_if(list.begin(), list.end(), [](const Product& prod) {return prod.getName() == "chipsuri" && prod.getProducer() == "Lays"; }) == a);
+	assert(count_if(list.begin(), list.end(), [](const Product& prod) {return prod.getName() == "ton in ulei" && prod.getProducer() == "Tonno Rio Mare"; }) == b);
+	assert(count_if(list.begin(), list.end(), [](const Product& prod) {return prod.getName() == "boia" && prod.getProducer() == "Delikat"; }) == c);
+	assert(count_if(list.begin(), list.end(), [](const Product& prod) {return prod.getName() == "pasta de dinti" && prod.getProducer() == "Colgate"; }) == d);
+	assert(count_if(list.begin(), list.end(), [](const Product& prod) {return prod.getName() == "iaurt" && prod.getProducer() == "Milka UK"; }) == e);
 }
 
 void TestingService::runTestsGetCosCumparaturi() const

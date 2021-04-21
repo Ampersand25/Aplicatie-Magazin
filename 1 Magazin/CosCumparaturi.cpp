@@ -3,14 +3,17 @@
 
 #include <random>    // pentru std::random_device, std::mt19937 si std::uniform_int_distribution
 #include <fstream>   // pentru std::ofstream
-#include <algorithm> // for find_if and count_if
 
 using std::random_device;
 using std::mt19937;
 using std::uniform_int_distribution;
 using std::ofstream;
-using std::find_if;
-using std::count_if;
+
+// un element din dictionar este o pereche <key, value> (<cheie, valoare>)
+// unde: key   (cheie)  : TKey   (Product)  - obiect de clasa Product (entitate)
+//       value (valoare): TValue (unsigned) - numarul de aparitii al cheii (obiect de clasa Product) in cosul de cumparaturi
+#define key first    // atributul cheie al unui element din dictionar
+#define value second // atributul valoare al unui element din dictionar (valoare asocita cheii elementului)
 
 bool CosCumparaturi::cosGol() const noexcept
 {
@@ -46,7 +49,21 @@ void CosCumparaturi::adaugaInCos(const string& name, const string& producer)
 
 	const auto& prod{ *p };
 
-	cos.push_back(prod);
+	bool found{ false };
+
+	for (const auto& elem : cos)
+	{
+		if (elem.key == prod)
+		{
+			++cos[elem.key];
+			found = true;
+			
+			break;
+		}
+	}
+
+	if (!found)
+		cos[prod] = 1;
 
 	total_price += prod.getPrice();
 }
@@ -63,7 +80,22 @@ void CosCumparaturi::genereazaCos(unsigned number_of_products)
 		// dist(m) - numar aleator/arbitrar (random) intre [0, size - 1],
 		// unde size este numarul de produse (obiecte de clasa Product) din repozitoriu
 		const auto& prod{ products.at(dist(mt)) };
-		cos.push_back(prod);
+
+		bool found{ false };
+
+		for (const auto& elem : cos)
+		{
+			if (elem.key == prod)
+			{
+				++cos[elem.key];
+				found = true;
+
+				break;
+			}
+		}
+
+		if (!found)
+			cos[prod] = 1;
 
 		total_price += prod.getPrice();
 	}
@@ -79,42 +111,22 @@ void CosCumparaturi::exportCosFisierCSV(const string& filename) const
 	const auto full_filename{ path + filename + extension }; // const string full_filename{ path + filename + extension };
 
 	ofstream out{ full_filename }; // ofstream out(full_filename);
-
-	// Varianta I
-	/*
-	out << "Nume,Tip,Pret,Producator\n"; // de la berlioz10 (aka Dragon Spiridus)
-
-	for (const auto& p : cos)
-		out << p.getName() << ',' <<
-		p.getType() << ',' <<
-		p.getPrice() << ',' <<
-		p.getProducer() << '\n';
-
-	out.close();
-	*/
-
-	// Varianta II
-	out << "Nume,Tip,Pret,Producator,Cantitate\n"; // de la berlioz10 (aka Dragon Spiridus)
 	
-	auto it{ cos.begin() };
+	out << "Index,Nume,Tip,Pret,Producator,Cantitate\n"; // de la berlioz10 (aka Dragon Spiridus)
 
-	while (it != cos.end())
+	auto idx{ 0 };
+
+	for (const auto& elem : cos)
 	{
-		const auto& prod{ *it };
-		const auto& pos{ find_if(cos.begin(), cos.end(), [&prod](const Product& product) noexcept {return product.cmpProducts(prod); }) };
+		const auto& prod{ elem.key };
+		const auto& quantity{ elem.value };
 
-		if (pos == it)
-		{
-			const auto& freq{ count_if(cos.begin(), cos.end(), [&prod](const Product& product) noexcept {return product.cmpProducts(prod); }) };
-
-			out << prod.getName() << ',' <<
-			prod.getType() << ',' <<
-			prod.getPrice() << ',' <<
-			prod.getProducer() << ',' <<
-			freq << '\n';
-		}
-
-		++it;
+		out << ++idx << ',' <<
+		prod.getName() << ',' <<
+		prod.getType() << ',' <<
+		prod.getPrice() << ',' <<
+		prod.getProducer() << ',' <<
+		quantity << '\n';
 	}
 
 	out.close();
@@ -145,12 +157,18 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	else {
 		auto cont{ 0 };
 
-		for (const auto& p : cos)
+		for (const auto& elem : cos)
+		{
+			const auto& prod{ elem.key };
+			const auto& quantity{ elem.value };
+
 			out << ++cont << ": " <<
-			p.getName() << " | " <<
-			p.getType() << " | " <<
-			p.getPrice() << " | " <<
-			p.getProducer() << "<br>";
+			prod.getName() << " | " <<
+			prod.getType() << " | " <<
+			prod.getPrice() << " | " <<
+			prod.getProducer() << " | " <<
+			quantity << "<br>";
+		}
 	}
 	
 	out << "</p>\n";
@@ -187,6 +205,7 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 		out << "<thead>\n";
 		out << "<tr>\n";
 
+		out << "<th style=\"background-color:#E8B5CE;\">#</th>\n";
 		out << "<th style=\"background-color:#7FCDCD;\">Nume</th>\n";
 		out << "<th style=\"background-color:#B565A7;\">Tip</th>\n";
 		out << "<th style=\"background-color:#FF6F61;\">Pret</th>\n";
@@ -197,40 +216,22 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 		out << "</thead>\n";
 
 		out << "<tbody>\n";
+		
+		auto idx{ 0 };
 
-		/*
-		for (const auto& p : cos)
+		for (const auto& elem : cos)
 		{
+			const auto& prod{ elem.key };
+			const auto& quantity{ elem.value };
+
 			out << "<tr>\n"
-				<< "<td style=\"background-color:#7FCDCD;\">" << p.getName() << "</td>\n"
-				<< "<td style=\"background-color:#B565A7;\">" << p.getType() << "</td>\n"
-				<< "<td style=\"background-color:#FF6F61;\">" << p.getPrice() << "</td>\n"
-				<< "<td style=\"background-color:#92A8D1;\">" << p.getProducer() << "</td>\n"
+				<< "<td style=\"background-color:#E8B5CE;\">" << ++idx << "</td>\n"
+				<< "<td style=\"background-color:#7FCDCD;\">" << prod.getName() << "</td>\n"
+				<< "<td style=\"background-color:#B565A7;\">" << prod.getType() << "</td>\n"
+				<< "<td style=\"background-color:#FF6F61;\">" << prod.getPrice() << "</td>\n"
+				<< "<td style=\"background-color:#92A8D1;\">" << prod.getProducer() << "</td>\n"
+				<< "<td style=\"background-color:#EFC050;\">" << quantity << "</td>\n"
 				<< "</tr>\n";
-		}
-		*/
-
-		auto it{ cos.begin() };
-
-		while (it != cos.end())
-		{
-			const auto& prod{ *it };
-			const auto& pos{ find_if(cos.begin(), cos.end(), [&prod](const Product& product) noexcept {return product.cmpProducts(prod); }) };
-
-			if (pos == it)
-			{
-				const auto& freq{ count_if(cos.begin(), cos.end(), [&prod](const Product& product) noexcept {return product.cmpProducts(prod); }) };
-
-				out << "<tr>\n"
-					<< "<td style=\"background-color:#7FCDCD;\">" << prod.getName() << "</td>\n"
-					<< "<td style=\"background-color:#B565A7;\">" << prod.getType() << "</td>\n"
-					<< "<td style=\"background-color:#FF6F61;\">" << prod.getPrice() << "</td>\n"
-					<< "<td style=\"background-color:#92A8D1;\">" << prod.getProducer() << "</td>\n"
-					<< "<td style=\"background-color:#EFC050;\">" << freq << "</td>\n"
-					<< "</tr>\n";
-			}
-
-			++it;
 		}
 
 		out << "</tbody>\n";
@@ -239,6 +240,8 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	
 	out << "</div>\n";
 
+	out << "<span style=\"color:red\">[=]Numar total produse cos: " << this->nrProduseCos() << "</span>\n";
+	out << "<br>";
 	out << "<span style=\"color:blue\">[$]Pret total produse: " << this->getTotal() << "</span>\n";
 
 	out << "</body>\n";
@@ -254,8 +257,13 @@ const double& CosCumparaturi::getTotal() const noexcept
 	/*
 	double total{ 0 };
 
-	for (const auto& p : cos)
-		total += p.getPrice();
+	for (const auto& elem : cos)
+	{
+		const auto& prod{ elem.key };
+		const auto& quantity{ elem.value };
+
+		total += prod.getPrice() * quantity;
+	}
 
 	return total;
 	*/
@@ -263,38 +271,81 @@ const double& CosCumparaturi::getTotal() const noexcept
 
 unsigned CosCumparaturi::nrProduseCos() const noexcept
 {
-	return cos.size();
+	unsigned cont{ 0 };
+
+	for (const auto& elem : cos)
+		cont += elem.value;
+
+	return cont;
 }
 
-const vector<Product>& CosCumparaturi::getCos() const
+vector<Product> CosCumparaturi::getCos() const
 {
 	if (cosGol()) // if (this->cosGol())
 		throw CosException("[!]Nu exista produse in cosul de cumparaturi!\n");
 
-	return cos;
+	vector<Product> prods;
+
+#define pb push_back
+
+	for (const auto& elem : cos)
+	{
+		const auto& prod{ elem.key };
+		const auto& quantity{ elem.value };
+
+		for (unsigned i{ 0 }; i < quantity; ++i)
+			prods.pb(prod);
+	}
+
+#undef pb
+
+	return prods;
 }
 
 void CosCumparaturi::modificaProduseCos(const Product& product)
 {
-	for (auto& p : cos)
-		if (p.cmpProducts(product)) // if (p.getName() == product.getName() && p.getProducer() == product.getProducer())
-		{
-			total_price -= p.getPrice();
-			total_price += product.getPrice();
+	auto iter{ cos.begin() };
 
-			p.setType(product.getType());
-			p.setPrice(product.getPrice());
+	while(iter != cos.end())
+	{
+		const auto& elem{ *iter };
+		const auto& prod{ elem.key };
+		const auto quantity{ elem.value };
+
+		if (prod == product) // if (prod.getName() == product.getName() && prod.getProducer() == product.getProducer())
+			                 // if (prod.cmpProducts(product))
+		{
+			total_price -= prod.getPrice() * quantity;
+			total_price += product.getPrice() * quantity;
+
+			cos.erase(iter);
+			cos[product] = quantity;
+
+			return;
 		}
+
+		++iter;
+	}
 }
 
-void CosCumparaturi::stergeProduseCos(const string& name, const string& producer)
+void CosCumparaturi::stergeProduseCos(const string& name, const string& producer) noexcept
 {
-	for (unsigned i{ 0 }; i < cos.size(); ++i)
-		if (cos.at(i).getName() == name && cos.at(i).getProducer() == producer)
-		{
-			total_price -= cos.at(i).getPrice();
+	auto iter{ cos.begin() };
 
-			cos.erase(cos.begin() + i);
-			--i;
+	while (iter != cos.end())
+	{
+		const auto& elem{ *iter };
+		const auto& prod{ elem.key };
+		const auto& quantity{ elem.value };
+
+		if (prod.getName() == name && prod.getProducer() == producer)
+		{
+			total_price -= prod.getPrice() * quantity;
+			cos.erase(iter);
+			
+			return;
 		}
+
+		++iter;
+	}
 }
