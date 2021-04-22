@@ -207,10 +207,10 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 
 		out << "<th style=\"background-color:#E8B5CE;\">#</th>\n";
 		out << "<th style=\"background-color:#7FCDCD;\">Nume</th>\n";
-		out << "<th style=\"background-color:#B565A7;\">Tip</th>\n";
+		out << "<th style=\"background-color:#BE9EC9;\">Tip</th>\n";
 		out << "<th style=\"background-color:#FF6F61;\">Pret</th>\n";
 		out << "<th style=\"background-color:#92A8D1;\">Producator</th>\n";
-		out << "<th style=\"background-color:#EFC050;\">Cantitate</th>\n";
+		out << "<th style=\"background-color:#F1EA7F;\">Cantitate</th>\n";
 
 		out << "</tr>\n";
 		out << "</thead>\n";
@@ -227,10 +227,10 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 			out << "<tr>\n"
 				<< "<td style=\"background-color:#E8B5CE;\">" << ++idx << "</td>\n"
 				<< "<td style=\"background-color:#7FCDCD;\">" << prod.getName() << "</td>\n"
-				<< "<td style=\"background-color:#B565A7;\">" << prod.getType() << "</td>\n"
+				<< "<td style=\"background-color:#BE9EC9;\">" << prod.getType() << "</td>\n"
 				<< "<td style=\"background-color:#FF6F61;\">" << prod.getPrice() << "</td>\n"
 				<< "<td style=\"background-color:#92A8D1;\">" << prod.getProducer() << "</td>\n"
-				<< "<td style=\"background-color:#EFC050;\">" << quantity << "</td>\n"
+				<< "<td style=\"background-color:#F1EA7F;\">" << quantity << "</td>\n"
 				<< "</tr>\n";
 		}
 
@@ -240,9 +240,9 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	
 	out << "</div>\n";
 
-	out << "<span style=\"color:red\">[=]Numar total produse cos: " << this->nrProduseCos() << "</span>\n";
-	out << "<br>";
-	out << "<span style=\"color:blue\">[$]Pret total produse: " << this->getTotal() << "</span>\n";
+	out << "<h4 style=\"color:green\">[=]Numar total produse cos: " << this->nrProduseCos() << "</h4>\n";
+	// out << "<br>";
+	out << "<h4 style=\"color:blue\">[$]Pret total produse: " << this->getTotal() << "</h4>\n";
 
 	out << "</body>\n";
 	out << "</html>\n";
