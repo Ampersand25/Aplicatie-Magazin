@@ -1,4 +1,4 @@
-﻿  CosCumparaturi.cpp
+﻿  Console.cpp
   1 Magazin.vcxproj -> C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Debug\1 Magazin.exe
 C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Product.h(41): warning C26432: If you define or delete any default operation in the type 'class Product', define or delete them all (c.21).
 C:\Users\Admin\Documents\VS Projects\Lab8-9\1 Magazin\Repository.h(28): warning C26432: If you define or delete any default operation in the type 'class RepoProducts', define or delete them all (c.21).

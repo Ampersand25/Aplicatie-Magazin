@@ -60,7 +60,7 @@ void UI::addUI() const
 	
 	try {
 		srv.add(name, type, price, producer);
-		cout << "[+]Adaugarea s-a realizat cu succes!\n\n";
+		cout << "[*]Adaugarea s-a realizat cu succes!\n\n";
 	}
 	catch (const ProductException& pe) {
 		cerr << pe.getMessage() << endl;
@@ -84,7 +84,7 @@ void UI::delUI() const
 	
 	try {
 		srv.del(name, producer);
-		cout << "[+]Stergerea s-a realizat cu succes!\n\n";
+		cout << "[*]Stergerea s-a realizat cu succes!\n\n";
 	}
 	catch (const ServiceException& se) {
 		cerr << se.getMessage() << endl;
@@ -124,7 +124,7 @@ void UI::modifyUI() const
 	
 	try {
 		srv.modify(name, type, price, producer);
-		cout << "[+]Modificarea s-a realizat cu succes!\n\n";
+		cout << "[*]Modificarea s-a realizat cu succes!\n\n";
 	}
 	catch (const ProductException& pe) {
 		cerr << pe.getMessage() << endl;
@@ -465,7 +465,7 @@ void UI::golireCosUI() const
 
 	try {
 		srv.golireCos();
-		cout << "[+]Golirea cosului de cumparaturi s-a realizat cu succes!\n";
+		cout << "[*]Golirea cosului de cumparaturi s-a realizat cu succes!\n";
 	}
 	catch (const CosException& ce) {
 		cerr << ce.getMessage();
@@ -488,7 +488,7 @@ void UI::adaugareCosUI() const
 
 	try {
 		srv.adaugareCos(name, producer);
-		cout << "[+]Adaugarea produsului cos s-a realizat cu succes!\n";
+		cout << "[*]Adaugarea produsului cos s-a realizat cu succes!\n";
 	}
 	catch (const CosException& ce) {
 		cerr << ce.getMessage();
@@ -511,7 +511,7 @@ void UI::generareCosUI() const
 
 	try {
 		srv.generareCos(num);
-		cout << "[+]Generarea cosului de cumparaturi s-a realizat cu succes!\n";
+		cout << "[*]Generarea cosului de cumparaturi s-a realizat cu succes!\n";
 	}
 	catch (const RepoException& re) {
 		cerr << re.getMessage();
@@ -529,13 +529,33 @@ void UI::tiparireCos() const
 		auto cont{ 0 };
 
 		cout << "Cele " << srv.cantitateCos() << " produse din cosul de cumparaturi sunt:\n\n";
-
+		
+		/*
 		for (const auto& prod : lista_cumparaturi)
 			cout << ++cont          << ": " <<
 					prod.getName()  << " | " <<
 					prod.getType()  << " | " <<
 					prod.getPrice() << " | " <<
 					prod.getProducer() << endl;
+		*/
+
+		for (const auto& prod : lista_cumparaturi)
+		{
+			cout.width(5);
+			cout << ++cont << " | ";
+
+			cout.width(20);
+			cout << prod.getName() << " | ";
+			
+			cout.width(20);
+			cout << prod.getType() << " | ";
+			
+			cout.width(20);
+			cout << prod.getPrice() << " | ";
+			
+			cout.width(20);
+			cout << prod.getProducer() << " |\n";
+		}
 
 		cout << endl;
 	}
@@ -558,7 +578,7 @@ void UI::exportCosUI() const
 
 	try {
 		srv.exportCos(filename, filetype);
-		cout << "[+]Exportul in fisier s-a realizat cu succes!\n";
+		cout << "[*]Exportul in fisier s-a realizat cu succes!\n";
 	}
 	catch(const CosException& ce) {
 		cerr << ce.getMessage();
@@ -647,15 +667,15 @@ void UI::debugUI() const
 	/*
 	try{
 		srv.add("iaurt"         , "produse lactate", 4.63   , "Danone");
-		srv.add("chipsuri"      , "snacksuri"       , 9.6    , "Lays");
+		srv.add("chipsuri"      , "snacksuri"      , 9.6    , "Lays");
 		srv.add("ton in ulei"   , "conserve"       , 13.9841, "Tonno Rio Mare");
 		srv.add("boia"          , "condimente"     , 0.999  , "Delikat");
 		srv.add("pasta de dinti", "igiena"         , 7.12   , "Colgate");
 		srv.add("iaurt"         , "produse lactate", 5.013  , "Milka UK");
 		srv.add("sare"          , "condimente"     , 11     , "Maggi");
 		srv.add("parmezan"      , "condimente"     , 8.301  , "Delikat");
-		srv.add("chipsuri"      , "snacksuri"       , 1.53   , "Chio");
-		srv.add("chipsuri"      , "snacksuri"       , 9.1    , "Pringles");
+		srv.add("chipsuri"      , "snacksuri"      , 1.53   , "Chio");
+		srv.add("chipsuri"      , "snacksuri"      , 9.1    , "Pringles");
 	}
 	catch (const RepoException& re) {
 		cerr << re.getMessage() << endl;
@@ -666,22 +686,32 @@ void UI::debugUI() const
 	*/
 
 	unsigned cont{ 0 };
-
-	addDebug("iaurt"         , "produse lactate", 4.63   , "Danone",         cont);
-	addDebug("chipsuri"      , "snacksuri"       , 9.6    , "Lays",           cont);
-	addDebug("ton in ulei"   , "conserve"       , 13.9841, "Tonno Rio Mare", cont);
-	addDebug("boia"          , "condimente"     , 0.999  , "Delikat",		 cont);
-	addDebug("pasta de dinti", "igiena"         , 7.12   , "Colgate",		 cont);
-	addDebug("iaurt"         , "produse lactate", 5.013  , "Milka UK",		 cont);
-	addDebug("sare"          , "condimente"     , 11     , "Maggi",			 cont);
-	addDebug("parmezan"      , "condimente"     , 8.301  , "Delikat",		 cont);
-	addDebug("chipsuri"      , "snacksuri"       , 1.53   , "Chio",			 cont);
-	addDebug("chipsuri"      , "snacksuri"       , 9.1    , "Pringles",		 cont);
+	
+	addDebug("iaurt"         , "produse lactate"    , 4.63   , "Danone"        , cont);
+	addDebug("chipsuri"      , "snacksuri"          , 9.6    , "Lays"          , cont);
+	addDebug("rozmarin"      , "condimente"         , 1.68   , "Kamis"         , cont);
+	addDebug("ton in ulei"   , "conserve"           , 13.9841, "Tonno Rio Mare", cont);
+	addDebug("boia"          , "condimente"         , 0.999  , "Delikat"       , cont);
+	addDebug("maioneza"      , "sosuri"             , 5.891  , "Hellmann's"    , cont);
+	addDebug("suc"           , "bauturi racoritoare", 6.9    , "Pepsi"         , cont);
+	addDebug("pasta de dinti", "igiena"             , 7.12   , "Colgate"       , cont);
+	addDebug("tigari"        , "cancerigene"        , 8.4018 , "Marlboro"      , cont);
+	addDebug("iaurt"         , "produse lactate"    , 5.013  , "Milka UK"      , cont);
+	addDebug("sare"          , "condimente"         , 11     , "Maggi"         , cont);
+	addDebug("suc"           , "bauturi racoritoare", 15.5   , "Coca-Cola"     , cont);
+	addDebug("tigari"        , "cancerigene"        , 5.83   , "Kent"          , cont);
+	addDebug("tigari"        , "cancerigene"        , 17.25  , "Camel"         , cont);
+	addDebug("parmezan"      , "condimente"         , 8.301  , "Delikat"       , cont);
+	addDebug("chipsuri"      , "snacksuri"          , 1.53   , "Chio"          , cont);
+	addDebug("chipsuri"      , "snacksuri"          , 9.1    , "Pringles"      , cont);
+	addDebug("coriandru"     , "condimente"         , 0.0471 , "Knorr"         , cont);
+	addDebug("tigari"        , "cancerigene"        , 21     , "Pall Mall"     , cont);
+	addDebug("ketchup"       , "sosuri"             , 4.2810 , "Heinz"         , cont);
 
 	if (!cont)
 		cout << "[X]Nu au fost adaugate produse noi in stoc!\n\n";
 	else
-		cout << "[+]Au fost adaugate " << cont << " produse noi in stoc!\n\n";
+		cout << "[*]Au fost adaugate " << cont << " produse noi in stoc!\n\n";
 }
 
 void UI::runApp() const
