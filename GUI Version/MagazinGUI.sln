@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MagazinGUI", "MagazinGUI.vcxproj", "{EACE5312-DD52-42D6-B181-2CB3619C1B08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EACE5312-DD52-42D6-B181-2CB3619C1B08}.Debug|x64.ActiveCfg = Debug|x64
+		{EACE5312-DD52-42D6-B181-2CB3619C1B08}.Debug|x64.Build.0 = Debug|x64
+		{EACE5312-DD52-42D6-B181-2CB3619C1B08}.Release|x64.ActiveCfg = Release|x64
+		{EACE5312-DD52-42D6-B181-2CB3619C1B08}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F243A15-146E-420E-810F-8AB76FC4E3A0}
+	EndGlobalSection
+EndGlobal
