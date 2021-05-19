@@ -488,7 +488,7 @@ void UI::adaugareCosUI() const
 
 	try {
 		srv.adaugareCos(name, producer);
-		cout << "[*]Adaugarea produsului cos s-a realizat cu succes!\n";
+		cout << "[*]Adaugarea produsului in cos s-a realizat cu succes!\n";
 	}
 	catch (const CosException& ce) {
 		cerr << ce.getMessage();

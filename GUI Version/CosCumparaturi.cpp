@@ -73,7 +73,7 @@ void CosCumparaturi::genereazaCos(unsigned number_of_products)
 	const auto& products{ repo.getAll() };
 
 	mt19937 mt{ random_device{}() };
-	const uniform_int_distribution<> dist(0, products.size() - 1);
+	const uniform_int_distribution<> dist(0, (int)products.size() - 1);
 
 	for (unsigned i{ 0 }; i < number_of_products; ++i)
 	{

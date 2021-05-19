@@ -11,10 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{EACE5312-DD52-42D6-B181-2CB3619C1B08}</ProjectGuid>
+    <ProjectGuid>{833220F1-DF71-4F25-A101-ADE654628F05}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
-    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.18362.0</WindowsTargetPlatformVersion>
-    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -34,6 +34,7 @@
     <QtInstall>6.0.3_msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
+    <QtDeploy>true</QtDeploy>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
     <QtInstall>6.0.3_msvc2019_64</QtInstall>
@@ -106,9 +107,7 @@
     <ClCompile Include="TestingValidation.cpp" />
     <ClCompile Include="Undo.cpp" />
     <ClCompile Include="Utils.cpp" />
-    <QtRcc Include="MagazinGUI.qrc" />
     <QtUic Include="MagazinGUI.ui" />
-    <QtMoc Include="MagazinGUI.h" />
     <ClCompile Include="ApplicationCoordinator.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="CosCumparaturi.cpp" />

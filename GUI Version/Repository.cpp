@@ -182,5 +182,5 @@ vector<Product> RepoProducts::getAll() const
 
 unsigned RepoProducts::len() const noexcept
 {
-	return products.size(); // return this->products.size();
+	return (unsigned)products.size(); // return (unsigned)this->products.size();
 }

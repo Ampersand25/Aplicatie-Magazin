@@ -8,14 +8,21 @@
 #include "ProductValidator.h"
 #include "Service.h"
 
-int main(int argc, char *argv[])
+void testApp()
 {
-    QApplication a(argc, argv);
-
     const TestingApp testing_app;
     testing_app.runTestsApp();
 
-    qDebug() << "--------------------All tests passed--------------------";
+    qDebug() << "\n--------------------All tests passed--------------------\n";
+}
+
+int main(int argc, char* argv[])
+{
+    int exit_code;
+    
+    QApplication a(argc, argv);
+
+    testApp();
 
     FileRepoProducts repo{ "produse" };
     ProductValidator valid;
@@ -23,5 +30,7 @@ int main(int argc, char *argv[])
     const auto gui{ new GUI{ srv } };
     gui->show();
 
-    return a.exec();
+    exit_code = a.exec();
+
+    return exit_code;
 }
