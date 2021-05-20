@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "Service.h"
 
@@ -13,6 +13,8 @@
 #include <QtWidgets/qcombobox.h>
 #include <QtWidgets/qbuttongroup.h>
 #include <QtWidgets/qradiobutton.h>
+#include <QtWidgets/qslider.h>
+#include <QtWidgets/qtabwidget.h>
 
 class GUI : public QWidget
 {
@@ -25,6 +27,16 @@ private:
 	                     // true  - dark theme (beta)
 
 	Service& srv; // referinta la un obiect de clasa Service
+
+	QPushButton* btn_adaugare = new QPushButton{ "Adauga produs in cos" };
+	QPushButton* btn_stergere = new QPushButton{ "Sterge continut cos" };
+	QPushButton* btn_generare = new QPushButton{ "Genereaza cos" };
+
+	QPushButton* btn_CosCRUDGUI = new QPushButton{ "CosCRUDGUI" };
+	QPushButton* btn_CosReadOnlyGUI = new QPushButton{ "CosReadOnlyGUI" };
+
+	QSlider* sld = new QSlider;
+	QSpinBox* sld_value = new QSpinBox;
 
 	QPushButton* btn_add = new QPushButton{ "&Adaugare" };
 	QPushButton* btn_modify = new QPushButton{ "&Modificare" };
@@ -77,8 +89,10 @@ private:
 	QLineEdit* filter_crt_line_edit = new QLineEdit;
 
 	QListWidget* lst_products = new QListWidget();
-	QListWidget* lst_types = new QListWidget();
 	QTableWidget* tbl_products = new QTableWidget();
+	QTabWidget* products = new QTabWidget();
+
+	QListWidget* lst_types = new QListWidget();
 
 	QLineEdit* fisier_export_line_edit = new QLineEdit;
 
@@ -139,8 +153,8 @@ private:
 
 	void initMeniuTipuriProduse();
 
-	void addCumparaturiToList(const vector<Product>& lista_cumparaturi);
-	void addCumparaturiToTable(const vector<Product>& lista_cumparaturi);
+	void addCumparaturiToList(QListWidget* lst, const vector<Product>& lista_cumparaturi);
+	void addCumparaturiToTable(QTableWidget* tbl, const vector<Product>& lista_cumparaturi);
 
 	QListWidgetItem* last_selected_item_list_cos;
 	QLabel* lbl_selected_item_list_cos{ nullptr };
@@ -172,6 +186,23 @@ private:
 	QDialog* pls_pp_dialog = nullptr;
 	QPushButton* btn_pls_pp = new QPushButton{ "&1pls pp" };
 	QLineEdit* pls_pp_edt = new QLineEdit;
+	
+	QWidget* cosCRUDGUI_wdg;
+	QWidget* cosReadOnlyGUI_wdg;
+
+	void initGuiCmpCosCRUDGUI();
+	void connectSignalsCosCRUDGUI();
+	void setInitialStateCosCRUDGUI();
+
+	QSpinBox* spin_box;
+
+	QPushButton* btn_gen;
+	QPushButton* btn_gol;
+
+	QListWidget* lst_cos;
+	QTableWidget* tbl_cos;
+
+	QTabWidget* tab;
 
 public:
 	// metode publice

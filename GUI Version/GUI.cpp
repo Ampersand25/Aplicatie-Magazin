@@ -193,8 +193,9 @@ void GUI::initMeniuCosCumparaturi()
 
 	generare_ly->addWidget(no_prods_generare_lbl);
 
-	no_prods->setMinimum(0);
-	no_prods->setMaximum(500);
+	no_prods->setMinimum(1);
+	no_prods->setMaximum(100);
+	no_prods->setValue(1);
 	generare_ly->addWidget(no_prods);
 
 	right_ly->addLayout(generare_ly);
@@ -359,6 +360,7 @@ void GUI::connectSignalsCosCumparaturi()
 		try {
 			srv.adaugareCos(name.toLocal8Bit().constData(), producer.toLocal8Bit().constData());
 			btn_golire_cos->setDisabled(false);
+			btn_stergere->setDisabled(false);
 
 			msg->setText("[*]Adaugarea produsului in cos s-a realizat cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: " + QString::number(srv.getCosCumparaturi().size()));
 		}
@@ -391,7 +393,7 @@ void GUI::connectSignalsCosCumparaturi()
 		});
 
 	QObject::connect(btn_golire_cos, &QPushButton::clicked, this, [&]() {
-		last_selected_item_list_cos = nullptr;
+		//last_selected_item_list_cos = nullptr;
 
 		QMessageBox msg_box;
 		msg_box.setText("Sunteti sigur ca doriti sa goliti cosul de cumparaturi?");
@@ -409,6 +411,7 @@ void GUI::connectSignalsCosCumparaturi()
 			try {
 				srv.golireCos();
 				btn_golire_cos->setDisabled(true);
+				btn_stergere->setDisabled(true);
 
 				//msg->setText("[*]Golirea cosului de cumparaturi s-a realizat cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: 0");
 				msg->setText("[*]Golirea cosului de cumparaturi s-a realizat cu succes!\n[$]Pret total: 0\n[#]Numar total produse cos: 0");
@@ -446,14 +449,14 @@ void GUI::connectSignalsCosCumparaturi()
 		try {
 			const auto& lista_cumparaturi{ srv.getCosCumparaturi() };
 
-			addCumparaturiToList(lista_cumparaturi);
-			addCumparaturiToTable(lista_cumparaturi);
+			addCumparaturiToList(lst_cumparaturi, lista_cumparaturi);
+			addCumparaturiToTable(tbl_cumparaturi, lista_cumparaturi);
 		}
 		catch (const CosException& ce) {
 			qDebug() << QString::fromStdString(ce.getMessage());
 
-			addCumparaturiToList(vector<Product>());
-			addCumparaturiToTable(vector<Product>());
+			addCumparaturiToList(lst_cumparaturi, vector<Product>());
+			addCumparaturiToTable(tbl_cumparaturi, vector<Product>());
 		}
 
 		total_price_cos_line_edit->setText(QString::number(srv.totalCos()));
@@ -467,6 +470,8 @@ void GUI::connectSignalsCosCumparaturi()
 		});
 
 	QObject::connect(btn_generare_cos, &QPushButton::clicked, this, [&]() {
+		last_selected_item_list_cos = nullptr;
+
 		const auto number{ no_prods->text() };
 
 		QMessageBox* msg = new QMessageBox;
@@ -474,6 +479,7 @@ void GUI::connectSignalsCosCumparaturi()
 		try {
 			srv.generareCos(number.toLocal8Bit().constData());
 			btn_golire_cos->setDisabled(false);
+			btn_stergere->setDisabled(false);
 
 			msg->setText("[*]Generarea cosului de cumparaturi s-a realizat cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: " + QString::number(srv.getCosCumparaturi().size()));
 		}
@@ -598,12 +604,12 @@ void GUI::connectSignalsCosCumparaturi()
 		});
 }
 
-void GUI::addCumparaturiToList(const vector<Product>& lista_cumparaturi)
+void GUI::addCumparaturiToList(QListWidget* lst, const vector<Product>& lista_cumparaturi)
 {
-	lst_cumparaturi->clear();
+	lst->clear();
 
-	total_price_cos_line_edit->setText("0");
-	total_products_cos_line_edit->setText("0");
+	//total_price_cos_line_edit->setText("0");
+	//total_products_cos_line_edit->setText("0");
 
 	auto idx{ 0 };
 
@@ -612,7 +618,7 @@ void GUI::addCumparaturiToList(const vector<Product>& lista_cumparaturi)
 		if (!idx)
 		{
 			QListWidgetItem* label_item = new QListWidgetItem{ "Produsele existente in cosul de cumparaturi sunt:" };
-			lst_cumparaturi->addItem(label_item);
+			lst->addItem(label_item);
 		}
 
 		++idx;
@@ -632,27 +638,27 @@ void GUI::addCumparaturiToList(const vector<Product>& lista_cumparaturi)
 		const auto q_str_producer{ QString::fromStdString(str_producer) };
 		item->setData(Qt::UserRole, QStringList({ q_str_name, q_str_type, q_str_price, q_str_producer }));
 
-		lst_cumparaturi->addItem(item);
+		lst->addItem(item);
 	}
 
 	if (!idx)
 	{
 		QListWidgetItem* item = new QListWidgetItem{ "Nu exista momentan produse adaugate in cosul de cumparaturi!" };
-		lst_cumparaturi->addItem(item);
+		lst->addItem(item);
 	}
 }
 
-void GUI::addCumparaturiToTable(const vector<Product>& lista_cumparaturi)
+void GUI::addCumparaturiToTable(QTableWidget* tbl, const vector<Product>& lista_cumparaturi)
 {
-	tbl_cumparaturi->clear();
+	tbl->clear();
 
 	auto rows{ (int)lista_cumparaturi.size() };
 	auto cols{ 4 };
 
-	tbl_cumparaturi->setRowCount(rows);
-	tbl_cumparaturi->setColumnCount(cols);
+	tbl->setRowCount(rows);
+	tbl->setColumnCount(cols);
 
-	tbl_cumparaturi->setHorizontalHeaderLabels({ "Nume", "Tip", "Pret", "Producator" });
+	tbl->setHorizontalHeaderLabels({ "Nume", "Tip", "Pret", "Producator" });
 
 	auto row{ 0 };
 
@@ -685,10 +691,10 @@ void GUI::addCumparaturiToTable(const vector<Product>& lista_cumparaturi)
 		producer_item->setData(Qt::UserRole, QStringList(q_string_list));
 		producer_item->setFlags({ Qt::ItemIsEnabled, Qt::ItemIsSelectable });
 
-		tbl_cumparaturi->setItem(row, 0, name_item);
-		tbl_cumparaturi->setItem(row, 1, type_item);
-		tbl_cumparaturi->setItem(row, 2, price_item);
-		tbl_cumparaturi->setItem(row, 3, producer_item);
+		tbl->setItem(row, 0, name_item);
+		tbl->setItem(row, 1, type_item);
+		tbl->setItem(row, 2, price_item);
+		tbl->setItem(row, 3, producer_item);
 
 		++row;
 	}
@@ -698,17 +704,26 @@ void GUI::setInitialStateCosCumparaturi()
 {
 	last_selected_item_list_cos = new QListWidgetItem;
 
-	btn_golire_cos->setDisabled(true);
-
 	try {
 		const auto& lista_cumparaturi{ srv.getCosCumparaturi() };
 
-		addCumparaturiToList(lista_cumparaturi);
-		addCumparaturiToTable(lista_cumparaturi);
+		addCumparaturiToList(lst_cumparaturi, lista_cumparaturi);
+		addCumparaturiToTable(tbl_cumparaturi, lista_cumparaturi);
 	}
 	catch (const CosException&) {
-		addCumparaturiToList(vector<Product>());
-		addCumparaturiToTable(vector<Product>());
+		addCumparaturiToList(lst_cumparaturi, vector<Product>());
+		addCumparaturiToTable(tbl_cumparaturi, vector<Product>());
+	}
+	
+	total_price_cos_line_edit->setText(QString::number(srv.totalCos()));
+
+	try {
+		total_products_cos_line_edit->setText(QString::number(srv.getCosCumparaturi().size()));
+		btn_golire_cos->setDisabled(false);
+	}
+	catch (const CosException&) {
+		total_products_cos_line_edit->setText("0");
+		btn_golire_cos->setDisabled(true);
 	}
 }
 
@@ -755,8 +770,15 @@ void GUI::initGuiCmp()
 
 	QHBoxLayout* products_show = new QHBoxLayout;
 
-	products_show->addWidget(lst_products);
-	products_show->addWidget(tbl_products);
+	// Var I
+	//products_show->addWidget(lst_products);
+	//products_show->addWidget(tbl_products);
+
+	// Var II
+	products->addTab(lst_products, "Lista produse magazin");
+	products->addTab(tbl_products, "Tabel produse magazin");
+
+	products_show->addWidget(products);
 
 	left_ly->addLayout(products_show);
 
@@ -893,9 +915,11 @@ void GUI::initGuiCmp()
 
 	right_ly->addStretch();
 
+	// Buton de pls pp
 	QHBoxLayout* pp_ly = new QHBoxLayout;
 
 	// Make the button "invisible"
+	/*
 	QBrush tb(Qt::transparent); // Transparent brush, solid pattern
 	btn_pls_pp->setPalette(QPalette(tb, tb, tb, tb, tb, tb, tb, tb, tb)); // Set every color roles to the transparent brush
 	btn_pls_pp->setFlat(true);
@@ -903,6 +927,61 @@ void GUI::initGuiCmp()
 	pp_ly->addWidget(btn_pls_pp);
 
 	right_ly->addLayout(pp_ly);
+
+	right_ly->addStretch();
+	*/
+
+	QLabel* cumparaturi = new QLabel{ "Optiuni gestionare cos de cumparaturi" };
+	cumparaturi->setAlignment(Qt::AlignHCenter);
+	right_ly->addWidget(cumparaturi);
+
+	QHBoxLayout* cos_ly = new QHBoxLayout;
+
+	QVBoxLayout* left_cos_ly = new QVBoxLayout;
+
+	QHBoxLayout* lay = new QHBoxLayout;
+
+	sld_value->setMinimum(1);
+	sld_value->setMaximum(100);
+	sld_value->setValue(1);
+
+	lay->addWidget(new QLabel{ "Numar produse generare" });
+	lay->addWidget(sld_value);
+
+	left_cos_ly->addLayout(lay);
+
+	QHBoxLayout* btns_cos_ly = new QHBoxLayout;
+
+	btns_cos_ly->addWidget(btn_adaugare);
+	//btns_cos_ly->addStretch();
+
+	btns_cos_ly->addWidget(btn_stergere);
+	//btns_cos_ly->addStretch();
+
+	btns_cos_ly->addWidget(btn_generare);
+	//btns_cos_ly->addStretch();
+
+	left_cos_ly->addLayout(btns_cos_ly);
+
+	QHBoxLayout* btns_cos_ly_extra = new QHBoxLayout;
+
+	btns_cos_ly_extra->addWidget(btn_CosCRUDGUI);
+	//btns_cos_ly_extra->addStretch();
+
+	btns_cos_ly_extra->addWidget(btn_CosReadOnlyGUI);
+	//btns_cos_ly_extra->addStretch();
+
+	left_cos_ly->addLayout(btns_cos_ly_extra);
+
+	cos_ly->addLayout(left_cos_ly);
+
+	sld->setMinimum(0);
+	sld->setMaximum(101);
+	sld->setValue(1);
+
+	cos_ly->addWidget(sld);
+
+	right_ly->addLayout(cos_ly);
 
 	right_ly->addStretch();
 
@@ -1114,6 +1193,179 @@ QString pls_pp()
 	return pp + "D";
 }
 
+void GUI::initGuiCmpCosCRUDGUI()
+{
+	cosCRUDGUI_wdg = new QWidget;
+
+	cosCRUDGUI_wdg->setWindowTitle("Fereastra CosCRUDGUI");
+	cosCRUDGUI_wdg->setWindowIcon(shopping_cart_icon);
+
+	QVBoxLayout* main_ly = new QVBoxLayout;
+
+	lst_cos = new QListWidget;
+	tbl_cos = new QTableWidget;
+
+	tab = new QTabWidget;
+
+	tab->addTab(lst_cos, "Lista produse cos");
+	tab->addTab(tbl_cos, "Tabel produse cos");
+
+	main_ly->addWidget(tab);
+
+	cosCRUDGUI_wdg->setLayout(main_ly);
+
+	QVBoxLayout* btns_ly = new QVBoxLayout;
+
+	QHBoxLayout* layout = new QHBoxLayout;
+
+	QLabel* lbl = new QLabel{ "Numar produse generare" };
+
+	spin_box = new QSpinBox;
+
+	spin_box->setMinimum(1);
+	spin_box->setMaximum(100);
+	spin_box->setValue(1);
+
+	btn_gen = new QPushButton{ "Generare cos de cumparaturi" };
+	btn_gol = new QPushButton{ "Golire cos de cumparaturi" };
+
+	layout->addWidget(lbl);
+	//layout->addStretch();
+
+	layout->addWidget(spin_box);
+	//layout->addStretch();
+
+	layout->addWidget(btn_gen);
+
+	btns_ly->addLayout(layout);
+	btns_ly->addWidget(btn_gol);
+
+	main_ly->addLayout(btns_ly);
+
+	cosCRUDGUI_wdg->show();
+}
+
+void GUI::connectSignalsCosCRUDGUI()
+{
+	QObject::connect(btn_gen, &QPushButton::clicked, this, [&]() {
+		const auto val{ spin_box->value() };
+
+		QMessageBox* msg = new QMessageBox;
+
+		try {
+			srv.generareCos(to_string(val));
+			btn_golire_cos->setDisabled(false);
+			btn_stergere->setDisabled(false);
+			btn_gol->setDisabled(false);
+
+			msg->setText("[*]Generarea cosului de cumparaturi s-a realizat cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: " + QString::number(srv.getCosCumparaturi().size()));
+		}
+		catch (const RepoException& re) {
+			qDebug() << QString::fromStdString(re.getMessage());
+
+			msg->setText(QString::fromStdString(re.getMessage()));
+		}
+		catch (const ServiceException& se) {
+			qDebug() << QString::fromStdString(se.getMessage());
+
+			msg->setText(QString::fromStdString(se.getMessage()));
+		}
+
+		msg->show();
+
+		if (cos_widget != nullptr)
+		{
+			total_price_cos_line_edit->setText(QString::number(srv.totalCos()));
+
+			try {
+				total_products_cos_line_edit->setText(QString::number(srv.getCosCumparaturi().size()));
+			}
+			catch (const CosException&) {
+				total_products_cos_line_edit->setText("0");
+			}
+		}
+
+		const auto& lista_cumparaturi{ srv.getCosCumparaturi() };
+
+		addCumparaturiToList(lst_cos, lista_cumparaturi);
+		addCumparaturiToTable(tbl_cos, lista_cumparaturi);
+		});
+
+	QObject::connect(btn_gol, &QPushButton::clicked, this, [&]() {
+		QMessageBox msg_box;
+		msg_box.setText("Sunteti sigur ca doriti sa stergeti toate produsele din cosul de cumparaturi?");
+		msg_box.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+		msg_box.setDefaultButton(QMessageBox::No);
+
+		const auto ret{ msg_box.exec() };
+
+		QMessageBox* msg = new QMessageBox;
+
+		switch (ret) {
+		case QMessageBox::Yes:
+			// Yes was clicked
+
+			try {
+				srv.golireCos();
+				btn_stergere->setDisabled(true);
+				btn_gol->setDisabled(true);
+
+				if (cos_widget != nullptr)
+					btn_golire_cos->setDisabled(true);
+
+				//msg->setText("[*]Toate produsele din cosul de cumparaturi au fost eliminate cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: 0");
+				msg->setText("[*]Toate produsele din cosul de cumparaturi au fost eliminate cu succes!\n[$]Pret total: 0\n[#]Numar total produse cos: 0");
+			}
+			catch (const CosException& ce) {
+				qDebug() << QString::fromStdString(ce.getMessage());
+
+				msg->setText(QString::fromStdString(ce.getMessage()));
+			}
+
+			msg->show();
+
+			addCumparaturiToList(lst_cos, vector<Product>());
+			addCumparaturiToTable(tbl_cos, vector<Product>());
+
+			break;
+		case QMessageBox::No:
+			// No was clicked
+			break;
+		case QMessageBox::Cancel:
+			// Cancel was clicked
+			break;
+		}
+
+		if (cos_widget != nullptr)
+		{
+			total_price_cos_line_edit->setText(QString::number(srv.totalCos()));
+
+			try {
+				total_products_cos_line_edit->setText(QString::number(srv.getCosCumparaturi().size()));
+			}
+			catch (const CosException&) {
+				total_products_cos_line_edit->setText("0");
+			}
+		}
+		});
+}
+
+void GUI::setInitialStateCosCRUDGUI()
+{
+	try {
+		const auto& lista_cumparaturi{ srv.getCosCumparaturi() };
+
+		addCumparaturiToList(lst_cos, lista_cumparaturi);
+		addCumparaturiToTable(tbl_cos, lista_cumparaturi);
+		btn_gol->setDisabled(false);
+	}
+	catch (const CosException&) {
+		addCumparaturiToList(lst_cos, vector<Product>());
+		addCumparaturiToTable(tbl_cos, vector<Product>());
+		btn_gol->setDisabled(true);
+	}
+}
+
 void GUI::connectSignals()
 {
 	QObject::connect(lst_products, &QListWidget::itemSelectionChanged, this, [&]() {
@@ -1220,8 +1472,6 @@ void GUI::connectSignals()
 		});
 
 	QObject::connect(btn_pls_pp, &QPushButton::clicked, this, [&]() {
-		last_selected_item_list = nullptr;
-
 		if (pls_pp_dialog != nullptr)
 			pls_pp_dialog->close();
 
@@ -1289,6 +1539,181 @@ void GUI::connectSignals()
 			loser->show(); // loser->exec();
 		}
 		});
+
+	QObject::connect(sld_value, &QSpinBox::valueChanged, this, [&]() {
+		sld->setValue(sld_value->value());
+		});
+
+	QObject::connect(sld, &QSlider::sliderMoved, this, [&]() {
+		sld_value->setValue(sld->value());
+		});
+
+	QObject::connect(btn_adaugare, &QPushButton::clicked, this, [&]() {
+		last_selected_item_list_cos = nullptr;
+
+		const auto name{ name_line_edit->text() };
+		const auto producer{ producer_line_edit->text() };
+
+		QMessageBox* msg = new QMessageBox;
+
+		try {
+			srv.adaugareCos(name.toStdString(), producer.toStdString());
+			btn_golire_cos->setDisabled(false);
+			btn_stergere->setDisabled(false);
+
+			msg->setText("[*]Adaugarea produsului in cos s-a realizat cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: " + QString::number(srv.getCosCumparaturi().size()));
+		}
+		catch (const CosException& ce) {
+			qDebug() << QString::fromStdString(ce.getMessage());
+
+			msg->setText(QString::fromStdString(ce.getMessage()));
+		}
+		catch (const RepoException& re) {
+			qDebug() << QString::fromStdString(re.getMessage());
+
+			msg->setText(QString::fromStdString(re.getMessage()));
+		}
+		catch (const ServiceException& se) {
+			qDebug() << QString::fromStdString(se.getMessage());
+
+			msg->setText(QString::fromStdString(se.getMessage()));
+		}
+
+		msg->show();
+
+		if (cos_widget != nullptr)
+		{
+			total_price_cos_line_edit->setText(QString::number(srv.totalCos()));
+
+			try {
+				total_products_cos_line_edit->setText(QString::number(srv.getCosCumparaturi().size()));
+			}
+			catch (const CosException&) {
+				total_products_cos_line_edit->setText("0");
+			}
+		}
+		});
+
+	QObject::connect(btn_stergere, &QPushButton::clicked, this, [&]() {
+		//last_selected_item_list_cos = nullptr;
+
+		QMessageBox msg_box;
+		msg_box.setText("Sunteti sigur ca doriti sa stergeti toate produsele din cosul de cumparaturi?");
+		msg_box.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+		msg_box.setDefaultButton(QMessageBox::No);
+
+		const auto ret{ msg_box.exec() };
+
+		QMessageBox* msg = new QMessageBox;
+
+		switch (ret) {
+		case QMessageBox::Yes:
+			// Yes was clicked
+
+			try {
+				srv.golireCos();
+				btn_stergere->setDisabled(true);
+
+				if(cos_widget != nullptr)
+					btn_golire_cos->setDisabled(true);
+
+				//msg->setText("[*]Toate produsele din cosul de cumparaturi au fost eliminate cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: 0");
+				msg->setText("[*]Toate produsele din cosul de cumparaturi au fost eliminate cu succes!\n[$]Pret total: 0\n[#]Numar total produse cos: 0");
+			}
+			catch (const CosException& ce) {
+				qDebug() << QString::fromStdString(ce.getMessage());
+
+				msg->setText(QString::fromStdString(ce.getMessage()));
+			}
+
+			msg->show();
+
+			break;
+		case QMessageBox::No:
+			// No was clicked
+			break;
+		case QMessageBox::Cancel:
+			// Cancel was clicked
+			break;
+		}
+
+		if (cos_widget != nullptr)
+		{
+			total_price_cos_line_edit->setText(QString::number(srv.totalCos()));
+
+			try {
+				total_products_cos_line_edit->setText(QString::number(srv.getCosCumparaturi().size()));
+			}
+			catch (const CosException&) {
+				total_products_cos_line_edit->setText("0");
+			}
+		}
+		});
+
+	QObject::connect(btn_generare, &QPushButton::clicked, this, [&]() {
+		last_selected_item_list_cos = nullptr;
+		
+		// const auto val{ sld->value() };
+		const auto val{ sld_value->value() };
+
+		QMessageBox* msg = new QMessageBox;
+
+		try {
+			srv.generareCos(to_string(val));
+			btn_golire_cos->setDisabled(false);
+			btn_stergere->setDisabled(false);
+
+			msg->setText("[*]Generarea cosului de cumparaturi s-a realizat cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: " + QString::number(srv.getCosCumparaturi().size()));
+		}
+		catch (const RepoException& re) {
+			qDebug() << QString::fromStdString(re.getMessage());
+
+			msg->setText(QString::fromStdString(re.getMessage()));
+		}
+		catch (const ServiceException& se) {
+			qDebug() << QString::fromStdString(se.getMessage());
+
+			msg->setText(QString::fromStdString(se.getMessage()));
+		}
+
+		msg->show();
+		
+		if (cos_widget != nullptr)
+		{
+			total_price_cos_line_edit->setText(QString::number(srv.totalCos()));
+
+			try {
+				total_products_cos_line_edit->setText(QString::number(srv.getCosCumparaturi().size()));
+			}
+			catch (const CosException&) {
+				total_products_cos_line_edit->setText("0");
+			}
+		}
+		});
+
+	//-----------------------------------------------------------------
+	//-----------------------------------------------------------------
+	//-----------------------------------------------------------------
+	QObject::connect(btn_CosCRUDGUI, &QPushButton::clicked, this, [&]() {
+		// Initialize GUI components
+		initGuiCmpCosCRUDGUI();
+
+		// Connect signals and slots
+		connectSignalsCosCRUDGUI();
+
+		// Set initial GUI state
+		setInitialStateCosCRUDGUI();
+		});
+
+	QObject::connect(btn_CosReadOnlyGUI, &QPushButton::clicked, this, [&]() {
+		cosReadOnlyGUI_wdg = new QWidget;
+		cosReadOnlyGUI_wdg->setWindowTitle("Fereastra CosReadOnlyGUI");
+		cosReadOnlyGUI_wdg->setWindowIcon(shopping_cart_icon);
+		cosReadOnlyGUI_wdg->show();
+		});
+	//-----------------------------------------------------------------
+	//-----------------------------------------------------------------
+	//-----------------------------------------------------------------
 
 	QObject::connect(btn_add, &QPushButton::clicked, this, [&]() {
 		last_selected_item_list = nullptr;
@@ -2039,6 +2464,8 @@ void GUI::setInitialState()
 
 	number_of_undo = 0;
 	btn_undo->setDisabled(true);
+
+	btn_stergere->setDisabled(true);
 
 	try {
 		const auto& products{ srv.getAll() };
