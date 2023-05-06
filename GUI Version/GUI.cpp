@@ -9,6 +9,7 @@
 #include <qdebug.h>
 
 #include <random> // pentru std::random_device, std::mt19937 si std::uniform_int_distribution
+#include <ctime>
 
 using std::random_device;
 using std::mt19937;
@@ -1650,9 +1651,6 @@ void GUI::connectSignals()
 		}
 		});
 
-	//-----------------------------------------------------------------
-	//-----------------------------------------------------------------
-	//-----------------------------------------------------------------
 	QObject::connect(btn_CosCRUDGUI, &QPushButton::clicked, this, [&]() {
 		// Initialize GUI components
 		initGuiCmpCosCRUDGUI();
@@ -1668,11 +1666,35 @@ void GUI::connectSignals()
 		cosReadOnlyGUI_wdg = new QWidget;
 		cosReadOnlyGUI_wdg->setWindowTitle("Fereastra CosReadOnlyGUI");
 		cosReadOnlyGUI_wdg->setWindowIcon(shopping_read_only_icon);
+
+		try {
+			srand(time(nullptr));
+			unsigned long long number_of_shopping_cart_items{ srv.getCosCumparaturi().size() };
+			for (unsigned long long i{ 0 }; i < number_of_shopping_cart_items; ++i)
+			{
+				QLabel* label = new QLabel(cosReadOnlyGUI_wdg);
+				if (!(rand() % 2))
+				{
+					label->setPixmap(sad_pix_map);
+				}
+				else
+				{
+					label->setPixmap(happy_pix_map);
+				}
+
+				const unsigned X = rand() % (cosReadOnlyGUI_wdg->width() - label->width());
+				const unsigned Y = rand() % (cosReadOnlyGUI_wdg->height() - label->height());
+				label->move(X, Y);
+			}
+		}
+		catch (const CosException& ex) {
+			qDebug() << ex.getMessage();
+		}
+		
+		cosReadOnlyGUI_wdg->setMinimumWidth(635);
+		cosReadOnlyGUI_wdg->setMinimumHeight(575);
 		cosReadOnlyGUI_wdg->show();
 		});
-	//-----------------------------------------------------------------
-	//-----------------------------------------------------------------
-	//-----------------------------------------------------------------
 
 	QObject::connect(btn_add, &QPushButton::clicked, this, [&]() {
 		last_selected_item_list = nullptr;
