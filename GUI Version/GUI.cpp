@@ -179,7 +179,7 @@ void GUI::initMeniuCosCumparaturi()
 	btns_ly_1->addWidget(btn_tiparire_cos);
 
 	right_ly->addLayout(btns_ly_1);
-	
+
 	QLabel* options_generare_lbl = new QLabel;
 	options_generare_lbl->setText("Optiuni generare cos de cumparaturi");
 	options_generare_lbl->setAlignment(Qt::AlignHCenter);
@@ -526,7 +526,7 @@ void GUI::connectSignalsCosCumparaturi()
 				srv.exportCos(filename.toLocal8Bit().constData(), "html");
 			}
 
-			if(!ok)
+			if (!ok)
 				msg->setText("Nu a fost selectat tipul fisierului de export!\nAlegeti tipul fisierului in care sa se faca exportul cosului de cumparaturi!");
 			else
 				msg->setText("[*]Exportul in fisier s-a realizat cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: " + QString::number(srv.getCosCumparaturi().size()));
@@ -714,7 +714,7 @@ void GUI::setInitialStateCosCumparaturi()
 		addCumparaturiToList(lst_cumparaturi, vector<Product>());
 		addCumparaturiToTable(tbl_cumparaturi, vector<Product>());
 	}
-	
+
 	total_price_cos_line_edit->setText(QString::number(srv.totalCos()));
 
 	try {
@@ -755,7 +755,7 @@ void GUI::initGuiCmp()
 		this->setPalette(*newPalette);
 	}
 
-	this->setWindowTitle("Magazin");
+	this->setWindowTitle("Magazin Virtual");
 	this->setWindowIcon(store_icon);
 
 	QHBoxLayout* main_ly = new QHBoxLayout;
@@ -846,7 +846,7 @@ void GUI::initGuiCmp()
 	QHBoxLayout* filter_price_checkers_ly = new QHBoxLayout;
 
 	filter_price_checkers_ly->addWidget(lbl_filter_price);
-	
+
 	//filter_price_checkers_ly->addWidget(checbox_less);
 	//filter_price_checkers_ly->addWidget(checkbox_equal);
 	//filter_price_checkers_ly->addWidget(checkbox_greater);
@@ -865,7 +865,7 @@ void GUI::initGuiCmp()
 
 	filter_options->addItem("Pret");
 	filter_options->addItem("Nume");
-	filter_options->addItem("Tip");
+	filter_options->addItem("Producator");
 
 	btns_filter_ly->addWidget(filter_options);
 	btns_filter_ly->addWidget(btn_filter);
@@ -914,22 +914,6 @@ void GUI::initGuiCmp()
 	right_ly->addLayout(form_ly);
 
 	right_ly->addStretch();
-
-	// Buton de pls pp
-	QHBoxLayout* pp_ly = new QHBoxLayout;
-
-	// Make the button "invisible"
-	/*
-	QBrush tb(Qt::transparent); // Transparent brush, solid pattern
-	btn_pls_pp->setPalette(QPalette(tb, tb, tb, tb, tb, tb, tb, tb, tb)); // Set every color roles to the transparent brush
-	btn_pls_pp->setFlat(true);
-
-	pp_ly->addWidget(btn_pls_pp);
-
-	right_ly->addLayout(pp_ly);
-
-	right_ly->addStretch();
-	*/
 
 	QLabel* cumparaturi = new QLabel{ "Optiuni gestionare cos de cumparaturi" };
 	cumparaturi->setAlignment(Qt::AlignHCenter);
@@ -1063,7 +1047,7 @@ void GUI::sortProductsGUI(const string& sort_criterion)
 		{
 			QMessageBox* msg{ new QMessageBox };
 
-			if (!(cresc & descresc))
+			if (!(cresc && descresc))
 				msg->setText("Nu a fost selectata ordinea de sortare!\nAlegeti ordinea de sortare dorita bifand casuta corespunzatoare!");
 			//else
 			//	msg->setText("Au fost selectate ambele ordini de sortare!\nBifati o singura casuta din cele doua existente!");
@@ -1179,26 +1163,12 @@ void GUI::filterProductsGUI(const string& criterion, const string& sgn)
 	}
 }
 
-QString pls_pp()
-{
-	QString pp{ "8" };
-
-	mt19937 mt{ random_device{}() };
-	const uniform_int_distribution<> dist(0, 15);
-
-	const int pp_size{ dist(mt) };
-
-	for (auto i{ 0 }; i != pp_size; ++i, pp += "=");
-
-	return pp + "D";
-}
-
 void GUI::initGuiCmpCosCRUDGUI()
 {
 	cosCRUDGUI_wdg = new QWidget;
 
 	cosCRUDGUI_wdg->setWindowTitle("Fereastra CosCRUDGUI");
-	cosCRUDGUI_wdg->setWindowIcon(shopping_cart_icon);
+	cosCRUDGUI_wdg->setWindowIcon(shopping_crud_icon);
 
 	QVBoxLayout* main_ly = new QVBoxLayout;
 
@@ -1471,75 +1441,6 @@ void GUI::connectSignals()
 		}
 		});
 
-	QObject::connect(btn_pls_pp, &QPushButton::clicked, this, [&]() {
-		if (pls_pp_dialog != nullptr)
-			pls_pp_dialog->close();
-
-		pls_pp_dialog = new QDialog;
-
-		pls_pp_dialog->setWindowTitle("Saramana");
-		pls_pp_dialog->setWindowIcon(pls_pp_icon);
-		pls_pp_dialog->setModal(false);
-		pls_pp_dialog->setFixedWidth(230);
-
-		QVBoxLayout* ly = new QVBoxLayout;
-
-		QLabel* pls_pp_lbl = new QLabel;
-
-		pls_pp_lbl->setText("peepee size machine");
-		pls_pp_lbl->setAlignment(Qt::AlignHCenter);
-
-		ly->addWidget(pls_pp_lbl);
-
-		QFormLayout* pls_pp_ly = new QFormLayout;
-
-		const auto pp{ pls_pp() };
-
-		pls_pp_edt->setText(pp);
-		pls_pp_edt->setReadOnly(true);
-
-		pls_pp_ly->addRow("Your penis", pls_pp_edt);
-
-		ly->addLayout(pls_pp_ly);
-
-		QLabel* extra_lbl = new QLabel;
-
-		if(pp == "8D")
-			extra_lbl->setPixmap(happy_pix_map);
-		else if(pp.size() == 15 + 2)
-			extra_lbl->setPixmap(horny_pix_map);
-		else
-			extra_lbl->setPixmap(sad_pix_map);
-		
-		extra_lbl->setAlignment(Qt::AlignHCenter);
-
-		ly->addWidget(extra_lbl);
-
-		pls_pp_dialog->setLayout(ly);
-		pls_pp_dialog->show();
-
-		if (pp == "8D")
-		{
-			QMessageBox* winner = new QMessageBox;
-
-			winner->setText("Felicitari bajete!\nAi primit permisul de xoyos!1!1!1!");
-			winner->setWindowTitle("Epico");
-			winner->setWindowIcon(pog_icon);
-
-			winner->show(); // winner->exec();
-		}
-		else if (pp.size() == 15 + 2)
-		{
-			QMessageBox* loser = new QMessageBox;
-
-			loser->setText("Urat bajete, bata-te!\nDar ti-am zis sa nu te uiti la pernele lui Norbi...");
-			loser->setWindowTitle("!Epico");
-			loser->setWindowIcon(perne_icon);
-
-			loser->show(); // loser->exec();
-		}
-		});
-
 	QObject::connect(sld_value, &QSpinBox::valueChanged, this, [&]() {
 		sld->setValue(sld_value->value());
 		});
@@ -1614,7 +1515,7 @@ void GUI::connectSignals()
 				srv.golireCos();
 				btn_stergere->setDisabled(true);
 
-				if(cos_widget != nullptr)
+				if (cos_widget != nullptr)
 					btn_golire_cos->setDisabled(true);
 
 				//msg->setText("[*]Toate produsele din cosul de cumparaturi au fost eliminate cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: 0");
@@ -1652,7 +1553,7 @@ void GUI::connectSignals()
 
 	QObject::connect(btn_generare, &QPushButton::clicked, this, [&]() {
 		last_selected_item_list_cos = nullptr;
-		
+
 		// const auto val{ sld->value() };
 		const auto val{ sld_value->value() };
 
@@ -1677,7 +1578,7 @@ void GUI::connectSignals()
 		}
 
 		msg->show();
-		
+
 		if (cos_widget != nullptr)
 		{
 			total_price_cos_line_edit->setText(QString::number(srv.totalCos()));
@@ -1708,7 +1609,7 @@ void GUI::connectSignals()
 	QObject::connect(btn_CosReadOnlyGUI, &QPushButton::clicked, this, [&]() {
 		cosReadOnlyGUI_wdg = new QWidget;
 		cosReadOnlyGUI_wdg->setWindowTitle("Fereastra CosReadOnlyGUI");
-		cosReadOnlyGUI_wdg->setWindowIcon(shopping_cart_icon);
+		cosReadOnlyGUI_wdg->setWindowIcon(shopping_read_only_icon);
 		cosReadOnlyGUI_wdg->show();
 		});
 	//-----------------------------------------------------------------
@@ -1792,7 +1693,7 @@ void GUI::connectSignals()
 			srv.modify(name.toStdString(), type.toStdString(), pr, producer.toStdString());
 
 			++number_of_undo;
-			if(!btn_undo->isEnabled())
+			if (!btn_undo->isEnabled())
 				btn_undo->setDisabled(false);
 
 			msg->setText("[*]Modificarea s-a realizat cu succes!");
@@ -1853,6 +1754,7 @@ void GUI::connectSignals()
 		const auto producer{ producer_line_edit->text() };
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Cautare produs");
 
 		try {
 			//const auto& p{ srv.search(name.toLocal8Bit().constData(), producer.toLocal8Bit().constData()) };
@@ -1863,6 +1765,7 @@ void GUI::connectSignals()
 				+ QString::fromStdString(p.getType()) + "\nPret: "
 				+ QString::number(p.getPrice()) + "\nProducator: "
 				+ QString::fromStdString(p.getProducer()));
+			msg->setIcon(QMessageBox::Information);
 
 			type_line_edit->setText(QString::fromStdString(p.getType()));
 			price_line_edit->setText(QString::number(p.getPrice()));
@@ -1871,11 +1774,13 @@ void GUI::connectSignals()
 			qDebug() << QString::fromStdString(se.getMessage());
 
 			msg->setText(QString::fromStdString(se.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 		catch (const RepoException& re) {
 			qDebug() << QString::fromStdString(re.getMessage());
 
 			msg->setText(QString::fromStdString(re.getMessage()));
+			msg->setIcon(QMessageBox::Warning);
 		}
 
 		msg->show(); // msg->exec();
@@ -2068,7 +1973,7 @@ void GUI::connectSignals()
 		}
 		else if (option == "Nume")
 			filterProductsGUI("2", "");
-		else if (option == "Tip")
+		else if (option == "Producator")
 			filterProductsGUI("3", "");
 		});
 
@@ -2190,7 +2095,7 @@ void GUI::connectSignals()
 
 	QObject::connect(btn_type, &QPushButton::clicked, this, [&]() {
 		last_selected_item_list = nullptr;
-		
+
 		try {
 			const auto& products{ srv.getAll() };
 
@@ -2275,26 +2180,26 @@ void GUI::connectSignals()
 	QObject::connect(btn_dbg, &QPushButton::clicked, this, [&]() {
 		unsigned cont{ 0 };
 
-		addDebug("iaurt"         , "produse lactate"    , 4.63   , "Danone"        , cont);
-		addDebug("chipsuri"      , "snacksuri"          , 9.6    , "Lays"          , cont);
-		addDebug("rozmarin"      , "condimente"         , 1.68   , "Kamis"         , cont);
-		addDebug("ton in ulei"   , "conserve"           , 13.9841, "Tonno Rio Mare", cont);
-		addDebug("boia"          , "condimente"         , 0.999  , "Delikat"       , cont);
-		addDebug("maioneza"      , "sosuri"             , 5.891  , "Hellmann's"    , cont);
-		addDebug("suc"           , "bauturi racoritoare", 6.9    , "Pepsi"         , cont);
-		addDebug("pasta de dinti", "igiena"             , 7.12   , "Colgate"       , cont);
-		addDebug("tigari"        , "cancerigene"        , 8.4018 , "Marlboro"      , cont);
-		addDebug("iaurt"         , "produse lactate"    , 5.013  , "Milka UK"      , cont);
-		addDebug("sare"          , "condimente"         , 11     , "Maggi"         , cont);
-		addDebug("suc"           , "bauturi racoritoare", 15.5   , "Coca-Cola"     , cont);
-		addDebug("tigari"        , "cancerigene"        , 5.83   , "Kent"          , cont);
-		addDebug("tigari"        , "cancerigene"        , 17.25  , "Camel"         , cont);
-		addDebug("parmezan"      , "condimente"         , 8.301  , "Delikat"       , cont);
-		addDebug("chipsuri"      , "snacksuri"          , 1.53   , "Chio"          , cont);
-		addDebug("chipsuri"      , "snacksuri"          , 9.1    , "Pringles"      , cont);
-		addDebug("coriandru"     , "condimente"         , 0.0471 , "Knorr"         , cont);
-		addDebug("tigari"        , "cancerigene"        , 21     , "Pall Mall"     , cont);
-		addDebug("ketchup"       , "sosuri"             , 4.2810 , "Heinz"         , cont);
+		addDebug("iaurt", "produse lactate", 4.63, "Danone", cont);
+		addDebug("chipsuri", "snacksuri", 9.6, "Lays", cont);
+		addDebug("rozmarin", "condimente", 1.68, "Kamis", cont);
+		addDebug("ton in ulei", "conserve", 13.9841, "Tonno Rio Mare", cont);
+		addDebug("boia", "condimente", 0.999, "Delikat", cont);
+		addDebug("maioneza", "sosuri", 5.891, "Hellmann's", cont);
+		addDebug("suc", "bauturi racoritoare", 6.9, "Pepsi", cont);
+		addDebug("pasta de dinti", "igiena", 7.12, "Colgate", cont);
+		addDebug("tigari", "cancerigene", 8.4018, "Marlboro", cont);
+		addDebug("iaurt", "produse lactate", 5.013, "Milka UK", cont);
+		addDebug("sare", "condimente", 11, "Maggi", cont);
+		addDebug("suc", "bauturi racoritoare", 15.5, "Coca-Cola", cont);
+		addDebug("tigari", "cancerigene", 5.83, "Kent", cont);
+		addDebug("tigari", "cancerigene", 17.25, "Camel", cont);
+		addDebug("parmezan", "condimente", 8.301, "Delikat", cont);
+		addDebug("chipsuri", "snacksuri", 1.53, "Chio", cont);
+		addDebug("chipsuri", "snacksuri", 9.1, "Pringles", cont);
+		addDebug("coriandru", "condimente", 0.0471, "Knorr", cont);
+		addDebug("tigari", "cancerigene", 21, "Pall Mall", cont);
+		addDebug("ketchup", "sosuri", 4.2810, "Heinz", cont);
 
 		QMessageBox msg_dbg;
 
@@ -2375,7 +2280,7 @@ void GUI::addProductsToList(const vector<Product>& prods)
 		const auto q_str_price{ QString::fromStdString(str_price) };
 		const auto q_str_producer{ QString::fromStdString(str_producer) };
 		item->setData(Qt::UserRole, QStringList({ q_str_name, q_str_type, q_str_price, q_str_producer }));
-		
+
 		if (theme)
 		{
 			item->setBackground(Qt::white);
@@ -2419,7 +2324,7 @@ void GUI::addProductsToTable(const vector<Product>& prods)
 		QTableWidgetItem* name_item = new QTableWidgetItem(QString::fromStdString(prod.getName()));
 		name_item->setTextAlignment(Qt::AlignHCenter);
 		name_item->setData(Qt::UserRole, QStringList(q_string_list));
-		name_item->setFlags({Qt::ItemIsEnabled, Qt::ItemIsSelectable });
+		name_item->setFlags({ Qt::ItemIsEnabled, Qt::ItemIsSelectable });
 
 		QTableWidgetItem* type_item = new QTableWidgetItem(QString::fromStdString(prod.getType()));
 		type_item->setTextAlignment(Qt::AlignHCenter);

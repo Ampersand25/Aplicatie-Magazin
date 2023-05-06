@@ -1,4 +1,0 @@
-﻿  GUI.cpp
-  MagazinGUI.vcxproj -> C:\Users\Admin\Documents\VS Projects\Lab10-11\MagazinGUI\x64\Debug\MagazinGUI.exe
-  windeployqt: "C:/Qt/6.0.3/msvc2019_64/bin\windeployqt.exe" --list target --dir "C:\Users\Admin\Documents\VS Projects\Lab10-11\MagazinGUI\x64\Debug\\" "C:\Users\Admin\Documents\VS Projects\Lab10-11\MagazinGUI\x64\Debug\MagazinGUI.exe"
-EXEC : warning : Cannot find Visual Studio installation directory, VCINSTALLDIR is not set.

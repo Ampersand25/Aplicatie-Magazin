@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>qml;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Source Files\App">
+      <UniqueIdentifier>{3421ead8-c256-4770-8b4f-b23f9732db44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Business">
+      <UniqueIdentifier>{85307b41-260e-4ad7-8b55-01e23d2c5f4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Business\ServiceException">
+      <UniqueIdentifier>{0dc2b9ed-a610-4b08-9138-9dfea2f3b7a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\StoreManagementSystem">
+      <UniqueIdentifier>{2f9777fe-9bb0-488d-8e11-114319286b84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cos">
+      <UniqueIdentifier>{527de37f-67ec-422e-b640-aa1cc044f5a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Exception">
+      <UniqueIdentifier>{d9aad46e-9480-4b78-bf1e-7666d1e09022}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cos\CosCumparaturi">
+      <UniqueIdentifier>{089fad20-f2ba-4af1-b878-b0184c7499cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cos\CosException">
+      <UniqueIdentifier>{059e0d2f-eb14-4d88-a0d6-783e99b460b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Infrastructure">
+      <UniqueIdentifier>{25c8bf61-9ab3-4c73-a6c9-0cf85e69c0c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing">
+      <UniqueIdentifier>{53c17769-1ad3-4912-9a4c-db84e222aebd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Infrastructure\Repository">
+      <UniqueIdentifier>{d8708805-7693-4234-b395-ff350aeda925}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Infrastructure\Repository\AbstractRepo">
+      <UniqueIdentifier>{680c5073-c097-4ec6-8084-2f1b87662a0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Infrastructure\Repository\ExceptionRepo">
+      <UniqueIdentifier>{f7580a84-0247-4ac0-91ff-976fc3d24bec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Infrastructure\Repository\InMemoryRepo">
+      <UniqueIdentifier>{a66898a3-37e0-42e3-bbaf-944c1796b736}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingCos">
+      <UniqueIdentifier>{fb4e8491-64af-4784-b039-9100ef25a99d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingDomain">
+      <UniqueIdentifier>{ac89bd51-27c7-4526-88c2-d9245c0ddd19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingApp">
+      <UniqueIdentifier>{f0c91feb-b102-4f7f-8615-56783b0e5926}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingBusiness">
+      <UniqueIdentifier>{29af1db0-380f-43b5-9b2b-88845b336ad4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingInfrastructure">
+      <UniqueIdentifier>{0e518ee6-9933-4853-ac04-5a347211e374}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingUndo">
+      <UniqueIdentifier>{51a83054-bac3-449d-9905-de67f7251c78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingUtils">
+      <UniqueIdentifier>{db2c1722-cd9d-41da-83b3-310bfc254576}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingValidation">
+      <UniqueIdentifier>{38347800-0434-4124-b314-f3e806ef015e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Validation">
+      <UniqueIdentifier>{2daabbaa-af50-44f7-a75f-f0cc22fa7d9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Validation\EntityValidator">
+      <UniqueIdentifier>{053775a4-27ee-46a6-91e2-e185fabba09e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{6e91bcf0-8590-439b-bfb5-8d16291c5cc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Undo">
+      <UniqueIdentifier>{8b69010a-842a-4aa8-9b46-82d11a3c43a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Undo\AbstractUndo">
+      <UniqueIdentifier>{c039b1b0-4b5f-4502-b2c1-fe0b6a58d438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Presentation">
+      <UniqueIdentifier>{4d5b47e4-090f-4ac0-8611-7c3770e6d8dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Presentation\UI">
+      <UniqueIdentifier>{339673e1-ef41-4acc-a1ad-b0e909910363}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Presentation\GUI">
+      <UniqueIdentifier>{0bf4864b-dda4-4172-8d9e-225320d98071}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingInfrastructure\TestingFileRepo">
+      <UniqueIdentifier>{b3593e2f-9894-4475-b9b4-a862abbe73d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingInfrastructure\TestingInMemoryRepo">
+      <UniqueIdentifier>{3d870f8c-6202-42dc-8c4c-ce62ce3b5467}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing\TestingInfrastructure\TestingExceptionRepo">
+      <UniqueIdentifier>{be248741-2cc1-4825-8083-79732e37d452}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Business\Service">
+      <UniqueIdentifier>{c83fc1c0-59dc-40c0-9e33-a6b23f0188f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Domain">
+      <UniqueIdentifier>{9d28edcd-1720-43e8-b077-b3dc6ad1c4b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Domain\Entities">
+      <UniqueIdentifier>{264969ce-c745-4f72-85ff-cffa5cfc70bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Domain\EntityException">
+      <UniqueIdentifier>{8b2858ad-1838-4f38-866a-03c5e7216f1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Infrastructure\RepoException">
+      <UniqueIdentifier>{d27f2ba2-7bb7-4057-9b15-c6da6f7a3532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Infrastructure\Repository\FileRepo">
+      <UniqueIdentifier>{ab024995-6f3f-4ca1-a050-c74bfa606178}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="StoreManagementSystem.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtUic Include="StoreManagementSystem.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\App</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplicationCoordinator.cpp">
+      <Filter>Source Files\App</Filter>
+    </ClCompile>
+    <ClCompile Include="StoreManagementSystem.cpp">
+      <Filter>Source Files\StoreManagementSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Service.cpp">
+      <Filter>Source Files\Business\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="Exception.cpp">
+      <Filter>Source Files\Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="Product.cpp">
+      <Filter>Source Files\Domain\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="CosCumparaturi.cpp">
+      <Filter>Source Files\Cos\CosCumparaturi</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductValidator.cpp">
+      <Filter>Source Files\Validation\EntityValidator</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Undo.cpp">
+      <Filter>Source Files\Undo\AbstractUndo</Filter>
+    </ClCompile>
+    <ClCompile Include="Console.cpp">
+      <Filter>Source Files\Presentation\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI.cpp">
+      <Filter>Source Files\Presentation\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ExceptionRepo.cpp">
+      <Filter>Source Files\Infrastructure\Repository\ExceptionRepo</Filter>
+    </ClCompile>
+    <ClCompile Include="FileRepository.cpp">
+      <Filter>Source Files\Infrastructure\Repository\FileRepo</Filter>
+    </ClCompile>
+    <ClCompile Include="Repository.cpp">
+      <Filter>Source Files\Infrastructure\Repository\InMemoryRepo</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingApp.cpp">
+      <Filter>Source Files\Testing\TestingApp</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingService.cpp">
+      <Filter>Source Files\Testing\TestingBusiness</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingCosCumparaturi.cpp">
+      <Filter>Source Files\Testing\TestingCos</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingDomain.cpp">
+      <Filter>Source Files\Testing\TestingDomain</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingValidation.cpp">
+      <Filter>Source Files\Testing\TestingValidation</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingUtils.cpp">
+      <Filter>Source Files\Testing\TestingUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingUndo.cpp">
+      <Filter>Source Files\Testing\TestingUndo</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingExceptionRepo.cpp">
+      <Filter>Source Files\Testing\TestingInfrastructure\TestingExceptionRepo</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingFileRepo.cpp">
+      <Filter>Source Files\Testing\TestingInfrastructure\TestingFileRepo</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingRepo.cpp">
+      <Filter>Source Files\Testing\TestingInfrastructure\TestingInMemoryRepo</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ServiceException.h">
+      <Filter>Source Files\Business\ServiceException</Filter>
+    </ClInclude>
+    <ClInclude Include="Service.h">
+      <Filter>Source Files\Business\Service</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.h">
+      <Filter>Source Files\Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="ProductException.h">
+      <Filter>Source Files\Domain\EntityException</Filter>
+    </ClInclude>
+    <ClInclude Include="Product.h">
+      <Filter>Source Files\Domain\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="CosException.h">
+      <Filter>Source Files\Cos\CosException</Filter>
+    </ClInclude>
+    <ClInclude Include="CosCumparaturi.h">
+      <Filter>Source Files\Cos\CosCumparaturi</Filter>
+    </ClInclude>
+    <ClInclude Include="ProductValidator.h">
+      <Filter>Source Files\Validation\EntityValidator</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Undo.h">
+      <Filter>Source Files\Undo\AbstractUndo</Filter>
+    </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>Source Files\Presentation\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI.h">
+      <Filter>Source Files\Presentation\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="RepoException.h">
+      <Filter>Source Files\Infrastructure\RepoException</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractRepo.h">
+      <Filter>Source Files\Infrastructure\Repository\AbstractRepo</Filter>
+    </ClInclude>
+    <ClInclude Include="ExceptionRepo.h">
+      <Filter>Source Files\Infrastructure\Repository\ExceptionRepo</Filter>
+    </ClInclude>
+    <ClInclude Include="FileRepository.h">
+      <Filter>Source Files\Infrastructure\Repository\FileRepo</Filter>
+    </ClInclude>
+    <ClInclude Include="Repository.h">
+      <Filter>Source Files\Infrastructure\Repository\InMemoryRepo</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingApp.h">
+      <Filter>Source Files\Testing\TestingApp</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingService.h">
+      <Filter>Source Files\Testing\TestingBusiness</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingCosCumparaturi.h">
+      <Filter>Source Files\Testing\TestingCos</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingDomain.h">
+      <Filter>Source Files\Testing\TestingDomain</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingValidation.h">
+      <Filter>Source Files\Testing\TestingValidation</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingUtils.h">
+      <Filter>Source Files\Testing\TestingUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingUndo.h">
+      <Filter>Source Files\Testing\TestingUndo</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingExceptionRepo.h">
+      <Filter>Source Files\Testing\TestingInfrastructure\TestingExceptionRepo</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingFileRepo.h">
+      <Filter>Source Files\Testing\TestingInfrastructure\TestingFileRepo</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingRepo.h">
+      <Filter>Source Files\Testing\TestingInfrastructure\TestingInMemoryRepo</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="StoreManagementSystem.h">
+      <Filter>Source Files\StoreManagementSystem</Filter>
+    </QtMoc>
+  </ItemGroup>
+</Project>

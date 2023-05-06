@@ -19,10 +19,10 @@ void testApp()
 int main(int argc, char* argv[])
 {
     int exit_code;
-    
+
     QApplication a(argc, argv);
 
-    testApp();
+    //testApp();
 
     FileRepoProducts repo{ "produse" };
     ProductValidator valid;

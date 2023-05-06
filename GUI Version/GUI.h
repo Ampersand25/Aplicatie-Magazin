@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include "Service.h"
 
@@ -24,7 +24,7 @@ private:
 	// atribute/campuri private
 
 	bool theme{ false }; // false - light theme
-	                     // true  - dark theme (beta)
+	// true  - dark theme (beta)
 
 	Service& srv; // referinta la un obiect de clasa Service
 
@@ -127,25 +127,15 @@ private:
 	QComboBox* sort_options = new QComboBox;
 	QComboBox* filter_options = new QComboBox;
 
-	//const QIcon types_icon{ "./Logo-uri aplicatie/shop" };
-	//const QIcon shopping_cart_icon{ "./Logo-uri aplicatie/cart" };
-	//const QIcon store_icon{ "./Logo-uri aplicatie/store" };
-	//const QIcon product_icon{ "./Logo-uri aplicatie/product" };
-	//const QIcon pls_pp_icon{ "./Logo-uri aplicatie/xoaye" };
-	//const QIcon pog_icon{ "./Logo-uri aplicatie/pog" };
-	//const QIcon perne_icon{ "./Logo-uri aplicatie/perne" };
+	const QIcon types_icon{ "./Logo-uri aplicatie/typesIcon" };
+	const QIcon shopping_cart_icon{ "./Logo-uri aplicatie/shoppingCartIcon" };
+	const QIcon store_icon{ "./Logo-uri aplicatie/storeIcon" };
+	const QIcon product_icon{ "./Logo-uri aplicatie/productIcon" };
+	const QIcon shopping_crud_icon{ "./Logo-uri aplicatie/shoppingCRUDIcon" };
+	const QIcon shopping_read_only_icon{ "./Logo-uri aplicatie/shoppingReadOnlyIcon" };
 
-	const QIcon types_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\shop" };
-	const QIcon shopping_cart_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\cart" };
-	const QIcon store_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\store" };
-	const QIcon product_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\product" };
-	const QIcon pls_pp_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\xoaye" };
-	const QIcon pog_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\pog" };
-	const QIcon perne_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\perne" };
-
-	const QPixmap sad_pix_map{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\sad" };
-	const QPixmap happy_pix_map{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\happy" };
-	const QPixmap horny_pix_map{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\horny" };
+	const QPixmap sad_pix_map{ "./Logo-uri aplicatie/sadIcon" };
+	const QPixmap happy_pix_map{ "./Logo-uri aplicatie/happyIcon" };
 
 	unsigned number_of_undo;
 
@@ -163,15 +153,15 @@ private:
 	void initMeniuCosCumparaturi();
 	void connectSignalsCosCumparaturi();
 	void setInitialStateCosCumparaturi();
-	
+
 	void addDebug(const string& name, const string& type, const double& price, const string& producer, unsigned& cont) const;
-	
+
 	void sortProductsGUI(const string& sort_criterion);
-	
+
 	bool filteredGUI(const vector<Product>& filtered_list, const Product& prod);
 	void showFilteredList(const vector<Product>& filtered_list);
 	void filterProductsGUI(const string& criterion, const string& sgn);
-	
+
 	void addProductsToList(const vector<Product>& prods);
 	void addProductsToTable(const vector<Product>& prods);
 
@@ -183,10 +173,6 @@ private:
 	void connectSignals();
 	void setInitialState();
 
-	QDialog* pls_pp_dialog = nullptr;
-	QPushButton* btn_pls_pp = new QPushButton{ "&1pls pp" };
-	QLineEdit* pls_pp_edt = new QLineEdit;
-	
 	QWidget* cosCRUDGUI_wdg;
 	QWidget* cosReadOnlyGUI_wdg;
 
