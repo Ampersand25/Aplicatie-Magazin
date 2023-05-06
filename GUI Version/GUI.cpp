@@ -356,6 +356,7 @@ void GUI::connectSignalsCosCumparaturi()
 		const auto producer{ producer_cos_line_edit->text() };
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Adaugare produs");
 
 		try {
 			srv.adaugareCos(name.toLocal8Bit().constData(), producer.toLocal8Bit().constData());
@@ -363,21 +364,25 @@ void GUI::connectSignalsCosCumparaturi()
 			btn_stergere->setDisabled(false);
 
 			msg->setText("[*]Adaugarea produsului in cos s-a realizat cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: " + QString::number(srv.getCosCumparaturi().size()));
+			msg->setIcon(QMessageBox::Information);
 		}
 		catch (const CosException& ce) {
 			qDebug() << QString::fromStdString(ce.getMessage());
 
 			msg->setText(QString::fromStdString(ce.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 		catch (const RepoException& re) {
 			qDebug() << QString::fromStdString(re.getMessage());
 
 			msg->setText(QString::fromStdString(re.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 		catch (const ServiceException& se) {
 			qDebug() << QString::fromStdString(se.getMessage());
 
 			msg->setText(QString::fromStdString(se.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 
 		msg->show();
@@ -396,6 +401,8 @@ void GUI::connectSignalsCosCumparaturi()
 		//last_selected_item_list_cos = nullptr;
 
 		QMessageBox msg_box;
+		msg_box.setWindowTitle("Confirmare golire cos de cumparaturi");
+		msg_box.setIcon(QMessageBox::Question);
 		msg_box.setText("Sunteti sigur ca doriti sa goliti cosul de cumparaturi?");
 		msg_box.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
 		msg_box.setDefaultButton(QMessageBox::No);
@@ -403,6 +410,7 @@ void GUI::connectSignalsCosCumparaturi()
 		const auto ret{ msg_box.exec() };
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Golire cos");
 
 		switch (ret) {
 		case QMessageBox::Yes:
@@ -415,11 +423,13 @@ void GUI::connectSignalsCosCumparaturi()
 
 				//msg->setText("[*]Golirea cosului de cumparaturi s-a realizat cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: 0");
 				msg->setText("[*]Golirea cosului de cumparaturi s-a realizat cu succes!\n[$]Pret total: 0\n[#]Numar total produse cos: 0");
+				msg->setIcon(QMessageBox::Information);
 			}
 			catch (const CosException& ce) {
 				qDebug() << QString::fromStdString(ce.getMessage());
 
 				msg->setText(QString::fromStdString(ce.getMessage()));
+				msg->setIcon(QMessageBox::Critical);
 			}
 
 			msg->show();
@@ -475,6 +485,7 @@ void GUI::connectSignalsCosCumparaturi()
 		const auto number{ no_prods->text() };
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Generare cos de cumparaturi");
 
 		try {
 			srv.generareCos(number.toLocal8Bit().constData());
@@ -482,16 +493,19 @@ void GUI::connectSignalsCosCumparaturi()
 			btn_stergere->setDisabled(false);
 
 			msg->setText("[*]Generarea cosului de cumparaturi s-a realizat cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: " + QString::number(srv.getCosCumparaturi().size()));
+			msg->setIcon(QMessageBox::Information);
 		}
 		catch (const RepoException& re) {
 			qDebug() << QString::fromStdString(re.getMessage());
 
 			msg->setText(QString::fromStdString(re.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 		catch (const ServiceException& se) {
 			qDebug() << QString::fromStdString(se.getMessage());
 
 			msg->setText(QString::fromStdString(se.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 
 		msg->show();
@@ -510,6 +524,7 @@ void GUI::connectSignalsCosCumparaturi()
 		const auto filename{ fisier_export_line_edit->text() };
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Export cos de cumparaturi");
 
 		try {
 			auto ok{ false };
@@ -527,19 +542,27 @@ void GUI::connectSignalsCosCumparaturi()
 			}
 
 			if (!ok)
+			{
 				msg->setText("Nu a fost selectat tipul fisierului de export!\nAlegeti tipul fisierului in care sa se faca exportul cosului de cumparaturi!");
+				msg->setIcon(QMessageBox::Warning);
+			}
 			else
+			{
 				msg->setText("[*]Exportul in fisier s-a realizat cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: " + QString::number(srv.getCosCumparaturi().size()));
+				msg->setIcon(QMessageBox::Information);
+			}
 		}
 		catch (const CosException& ce) {
 			qDebug() << QString::fromStdString(ce.getMessage());
 
 			msg->setText(QString::fromStdString(ce.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 		catch (const ServiceException& se) {
 			qDebug() << QString::fromStdString(se.getMessage());
 
 			msg->setText(QString::fromStdString(se.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 
 		msg->show();
@@ -574,6 +597,8 @@ void GUI::connectSignalsCosCumparaturi()
 
 	QObject::connect(btn_close_cos, &QPushButton::clicked, this, [&]() {
 		QMessageBox msg_box;
+		msg_box.setWindowTitle("Confirmare inchidere fereastra cos");
+		msg_box.setIcon(QMessageBox::Question);
 		msg_box.setText("Sunteti sigur ca doriti sa inchideti fereastra curenta?");
 		msg_box.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
 		msg_box.setDefaultButton(QMessageBox::No);
@@ -1046,9 +1071,13 @@ void GUI::sortProductsGUI(const string& sort_criterion)
 		if (!(cresc ^ descresc))
 		{
 			QMessageBox* msg{ new QMessageBox };
+			msg->setWindowTitle("Ordine de sortare invalida");
 
 			if (!(cresc && descresc))
+			{
 				msg->setText("Nu a fost selectata ordinea de sortare!\nAlegeti ordinea de sortare dorita bifand casuta corespunzatoare!");
+				msg->setIcon(QMessageBox::Warning);
+			}
 			//else
 			//	msg->setText("Au fost selectate ambele ordini de sortare!\nBifati o singura casuta din cele doua existente!");
 
@@ -1069,6 +1098,8 @@ void GUI::sortProductsGUI(const string& sort_criterion)
 		qDebug() << QString::fromStdString(re.getMessage());
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Exceptie in repozitoriu");
+		msg->setIcon(QMessageBox::Critical);
 		msg->setText(QString::fromStdString(re.getMessage()));
 		msg->show(); // msg->exec();
 
@@ -1151,6 +1182,8 @@ void GUI::filterProductsGUI(const string& criterion, const string& sgn)
 		qDebug() << QString::fromStdString(re.getMessage());
 
 		QMessageBox* msg{ new QMessageBox };
+		msg->setWindowTitle("Exceptie in repozitoriu");
+		msg->setIcon(QMessageBox::Critical);
 		msg->setText(QString::fromStdString(re.getMessage()));
 		msg->show(); // msg->exec();
 	}
@@ -1158,6 +1191,8 @@ void GUI::filterProductsGUI(const string& criterion, const string& sgn)
 		qDebug() << QString::fromStdString(se.getMessage());
 
 		QMessageBox* msg{ new QMessageBox };
+		msg->setWindowTitle("Exceptie in service");
+		msg->setIcon(QMessageBox::Critical);
 		msg->setText(QString::fromStdString(se.getMessage())); // msg->setText("[X]Pretul de filtrare nu este un numar!");
 		msg->show(); // msg->exec();
 	}
@@ -1221,6 +1256,7 @@ void GUI::connectSignalsCosCRUDGUI()
 		const auto val{ spin_box->value() };
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Generare cos de cumparaturi");
 
 		try {
 			srv.generareCos(to_string(val));
@@ -1229,16 +1265,19 @@ void GUI::connectSignalsCosCRUDGUI()
 			btn_gol->setDisabled(false);
 
 			msg->setText("[*]Generarea cosului de cumparaturi s-a realizat cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: " + QString::number(srv.getCosCumparaturi().size()));
+			msg->setIcon(QMessageBox::Information);
 		}
 		catch (const RepoException& re) {
 			qDebug() << QString::fromStdString(re.getMessage());
 
 			msg->setText(QString::fromStdString(re.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 		catch (const ServiceException& se) {
 			qDebug() << QString::fromStdString(se.getMessage());
 
 			msg->setText(QString::fromStdString(se.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 
 		msg->show();
@@ -1263,6 +1302,8 @@ void GUI::connectSignalsCosCRUDGUI()
 
 	QObject::connect(btn_gol, &QPushButton::clicked, this, [&]() {
 		QMessageBox msg_box;
+		msg_box.setWindowTitle("Confirmare golire cos de cumparaturi");
+		msg_box.setIcon(QMessageBox::Question);
 		msg_box.setText("Sunteti sigur ca doriti sa stergeti toate produsele din cosul de cumparaturi?");
 		msg_box.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
 		msg_box.setDefaultButton(QMessageBox::No);
@@ -1270,6 +1311,7 @@ void GUI::connectSignalsCosCRUDGUI()
 		const auto ret{ msg_box.exec() };
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Golire cos");
 
 		switch (ret) {
 		case QMessageBox::Yes:
@@ -1285,11 +1327,13 @@ void GUI::connectSignalsCosCRUDGUI()
 
 				//msg->setText("[*]Toate produsele din cosul de cumparaturi au fost eliminate cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: 0");
 				msg->setText("[*]Toate produsele din cosul de cumparaturi au fost eliminate cu succes!\n[$]Pret total: 0\n[#]Numar total produse cos: 0");
+				msg->setIcon(QMessageBox::Information);
 			}
 			catch (const CosException& ce) {
 				qDebug() << QString::fromStdString(ce.getMessage());
 
 				msg->setText(QString::fromStdString(ce.getMessage()));
+				msg->setIcon(QMessageBox::Critical);
 			}
 
 			msg->show();
@@ -1456,6 +1500,7 @@ void GUI::connectSignals()
 		const auto producer{ producer_line_edit->text() };
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Adaugare produs in cosul de cumparaturi");
 
 		try {
 			srv.adaugareCos(name.toStdString(), producer.toStdString());
@@ -1463,21 +1508,25 @@ void GUI::connectSignals()
 			btn_stergere->setDisabled(false);
 
 			msg->setText("[*]Adaugarea produsului in cos s-a realizat cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: " + QString::number(srv.getCosCumparaturi().size()));
+			msg->setIcon(QMessageBox::Information);
 		}
 		catch (const CosException& ce) {
 			qDebug() << QString::fromStdString(ce.getMessage());
 
 			msg->setText(QString::fromStdString(ce.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 		catch (const RepoException& re) {
 			qDebug() << QString::fromStdString(re.getMessage());
 
 			msg->setText(QString::fromStdString(re.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 		catch (const ServiceException& se) {
 			qDebug() << QString::fromStdString(se.getMessage());
 
 			msg->setText(QString::fromStdString(se.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 
 		msg->show();
@@ -1499,6 +1548,8 @@ void GUI::connectSignals()
 		//last_selected_item_list_cos = nullptr;
 
 		QMessageBox msg_box;
+		msg_box.setWindowTitle("Confirmare stergere produs din cosul de cumparaturi");
+		msg_box.setIcon(QMessageBox::Question);
 		msg_box.setText("Sunteti sigur ca doriti sa stergeti toate produsele din cosul de cumparaturi?");
 		msg_box.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
 		msg_box.setDefaultButton(QMessageBox::No);
@@ -1506,6 +1557,7 @@ void GUI::connectSignals()
 		const auto ret{ msg_box.exec() };
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Stergere produs din cos");
 
 		switch (ret) {
 		case QMessageBox::Yes:
@@ -1520,11 +1572,13 @@ void GUI::connectSignals()
 
 				//msg->setText("[*]Toate produsele din cosul de cumparaturi au fost eliminate cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: 0");
 				msg->setText("[*]Toate produsele din cosul de cumparaturi au fost eliminate cu succes!\n[$]Pret total: 0\n[#]Numar total produse cos: 0");
+				msg->setIcon(QMessageBox::Information);
 			}
 			catch (const CosException& ce) {
 				qDebug() << QString::fromStdString(ce.getMessage());
 
 				msg->setText(QString::fromStdString(ce.getMessage()));
+				msg->setIcon(QMessageBox::Critical);
 			}
 
 			msg->show();
@@ -1558,6 +1612,7 @@ void GUI::connectSignals()
 		const auto val{ sld_value->value() };
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Generare cos de cumparaturi");
 
 		try {
 			srv.generareCos(to_string(val));
@@ -1565,16 +1620,19 @@ void GUI::connectSignals()
 			btn_stergere->setDisabled(false);
 
 			msg->setText("[*]Generarea cosului de cumparaturi s-a realizat cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: " + QString::number(srv.getCosCumparaturi().size()));
+			msg->setIcon(QMessageBox::Information);
 		}
 		catch (const RepoException& re) {
 			qDebug() << QString::fromStdString(re.getMessage());
 
 			msg->setText(QString::fromStdString(re.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 		catch (const ServiceException& se) {
 			qDebug() << QString::fromStdString(se.getMessage());
 
 			msg->setText(QString::fromStdString(se.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 
 		msg->show();
@@ -1625,6 +1683,7 @@ void GUI::connectSignals()
 		const auto producer{ producer_line_edit->text() };
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Adaugare produs in stoc");
 
 		try {
 			//srv.verifyIfDouble(price.toLocal8Bit().constData());
@@ -1633,6 +1692,7 @@ void GUI::connectSignals()
 		catch (const ServiceException& se) {
 			msg->setText(QString::fromStdString(se.getMessage()));
 			msg->show();
+			msg->setIcon(QMessageBox::Critical);
 
 			return;
 		}
@@ -1649,16 +1709,19 @@ void GUI::connectSignals()
 				btn_undo->setDisabled(false);
 
 			msg->setText("[*]Adaugarea s-a realizat cu succes!");
+			msg->setIcon(QMessageBox::Information);
 		}
 		catch (const ProductException& pe) {
 			qDebug() << QString::fromStdString(pe.getMessage());
 
 			msg->setText(QString::fromStdString(pe.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 		catch (const RepoException& re) {
 			qDebug() << QString::fromStdString(re.getMessage());
 
 			msg->setText(QString::fromStdString(re.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 
 		msg->show();
@@ -1673,6 +1736,7 @@ void GUI::connectSignals()
 		const auto producer{ producer_line_edit->text() };
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Modificare produs existent in stoc");
 
 		try {
 			//srv.verifyIfDouble(price.toLocal8Bit().constData());
@@ -1681,6 +1745,7 @@ void GUI::connectSignals()
 		catch (const ServiceException& se) {
 			msg->setText(QString::fromStdString(se.getMessage()));
 			msg->show();
+			msg->setIcon(QMessageBox::Critical);
 
 			return;
 		}
@@ -1697,16 +1762,19 @@ void GUI::connectSignals()
 				btn_undo->setDisabled(false);
 
 			msg->setText("[*]Modificarea s-a realizat cu succes!");
+			msg->setIcon(QMessageBox::Information);
 		}
 		catch (const ProductException& pe) {
 			qDebug() << QString::fromStdString(pe.getMessage());
 
 			msg->setText(QString::fromStdString(pe.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 		catch (const RepoException& re) {
 			qDebug() << QString::fromStdString(re.getMessage());
 
 			msg->setText(QString::fromStdString(re.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 
 		msg->show(); // msg->exec();
@@ -1719,6 +1787,7 @@ void GUI::connectSignals()
 		const auto producer{ producer_line_edit->text() };
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Eliminare produs din stoc");
 
 		try {
 			//srv.del(name.toLocal8Bit().constData(), producer.toLocal8Bit().constData());
@@ -1729,6 +1798,7 @@ void GUI::connectSignals()
 				btn_undo->setDisabled(false);
 
 			msg->setText("[*]Stergerea s-a realizat cu succes!");
+			msg->setIcon(QMessageBox::Information);
 
 			name_line_edit->setText("");
 			type_line_edit->setText("");
@@ -1739,11 +1809,13 @@ void GUI::connectSignals()
 			qDebug() << QString::fromStdString(se.getMessage());
 
 			msg->setText(QString::fromStdString(se.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 		catch (const RepoException& re) {
 			qDebug() << QString::fromStdString(re.getMessage());
 
 			msg->setText(QString::fromStdString(re.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 
 		msg->show(); // msg->exec();
@@ -1754,7 +1826,7 @@ void GUI::connectSignals()
 		const auto producer{ producer_line_edit->text() };
 
 		QMessageBox* msg = new QMessageBox;
-		msg->setWindowTitle("Cautare produs");
+		msg->setWindowTitle("Cautare produs in stoc");
 
 		try {
 			//const auto& p{ srv.search(name.toLocal8Bit().constData(), producer.toLocal8Bit().constData()) };
@@ -1944,9 +2016,13 @@ void GUI::connectSignals()
 			if (sum != 1)
 			{
 				QMessageBox* msg = new QMessageBox;
+				msg->setWindowTitle("Filtrare pret invalida");
 
 				if (!sum)
+				{
 					msg->setText("Nu a fost selectat niciun simbol de inegalitate!\nBifati o casuta la alegere!");
+					msg->setIcon(QMessageBox::Warning);
+				}
 				//else
 				//	msg->setText("Au fost selectate prea multe simboluri de inegalitate!\nBifati o singura casuta!");
 
@@ -1995,9 +2071,13 @@ void GUI::connectSignals()
 		if (sum != 1)
 		{
 			QMessageBox* msg = new QMessageBox;
+			msg->setWindowTitle("Filtrare pret invalida");
 
 			if (!sum)
+			{
 				msg->setText("Nu a fost selectat niciun simbol de inegalitate!\nBifati o casuta la alegere!");
+				msg->setIcon(QMessageBox::Warning);
+			}
 			//else
 			//	msg->setText("Au fost selectate prea multe simboluri de inegalitate!\nBifati o singura casuta!");
 
@@ -2124,6 +2204,8 @@ void GUI::connectSignals()
 		last_selected_item_list = nullptr;
 
 		QMessageBox msg_box;
+		msg_box.setWindowTitle("Confirmare operatie de undo");
+		msg_box.setIcon(QMessageBox::Question);
 		msg_box.setText("Operatia de undo in curs de procesare...");
 		msg_box.setInformativeText("Sunteti sigur ca doriti sa continuati?");
 		msg_box.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
@@ -2132,6 +2214,7 @@ void GUI::connectSignals()
 		const auto ret{ msg_box.exec() };
 
 		QMessageBox* msg_dbg = new QMessageBox;
+		msg_dbg->setWindowTitle("Undo");
 
 		switch (ret) {
 		case QMessageBox::Yes:
@@ -2139,6 +2222,7 @@ void GUI::connectSignals()
 
 			try {
 				msg_dbg->setText(QString::fromStdString(srv.undo()));
+				msg_dbg->setIcon(QMessageBox::Information);
 
 				--number_of_undo;
 				if (!number_of_undo)
@@ -2150,6 +2234,7 @@ void GUI::connectSignals()
 				btn_undo->setDisabled(true);
 
 				msg_dbg->setText(QString::fromStdString(se.getMessage()));
+				msg_dbg->setIcon(QMessageBox::Critical);
 			}
 
 			msg_dbg->exec();
@@ -2202,11 +2287,19 @@ void GUI::connectSignals()
 		addDebug("ketchup", "sosuri", 4.2810, "Heinz", cont);
 
 		QMessageBox msg_dbg;
+		msg_dbg.setWindowTitle("Adaugare produse debug");
+		msg_dbg.setIcon(QMessageBox::Information);
 
 		if (!cont)
+		{
 			msg_dbg.setText("[X]Nu au fost adaugate produse noi in stoc!");
+			msg_dbg.setIcon(QMessageBox::Warning);
+		}
 		else
+		{
 			msg_dbg.setText("[*]Au fost adaugate " + QString::number(cont) + " produse noi in stoc!");
+			msg_dbg.setIcon(QMessageBox::Information);
+		}
 
 		msg_dbg.exec();
 		});
@@ -2222,6 +2315,8 @@ void GUI::connectSignals()
 
 	QObject::connect(btn_exit, &QPushButton::clicked, this, []() {
 		QMessageBox msg_box;
+		msg_box.setWindowTitle("Confirmare inchidere aplicatie");
+		msg_box.setIcon(QMessageBox::Question);
 		msg_box.setText("Sunteti sigur ca doriti sa iesiti din aplicatie?");
 		msg_box.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
 		msg_box.setDefaultButton(QMessageBox::No);
