@@ -1,19 +1,29 @@
 #include "CosCumparaturi.h"
 #include "CosException.h"
 
-#include <random>    // pentru std::random_device, std::mt19937 si std::uniform_int_distribution
-#include <fstream>   // pentru std::ofstream
+#include <random>     // pentru std::random_device, std::mt19937 si std::uniform_int_distribution
+#include <fstream>    // pentru std::ofstream
+#include <filesystem> // pentru std::filesystem::exists si std::filesystem::is_directory
+#include <exception>  // pentru std::exception
 
 using std::random_device;
 using std::mt19937;
 using std::uniform_int_distribution;
 using std::ofstream;
+using std::filesystem::exists;
+using std::filesystem::is_directory;
+using std::exception;
 
 // un element din dictionar este o pereche <key, value> (<cheie, valoare>)
 // unde: key   (cheie)  : TKey   (Product)  - obiect de clasa Product (entitate)
 //       value (valoare): TValue (unsigned) - numarul de aparitii al cheii (obiect de clasa Product) in cosul de cumparaturi
 #define key first    // atributul cheie al unui element din dictionar
 #define value second // atributul valoare al unui element din dictionar (valoare asocita cheii elementului)
+
+bool checkIfDirectoryExists(string dir)
+{
+	return (exists(dir) && is_directory(dir));
+}
 
 bool CosCumparaturi::cosGol() const noexcept
 {
@@ -110,6 +120,11 @@ void CosCumparaturi::exportCosFisierCSV(const string& filename) const
 	const auto extension{ ".csv" };                          // const string extension{ ".csv" };
 	const auto full_filename{ path + filename + extension }; // const string full_filename{ path + filename + extension };
 
+	if (!checkIfDirectoryExists(".\\Export cos cumparaturi\\"))
+	{
+		throw exception("Nu exista folderul/directorul cu numele\"Export cos cumparaturi\"");
+	}
+
 	ofstream out{ full_filename }; // ofstream out(full_filename);
 
 	out << "Index,Nume,Tip,Pret,Producator,Cantitate\n"; // de la berlioz10 (aka Dragon Spiridus)
@@ -140,6 +155,11 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	const auto path{ ".\\Export cos cumparaturi\\" };        // const string path{ ".\\Export cos cumparaturi\\" };
 	const auto extension{ ".html" };                         // const string extension{ ".html" };
 	const auto full_filename{ path + filename + extension }; // const string full_filename{ path + filename + extension };
+
+	if (!checkIfDirectoryExists(".\\Export cos cumparaturi\\"))
+	{
+		throw exception("Nu exista folderul/directorul cu numele\"Export cos cumparaturi\"");
+	}
 
 	ofstream out{ full_filename }; // ofstream out(full_filename);
 
